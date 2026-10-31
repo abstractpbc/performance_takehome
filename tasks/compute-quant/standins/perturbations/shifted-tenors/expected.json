@@ -1,0 +1,8 @@
+{
+  "statuses": {
+    "2": "observed",
+    "4": "observed",
+    "6": "implied"
+  },
+  "decision": "do_not_sign"
+}

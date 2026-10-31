@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "task": "compute-quant",
+  "status": "complete-synthetic-reproduced-and-independently-audited",
+  "source": {
+    "repository": "https://github.com/sharonbasovich/performance_takehome",
+    "commit": "12833e8982c1f08bb8748c2d674e381339404154",
+    "commit_note": "Clean committed source used for final synthetic reproduction and independent audit. A later artifact commit records generated outputs without changing this research tree.",
+    "research_tree_sha": "3c941316a9777b2f8c3749ce0c7e4d19595a9ce0",
+    "branch": "codex/task3-quant-final",
+    "pull_request": "https://github.com/sharonbasovich/performance_takehome/pull/6",
+    "source_sha256": "64f6c66ca640c79d7094e1be3b3e0a50886f12b6f7d8aae400fa51113bb5bfaf",
+    "source_bytes": "canonical LF checkout of the recorded Git commit",
+    "working_tree_dirty": false
+  },
+  "inputs": {
+    "case": "tasks/compute-quant/data/demo-case.json",
+    "input_pack_digest": "63ece891d056ae2bd28480b9894279b65b3a91dcd1e2451dffc31e0e162a6daa",
+    "input_pack_digest_definition": "candidate-defined: sha256 over sorted '<role>:<sha256>\\n' lines of the case, quotes and performance files (see research/loader.py); the organizer has not published a digest definition",
+    "input_file_sha256": {
+      "tasks/compute-quant/data/demo-case.json": "7dede1786adbac38afd2c90034f55c3c664c0ce4a71274128a1d27f80b53a568",
+      "tasks/compute-quant/data/demo-quotes.csv": "558ff39df4ec4bd8b8683bc053f26b12243883b3cee2948bff25423cdbbcd91f",
+      "tasks/compute-quant/data/demo-performance.csv": "794e22b2dbc398e8ef2baa1aeddb02d04d7df51bbb6247243644f978f1111933"
+    },
+    "kind": "synthetic-demo-not-market-data"
+  },
+  "model": {
+    "entrypoint": "tasks/compute-quant/research/run.py",
+    "command": "python tasks/compute-quant/research/run.py --case tasks/compute-quant/data/demo-case.json --out tasks/compute-quant/outputs/ --report tasks/compute-quant/outputs/REPORT.md",
+    "configuration": "tasks/compute-quant/research/config/default.json",
+    "python": ">=3.11, stdlib only, no network",
+    "run_manifest": "tasks/compute-quant/run-manifest.json",
+    "version": "1.0.0"
+  },
+  "evidence": {
+    "report": "tasks/compute-quant/REPORT.md",
+    "curve": "tasks/compute-quant/curve.csv",
+    "reservation_valuation": "tasks/compute-quant/valuation.json",
+    "tests": "tasks/compute-quant/tests/",
+    "test_command": "python -m unittest discover -s tasks/compute-quant/tests -t tasks/compute-quant -v",
+    "delivery_guide": "tasks/compute-quant/DELIVERY.md",
+    "independent_check": "tasks/compute-quant/audit/independent_cashflows.py",
+    "independent_check_command": "python -B tasks/compute-quant/audit/independent_cashflows.py"
+  },
+  "integrity": {
+    "starter_commit": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "starter_tag": "UNAVAILABLE_IN_DRAFT: the organizer has not created a takehome-start tag; the only upstream commit SHA was used instead",
+    "command": "python -B -m tools.check_integrity --base 81aead87d78ed468c4c374fb42921471b44c3f80"
+  },
+  "organizer_receipt": "NOT_CLAIMED: self-contained synthetic engineering exercise; no official submission receipt or grading result."
+}

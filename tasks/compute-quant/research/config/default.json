@@ -1,0 +1,39 @@
+{
+  "config_version": 1,
+  "name": "default",
+  "description": "Candidate-declared model parameters. Every number here is an assumption, not evidence; the report lists them.",
+  "curve": {
+    "one_sided_spread_fraction": 0.15,
+    "fit_min_tenor_months": 1,
+    "default_reversion_per_month": 0.10,
+    "max_reversion_per_month": 2.0,
+    "reversion_band_per_month": [0.0, 0.30],
+    "horizon_vol_per_sqrt_month": 0.08,
+    "model_horizon_months_before_forecast": 6
+  },
+  "anchors": {
+    "base": {"kind": "supply_cost_breakeven", "utilization": "case", "financing": "case"},
+    "cheap_compute": {"kind": "supply_cost_breakeven", "utilization": 1.0, "financing": "case"},
+    "scarcity": {"kind": "max_valid_same_hardware_ask"}
+  },
+  "scenarios": {
+    "base": {"anchor": "base", "observed_side": "mid"},
+    "cheap_compute": {"anchor": "cheap_compute", "observed_side": "low"},
+    "scarcity": {"anchor": "scarcity", "observed_side": "high"}
+  },
+  "valuation": {
+    "day_count": "ACT/365",
+    "compounding": "annual-effective",
+    "default_timing": "uniform-default-time-from-as-of-to-delivery-end",
+    "sla_downtime_assumption": "provider-delivers-exactly-at-sla-floor"
+  },
+  "sensitivities": {
+    "utilizations": [0.4, 0.5, 0.65, 0.8, 1.0],
+    "financing_rates": [0.06, 0.09, 0.12, 0.15, 0.18],
+    "reversion_multipliers": [0.5, 1.0, 2.0],
+    "discount_rate_bumps": [-0.02, 0.0, 0.02],
+    "default_probabilities": [0.0, 0.02, 0.10],
+    "horizon_vol_multipliers": [0.5, 1.0, 2.0],
+    "quantity_factor_multipliers": [0.9, 1.0, 1.1]
+  }
+}

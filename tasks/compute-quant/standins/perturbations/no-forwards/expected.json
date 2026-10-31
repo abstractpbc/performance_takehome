@@ -1,0 +1,9 @@
+{
+  "statuses": {
+    "1": "modeled",
+    "3": "modeled",
+    "6": "modeled",
+    "12": "forecast"
+  },
+  "decision": "do_not_sign_at_this_price"
+}

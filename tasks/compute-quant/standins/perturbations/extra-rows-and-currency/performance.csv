@@ -1,0 +1,3 @@
+id,synthetic,source_ref,gpu,gpu_count,workload,model,input_tokens,output_tokens,precision,software,output_tokens_per_s,relative_uncertainty
+p01,true,fixture://demo/p01,MI355X,1,dense-decode,synthetic-model-27b,2048,256,BF16,synthetic-engine-v1,40.0,0.10
+p02,true,fixture://demo/p02,H200,1,dense-decode,synthetic-model-27b,2048,256,BF16,synthetic-engine-v1,32.0,0.10

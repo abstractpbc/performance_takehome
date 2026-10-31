@@ -1,0 +1,1586 @@
+{
+  "schema_version": 1,
+  "task": "compute-quant",
+  "synthetic_inputs": true,
+  "disclaimer": "All inputs are the repository's synthetic demo data; nothing here is a real market view, provider offer, or executable price.",
+  "as_of": "2026-10-01T00:00:00Z",
+  "reference_product": {
+    "gpu": "MI355X",
+    "memory_gib": 288,
+    "gpu_count": 1,
+    "region": "R1",
+    "isolation": "dedicated",
+    "preemptible": false,
+    "sla_pct": 99.9,
+    "payment": "monthly-in-arrears-at-delivery-month-end",
+    "cancellation": "none"
+  },
+  "inputs": {
+    "files": [
+      {
+        "role": "case",
+        "path": "tasks/compute-quant/data/demo-case.json",
+        "sha256": "7dede1786adbac38afd2c90034f55c3c664c0ce4a71274128a1d27f80b53a568",
+        "bytes": 2660
+      },
+      {
+        "role": "quotes",
+        "path": "tasks/compute-quant/data/demo-quotes.csv",
+        "sha256": "558ff39df4ec4bd8b8683bc053f26b12243883b3cee2948bff25423cdbbcd91f",
+        "bytes": 2410
+      },
+      {
+        "role": "performance",
+        "path": "tasks/compute-quant/data/demo-performance.csv",
+        "sha256": "794e22b2dbc398e8ef2baa1aeddb02d04d7df51bbb6247243644f978f1111933",
+        "bytes": 366
+      }
+    ],
+    "input_pack_digest": "63ece891d056ae2bd28480b9894279b65b3a91dcd1e2451dffc31e0e162a6daa",
+    "input_pack_digest_definition": "sha256 over sorted '<role>:<sha256>\\n' lines (candidate-defined)",
+    "quote_columns": [
+      "id",
+      "synthetic",
+      "source_ref",
+      "provider",
+      "observed_at",
+      "valid_until",
+      "kind",
+      "side",
+      "gpu",
+      "memory_gib",
+      "gpu_count",
+      "region",
+      "isolation",
+      "preemptible",
+      "sla_pct",
+      "currency",
+      "price",
+      "unit",
+      "delivery_start",
+      "delivery_end",
+      "commitment_months",
+      "capacity_guaranteed",
+      "payment",
+      "cancellation"
+    ],
+    "excluded_quote_ids_by_flag": [],
+    "unknown_case_keys": [],
+    "unknown_nested_case_keys": [],
+    "unknown_config_keys": []
+  },
+  "quotes": {
+    "count": 11,
+    "rows": [
+      {
+        "id": "q01",
+        "provider": "synthetic-a",
+        "kind": "current_on_demand",
+        "side": "ask",
+        "observed_at": "2026-09-30T00:00:00Z",
+        "valid_until": "2026-10-03T00:00:00Z",
+        "raw": {
+          "price": 5.2,
+          "currency": "USD",
+          "unit": "gpu_hour",
+          "gpu_count": 1
+        },
+        "as_of_status": "valid",
+        "tier": "comparable",
+        "contract_class": "flexible_on_demand",
+        "delivery_months": [],
+        "tenor_months": [],
+        "curve_eligible": false,
+        "usd_per_gpu_hour": 5.2,
+        "single_gpu_equivalent_usd_per_gpu_hour": 5.2,
+        "excluded_reason": null,
+        "steps": [
+          {
+            "step": "currency",
+            "before": 5.2,
+            "after": 5.2,
+            "note": "USD; no conversion"
+          },
+          {
+            "step": "unit",
+            "before": 5.2,
+            "after": 5.2,
+            "note": "already per GPU-hour"
+          },
+          {
+            "step": "fees",
+            "before": 5.2,
+            "after": 5.2,
+            "note": "no fee evidence in the quote; taxes/egress excluded per common terms"
+          },
+          {
+            "step": "payment_timing",
+            "before": 5.2,
+            "after": 5.2,
+            "note": "arrears matches the reference convention"
+          }
+        ],
+        "reasons": [
+          "observed on/before as-of and not expired",
+          "cancellable ('anytime') hourly usage without guaranteed future capacity"
+        ],
+        "unknown_columns": {}
+      },
+      {
+        "id": "q02",
+        "provider": "synthetic-b",
+        "kind": "current_on_demand",
+        "side": "ask",
+        "observed_at": "2026-09-29T00:00:00Z",
+        "valid_until": "2026-10-04T00:00:00Z",
+        "raw": {
+          "price": 36.0,
+          "currency": "USD",
+          "unit": "node_hour",
+          "gpu_count": 8
+        },
+        "as_of_status": "valid",
+        "tier": "comparable",
+        "contract_class": "flexible_on_demand",
+        "delivery_months": [],
+        "tenor_months": [],
+        "curve_eligible": false,
+        "usd_per_gpu_hour": 4.5,
+        "single_gpu_equivalent_usd_per_gpu_hour": 5.199998,
+        "excluded_reason": null,
+        "steps": [
+          {
+            "step": "currency",
+            "before": 36.0,
+            "after": 36.0,
+            "note": "USD; no conversion"
+          },
+          {
+            "step": "unit",
+            "before": 36.0,
+            "after": 4.5,
+            "note": "node_hour / 8 GPUs"
+          },
+          {
+            "step": "fees",
+            "before": 4.5,
+            "after": 4.5,
+            "note": "no fee evidence in the quote; taxes/egress excluded per common terms"
+          },
+          {
+            "step": "payment_timing",
+            "before": 4.5,
+            "after": 4.5,
+            "note": "arrears matches the reference convention"
+          },
+          {
+            "step": "quantity",
+            "before": 4.5,
+            "after": 5.199998,
+            "note": "gpu_count 8 != reference 1; divided by quantity factor 0.865385"
+          }
+        ],
+        "reasons": [
+          "observed on/before as-of and not expired",
+          "cancellable ('anytime') hourly usage without guaranteed future capacity"
+        ],
+        "unknown_columns": {}
+      },
+      {
+        "id": "q03",
+        "provider": "synthetic-a",
+        "kind": "usage_commitment",
+        "side": "ask",
+        "observed_at": "2026-09-28T00:00:00Z",
+        "valid_until": "2026-10-05T00:00:00Z",
+        "raw": {
+          "price": 3.4,
+          "currency": "USD",
+          "unit": "gpu_hour",
+          "gpu_count": 1
+        },
+        "as_of_status": "valid",
+        "tier": "comparable",
+        "contract_class": "usage_commitment",
+        "delivery_months": [],
+        "tenor_months": [],
+        "curve_eligible": false,
+        "usd_per_gpu_hour": 3.4,
+        "single_gpu_equivalent_usd_per_gpu_hour": 3.4,
+        "excluded_reason": null,
+        "steps": [
+          {
+            "step": "currency",
+            "before": 3.4,
+            "after": 3.4,
+            "note": "USD; no conversion"
+          },
+          {
+            "step": "unit",
+            "before": 3.4,
+            "after": 3.4,
+            "note": "already per GPU-hour"
+          },
+          {
+            "step": "fees",
+            "before": 3.4,
+            "after": 3.4,
+            "note": "no fee evidence in the quote; taxes/egress excluded per common terms"
+          },
+          {
+            "step": "payment_timing",
+            "before": 3.4,
+            "after": 3.4,
+            "note": "arrears matches the reference convention"
+          }
+        ],
+        "reasons": [
+          "observed on/before as-of and not expired",
+          "spend commitment on current usage without a delivery window or guaranteed capacity: a discount on today's usage, not a forward"
+        ],
+        "unknown_columns": {}
+      },
+      {
+        "id": "q04",
+        "provider": "synthetic-c",
+        "kind": "firm_forward",
+        "side": "ask",
+        "observed_at": "2026-09-30T00:00:00Z",
+        "valid_until": "2026-10-10T00:00:00Z",
+        "raw": {
+          "price": 4.9,
+          "currency": "USD",
+          "unit": "gpu_hour",
+          "gpu_count": 1
+        },
+        "as_of_status": "valid",
+        "tier": "comparable",
+        "contract_class": "reserved_capacity",
+        "delivery_months": [
+          "2026-11"
+        ],
+        "tenor_months": [
+          1
+        ],
+        "curve_eligible": true,
+        "usd_per_gpu_hour": 4.9,
+        "single_gpu_equivalent_usd_per_gpu_hour": 4.9,
+        "excluded_reason": null,
+        "steps": [
+          {
+            "step": "currency",
+            "before": 4.9,
+            "after": 4.9,
+            "note": "USD; no conversion"
+          },
+          {
+            "step": "unit",
+            "before": 4.9,
+            "after": 4.9,
+            "note": "already per GPU-hour"
+          },
+          {
+            "step": "fees",
+            "before": 4.9,
+            "after": 4.9,
+            "note": "no fee evidence in the quote; taxes/egress excluded per common terms"
+          },
+          {
+            "step": "payment_timing",
+            "before": 4.9,
+            "after": 4.9,
+            "note": "arrears matches the reference convention"
+          }
+        ],
+        "reasons": [
+          "observed on/before as-of and not expired",
+          "guaranteed capacity for a stated window, not cancellable"
+        ],
+        "unknown_columns": {}
+      },
+      {
+        "id": "q05",
+        "provider": "synthetic-c",
+        "kind": "firm_forward",
+        "side": "ask",
+        "observed_at": "2026-09-30T00:00:00Z",
+        "valid_until": "2026-10-10T00:00:00Z",
+        "raw": {
+          "price": 4.5,
+          "currency": "USD",
+          "unit": "gpu_hour",
+          "gpu_count": 1
+        },
+        "as_of_status": "valid",
+        "tier": "comparable",
+        "contract_class": "reserved_capacity",
+        "delivery_months": [
+          "2027-01"
+        ],
+        "tenor_months": [
+          3
+        ],
+        "curve_eligible": true,
+        "usd_per_gpu_hour": 4.5,
+        "single_gpu_equivalent_usd_per_gpu_hour": 4.5,
+        "excluded_reason": null,
+        "steps": [
+          {
+            "step": "currency",
+            "before": 4.5,
+            "after": 4.5,
+            "note": "USD; no conversion"
+          },
+          {
+            "step": "unit",
+            "before": 4.5,
+            "after": 4.5,
+            "note": "already per GPU-hour"
+          },
+          {
+            "step": "fees",
+            "before": 4.5,
+            "after": 4.5,
+            "note": "no fee evidence in the quote; taxes/egress excluded per common terms"
+          },
+          {
+            "step": "payment_timing",
+            "before": 4.5,
+            "after": 4.5,
+            "note": "arrears matches the reference convention"
+          }
+        ],
+        "reasons": [
+          "observed on/before as-of and not expired",
+          "guaranteed capacity for a stated window, not cancellable"
+        ],
+        "unknown_columns": {}
+      },
+      {
+        "id": "q06",
+        "provider": "synthetic-buyer",
+        "kind": "firm_forward",
+        "side": "bid",
+        "observed_at": "2026-09-30T00:00:00Z",
+        "valid_until": "2026-10-08T00:00:00Z",
+        "raw": {
+          "price": 4.0,
+          "currency": "USD",
+          "unit": "gpu_hour",
+          "gpu_count": 1
+        },
+        "as_of_status": "valid",
+        "tier": "comparable",
+        "contract_class": "reserved_capacity",
+        "delivery_months": [
+          "2027-01"
+        ],
+        "tenor_months": [
+          3
+        ],
+        "curve_eligible": true,
+        "usd_per_gpu_hour": 4.0,
+        "single_gpu_equivalent_usd_per_gpu_hour": 4.0,
+        "excluded_reason": null,
+        "steps": [
+          {
+            "step": "currency",
+            "before": 4.0,
+            "after": 4.0,
+            "note": "USD; no conversion"
+          },
+          {
+            "step": "unit",
+            "before": 4.0,
+            "after": 4.0,
+            "note": "already per GPU-hour"
+          },
+          {
+            "step": "fees",
+            "before": 4.0,
+            "after": 4.0,
+            "note": "no fee evidence in the quote; taxes/egress excluded per common terms"
+          },
+          {
+            "step": "payment_timing",
+            "before": 4.0,
+            "after": 4.0,
+            "note": "arrears matches the reference convention"
+          }
+        ],
+        "reasons": [
+          "observed on/before as-of and not expired",
+          "guaranteed capacity for a stated window, not cancellable"
+        ],
+        "unknown_columns": {}
+      },
+      {
+        "id": "q07",
+        "provider": "synthetic-b",
+        "kind": "current_on_demand",
+        "side": "ask",
+        "observed_at": "2026-09-30T00:00:00Z",
+        "valid_until": "2026-10-02T00:00:00Z",
+        "raw": {
+          "price": 24000.0,
+          "currency": "USD",
+          "unit": "node_month",
+          "gpu_count": 8
+        },
+        "as_of_status": "valid",
+        "tier": "comparable",
+        "contract_class": "reserved_capacity",
+        "delivery_months": [
+          "2026-10"
+        ],
+        "tenor_months": [
+          0
+        ],
+        "curve_eligible": true,
+        "usd_per_gpu_hour": 4.049002,
+        "single_gpu_equivalent_usd_per_gpu_hour": 4.678845,
+        "excluded_reason": null,
+        "steps": [
+          {
+            "step": "currency",
+            "before": 24000.0,
+            "after": 24000.0,
+            "note": "USD; no conversion"
+          },
+          {
+            "step": "unit",
+            "before": 24000.0,
+            "after": 4.03225806,
+            "note": "node_month / (8 GPUs x 744 actual hours 2026-10-01..2026-11-01)"
+          },
+          {
+            "step": "fees",
+            "before": 4.03225806,
+            "after": 4.03225806,
+            "note": "no fee evidence in the quote; taxes/egress excluded per common terms"
+          },
+          {
+            "step": "payment_timing",
+            "before": 4.03225806,
+            "after": 4.04900169,
+            "note": "advance payment compounded 744 h at buyer rate 0.05 (stated delivery window); factor 1.004152"
+          },
+          {
+            "step": "quantity",
+            "before": 4.049002,
+            "after": 4.678845,
+            "note": "gpu_count 8 != reference 1; divided by quantity factor 0.865385"
+          }
+        ],
+        "reasons": [
+          "observed on/before as-of and not expired",
+          "guaranteed capacity for a stated window, not cancellable"
+        ],
+        "unknown_columns": {}
+      },
+      {
+        "id": "q08",
+        "provider": "synthetic-d",
+        "kind": "current_on_demand",
+        "side": "ask",
+        "observed_at": "2026-09-30T00:00:00Z",
+        "valid_until": "2026-10-03T00:00:00Z",
+        "raw": {
+          "price": 3.3,
+          "currency": "USD",
+          "unit": "gpu_hour",
+          "gpu_count": 1
+        },
+        "as_of_status": "valid",
+        "tier": "different_product",
+        "contract_class": "flexible_on_demand",
+        "delivery_months": [],
+        "tenor_months": [],
+        "curve_eligible": false,
+        "usd_per_gpu_hour": 3.3,
+        "single_gpu_equivalent_usd_per_gpu_hour": 3.3,
+        "excluded_reason": null,
+        "steps": [
+          {
+            "step": "currency",
+            "before": 3.3,
+            "after": 3.3,
+            "note": "USD; no conversion"
+          },
+          {
+            "step": "unit",
+            "before": 3.3,
+            "after": 3.3,
+            "note": "already per GPU-hour"
+          },
+          {
+            "step": "fees",
+            "before": 3.3,
+            "after": 3.3,
+            "note": "no fee evidence in the quote; taxes/egress excluded per common terms"
+          },
+          {
+            "step": "payment_timing",
+            "before": 3.3,
+            "after": 3.3,
+            "note": "arrears matches the reference convention"
+          }
+        ],
+        "reasons": [
+          "observed on/before as-of and not expired",
+          "cancellable ('anytime') hourly usage without guaranteed future capacity",
+          "product differs: gpu 'H200' != 'MI355X'; memory_gib 141 != 288"
+        ],
+        "unknown_columns": {}
+      },
+      {
+        "id": "q09",
+        "provider": "synthetic-e",
+        "kind": "spot_current",
+        "side": "ask",
+        "observed_at": "2026-09-30T00:00:00Z",
+        "valid_until": "2026-10-02T00:00:00Z",
+        "raw": {
+          "price": 1.8,
+          "currency": "USD",
+          "unit": "gpu_hour",
+          "gpu_count": 1
+        },
+        "as_of_status": "valid",
+        "tier": "different_product",
+        "contract_class": "spot",
+        "delivery_months": [],
+        "tenor_months": [],
+        "curve_eligible": false,
+        "usd_per_gpu_hour": 1.8,
+        "single_gpu_equivalent_usd_per_gpu_hour": 1.8,
+        "excluded_reason": null,
+        "steps": [
+          {
+            "step": "currency",
+            "before": 1.8,
+            "after": 1.8,
+            "note": "USD; no conversion"
+          },
+          {
+            "step": "unit",
+            "before": 1.8,
+            "after": 1.8,
+            "note": "already per GPU-hour"
+          },
+          {
+            "step": "fees",
+            "before": 1.8,
+            "after": 1.8,
+            "note": "no fee evidence in the quote; taxes/egress excluded per common terms"
+          },
+          {
+            "step": "payment_timing",
+            "before": 1.8,
+            "after": 1.8,
+            "note": "arrears matches the reference convention"
+          }
+        ],
+        "reasons": [
+          "observed on/before as-of and not expired",
+          "preemptible/spot capacity: provider can withdraw it",
+          "product differs: isolation 'shared' != 'dedicated'; preemptible True != False; sla_pct 0.0 below reference 99.9"
+        ],
+        "unknown_columns": {}
+      },
+      {
+        "id": "q10",
+        "provider": "synthetic-a",
+        "kind": "current_on_demand",
+        "side": "ask",
+        "observed_at": "2026-08-01T00:00:00Z",
+        "valid_until": "2026-09-01T00:00:00Z",
+        "raw": {
+          "price": 4.6,
+          "currency": "USD",
+          "unit": "gpu_hour",
+          "gpu_count": 1
+        },
+        "as_of_status": "expired",
+        "tier": "comparable",
+        "contract_class": "flexible_on_demand",
+        "delivery_months": [],
+        "tenor_months": [],
+        "curve_eligible": false,
+        "usd_per_gpu_hour": 4.6,
+        "single_gpu_equivalent_usd_per_gpu_hour": 4.6,
+        "excluded_reason": null,
+        "steps": [
+          {
+            "step": "currency",
+            "before": 4.6,
+            "after": 4.6,
+            "note": "USD; no conversion"
+          },
+          {
+            "step": "unit",
+            "before": 4.6,
+            "after": 4.6,
+            "note": "already per GPU-hour"
+          },
+          {
+            "step": "fees",
+            "before": 4.6,
+            "after": 4.6,
+            "note": "no fee evidence in the quote; taxes/egress excluded per common terms"
+          },
+          {
+            "step": "payment_timing",
+            "before": 4.6,
+            "after": 4.6,
+            "note": "arrears matches the reference convention"
+          }
+        ],
+        "reasons": [
+          "valid_until 2026-09-01T00:00:00+00:00 is on/before as-of 2026-10-01T00:00:00+00:00 (expired; historical context only)",
+          "cancellable ('anytime') hourly usage without guaranteed future capacity"
+        ],
+        "unknown_columns": {}
+      },
+      {
+        "id": "q11",
+        "provider": "synthetic-a",
+        "kind": "current_on_demand",
+        "side": "ask",
+        "observed_at": "2026-10-02T00:00:00Z",
+        "valid_until": "2026-10-05T00:00:00Z",
+        "raw": {
+          "price": 4.0,
+          "currency": "USD",
+          "unit": "gpu_hour",
+          "gpu_count": 1
+        },
+        "as_of_status": "post_as_of",
+        "tier": "comparable",
+        "contract_class": "flexible_on_demand",
+        "delivery_months": [],
+        "tenor_months": [],
+        "curve_eligible": false,
+        "usd_per_gpu_hour": 4.0,
+        "single_gpu_equivalent_usd_per_gpu_hour": 4.0,
+        "excluded_reason": null,
+        "steps": [
+          {
+            "step": "currency",
+            "before": 4.0,
+            "after": 4.0,
+            "note": "USD; no conversion"
+          },
+          {
+            "step": "unit",
+            "before": 4.0,
+            "after": 4.0,
+            "note": "already per GPU-hour"
+          },
+          {
+            "step": "fees",
+            "before": 4.0,
+            "after": 4.0,
+            "note": "no fee evidence in the quote; taxes/egress excluded per common terms"
+          },
+          {
+            "step": "payment_timing",
+            "before": 4.0,
+            "after": 4.0,
+            "note": "arrears matches the reference convention"
+          }
+        ],
+        "reasons": [
+          "observed_at 2026-10-02T00:00:00+00:00 is after as-of 2026-10-01T00:00:00+00:00 (look-ahead; excluded from the primary view)",
+          "cancellable ('anytime') hourly usage without guaranteed future capacity"
+        ],
+        "unknown_columns": {}
+      }
+    ],
+    "row_limit": 200,
+    "truncated": 0,
+    "full_table": "normalization.csv (one row per quote, written next to valuation.json)"
+  },
+  "exclusions": {
+    "count": 7,
+    "by_reason": {
+      "cancellable ('anytime') hourly usage without guaranteed future capacity": 2,
+      "cancellable ('anytime') hourly usage without guaranteed future capacity; product differs: gpu 'H200' != 'MI355X'; memory_gib 141 != 288": 1,
+      "observed_at 2026-10-02T00:00:00+00:00 is after as-of 2026-10-01T00:00:00+00:00 (look-ahead; excluded from the primary view); cancellable ('anytime') hourly usage without guaranteed future capacity": 1,
+      "preemptible/spot capacity: provider can withdraw it; product differs: isolation 'shared' != 'dedicated'; preemptible True != False; sla_pct 0.0 below reference 99.9": 1,
+      "spend commitment on current usage without a delivery window or guaranteed capacity: a discount on today's usage, not a forward": 1,
+      "valid_until 2026-09-01T00:00:00+00:00 is on/before as-of 2026-10-01T00:00:00+00:00 (expired; historical context only); cancellable ('anytime') hourly usage without guaranteed future capacity": 1
+    },
+    "rows": [
+      {
+        "id": "q01",
+        "reason": "cancellable ('anytime') hourly usage without guaranteed future capacity"
+      },
+      {
+        "id": "q02",
+        "reason": "cancellable ('anytime') hourly usage without guaranteed future capacity"
+      },
+      {
+        "id": "q03",
+        "reason": "spend commitment on current usage without a delivery window or guaranteed capacity: a discount on today's usage, not a forward"
+      },
+      {
+        "id": "q08",
+        "reason": "cancellable ('anytime') hourly usage without guaranteed future capacity; product differs: gpu 'H200' != 'MI355X'; memory_gib 141 != 288"
+      },
+      {
+        "id": "q09",
+        "reason": "preemptible/spot capacity: provider can withdraw it; product differs: isolation 'shared' != 'dedicated'; preemptible True != False; sla_pct 0.0 below reference 99.9"
+      },
+      {
+        "id": "q10",
+        "reason": "valid_until 2026-09-01T00:00:00+00:00 is on/before as-of 2026-10-01T00:00:00+00:00 (expired; historical context only); cancellable ('anytime') hourly usage without guaranteed future capacity"
+      },
+      {
+        "id": "q11",
+        "reason": "observed_at 2026-10-02T00:00:00+00:00 is after as-of 2026-10-01T00:00:00+00:00 (look-ahead; excluded from the primary view); cancellable ('anytime') hourly usage without guaranteed future capacity"
+      }
+    ],
+    "row_limit": 200,
+    "truncated": 0
+  },
+  "quantity_adjustment": {
+    "factor": 0.865385,
+    "note": "median per-GPU price of multi-GPU on-demand asks / median single-GPU asks = 0.865385 (from q01, q02; calibrated GPU counts 1 and 8; providers differ, so this also carries provider effects)"
+  },
+  "curve": {
+    "unit": "USD per GPU-hour of reserved capacity, paid monthly in arrears",
+    "tenor_definition": "delivery month starts this many calendar months after the as-of month start",
+    "nodes": [
+      {
+        "tenor_months": 1,
+        "delivery_month": "2026-11",
+        "delivery_start": "2026-11-01T00:00:00Z",
+        "delivery_end": "2026-12-01T00:00:00Z",
+        "hours": 720,
+        "status": "observed",
+        "usd_per_gpu_hour_mid": 4.5325,
+        "usd_per_gpu_hour_low": 4.165,
+        "usd_per_gpu_hour_high": 4.9,
+        "bid": null,
+        "ask": 4.9,
+        "evidence_ids": [
+          "q04"
+        ],
+        "uncertainty_type": "one-sided(ask)-spread-estimate",
+        "scenarios": {
+          "base": 4.5325,
+          "cheap_compute": 4.165,
+          "scarcity": 4.9
+        },
+        "months_beyond_last_anchor": 0.0,
+        "notes": [
+          "ask only: implied bid = ask - spread estimate 0.7350"
+        ]
+      },
+      {
+        "tenor_months": 3,
+        "delivery_month": "2027-01",
+        "delivery_start": "2027-01-01T00:00:00Z",
+        "delivery_end": "2027-02-01T00:00:00Z",
+        "hours": 744,
+        "status": "observed",
+        "usd_per_gpu_hour_mid": 4.25,
+        "usd_per_gpu_hour_low": 4.0,
+        "usd_per_gpu_hour_high": 4.5,
+        "bid": 4.0,
+        "ask": 4.5,
+        "evidence_ids": [
+          "q05",
+          "q06"
+        ],
+        "uncertainty_type": "bid-ask",
+        "scenarios": {
+          "base": 4.25,
+          "cheap_compute": 4.0,
+          "scarcity": 4.5
+        },
+        "months_beyond_last_anchor": 0.0,
+        "notes": []
+      },
+      {
+        "tenor_months": 6,
+        "delivery_month": "2027-04",
+        "delivery_start": "2027-04-01T00:00:00Z",
+        "delivery_end": "2027-05-01T00:00:00Z",
+        "hours": 720,
+        "status": "modeled",
+        "usd_per_gpu_hour_mid": 3.920095,
+        "usd_per_gpu_hour_low": 2.863906,
+        "usd_per_gpu_hour_high": 5.123538,
+        "bid": null,
+        "ask": null,
+        "evidence_ids": [
+          "q05",
+          "q06"
+        ],
+        "uncertainty_type": "model-band+scenario-union",
+        "scenarios": {
+          "base": 3.920095,
+          "cheap_compute": 3.499627,
+          "scarcity": 4.682956
+        },
+        "months_beyond_last_anchor": 3,
+        "notes": [
+          "mid: mean reversion from the tenor-3 anchor toward the base anchor, kappa=0.1010/month (fitted-least-squares-log-deviation); band: union over scenarios and kappa in [0.0, 0.3] plus a random-walk band of 0.080*sqrt(3) around the anchor interval"
+        ]
+      },
+      {
+        "tenor_months": 12,
+        "delivery_month": "2027-10",
+        "delivery_start": "2027-10-01T00:00:00Z",
+        "delivery_end": "2027-11-01T00:00:00Z",
+        "hours": 744,
+        "status": "forecast",
+        "usd_per_gpu_hour_mid": 3.496426,
+        "usd_per_gpu_hour_low": 2.21421,
+        "usd_per_gpu_hour_high": 5.58,
+        "bid": null,
+        "ask": null,
+        "evidence_ids": [
+          "q05",
+          "q06"
+        ],
+        "uncertainty_type": "judgmental-band+scenario-union",
+        "scenarios": {
+          "base": 3.496426,
+          "cheap_compute": 2.857041,
+          "scarcity": 4.917911
+        },
+        "months_beyond_last_anchor": 9,
+        "notes": [
+          "mid: mean reversion from the tenor-3 anchor toward the base anchor, kappa=0.1010/month (fitted-least-squares-log-deviation); band: union over scenarios and kappa in [0.0, 0.3] plus a random-walk band of 0.080*sqrt(9) around the anchor interval"
+        ]
+      }
+    ],
+    "anchors": [
+      {
+        "tenor_months": 0,
+        "status": "implied",
+        "mid": 4.327932,
+        "low": 3.977018,
+        "high": 4.678845,
+        "bids": [],
+        "asks": [
+          "q07"
+        ],
+        "uncertainty_type": "one-sided(ask)-spread-estimate",
+        "notes": [
+          "quantity-adjusted node quote",
+          "ask only: implied bid = ask - spread estimate 0.7018"
+        ]
+      },
+      {
+        "tenor_months": 1,
+        "status": "observed",
+        "mid": 4.5325,
+        "low": 4.165,
+        "high": 4.9,
+        "bids": [],
+        "asks": [
+          "q04"
+        ],
+        "uncertainty_type": "one-sided(ask)-spread-estimate",
+        "notes": [
+          "ask only: implied bid = ask - spread estimate 0.7350"
+        ]
+      },
+      {
+        "tenor_months": 3,
+        "status": "observed",
+        "mid": 4.25,
+        "low": 4.0,
+        "high": 4.5,
+        "bids": [
+          "q06"
+        ],
+        "asks": [
+          "q05"
+        ],
+        "uncertainty_type": "bid-ask",
+        "notes": []
+      }
+    ],
+    "reference_two_sided_spread": 0.5,
+    "reversion": {
+      "kappa_per_month": 0.100984,
+      "source": "fitted-least-squares-log-deviation",
+      "observed_forward_tenors": [
+        1,
+        3
+      ],
+      "long_run_anchor": 2.98776597,
+      "least_squares_slope_of_log_deviation": -0.10098428
+    },
+    "scenario_anchor_levels": {
+      "base": 2.987766,
+      "cheap_compute": 2.085548,
+      "scarcity": 5.2
+    },
+    "scenario_anchor_notes": {
+      "base": "supply-cost breakeven at utilization 0.65 and financing 12.00%: 2.9878 USD/GPU-hour",
+      "cheap_compute": "supply-cost breakeven at utilization 1.00 and financing 12.00%: 2.0855 USD/GPU-hour",
+      "scarcity": "highest valid comparable-hardware ask at as-of (any contract class): 5.2000 USD/GPU-hour"
+    },
+    "warnings": [],
+    "monthly_base_mid": {
+      "0": 4.327932,
+      "1": 4.5325,
+      "2": 4.39125,
+      "3": 4.25,
+      "4": 4.128759,
+      "5": 4.019163,
+      "6": 3.920095,
+      "7": 3.830542,
+      "8": 3.749591,
+      "9": 3.676416,
+      "10": 3.610269,
+      "11": 3.550476,
+      "12": 3.496426
+    }
+  },
+  "supply_cost": {
+    "base": {
+      "utilization": 0.65,
+      "financing_annual_rate": 0.12,
+      "monthly_rate": 0.00948879,
+      "pv_residual_usd": 2847.12099125,
+      "capital_per_month_usd": 1223.14995125,
+      "capital_per_calendar_hour_usd": 1.67554788,
+      "capital_per_revenue_hour_usd": 2.57776597,
+      "energy_per_hour_usd": 0.16,
+      "non_energy_opex_per_hour_usd": 0.25,
+      "short_run_marginal_cost_usd": 0.41,
+      "breakeven_usd_per_gpu_hour": 2.98776597
+    },
+    "sensitivity_grid": [
+      {
+        "utilization": 0.4,
+        "financing_annual_rate": 0.06,
+        "breakeven_usd_per_gpu_hour": 4.21845637
+      },
+      {
+        "utilization": 0.4,
+        "financing_annual_rate": 0.09,
+        "breakeven_usd_per_gpu_hour": 4.40912411
+      },
+      {
+        "utilization": 0.4,
+        "financing_annual_rate": 0.12,
+        "breakeven_usd_per_gpu_hour": 4.5988697
+      },
+      {
+        "utilization": 0.4,
+        "financing_annual_rate": 0.15,
+        "breakeven_usd_per_gpu_hour": 4.78762658
+      },
+      {
+        "utilization": 0.4,
+        "financing_annual_rate": 0.18,
+        "breakeven_usd_per_gpu_hour": 4.97533501
+      },
+      {
+        "utilization": 0.5,
+        "financing_annual_rate": 0.06,
+        "breakeven_usd_per_gpu_hour": 3.4567651
+      },
+      {
+        "utilization": 0.5,
+        "financing_annual_rate": 0.09,
+        "breakeven_usd_per_gpu_hour": 3.60929928
+      },
+      {
+        "utilization": 0.5,
+        "financing_annual_rate": 0.12,
+        "breakeven_usd_per_gpu_hour": 3.76109576
+      },
+      {
+        "utilization": 0.5,
+        "financing_annual_rate": 0.15,
+        "breakeven_usd_per_gpu_hour": 3.91210126
+      },
+      {
+        "utilization": 0.5,
+        "financing_annual_rate": 0.18,
+        "breakeven_usd_per_gpu_hour": 4.06226801
+      },
+      {
+        "utilization": 0.65,
+        "financing_annual_rate": 0.06,
+        "breakeven_usd_per_gpu_hour": 2.75366546
+      },
+      {
+        "utilization": 0.65,
+        "financing_annual_rate": 0.09,
+        "breakeven_usd_per_gpu_hour": 2.87099945
+      },
+      {
+        "utilization": 0.65,
+        "financing_annual_rate": 0.12,
+        "breakeven_usd_per_gpu_hour": 2.98776597
+      },
+      {
+        "utilization": 0.65,
+        "financing_annual_rate": 0.15,
+        "breakeven_usd_per_gpu_hour": 3.10392405
+      },
+      {
+        "utilization": 0.65,
+        "financing_annual_rate": 0.18,
+        "breakeven_usd_per_gpu_hour": 3.21943693
+      },
+      {
+        "utilization": 0.8,
+        "financing_annual_rate": 0.06,
+        "breakeven_usd_per_gpu_hour": 2.31422819
+      },
+      {
+        "utilization": 0.8,
+        "financing_annual_rate": 0.09,
+        "breakeven_usd_per_gpu_hour": 2.40956205
+      },
+      {
+        "utilization": 0.8,
+        "financing_annual_rate": 0.12,
+        "breakeven_usd_per_gpu_hour": 2.50443485
+      },
+      {
+        "utilization": 0.8,
+        "financing_annual_rate": 0.15,
+        "breakeven_usd_per_gpu_hour": 2.59881329
+      },
+      {
+        "utilization": 0.8,
+        "financing_annual_rate": 0.18,
+        "breakeven_usd_per_gpu_hour": 2.6926675
+      },
+      {
+        "utilization": 1.0,
+        "financing_annual_rate": 0.06,
+        "breakeven_usd_per_gpu_hour": 1.93338255
+      },
+      {
+        "utilization": 1.0,
+        "financing_annual_rate": 0.09,
+        "breakeven_usd_per_gpu_hour": 2.00964964
+      },
+      {
+        "utilization": 1.0,
+        "financing_annual_rate": 0.12,
+        "breakeven_usd_per_gpu_hour": 2.08554788
+      },
+      {
+        "utilization": 1.0,
+        "financing_annual_rate": 0.15,
+        "breakeven_usd_per_gpu_hour": 2.16105063
+      },
+      {
+        "utilization": 1.0,
+        "financing_annual_rate": 0.18,
+        "breakeven_usd_per_gpu_hour": 2.236134
+      }
+    ]
+  },
+  "cross_checks": {
+    "current_flexible_reference_ask_usd_per_gpu_hour": 5.2,
+    "performance_translation": {
+      "count": 1,
+      "examples": [
+        {
+          "quote_id": "q08",
+          "gpu": "H200",
+          "contract_class": "flexible_on_demand",
+          "normalized_usd_per_gpu_hour": 3.3,
+          "status": "cross-check-only",
+          "performance_ids": [
+            "p01",
+            "p02"
+          ],
+          "workload": "dense-decode",
+          "throughput_ratio_reference_over_quote_gpu": 1.25,
+          "ratio_relative_uncertainty": 0.14142136,
+          "equivalent_usd_per_reference_gpu_hour": 4.125,
+          "equivalent_low": 3.54163691,
+          "equivalent_high": 4.70836309,
+          "comparable_same_class_summary_key": "flexible_on_demand/ask",
+          "note": "throughput parity on one synthetic dense-decode workload; ignores memory (141 vs 288 GiB), software and demand mix"
+        }
+      ],
+      "example_limit": 10,
+      "truncated": 0,
+      "translated": 1,
+      "comparable_same_class_summary": {
+        "flexible_on_demand/ask": {
+          "count": 2,
+          "min": 5.199998,
+          "median": 5.199999,
+          "max": 5.2
+        },
+        "reserved_capacity/ask": {
+          "count": 3,
+          "min": 4.5,
+          "median": 4.678845,
+          "max": 4.9
+        },
+        "reserved_capacity/bid": {
+          "count": 1,
+          "min": 4.0,
+          "median": 4.0,
+          "max": 4.0
+        },
+        "usage_commitment/ask": {
+          "count": 1,
+          "min": 3.4,
+          "median": 3.4,
+          "max": 3.4
+        }
+      }
+    },
+    "usage_commitments": {
+      "count": 1,
+      "examples": [
+        {
+          "quote_id": "q03",
+          "normalized_usd_per_gpu_hour": 3.4,
+          "commitment_months": 12,
+          "capacity_guaranteed": false,
+          "delivery_window": null,
+          "minimum_monthly_gpu_hours_per_common_terms": 600,
+          "treatment": "NOT a forward: no delivery window, no guaranteed capacity, postpaid spend commitment; shown as the provider's willingness to discount predictable current usage, and as a soft long-run cross-check only"
+        }
+      ],
+      "example_limit": 10,
+      "truncated": 0
+    },
+    "spot": {
+      "count": 1,
+      "examples": [
+        {
+          "quote_id": "q09",
+          "normalized_usd_per_gpu_hour": 1.8,
+          "sla_pct": 0.0,
+          "discount_vs_cheapest_flexible_on_demand_ask_per_gpu_hour": 0.6,
+          "treatment": "context only: preemptible with no SLA is not comparable to reserved capacity"
+        }
+      ],
+      "example_limit": 10,
+      "truncated": 0,
+      "cheapest_flexible_on_demand_ask_usd_per_gpu_hour": 4.5
+    },
+    "flexibility_premium": {
+      "reserved_quote_id": "q07",
+      "flexible_quote_id": "q02",
+      "reserved_usd_per_gpu_hour": 4.049002,
+      "flexible_usd_per_gpu_hour": 4.5,
+      "flexible_over_reserved": 1.11138498,
+      "note": "contextual as-of price ratio of cancel-anytime hourly access to a non-cancellable reserved month at the same quantity; different rights and continuity assumptions prevent interpreting it as a pure option price. There is no future price bound without assumptions about future hourly prices and capacity availability"
+    },
+    "historical_variability": {
+      "pairs": 1,
+      "unmatched_expired_quotes": 0,
+      "implied_vol_per_sqrt_month": {
+        "median": 0.08732278,
+        "min": 0.08732278,
+        "max": 0.08732278
+      },
+      "log_move": {
+        "median": 0.12260232,
+        "min": 0.12260232,
+        "max": 0.12260232
+      },
+      "examples": [
+        {
+          "expired_quote_id": "q10",
+          "current_quote_id": "q01",
+          "months_apart": 1.97125257,
+          "expired_usd_per_gpu_hour": 4.6,
+          "current_usd_per_gpu_hour": 5.2,
+          "log_move": 0.12260232,
+          "implied_vol_per_sqrt_month": 0.08732278
+        }
+      ],
+      "example_limit": 5,
+      "treatment": "expired prices are never current levels; each expired quote is paired with the nearest-dated valid quote of the same provider/kind/side/size only to inform the declared horizon-widening parameter; a handful of pairs cannot estimate volatility reliably"
+    }
+  },
+  "reservation": {
+    "id": "synthetic-reservation-1",
+    "gpu_count": 1,
+    "delivery_start": "2027-01-01T00:00:00Z",
+    "delivery_end": "2027-04-01T00:00:00Z",
+    "fixed_usd_per_gpu_hour": 4.5,
+    "payment": "monthly-in-arrears-at-delivery-month-end",
+    "cancellation": "none",
+    "sla_pct": 99.9,
+    "expected_buyer_used_fraction": 0.65
+  },
+  "valuation": {
+    "identified": true,
+    "reserved_hours": 2160,
+    "fees_total_usd": 9720.0,
+    "fees_present_value_usd": 9524.51,
+    "months": [
+      {
+        "delivery_month": "2027-01",
+        "tenor_months": 3,
+        "reserved_hours": 744,
+        "curve_status": "observed",
+        "fair_value_usd_per_gpu_hour": {
+          "mid": 4.25,
+          "low": 4.0,
+          "high": 4.5
+        },
+        "fee_usd": 3348.0,
+        "payment_date": "2027-02-01T00:00:00Z",
+        "discount_factor": 0.98369281,
+        "survival_probability": 0.98648352,
+        "availability": 0.999,
+        "value_undiscounted_usd": -186.0,
+        "value_discounted_usd": -182.97,
+        "value_adjusted_usd": -180.31,
+        "value_low_usd": -360.63,
+        "value_high_usd": 0.0
+      },
+      {
+        "delivery_month": "2027-02",
+        "tenor_months": 4,
+        "reserved_hours": 672,
+        "curve_status": "modeled",
+        "fair_value_usd_per_gpu_hour": {
+          "mid": 4.128759,
+          "low": 3.503809,
+          "high": 4.86
+        },
+        "fee_usd": 3024.0,
+        "payment_date": "2027-03-01T00:00:00Z",
+        "discount_factor": 0.98001792,
+        "survival_probability": 0.98340659,
+        "availability": 0.999,
+        "value_undiscounted_usd": -249.47,
+        "value_discounted_usd": -244.49,
+        "value_adjusted_usd": -240.19,
+        "value_low_usd": -644.53,
+        "value_high_usd": 232.92
+      },
+      {
+        "delivery_month": "2027-03",
+        "tenor_months": 5,
+        "reserved_hours": 744,
+        "curve_status": "modeled",
+        "fair_value_usd_per_gpu_hour": {
+          "mid": 4.019163,
+          "low": 3.136221,
+          "high": 5.009117
+        },
+        "fee_usd": 3348.0,
+        "payment_date": "2027-04-01T00:00:00Z",
+        "discount_factor": 0.9759653,
+        "survival_probability": 0.98,
+        "availability": 0.999,
+        "value_undiscounted_usd": -357.74,
+        "value_discounted_usd": -349.14,
+        "value_adjusted_usd": -341.82,
+        "value_low_usd": -969.49,
+        "value_high_usd": 361.92
+      }
+    ],
+    "buyer_mark": {
+      "undiscounted_usd": -793.22,
+      "discounted_usd": -776.6,
+      "sla_adjusted_usd": -775.82,
+      "default_and_sla_adjusted_usd": -762.32,
+      "interval_usd": {
+        "low": -1974.65,
+        "high": 594.84
+      },
+      "per_reserved_gpu_hour_usd": -0.352928,
+      "per_reserved_gpu_hour_interval_usd": {
+        "low": -0.914189,
+        "high": 0.27539
+      }
+    },
+    "fair_fixed_price_usd_per_gpu_hour": {
+      "mid": 4.133345,
+      "low": 3.550255,
+      "high": 4.786101
+    },
+    "fair_fixed_price_identified": true,
+    "scenario_marks_usd": {
+      "base": -762.32,
+      "cheap_compute": -1407.43,
+      "scarcity": 134.51
+    },
+    "scenario_fair_fixed_price_usd_per_gpu_hour": {
+      "base": 4.133345,
+      "cheap_compute": 3.823068,
+      "scarcity": 4.564693
+    },
+    "decision": "do_not_sign_at_this_price",
+    "decision_basis": "mark negative at mid; the interval includes zero",
+    "flip_conditions": [
+      "sign at or below the fair fixed price 4.1333 USD/GPU-hour (mid curve); interval 3.5503..4.7861",
+      "base scenario fair fixed price 4.1333 -> contract at 4.50 is unfavourable to the buyer",
+      "cheap_compute scenario fair fixed price 3.8231 -> contract at 4.50 is unfavourable to the buyer",
+      "scarcity scenario fair fixed price 4.5647 -> contract at 4.50 is favourable to the buyer"
+    ],
+    "usage_is_informational_only": {
+      "fees_owed_usd": 9720.0,
+      "expected_used_fraction": 0.65,
+      "WRONG_fees_scaled_by_usage_usd": 6318.0,
+      "effective_usd_per_used_gpu_hour": 6.9231
+    },
+    "assumptions": [
+      "discount rate 0.0500 annual-effective, ACT/365, from as-of 2026-10-01T00:00:00Z to each month-end payment date",
+      "SLA 99.9%: provider assumed to deliver exactly at the floor; unavailable hours earn a pro-rata fee credit and no consequential damages, so value scales by availability",
+      "provider default probability 0.0200 over the deal spread uniformly from as-of to delivery end; recovery 0.00 applies only to a positive buyer claim; undelivered months are neither paid nor received",
+      "cancellation none: no optionality value for either side is added",
+      "egress and taxes excluded from the capacity price on both the contract and the curve"
+    ]
+  },
+  "sensitivities": {
+    "reversion_multiplier": [
+      {
+        "multiplier": 0.5,
+        "kappa": 0.05049214,
+        "curve_mid_by_tenor": {
+          "1": 4.5325,
+          "3": 4.25,
+          "6": 4.07257805,
+          "12": 3.78904498
+        },
+        "mark_adjusted_usd": -646.1830598
+      },
+      {
+        "multiplier": 1.0,
+        "kappa": 0.10098428,
+        "curve_mid_by_tenor": {
+          "1": 4.5325,
+          "3": 4.25,
+          "6": 3.92009486,
+          "12": 3.49642605
+        },
+        "mark_adjusted_usd": -762.32407895
+      },
+      {
+        "multiplier": 2.0,
+        "kappa": 0.20196856,
+        "curve_mid_by_tenor": {
+          "1": 4.5325,
+          "3": 4.25,
+          "6": 3.67641572,
+          "12": 3.19274782
+        },
+        "mark_adjusted_usd": -967.31991492
+      }
+    ],
+    "quantity_factor_multiplier": [
+      {
+        "multiplier": 0.9,
+        "factor": 0.7788465,
+        "curve_mid_by_tenor": {
+          "1": 4.5325,
+          "3": 4.25,
+          "6": 3.92009486,
+          "12": 3.49642605
+        },
+        "anchor_mid_by_tenor": {
+          "0": 4.8088123,
+          "1": 4.5325,
+          "3": 4.25
+        },
+        "mark_adjusted_usd": -762.32407895
+      },
+      {
+        "multiplier": 1.0,
+        "factor": 0.865385,
+        "curve_mid_by_tenor": {
+          "1": 4.5325,
+          "3": 4.25,
+          "6": 3.92009486,
+          "12": 3.49642605
+        },
+        "anchor_mid_by_tenor": {
+          "0": 4.32793162,
+          "1": 4.5325,
+          "3": 4.25
+        },
+        "mark_adjusted_usd": -762.32407895
+      },
+      {
+        "multiplier": 1.1,
+        "factor": 0.9519235,
+        "curve_mid_by_tenor": {
+          "1": 4.5325,
+          "3": 4.25,
+          "6": 3.92009486,
+          "12": 3.49642605
+        },
+        "anchor_mid_by_tenor": {
+          "0": 3.93448288,
+          "1": 4.5325,
+          "3": 4.25
+        },
+        "mark_adjusted_usd": -762.32407895
+      }
+    ],
+    "discount_rate_bump": [
+      {
+        "bump": -0.02,
+        "rate": 0.03,
+        "mark_adjusted_usd": -768.7086001
+      },
+      {
+        "bump": 0.0,
+        "rate": 0.05,
+        "mark_adjusted_usd": -762.32407895
+      },
+      {
+        "bump": 0.02,
+        "rate": 0.07,
+        "mark_adjusted_usd": -756.11271502
+      }
+    ],
+    "default_probability": [
+      {
+        "p_default": 0.0,
+        "mark_adjusted_usd": -775.82342334,
+        "fair_fixed_price_identified": true,
+        "fair_fixed_price_usd_per_gpu_hour": 4.13308346
+      },
+      {
+        "p_default": 0.02,
+        "mark_adjusted_usd": -762.32407895,
+        "fair_fixed_price_identified": true,
+        "fair_fixed_price_usd_per_gpu_hour": 4.13334536
+      },
+      {
+        "p_default": 0.1,
+        "mark_adjusted_usd": -708.32670137,
+        "fair_fixed_price_identified": true,
+        "fair_fixed_price_usd_per_gpu_hour": 4.1344884
+      }
+    ],
+    "horizon_vol_multiplier": [
+      {
+        "multiplier": 0.5,
+        "mark_interval_usd": {
+          "low": -1974.64733814,
+          "high": 341.90266545
+        }
+      },
+      {
+        "multiplier": 1.0,
+        "mark_interval_usd": {
+          "low": -1974.64733814,
+          "high": 594.84187933
+        }
+      },
+      {
+        "multiplier": 2.0,
+        "mark_interval_usd": {
+          "low": -2229.25069217,
+          "high": 1189.68375865
+        }
+      }
+    ]
+  },
+  "config": {
+    "config_version": 1,
+    "name": "default",
+    "description": "Candidate-declared model parameters. Every number here is an assumption, not evidence; the report lists them.",
+    "curve": {
+      "one_sided_spread_fraction": 0.15,
+      "fit_min_tenor_months": 1,
+      "default_reversion_per_month": 0.1,
+      "max_reversion_per_month": 2.0,
+      "reversion_band_per_month": [
+        0.0,
+        0.3
+      ],
+      "horizon_vol_per_sqrt_month": 0.08,
+      "model_horizon_months_before_forecast": 6
+    },
+    "anchors": {
+      "base": {
+        "kind": "supply_cost_breakeven",
+        "utilization": "case",
+        "financing": "case"
+      },
+      "cheap_compute": {
+        "kind": "supply_cost_breakeven",
+        "utilization": 1.0,
+        "financing": "case"
+      },
+      "scarcity": {
+        "kind": "max_valid_same_hardware_ask"
+      }
+    },
+    "scenarios": {
+      "base": {
+        "anchor": "base",
+        "observed_side": "mid"
+      },
+      "cheap_compute": {
+        "anchor": "cheap_compute",
+        "observed_side": "low"
+      },
+      "scarcity": {
+        "anchor": "scarcity",
+        "observed_side": "high"
+      }
+    },
+    "valuation": {
+      "day_count": "ACT/365",
+      "compounding": "annual-effective",
+      "default_timing": "uniform-default-time-from-as-of-to-delivery-end",
+      "sla_downtime_assumption": "provider-delivers-exactly-at-sla-floor"
+    },
+    "sensitivities": {
+      "utilizations": [
+        0.4,
+        0.5,
+        0.65,
+        0.8,
+        1.0
+      ],
+      "financing_rates": [
+        0.06,
+        0.09,
+        0.12,
+        0.15,
+        0.18
+      ],
+      "reversion_multipliers": [
+        0.5,
+        1.0,
+        2.0
+      ],
+      "discount_rate_bumps": [
+        -0.02,
+        0.0,
+        0.02
+      ],
+      "default_probabilities": [
+        0.0,
+        0.02,
+        0.1
+      ],
+      "horizon_vol_multipliers": [
+        0.5,
+        1.0,
+        2.0
+      ],
+      "quantity_factor_multipliers": [
+        0.9,
+        1.0,
+        1.1
+      ]
+    }
+  },
+  "valid_quote_count": 9
+}

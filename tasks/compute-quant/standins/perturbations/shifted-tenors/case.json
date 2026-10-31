@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task": "compute-quant",
+  "kind": "synthetic-demo-not-market-data; CANDIDATE-BUILT STAND-IN perturbation: as-of 2026-09-01, tenors [2,4,6], three-month strip ask",
+  "synthetic": true,
+  "as_of": "2026-09-01T00:00:00Z",
+  "files": {
+    "quotes": "quotes.csv",
+    "performance": "performance.csv"
+  },
+  "reference_product": {
+    "gpu": "MI355X",
+    "memory_gib": 288,
+    "gpu_count": 1,
+    "region": "R1",
+    "isolation": "dedicated",
+    "preemptible": false,
+    "sla_pct": 99.9,
+    "delivery": "continuous-capacity-in-one-UTC-calendar-month",
+    "quote_unit": "USD-per-GPU-hour-of-reserved-capacity",
+    "payment": "monthly-in-arrears-at-delivery-month-end",
+    "cancellation": "none",
+    "cpu_cores": 16,
+    "ram_gib": 128,
+    "network_gbps": 25,
+    "included_egress_gib": 0,
+    "network_egress_usd_per_gib": null
+  },
+  "curve": {
+    "tenor_months": [
+      2,
+      4,
+      6
+    ],
+    "tenor_definition": "delivery month starts this many calendar months after as-of month start"
+  },
+  "quote_common_terms": {
+    "cpu_cores_per_gpu": 16,
+    "ram_gib_per_gpu": 128,
+    "network_gbps": 25,
+    "includes_energy": true,
+    "taxes_included": false,
+    "egress_pricing": "unspecified",
+    "node_interconnect": "unspecified",
+    "usage_commitment_minimum_monthly_gpu_hours": 600,
+    "note": "All numbers are fictional. Missing term evidence is unknown, not free or identical."
+  },
+  "economics": {
+    "synthetic": true,
+    "source_ref": "fixture://demo/economics",
+    "capex_usd_per_gpu_including_supporting_hardware": 40000.0,
+    "economic_life_months": 36,
+    "residual_value_fraction": 0.1,
+    "gpu_power_kw": 1.4,
+    "supporting_power_kw_per_gpu": 0.2,
+    "pue": 1.25,
+    "electricity_usd_per_kwh": 0.08,
+    "non_energy_opex_usd_per_allocated_gpu_hour": 0.25,
+    "operator_revenue_utilization_fraction": 0.65,
+    "operator_financing_annual_rate": 0.12,
+    "buyer_discount_annual_rate": 0.05,
+    "provider_default_probability_over_deal": 0.02,
+    "default_recovery_fraction": 0.0,
+    "note": "Assumptions, not observed rates or unconditional arbitrage bounds. Do not double-count financing/depreciation."
+  },
+  "reservation": {
+    "id": "synthetic-reservation-1",
+    "gpu_count": 1,
+    "delivery_start": "2027-01-01T00:00:00Z",
+    "delivery_end": "2027-04-01T00:00:00Z",
+    "delivery_end_exclusive": true,
+    "fixed_usd_per_gpu_hour": 4.5,
+    "payment": "monthly-in-arrears-at-delivery-month-end",
+    "cancellation": "none",
+    "expected_buyer_used_fraction": 0.65,
+    "sla_pct": 99.9,
+    "service_credit_policy": "pro-rata-fee-credit-for-unavailable-hours-no-additional-consequential-damages",
+    "egress_and_taxes": "excluded-from-capacity-price; disclose treatment"
+  }
+}

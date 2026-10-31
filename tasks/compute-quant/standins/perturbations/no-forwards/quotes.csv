@@ -1,0 +1,9 @@
+id,synthetic,source_ref,provider,observed_at,valid_until,kind,side,gpu,memory_gib,gpu_count,region,isolation,preemptible,sla_pct,currency,price,unit,delivery_start,delivery_end,commitment_months,capacity_guaranteed,payment,cancellation
+q01,true,fixture://demo/q01,synthetic-a,2026-09-30T00:00:00Z,2026-10-03T00:00:00Z,current_on_demand,ask,MI355X,288,1,R1,dedicated,false,99.9,USD,5.20,gpu_hour,,,0,false,arrears,anytime
+q02,true,fixture://demo/q02,synthetic-b,2026-09-29T00:00:00Z,2026-10-04T00:00:00Z,current_on_demand,ask,MI355X,288,8,R1,dedicated,false,99.9,USD,36.00,node_hour,,,0,false,arrears,anytime
+q03,true,fixture://demo/q03,synthetic-a,2026-09-28T00:00:00Z,2026-10-05T00:00:00Z,usage_commitment,ask,MI355X,288,1,R1,dedicated,false,99.9,USD,3.40,gpu_hour,,,12,false,arrears,none
+q07,true,fixture://demo/q07,synthetic-b,2026-09-30T00:00:00Z,2026-10-02T00:00:00Z,current_on_demand,ask,MI355X,288,8,R1,dedicated,false,99.9,USD,24000.00,node_month,2026-10-01T00:00:00Z,2026-11-01T00:00:00Z,1,true,advance,none
+q08,true,fixture://demo/q08,synthetic-d,2026-09-30T00:00:00Z,2026-10-03T00:00:00Z,current_on_demand,ask,H200,141,1,R1,dedicated,false,99.9,USD,3.30,gpu_hour,,,0,false,arrears,anytime
+q09,true,fixture://demo/q09,synthetic-e,2026-09-30T00:00:00Z,2026-10-02T00:00:00Z,spot_current,ask,MI355X,288,1,R1,shared,true,0.0,USD,1.80,gpu_hour,,,0,false,arrears,provider-can-preempt
+q10,true,fixture://demo/q10,synthetic-a,2026-08-01T00:00:00Z,2026-09-01T00:00:00Z,current_on_demand,ask,MI355X,288,1,R1,dedicated,false,99.9,USD,4.60,gpu_hour,,,0,false,arrears,anytime
+q11,true,fixture://demo/q11,synthetic-a,2026-10-02T00:00:00Z,2026-10-05T00:00:00Z,current_on_demand,ask,MI355X,288,1,R1,dedicated,false,99.9,USD,4.00,gpu_hour,,,0,false,arrears,anytime
