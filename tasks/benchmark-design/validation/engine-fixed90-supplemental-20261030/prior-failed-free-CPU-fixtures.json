@@ -1,0 +1,37 @@
+{
+  "both_strictly_rejected_completion": true,
+  "cannot_independently_reaudit_original_lag_sample_timestamps_without_missing_raw_data": true,
+  "cause_of_missing_tmp_directories_not_established": true,
+  "kind": "HONEST_FREE_CPU_FIXTURE_FAILURE_OBSERVATION",
+  "new_valid_contract_fixture_is_explicitly_synthetic": true,
+  "no_reconstructed_historical_timestamp": true,
+  "observed_now_UTC": "2026-10-30T12:12:32.813670+00:00",
+  "paid_resources_or_model_API_calls": 0,
+  "raw_evidence_not_reconstructed_or_substituted": true,
+  "raw_native_directories_missing_on_later_read": true,
+  "source_measured_window_rule_excludes_postcapture_export_by_construction": true,
+  "source_observation_sha256": "bca4715f239a1787ba36eda22067db8e3c1daca036b1a1732d3df4ed186a9631",
+  "trials": [
+    {
+      "client_lag_seconds_tool_observed": 0.245,
+      "evaluator_exit_code": 4,
+      "evaluator_status": "invalid",
+      "lag_threshold_seconds": 0.05,
+      "measured_requests_completed": 90,
+      "runner_exit_code": 0,
+      "timing_audit_status": "PASS",
+      "trial": 1
+    },
+    {
+      "client_lag_seconds_tool_observed": 0.759,
+      "evaluator_exit_code": 4,
+      "evaluator_status": "invalid",
+      "fixture_sse_frame_delay_seconds": 0.1,
+      "lag_threshold_seconds": 0.05,
+      "measured_requests_completed": 90,
+      "runner_exit_code": 0,
+      "timing_audit_status": "PASS",
+      "trial": 2
+    }
+  ]
+}

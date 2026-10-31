@@ -1,0 +1,38 @@
+{
+  "controls": [
+    {
+      "aa_decision": "no_difference",
+      "false_positive": false,
+      "fixture": "clean",
+      "offered": 80,
+      "rejections": 0,
+      "status": "valid"
+    },
+    {
+      "aa_decision": "inconclusive",
+      "false_positive": false,
+      "fixture": "noisy",
+      "offered": 80,
+      "rejections": 0,
+      "status": "valid"
+    },
+    {
+      "aa_decision": "inconclusive",
+      "false_positive": false,
+      "fixture": "hx-2a7f2449cc8b",
+      "offered": 80,
+      "rejections": 0,
+      "status": "valid"
+    },
+    {
+      "aa_decision": "no_difference",
+      "false_positive": false,
+      "fixture": "hx-c2665cc9d16f",
+      "offered": 80,
+      "rejections": 0,
+      "status": "valid"
+    }
+  ],
+  "definition": "a control counts as a false positive if its status is not valid, any request was rejected, or the within-run A/A decision is confident",
+  "false_positive_rate": 0.0
+}

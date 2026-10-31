@@ -1,0 +1,5 @@
+# Optional offline from-file runtime only: install with --no-deps --require-hashes.
+# No Hugging Face Hub/Transformers import, remote code or model weights are required.
+tokenizers==0.22.2 \
+    --hash=sha256:369cc9fc8cc10cb24143873a0d95438bb8ee257bb80c71989e3ee290e8d72c67 \
+    --hash=sha256:c9ea31edff2968b44a88f97d784c2f16dc0729b8b143ed004699ebca91f05c48

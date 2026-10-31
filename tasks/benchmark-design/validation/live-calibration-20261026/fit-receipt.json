@@ -1,0 +1,56 @@
+{
+  "calibration_id": "cc374c685487fc969f9a97597003613052b92ff84fdb882c4a542ac61b1b6dde",
+  "engine_identity": {
+    "lock_digest": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+    "lock_image": "docker.io/zmlai/llmd@sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+    "lock_model": "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "model_id": "model"
+  },
+  "engine_kind": "unknown",
+  "fit": {
+    "distinct_lengths": 26,
+    "intercept_s": 0.05917245662994394,
+    "length_domain": [
+      44,
+      4117
+    ],
+    "method": "nonnegative-ols-plus-observed-upper-residual-v1",
+    "observed_envelope_covers_all_samples": true,
+    "observed_max_positive_residual_s": 0.026868094710633006,
+    "samples": 60,
+    "slope_s_per_prompt_token": 0.00025417264500025063
+  },
+  "length_unit": "candidate approximate prompt-length covariate; not engine token IDs",
+  "limitations": [
+    "Observed upper envelope, not a calibrated confidence/prediction interval",
+    "Length extrapolation and engine/tokenizer parity remain unvalidated",
+    "Freeze this plan before fresh controls and comparisons; do not refit on scored runs",
+    "Mock fits are software checks, not real-engine calibration"
+  ],
+  "output_plan_sha256": "2301607e75b78ae0bdb800cd6e55e0ac9c09b0517e7df71971dcde4f2ad2c589",
+  "planned_scoring_length_domain": [
+    44,
+    4081
+  ],
+  "raw_evidence_sha256": {
+    "requests.jsonl": "706219d50813f37bba7f366a5f5a091ec8f42c58db8e98c5ad5f96138cbab4f9",
+    "run.json": "f18c195a6952fb9a076fc93950c5cfc12e0172cf3988c2fefc183db38c84e784"
+  },
+  "run_id": "run-1793003440-3f2f94",
+  "schema_version": "1.0.0",
+  "source_plan_digest": "sha256:36b4f308c43fa9b98818d4a50f94884d6950082cfa5c854d28f7edf56e1ce8a6",
+  "tokenizer_identity": {
+    "count_semantics": "reencoded-decoded-output",
+    "files": {
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "tokenizer_config.json": "5186f0defcd7f232382c7f0aebcd2252d073bb921ab240e407b7ae8745d2b29b"
+    },
+    "identifier": "hf-tokenizers:Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9:sha256:5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "model": "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "offset_mapping": "nfc-cluster-end-v1",
+    "prompt_count_semantics": "regex-approximation-without-chat-template",
+    "runtime": "tokenizers==0.22.2",
+    "timing_resolution": "delta",
+    "unicode_database": "16.0.0"
+  }
+}

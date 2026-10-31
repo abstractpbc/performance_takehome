@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "status": "valid",
+  "official_result": false,
+  "suite_start_utc": "2026-10-26T08:13:49.335036+00:00",
+  "wrapper_started_utc": "2026-10-26T08:30:39.661961+00:00",
+  "prior_setup_seconds": 1010.3269250392914,
+  "max_wall_seconds": 10800,
+  "plan_digest": "sha256:36b4f308c43fa9b98818d4a50f94884d6950082cfa5c854d28f7edf56e1ce8a6",
+  "image": {
+    "id": "sha256:4afe375c77e07d20d83c381db0b1441b7929ca51c0a97dadb5db56477253b023",
+    "os": "linux",
+    "architecture": "amd64"
+  },
+  "model_marker": {
+    "repository": "Qwen/Qwen3.6-27B",
+    "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "status": "complete"
+  },
+  "model_marker_scope": "bookkeeping only; independent snapshot validation remains required",
+  "container_name": "abstract-t1-18066f6839514205bd4fc832eb7a0c06",
+  "container_owner": "18066f6839514205bd4fc832eb7a0c06",
+  "runtime_args": [
+    "docker",
+    "run",
+    "--rm",
+    "--pull=never",
+    "--label",
+    "abstract.task1.capture=18066f6839514205bd4fc832eb7a0c06",
+    "--name",
+    "abstract-t1-18066f6839514205bd4fc832eb7a0c06",
+    "--platform",
+    "linux/amd64",
+    "--device",
+    "/dev/kfd",
+    "--device",
+    "/dev/dri/renderD129",
+    "--security-opt",
+    "no-new-privileges",
+    "--shm-size",
+    "16g",
+    "--cpus",
+    "16",
+    "--memory",
+    "128g",
+    "--env",
+    "ROCR_VISIBLE_DEVICES=0",
+    "--publish",
+    "127.0.0.1:8000:8000",
+    "--mount",
+    "type=bind,src=/srv/abstract-pilot-v4/models/target,dst=/models/model,readonly",
+    "--group-add",
+    "992",
+    "sha256:4afe375c77e07d20d83c381db0b1441b7929ca51c0a97dadb5db56477253b023",
+    "--io-impl=zio",
+    "--model=/models/model"
+  ],
+  "errors": [],
+  "ownership_checkpoint": {
+    "path": "ownership.json",
+    "sha256": "8e727c06d8a267df3668e5318b39750e22ab38d6b196edca5e09ef4f99944080"
+  },
+  "prelaunch_absence": {
+    "owned_container_absent": true,
+    "container_name": "abstract-t1-18066f6839514205bd4fc832eb7a0c06"
+  },
+  "runner_exit_code": 0,
+  "evaluation_exit_code": 0,
+  "independent_audit_exit_code": 0,
+  "cleanup": {
+    "owned_container_absent": true,
+    "container_name": "abstract-t1-18066f6839514205bd4fc832eb7a0c06"
+  },
+  "elapsed_before_export_s": 1077.0156488522916
+}

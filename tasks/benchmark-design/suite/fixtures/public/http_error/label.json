@@ -1,0 +1,12 @@
+{
+  "profile": "http_error",
+  "seed": 110,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 29.25,
+  "family": "errors_and_drops",
+  "description": "30% of requests answered with HTTP 500.",
+  "expected": {
+    "status": "valid",
+    "signal": "gate http_error -> failed"
+  }
+}

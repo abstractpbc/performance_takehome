@@ -1,0 +1,12 @@
+{
+  "profile": "slow_decode",
+  "seed": 105,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 73.86,
+  "family": "stalls",
+  "description": "Decode interval 4x slower than clean (deadline-miss control).",
+  "expected": {
+    "status": "valid",
+    "signal": "strict fluidity SLO fails; MDD p99 rises; FTGR falls"
+  }
+}

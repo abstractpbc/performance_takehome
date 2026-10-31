@@ -1,0 +1,32 @@
+{
+  "all_canonical_input_bytes_unchanged": true,
+  "base_head": "bc22c65ba44fd03d093f733d3097d95a1e999379",
+  "candidate_source_lf_sha256": {
+    "tasks/benchmark-design/DESIGN.md": "b75dd1d1aa27f76a54361e40e390dc20c362335715f90c6a4363dca04f88317f",
+    "tasks/benchmark-design/suite/evaluate.py": "60d45641509360aaf4ce4084f1e2aa99c026e1a698650ac6b7e244a8bbbfb648",
+    "tasks/benchmark-design/suite/tests/test_startup_sufficiency.py": "a8104de6a184f23bb9aa8e8ff2191a99aacea3c9b5e6c511181940509d184457"
+  },
+  "changed_input_files": [],
+  "elapsed_s": 105.356388836,
+  "errors": [],
+  "existing_tokenizer_assets_enabled": true,
+  "failures": [],
+  "historical_live_calibration_refit_repeated": false,
+  "kind": "FULL_NATIVE_BENCHMARK_CANDIDATE_SOFTWARE_SUITE_ONCE",
+  "log_sha256": "5b7929cadce7e240491415c32a2f80c3dc9aeff789b81cadeb7e4ae8a0865835",
+  "loopback_CPU_mock_software_allowed": true,
+  "original_opaque_heldout_key_unavailable_not_regenerated": true,
+  "passed": 199,
+  "python": "3.14.4 (main, Apr 14 2026, 14:26:14) [Clang 22.1.3 ]",
+  "python_sha256": "4e7a6eebdb5bc100c59217d6ee085d04244495113e347e77af4d589b679f63ce",
+  "real_GPU_API_model_download_provider_auth_cash_public_git_calls": 0,
+  "skips": [
+    {
+      "reason": "held-out key not available on this machine (kept outside the tree)",
+      "test": "test_heldout_key_matches_evaluator (tests.test_fixtures.FixtureIdentityIndependenceTests.test_heldout_key_matches_evaluator)"
+    }
+  ],
+  "software_only_not_measured_power_or_official_grade": true,
+  "status": "PASS",
+  "tests_run": 200
+}

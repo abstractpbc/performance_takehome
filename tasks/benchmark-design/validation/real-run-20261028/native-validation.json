@@ -1,0 +1,87 @@
+{
+  "kind": "SANITIZED_EXACT_PUBLIC_TASK1_NATIVE_CPU_VALIDATION",
+  "source_commit": "ea97cb833644aefd48569a805c83269bd0c8eaed",
+  "status": "PASS",
+  "started_utc": "2026-10-28T18:11:48.297791+00:00",
+  "finished_utc": "2026-10-28T18:12:50.644265+00:00",
+  "candidate_tests": {
+    "run": 202,
+    "passed": 201,
+    "skipped": 1,
+    "reason": "Original opaque held-out key unavailable; not regenerated"
+  },
+  "protected_root_tests": {
+    "run": 40,
+    "passed": 40
+  },
+  "ruff": {
+    "version": "0.16.10",
+    "scope": "full repository",
+    "status": "PASS"
+  },
+  "protected_integrity": {
+    "base": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "status": "PASS"
+  },
+  "runtime": "CPython 3.14.4; Tokenizers 0.22.2",
+  "GPU_actions": 0,
+  "qualification": "Whole-source checks apply to exact ea97cb8. This publication changes documentation/evidence only, and does not claim a new whole-suite run at the later documentation commit.",
+  "log_digests": {
+    "clone.stderr": {
+      "bytes": 64,
+      "sha256": "41b1f371672fac21aa739fc3d9897e1a335578622d0466f224495a66f5cfaea2"
+    },
+    "clone.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "integrity.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "integrity.stdout": {
+      "bytes": 88,
+      "sha256": "f2883d87b0a1e13dcf1f84ac2c85727b41c4d6150b43b7c84d794a165784195c"
+    },
+    "root-tests.stderr": {
+      "bytes": 4833,
+      "sha256": "49409412c256bfb58010bfbaa269f4396e0ef584f322348aa5b1f15cc513ae70"
+    },
+    "root-tests.stdout": {
+      "bytes": 506,
+      "sha256": "2ed665c30d27fcd17541085f27e88c39fb44dfb8574bce9c626c522af3276902"
+    },
+    "ruff-full.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ruff-full.stdout": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "ruff-version.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ruff-version.stdout": {
+      "bytes": 13,
+      "sha256": "69b1c258a98757c0f0f474d1a74c08f610db7bfb1d8ef5aca35520ca1a0238f2"
+    },
+    "runtime.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runtime.stdout": {
+      "bytes": 160,
+      "sha256": "a9e146ee6123f873cd050e6a17dcf6f434596ff2f5661e820b9c85bcf1e1c04e"
+    },
+    "whole-suite.stderr": {
+      "bytes": 31517,
+      "sha256": "701048bcf194e9130bf7b178271813d35f22c1b4c5993fe622869d7c7efaca48"
+    },
+    "whole-suite.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

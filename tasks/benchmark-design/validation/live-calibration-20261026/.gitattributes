@@ -1,0 +1,3 @@
+*.json -text
+summary.md -text
+calibration.tar.gz binary

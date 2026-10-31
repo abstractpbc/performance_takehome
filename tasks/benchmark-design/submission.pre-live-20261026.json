@@ -1,0 +1,349 @@
+{
+  "schema_version": 2,
+  "task": "benchmark-design",
+  "status": "candidate-submission-draft-repo-cpu-validated-only",
+  "source": {
+    "repository": "https://github.com/sharonbasovich/performance_takehome",
+    "branch": "codex/abstract-benchmark-audit",
+    "commit": "b1987ff58c8511bcedb64ce426502480fd2958d4",
+    "commit_note": "Greptile capture/evaluation corrections and seven regression tests. The complete native Linux suite passed at this exact source commit; the following metadata freeze changes only the manifest and validation receipts. Historical CPU mock captures retain evidence_commit; no GPU inference or organizer submission is claimed.",
+    "evidence_commit": "bd9fd1b9b50d71d5fb6ac75ae37ae945a793d131",
+    "suite_tree_sha": "f5cb1c56e9e24406cf0a44abd29befb9bf3657e7",
+    "reviewed_devin_head": "f1b823f1d15a08c0bc5c5a82c8e29a300fae10f3",
+    "tested_code_commit": "b1987ff58c8511bcedb64ce426502480fd2958d4",
+    "reviewed_greptile_head": "f6daae7292db6380221fdbea7c917790e1c33d13"
+  },
+  "suite": {
+    "entrypoint": "tasks/benchmark-design/suite/evaluate.py",
+    "workload": "tasks/benchmark-design/suite/workload.json",
+    "tests": "tasks/benchmark-design/suite/tests",
+    "test_command": "cd tasks/benchmark-design/suite && uv run --frozen python -m unittest discover -s tests -v",
+    "run_wall_budget_minutes": 180.0,
+    "planned_wall_minutes": {
+      "quick": 39.6,
+      "full": 160.0
+    },
+    "planned_gpu_hours": {
+      "quick": 0.66,
+      "full": 2.67
+    },
+    "planned_cost_source": "tasks/benchmark-design/validation/dry_run_quick.json, dry_run_full.json (planning arithmetic, unmeasured)",
+    "optional_tokenizer": {
+      "asset_lock": "tasks/benchmark-design/suite/tokenizer.lock.json",
+      "runtime_lock": "tasks/benchmark-design/suite/requirements-tokenizer.txt",
+      "runtime": "tokenizers==0.22.2",
+      "timing_resolution": "delta",
+      "count_semantics": "reencoded-decoded-output",
+      "real_run_requirement": "--tokenizer-snapshot on runner and evaluator; selected assets must match plan.target.model_role",
+      "cpu_validation": "tests/test_model_tokens.py verifies both protected model tokenizer snapshots without weights or GPU"
+    },
+    "latest_validation": {
+      "report": "tasks/benchmark-design/validation/greptile-tests.json",
+      "tests_run": 131,
+      "passed": 130,
+      "skipped": 1
+    }
+  },
+  "fixed_environment": {
+    "baseline_lock": "baseline/lock.json",
+    "baseline_lock_sha256": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+    "measurement_harness_digest": "UNAVAILABLE_IN_DRAFT: the fixed measurement runner has not been released (docs/RELEASE_STATUS.md); a candidate-built stand-in lives in tasks/benchmark-design/suite/runner",
+    "agent_harness_profile": "enhanced-pi-1.0",
+    "agent_harness_release_digest": "UNAVAILABLE_IN_DRAFT: the enhanced Pi harness release has not been published (docs/RELEASE_STATUS.md)"
+  },
+  "integrity": {
+    "starter_commit": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "starter_tag": "UNAVAILABLE_IN_DRAFT: no takehome-start tag exists in the draft repository; the only upstream commit was used as the base",
+    "command": "python -B -m tools.check_integrity --base 81aead87d78ed468c4c374fb42921471b44c3f80",
+    "report": "tasks/benchmark-design/validation/integrity.txt"
+  },
+  "evidence": {
+    "report": "tasks/benchmark-design/DESIGN.md",
+    "validation_reports": [
+      "tasks/benchmark-design/validation/discrimination.md",
+      "tasks/benchmark-design/validation/discrimination.json",
+      "tasks/benchmark-design/validation/controls.json",
+      "tasks/benchmark-design/validation/heldout_results.json",
+      "tasks/benchmark-design/validation/comparison_clean_vs_noisy.json",
+      "tasks/benchmark-design/validation/comparison_clean_vs_slow_decode.json",
+      "tasks/benchmark-design/validation/comparison_clean_vs_late_first_token.json",
+      "tasks/benchmark-design/validation/reports/public",
+      "tasks/benchmark-design/validation/reports/heldout"
+    ],
+    "compute_report": "tasks/benchmark-design/validation/timing.md (measured CPU/mock wall time) and tasks/benchmark-design/validation/dry_run_full.json (planned GPU arithmetic)",
+    "gpu_hours_used": 0,
+    "gpu_runs": "none: no GPU was available; every measurement is from the CPU mock"
+  },
+  "execution_revision": {
+    "revision": "2026-10-25-server-errors",
+    "status": "UNMEASURED_GPU",
+    "source": {
+      "commit": "ce98000ad4de57897d41ea9f67e10340c18f051a",
+      "suite_tree_sha": "e39dba7e3f7a87c876ddf9327af6c3be3bf63733",
+      "branch": "codex/abstract-benchmark-audit",
+      "note": "Exact implementation commit verified below; the following commit adds execution metadata and proof receipts only."
+    },
+    "implementation": "Self-contained candidate recorder, frozen raw-event schema, calibration, evaluator, timing audit and bounded lifecycle/export wrapper; durable prelaunch ownership checkpoint for outer hard-kill recovery; refuse incomplete startup/warmup calibration and independently audit malformed server chunks without consuming rejected text; preserve server-error envelopes and bounded JSON nesting/integer parser failures as trustworthy failed requests across recorder/evaluator/independent audit",
+    "entrypoints": {
+      "execution_guide": "tasks/benchmark-design/EXECUTION.md",
+      "capture": "tasks/benchmark-design/suite/capture.py",
+      "runner": "tasks/benchmark-design/suite/runner/run.py",
+      "calibration": "tasks/benchmark-design/suite/bench/calibration.py",
+      "evaluator": "tasks/benchmark-design/suite/evaluate.py",
+      "independent_timing": "tasks/benchmark-design/suite/audit_timing.py",
+      "receiver_verification": "python -B tasks/benchmark-design/suite/capture.py verify-export <archive> <byte-cap>"
+    },
+    "workload": {
+      "path": "tasks/benchmark-design/suite/workload.efficient.json",
+      "sha256": "3360446ba00399278b10a65989da3545827d2c2f9b6752d34c97cd6e8e0e621a",
+      "digest_scope": "Exact committed canonical LF bytes; the raw run plan digest must match its actual file bytes",
+      "calibration_policy": "Separate complete baseline capture; freeze a new hash-bound plan before fresh scored captures; observed envelope with no extrapolation"
+    },
+    "planning_unmeasured": {
+      "calibration_minutes": 16.3,
+      "quick_minutes": 38.8,
+      "full_minutes": 145.5,
+      "sum_of_separate_modes_minutes": 200.6,
+      "full_suite_wall_ceiling_seconds": 10800,
+      "qualification": "Arithmetic only. Calibration, quick and full are separate experiments; their combined allocation consumes the controller cash/deletion envelope. Actual full-suite timing includes setup, capture, analysis, export and cleanup."
+    },
+    "validation": {
+      "report": "tasks/benchmark-design/validation/execution-server-errors-20261025/committed-verification.json",
+      "report_sha256": "6b36f1f3c39553485eb2313046c4cd8e6d685f50af3a5e6c14e9b136fa7426c8",
+      "full_tests_log": "tasks/benchmark-design/validation/execution-server-errors-20261025/full-tests.txt",
+      "full_tests_log_sha256": "74233567df746257dd49ca2914e318d0dd89f726048f9a1bf7f0c970fdfee8ad",
+      "tests_run": 168,
+      "passed": 167,
+      "skipped": 1,
+      "skip_reason": "existing opaque held-out fixture key unavailable",
+      "elapsed_s": 66.365,
+      "environment": "Fresh native Linux clone of Windows Git bundle, no source overlay; pinned Tokenizers 0.22.2 and both protected-model tokenizer snapshots",
+      "locked_ruff": "0.16.10 PASS; binary SHA-256 recorded in proof",
+      "protected_integrity": {
+        "base": "81aead87d78ed468c4c374fb42921471b44c3f80",
+        "status": "PASS"
+      },
+      "provenance_check": "tasks/benchmark-design/validation/execution-server-errors-20261025/manifest-provenance.json",
+      "qualification": "Candidate CPU software validation and independent JSON/hash/provenance checks; no official schema acceptance or grading result"
+    },
+    "measurement": {
+      "gpu_status": "UNMEASURED_GPU",
+      "gpu_hours_used": 0,
+      "real_target_captures": [],
+      "historical_mock_evidence_rebound_to_this_revision": false,
+      "historical_raw_fixtures_regenerated": false,
+      "required_next": "Retain real baseline calibration and independent evidence verification, freeze measured time/noise/sample-count policy, then collect fresh controls and justified full scoring data."
+    },
+    "official_result": false,
+    "official_interface_digest": "NOT_CLAIMED: candidate-defined interfaces; no organizer release digest supplied",
+    "ownership_checkpoint": {
+      "path_in_evidence": "ownership.json",
+      "publication": "Exclusive file creation, file fsync and directory fsync before launch; export allowlisted",
+      "recovery": "Outer supervisor must retain the checkpoint/hash, verify exact container name/owner label/immutable image, remove only by observed full ID and independently prove absence after hard kill",
+      "scope": "Candidate CPU-tested recovery authority publication; no GPU capture or cloud allocation deletion is claimed"
+    }
+  },
+  "execution_revision_history": [
+    {
+      "revision": "2026-10-25",
+      "status": "UNMEASURED_GPU",
+      "source": {
+        "commit": "b0eba2d94230e52c75ccdde9db9b50cd02f0158e",
+        "suite_tree_sha": "6da654fe8965a9ab73707389edfb26266f8f14ba",
+        "branch": "codex/abstract-benchmark-audit",
+        "note": "Exact implementation commit verified below; the following commit adds execution metadata and proof receipts only."
+      },
+      "implementation": "Self-contained candidate recorder, frozen raw-event schema, calibration, evaluator, timing audit and bounded lifecycle/export wrapper",
+      "entrypoints": {
+        "execution_guide": "tasks/benchmark-design/EXECUTION.md",
+        "capture": "tasks/benchmark-design/suite/capture.py",
+        "runner": "tasks/benchmark-design/suite/runner/run.py",
+        "calibration": "tasks/benchmark-design/suite/bench/calibration.py",
+        "evaluator": "tasks/benchmark-design/suite/evaluate.py",
+        "independent_timing": "tasks/benchmark-design/suite/audit_timing.py",
+        "receiver_verification": "python -B tasks/benchmark-design/suite/capture.py verify-export <archive> <byte-cap>"
+      },
+      "workload": {
+        "path": "tasks/benchmark-design/suite/workload.efficient.json",
+        "sha256": "3360446ba00399278b10a65989da3545827d2c2f9b6752d34c97cd6e8e0e621a",
+        "digest_scope": "Exact committed canonical LF bytes; the raw run plan digest must match its actual file bytes",
+        "calibration_policy": "Separate complete baseline capture; freeze a new hash-bound plan before fresh scored captures; observed envelope with no extrapolation"
+      },
+      "planning_unmeasured": {
+        "calibration_minutes": 16.3,
+        "quick_minutes": 38.8,
+        "full_minutes": 145.5,
+        "sum_of_separate_modes_minutes": 200.6,
+        "full_suite_wall_ceiling_seconds": 10800,
+        "qualification": "Arithmetic only. Calibration, quick and full are separate experiments; their combined allocation consumes the controller cash/deletion envelope. Actual full-suite timing includes setup, capture, analysis, export and cleanup."
+      },
+      "validation": {
+        "report": "tasks/benchmark-design/validation/execution-revision-20261025/committed-verification.json",
+        "report_sha256": "4e930dcf70ad29f304d586cb6763e4f036414f549c129d8214e63c283405df43",
+        "full_tests_log": "tasks/benchmark-design/validation/execution-revision-20261025/full-tests.txt",
+        "full_tests_log_sha256": "65a383b0537895e25d1ca16cdfecd2f49c940a83ee345da897003b20ad5ffa01",
+        "tests_run": 158,
+        "passed": 157,
+        "skipped": 1,
+        "skip_reason": "existing opaque held-out fixture key unavailable",
+        "elapsed_s": 80.762,
+        "environment": "Fresh native Linux clone of Windows Git bundle, no source overlay; pinned Tokenizers 0.22.2 and both protected-model tokenizer snapshots",
+        "locked_ruff": "0.16.10 PASS; binary SHA-256 recorded in proof",
+        "protected_integrity": {
+          "base": "81aead87d78ed468c4c374fb42921471b44c3f80",
+          "status": "PASS"
+        },
+        "provenance_check": "tasks/benchmark-design/validation/execution-revision-20261025/manifest-provenance.json",
+        "qualification": "Candidate CPU software validation and independent JSON/hash/provenance checks; no official schema acceptance or grading result"
+      },
+      "measurement": {
+        "gpu_status": "UNMEASURED_GPU",
+        "gpu_hours_used": 0,
+        "real_target_captures": [],
+        "historical_mock_evidence_rebound_to_this_revision": false,
+        "historical_raw_fixtures_regenerated": false,
+        "required_next": "Retain real baseline calibration and independent evidence verification, freeze measured time/noise/sample-count policy, then collect fresh controls and justified full scoring data."
+      },
+      "official_result": false,
+      "official_interface_digest": "NOT_CLAIMED: candidate-defined interfaces; no organizer release digest supplied"
+    },
+    {
+      "revision": "2026-10-25-recovery-checkpoint",
+      "status": "UNMEASURED_GPU",
+      "source": {
+        "commit": "a3d3b0381b0c0c88a83f9099c02f6e68c436354b",
+        "suite_tree_sha": "94d40673a4cb8625bbf8197c72abc06064f01a23",
+        "branch": "codex/abstract-benchmark-audit",
+        "note": "Exact implementation commit verified below; the following commit adds execution metadata and proof receipts only."
+      },
+      "implementation": "Self-contained candidate recorder, frozen raw-event schema, calibration, evaluator, timing audit and bounded lifecycle/export wrapper; durable prelaunch ownership checkpoint for outer hard-kill recovery",
+      "entrypoints": {
+        "execution_guide": "tasks/benchmark-design/EXECUTION.md",
+        "capture": "tasks/benchmark-design/suite/capture.py",
+        "runner": "tasks/benchmark-design/suite/runner/run.py",
+        "calibration": "tasks/benchmark-design/suite/bench/calibration.py",
+        "evaluator": "tasks/benchmark-design/suite/evaluate.py",
+        "independent_timing": "tasks/benchmark-design/suite/audit_timing.py",
+        "receiver_verification": "python -B tasks/benchmark-design/suite/capture.py verify-export <archive> <byte-cap>"
+      },
+      "workload": {
+        "path": "tasks/benchmark-design/suite/workload.efficient.json",
+        "sha256": "3360446ba00399278b10a65989da3545827d2c2f9b6752d34c97cd6e8e0e621a",
+        "digest_scope": "Exact committed canonical LF bytes; the raw run plan digest must match its actual file bytes",
+        "calibration_policy": "Separate complete baseline capture; freeze a new hash-bound plan before fresh scored captures; observed envelope with no extrapolation"
+      },
+      "planning_unmeasured": {
+        "calibration_minutes": 16.3,
+        "quick_minutes": 38.8,
+        "full_minutes": 145.5,
+        "sum_of_separate_modes_minutes": 200.6,
+        "full_suite_wall_ceiling_seconds": 10800,
+        "qualification": "Arithmetic only. Calibration, quick and full are separate experiments; their combined allocation consumes the controller cash/deletion envelope. Actual full-suite timing includes setup, capture, analysis, export and cleanup."
+      },
+      "validation": {
+        "report": "tasks/benchmark-design/validation/execution-recovery-20261025/committed-verification.json",
+        "report_sha256": "5e2b51f0e67a734a8fe323c18c130b3ec559f6c95b8d8a2f60fb5ce40c23a732",
+        "full_tests_log": "tasks/benchmark-design/validation/execution-recovery-20261025/full-tests.txt",
+        "full_tests_log_sha256": "2c52f4479f37b20ed74ae36db080fe38b1e82c9b88f458d14c2a3a115e52079d",
+        "tests_run": 161,
+        "passed": 160,
+        "skipped": 1,
+        "skip_reason": "existing opaque held-out fixture key unavailable",
+        "elapsed_s": 135.003,
+        "environment": "Fresh native Linux clone of Windows Git bundle, no source overlay; pinned Tokenizers 0.22.2 and both protected-model tokenizer snapshots",
+        "locked_ruff": "0.16.10 PASS; binary SHA-256 recorded in proof",
+        "protected_integrity": {
+          "base": "81aead87d78ed468c4c374fb42921471b44c3f80",
+          "status": "PASS"
+        },
+        "provenance_check": "tasks/benchmark-design/validation/execution-recovery-20261025/manifest-provenance.json",
+        "qualification": "Candidate CPU software validation and independent JSON/hash/provenance checks; no official schema acceptance or grading result"
+      },
+      "measurement": {
+        "gpu_status": "UNMEASURED_GPU",
+        "gpu_hours_used": 0,
+        "real_target_captures": [],
+        "historical_mock_evidence_rebound_to_this_revision": false,
+        "historical_raw_fixtures_regenerated": false,
+        "required_next": "Retain real baseline calibration and independent evidence verification, freeze measured time/noise/sample-count policy, then collect fresh controls and justified full scoring data."
+      },
+      "official_result": false,
+      "official_interface_digest": "NOT_CLAIMED: candidate-defined interfaces; no organizer release digest supplied",
+      "ownership_checkpoint": {
+        "path_in_evidence": "ownership.json",
+        "publication": "Exclusive file creation, file fsync and directory fsync before launch; export allowlisted",
+        "recovery": "Outer supervisor must retain the checkpoint/hash, verify exact container name/owner label/immutable image, remove only by observed full ID and independently prove absence after hard kill",
+        "scope": "Candidate CPU-tested recovery authority publication; no GPU capture or cloud allocation deletion is claimed"
+      }
+    },
+    {
+      "revision": "2026-10-25-evidence-gates",
+      "status": "UNMEASURED_GPU",
+      "source": {
+        "commit": "3396147943e3086edfb6bf35081e9397cfcdd9da",
+        "suite_tree_sha": "cbd20409723126484937af9c8233427406df5b5a",
+        "branch": "codex/abstract-benchmark-audit",
+        "note": "Exact implementation commit verified below; the following commit adds execution metadata and proof receipts only."
+      },
+      "implementation": "Self-contained candidate recorder, frozen raw-event schema, calibration, evaluator, timing audit and bounded lifecycle/export wrapper; durable prelaunch ownership checkpoint for outer hard-kill recovery; refuse incomplete startup/warmup calibration and independently audit malformed server chunks without consuming rejected text",
+      "entrypoints": {
+        "execution_guide": "tasks/benchmark-design/EXECUTION.md",
+        "capture": "tasks/benchmark-design/suite/capture.py",
+        "runner": "tasks/benchmark-design/suite/runner/run.py",
+        "calibration": "tasks/benchmark-design/suite/bench/calibration.py",
+        "evaluator": "tasks/benchmark-design/suite/evaluate.py",
+        "independent_timing": "tasks/benchmark-design/suite/audit_timing.py",
+        "receiver_verification": "python -B tasks/benchmark-design/suite/capture.py verify-export <archive> <byte-cap>"
+      },
+      "workload": {
+        "path": "tasks/benchmark-design/suite/workload.efficient.json",
+        "sha256": "3360446ba00399278b10a65989da3545827d2c2f9b6752d34c97cd6e8e0e621a",
+        "digest_scope": "Exact committed canonical LF bytes; the raw run plan digest must match its actual file bytes",
+        "calibration_policy": "Separate complete baseline capture; freeze a new hash-bound plan before fresh scored captures; observed envelope with no extrapolation"
+      },
+      "planning_unmeasured": {
+        "calibration_minutes": 16.3,
+        "quick_minutes": 38.8,
+        "full_minutes": 145.5,
+        "sum_of_separate_modes_minutes": 200.6,
+        "full_suite_wall_ceiling_seconds": 10800,
+        "qualification": "Arithmetic only. Calibration, quick and full are separate experiments; their combined allocation consumes the controller cash/deletion envelope. Actual full-suite timing includes setup, capture, analysis, export and cleanup."
+      },
+      "validation": {
+        "report": "tasks/benchmark-design/validation/execution-evidence-gates-20261025/committed-verification.json",
+        "report_sha256": "7516eac10b7fdcaa8da476d2f98fcf4ce3b4c4d10292f7cbf2397acced6f547c",
+        "full_tests_log": "tasks/benchmark-design/validation/execution-evidence-gates-20261025/full-tests.txt",
+        "full_tests_log_sha256": "7aa396e5a9cff89dbb494e28680badc3ecf883b53d477a630d17938b27d6f93a",
+        "tests_run": 166,
+        "passed": 165,
+        "skipped": 1,
+        "skip_reason": "existing opaque held-out fixture key unavailable",
+        "elapsed_s": 91.923,
+        "environment": "Fresh native Linux clone of Windows Git bundle, no source overlay; pinned Tokenizers 0.22.2 and both protected-model tokenizer snapshots",
+        "locked_ruff": "0.16.10 PASS; binary SHA-256 recorded in proof",
+        "protected_integrity": {
+          "base": "81aead87d78ed468c4c374fb42921471b44c3f80",
+          "status": "PASS"
+        },
+        "provenance_check": "tasks/benchmark-design/validation/execution-evidence-gates-20261025/manifest-provenance.json",
+        "qualification": "Candidate CPU software validation and independent JSON/hash/provenance checks; no official schema acceptance or grading result"
+      },
+      "measurement": {
+        "gpu_status": "UNMEASURED_GPU",
+        "gpu_hours_used": 0,
+        "real_target_captures": [],
+        "historical_mock_evidence_rebound_to_this_revision": false,
+        "historical_raw_fixtures_regenerated": false,
+        "required_next": "Retain real baseline calibration and independent evidence verification, freeze measured time/noise/sample-count policy, then collect fresh controls and justified full scoring data."
+      },
+      "official_result": false,
+      "official_interface_digest": "NOT_CLAIMED: candidate-defined interfaces; no organizer release digest supplied",
+      "ownership_checkpoint": {
+        "path_in_evidence": "ownership.json",
+        "publication": "Exclusive file creation, file fsync and directory fsync before launch; export allowlisted",
+        "recovery": "Outer supervisor must retain the checkpoint/hash, verify exact container name/owner label/immutable image, remove only by observed full ID and independently prove absence after hard kill",
+        "scope": "Candidate CPU-tested recovery authority publication; no GPU capture or cloud allocation deletion is claimed"
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "kind": "ACTUAL_TASK1_CAPTURE_PROVENANCE",
+  "official_result": false,
+  "capture_source_commit": "7d6fd182aa494eff1975e41f3fb67934f30994f6",
+  "current_code_validation_commit": "ea97cb833644aefd48569a805c83269bd0c8eaed",
+  "capture_source_qualification": "Calibration and quick used this source directly; full-direct-2 used the same source plus the two exact externally recorded lifecycle adapter files retained as .py.txt. The later canonical owned_docker.py cancellation fix is not retroactively attributed to these measurements.",
+  "code_files": {
+    "evaluate.py": {
+      "capture_source_sha256": "60d45641509360aaf4ce4084f1e2aa99c026e1a698650ac6b7e244a8bbbfb648",
+      "tested_commit_canonical_sha256": "60d45641509360aaf4ce4084f1e2aa99c026e1a698650ac6b7e244a8bbbfb648"
+    },
+    "audit_timing.py": {
+      "capture_source_sha256": "afa2d26e0802fd53c26bc1502623886f8973a437219f0a6e72c0deaa36531ad6",
+      "tested_commit_canonical_sha256": "afa2d26e0802fd53c26bc1502623886f8973a437219f0a6e72c0deaa36531ad6"
+    },
+    "capture.py": {
+      "capture_source_sha256": "766f11254a190575e99d13fb1a22366c007ef9bf4b36ec634be0be288402dfbd",
+      "tested_commit_canonical_sha256": "788a14e3806a2df918a633491d8743bc5b031b25b96a0b4a23a8f54201ac3fc2"
+    },
+    "owned_docker.py": {
+      "tested_commit_canonical_sha256": "ccfab98bdd26ced98f9c4606cbb7f563035b6aa3b54798b1a269ea1d8c4a5564"
+    }
+  },
+  "model": {
+    "status": "ALL_TARGET_FILES_SIZE_AND_HASH_VERIFIED",
+    "files": 29,
+    "bytes": 55586107940,
+    "repository": "Qwen/Qwen3.6-27B",
+    "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "finished_utc": "2026-10-28T16:54:12.017015+00:00"
+  },
+  "actual_image": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+  "protected_baseline_lock_sha256": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+  "frozen_scoring_plan_sha256": "fb82d603967046ab14f895d1bc5be4e681cc25f341a3cc31ce76ca9268edc412",
+  "calibration_fit_sha256": "ee00f56bd8f7ab8e850e197d82528df804764fcfee41419ad2e8fd3783cee5b3",
+  "original_suite_start_utc": "2026-10-28T16:10:34.243406+00:00",
+  "full_export_completed_total_suite_seconds": 7572.170621909687,
+  "outer_full_transfer_archive": {
+    "published": false,
+    "bytes": 18836015,
+    "sha256": "517a6893603598c029813d0f781d0b7a0f58bac57cd471ab7b9564c32a7fa4bb",
+    "qualification": "Privately retained transfer envelope. The complete inner capture archive, reports, fit and exact external adapters are published here."
+  },
+  "external_adapter_files": {
+    "capture_owned_lifecycle.py": "fbb8028aca514ce54be2652f4625592a62f320a73e8fee0927a90bee7802c111",
+    "owned_docker_supervisor.py": "cb1c544c5bacd0eab986ccd4ae50f0ce00c0dc38437fe6ce8ad4d685377dfbfd"
+  },
+  "background_cpu_only_metadata_build_overlap_utc": [
+    "2026-10-28T17:57:56.621956+00:00",
+    "2026-10-28T17:57:59.589754+00:00"
+  ],
+  "isolation_qualification": "Brief CPU-only metadata build overlapped the full capture; this is a host nuisance and perfect isolation is not claimed.",
+  "failed_full1_kept_separate_not_pooled": true,
+  "measured_power_established": false,
+  "configuration_speedup_claimed": false,
+  "canonical_source_hash_scope": "Git blob bytes (canonical LF), not Windows checkout newline conversion."
+}

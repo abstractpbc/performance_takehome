@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0.0",
+  "status": "valid",
+  "official_result": false,
+  "suite_start_utc": "2026-10-28T16:10:34.243406+00:00",
+  "wrapper_started_utc": "2026-10-28T17:29:32.066006+00:00",
+  "prior_setup_seconds": 4737.822600364685,
+  "max_wall_seconds": 10800,
+  "plan_digest": "sha256:fb82d603967046ab14f895d1bc5be4e681cc25f341a3cc31ce76ca9268edc412",
+  "image": {
+    "id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+    "os": "linux",
+    "architecture": "amd64"
+  },
+  "model_marker": {
+    "status": "complete",
+    "repository": "Qwen/Qwen3.6-27B",
+    "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "verified_files": 29,
+    "verified_bytes": 55586107940,
+    "verification_receipt": "/srv/abstract-direct-runc/model-ready.json"
+  },
+  "model_marker_scope": "bookkeeping only; independent snapshot validation remains required",
+  "container_name": "abstract-t1-09641329d0db41f3adca29c958a6b5fe",
+  "container_owner": "09641329d0db41f3adca29c958a6b5fe",
+  "runtime_args": [
+    "/srv/abstract-pilot-v4/task1-python/bin/python3.14",
+    "-B",
+    "/srv/abstract-direct-runc/owned_docker_supervisor.py",
+    "docker",
+    "run",
+    "--rm",
+    "--pull=never",
+    "--label",
+    "abstract.task1.capture=09641329d0db41f3adca29c958a6b5fe",
+    "--name",
+    "abstract-t1-09641329d0db41f3adca29c958a6b5fe",
+    "--platform",
+    "linux/amd64",
+    "--device",
+    "/dev/kfd",
+    "--device",
+    "/dev/dri/renderD129",
+    "--security-opt",
+    "no-new-privileges",
+    "--shm-size",
+    "16g",
+    "--cpus",
+    "16",
+    "--memory",
+    "128g",
+    "--env",
+    "ROCR_VISIBLE_DEVICES=0",
+    "--publish",
+    "127.0.0.1:8000:8000",
+    "--mount",
+    "type=bind,src=/srv/abstract-direct-runc/target,dst=/models/model,readonly",
+    "--group-add",
+    "992",
+    "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+    "--io-impl=zio",
+    "--model=/models/model"
+  ],
+  "errors": [],
+  "ownership_checkpoint": {
+    "path": "ownership.json",
+    "sha256": "f66658afddd8bb0ed69e1395932b5558e2f0f239696a02361fcac606b426f344"
+  },
+  "prelaunch_absence": {
+    "owned_container_absent": true,
+    "container_name": "abstract-t1-09641329d0db41f3adca29c958a6b5fe"
+  },
+  "runner_exit_code": 0,
+  "evaluation_exit_code": 0,
+  "independent_audit_exit_code": 0,
+  "cleanup": {
+    "owned_container_absent": true,
+    "container_name": "abstract-t1-09641329d0db41f3adca29c958a6b5fe"
+  },
+  "elapsed_before_export_s": 7570.247311279685,
+  "export": {
+    "path": "/srv/abstract-direct-runc/exports/full-direct-2.tar.gz",
+    "bytes": 9459728
+  },
+  "export_manifest": {
+    "files": {
+      "events/run.json": {
+        "sha256": "dd203913e3e397d7b19d552c61a0d821b615c7aa38bf08cdaadf8bd303761979",
+        "bytes": 47052
+      },
+      "events/requests.jsonl": {
+        "sha256": "56b11a7eb370ed999f92224d75b94347c09633debb69c34842a8f08eb1674d99",
+        "bytes": 105465565
+      },
+      "report.json": {
+        "sha256": "f3b80728cd417187a6e3cad09dac4eeb07650e1f169d348bfcb6527d42ff009e",
+        "bytes": 75637
+      },
+      "summary.md": {
+        "sha256": "f932f2fa5b068f8097ee84a245eb118977ca8f49c6239ca8dac3f279f5f8e44f",
+        "bytes": 2214
+      },
+      "independent-timing.json": {
+        "sha256": "0eba5e1aee96e27f4593cc052e01cb76fbd0b7a6a2357e772b650ce248e4699e",
+        "bytes": 278338
+      },
+      "audit.log": {
+        "sha256": "9f73b2db4a6a0bda41aac1ad30949a61f31e4769721ff0d5561a1b0c4baeebf7",
+        "bytes": 102
+      },
+      "runner.log": {
+        "sha256": "4a5342c61eec282bdf4a083cc40cfd75bcd15767eb03b15cf624088c722b1868",
+        "bytes": 66796
+      },
+      "evaluate.log": {
+        "sha256": "62a1bc6af09ce9747813e58216cd8d113ca5bd3c24ab3258bc07dc2aee8b7894",
+        "bytes": 2215
+      },
+      "capture-receipt.json": {
+        "sha256": "92ded96894bb8aef6bfc2c965b047b4cfcaff98e0b1c70d5958cfaeb236daa10",
+        "bytes": 2509
+      },
+      "ownership.json": {
+        "sha256": "f66658afddd8bb0ed69e1395932b5558e2f0f239696a02361fcac606b426f344",
+        "bytes": 349
+      },
+      "workload.json": {
+        "sha256": "fb82d603967046ab14f895d1bc5be4e681cc25f341a3cc31ce76ca9268edc412",
+        "bytes": 15733
+      }
+    },
+    "uncompressed_bytes": 105956510,
+    "archive_bytes": 9459728,
+    "archive_sha256": "342cf6ca938b629a0c0a0952ac7929d25e7a1dfc20db91dee9900414d6dc275d"
+  },
+  "total_suite_seconds": 7572.170621909687,
+  "within_suite_deadline": true
+}

@@ -1,0 +1,429 @@
+{
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "scope": "independent raw SSE TTFT/text/completion and startup-linkage consistency",
+  "limitations": "SSE delta timing, not internal token IDs; output correctness remains evaluator-owned",
+  "requests": [
+    {
+      "request_id": "startup0/probe/1",
+      "ttft_s": 0.13788715300006515,
+      "duration_s": 0.2587803329997769,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/warmup/0",
+      "ttft_s": 0.045634071999757,
+      "duration_s": 0.0863696040000832,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/warmup/1",
+      "ttft_s": 0.0454185530002178,
+      "duration_s": 0.08573394700033532,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/warmup/2",
+      "ttft_s": 0.04491223400009403,
+      "duration_s": 0.0857896460001939,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/warmup/3",
+      "ttft_s": 0.04514884299987898,
+      "duration_s": 0.08579745599990929,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/0",
+      "ttft_s": 0.045195333000265236,
+      "duration_s": 0.08579357500002516,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/1",
+      "ttft_s": 0.04533103299991126,
+      "duration_s": 0.08581218599965723,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/2",
+      "ttft_s": 0.04486070300026768,
+      "duration_s": 0.08587036500011891,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/3",
+      "ttft_s": 0.04510429300034957,
+      "duration_s": 0.08589077500027997,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/4",
+      "ttft_s": 0.04474945399988428,
+      "duration_s": 0.08489659799988658,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/5",
+      "ttft_s": 0.04531391199998325,
+      "duration_s": 0.08585999499973695,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/6",
+      "ttft_s": 0.045345152000209055,
+      "duration_s": 0.08591095600013432,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/7",
+      "ttft_s": 0.04509507200009466,
+      "duration_s": 0.0858767650001937,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/8",
+      "ttft_s": 0.04527807300019049,
+      "duration_s": 0.08588105600028939,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/9",
+      "ttft_s": 0.04509384399989358,
+      "duration_s": 0.08588155600000391,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/10",
+      "ttft_s": 0.045545341999968514,
+      "duration_s": 0.08590850500013403,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/11",
+      "ttft_s": 0.045736981999652926,
+      "duration_s": 0.0858697349999602,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/12",
+      "ttft_s": 0.0451810330000626,
+      "duration_s": 0.08582973600005062,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/13",
+      "ttft_s": 0.045113135000065085,
+      "duration_s": 0.08588435699994079,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/14",
+      "ttft_s": 0.04488194299983661,
+      "duration_s": 0.08588154500012024,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/15",
+      "ttft_s": 0.04492564400015908,
+      "duration_s": 0.08588445600025807,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/16",
+      "ttft_s": 0.04515719299979537,
+      "duration_s": 0.08594348599990553,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/17",
+      "ttft_s": 0.04514226299988877,
+      "duration_s": 0.08583495599987145,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/18",
+      "ttft_s": 0.045236792999730824,
+      "duration_s": 0.08587673700003506,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/19",
+      "ttft_s": 0.04489987299984932,
+      "duration_s": 0.08588750599983541,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/20",
+      "ttft_s": 0.04502478400036125,
+      "duration_s": 0.08587769600035244,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/21",
+      "ttft_s": 0.04513993199998367,
+      "duration_s": 0.08588936500018463,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/22",
+      "ttft_s": 0.04509470399989368,
+      "duration_s": 0.08591814599958525,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/23",
+      "ttft_s": 0.0448494639999808,
+      "duration_s": 0.0858749250000983,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/24",
+      "ttft_s": 0.0449197739999363,
+      "duration_s": 0.08588363599983495,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/25",
+      "ttft_s": 0.045075874000303884,
+      "duration_s": 0.08589311600007932,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/26",
+      "ttft_s": 0.04484628399995927,
+      "duration_s": 0.08587569600013012,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/27",
+      "ttft_s": 0.0451380929998777,
+      "duration_s": 0.0858948860000055,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/28",
+      "ttft_s": 0.04490789400006179,
+      "duration_s": 0.08589479600004779,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration_short|conc=1|rep0/measure/29",
+      "ttft_s": 0.045052424000004976,
+      "duration_s": 0.08589202600023782,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/warmup/0",
+      "ttft_s": 0.05055993199994191,
+      "duration_s": 0.4238897629998064,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/warmup/1",
+      "ttft_s": 0.1524661640000886,
+      "duration_s": 0.5984079889999521,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/warmup/2",
+      "ttft_s": 0.3219424529997923,
+      "duration_s": 0.6993644350000068,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/warmup/3",
+      "ttft_s": 0.5372756820001996,
+      "duration_s": 0.920027974000277,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/0",
+      "ttft_s": 0.04927741499977856,
+      "duration_s": 0.4391579229995841,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/1",
+      "ttft_s": 0.1517879670000184,
+      "duration_s": 0.5795862449999731,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/2",
+      "ttft_s": 0.3069870469998932,
+      "duration_s": 0.7019468940002298,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/3",
+      "ttft_s": 0.5407220480001342,
+      "duration_s": 0.9229937049999535,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/4",
+      "ttft_s": 1.0812082209999971,
+      "duration_s": 1.49531517000014,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/5",
+      "ttft_s": 0.04891339599998901,
+      "duration_s": 0.43880746800005,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/6",
+      "ttft_s": 0.15287927500003207,
+      "duration_s": 0.5807825470001262,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/7",
+      "ttft_s": 0.30545841200000723,
+      "duration_s": 0.6832588810002562,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/8",
+      "ttft_s": 0.5382739300002868,
+      "duration_s": 0.9402167380003448,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/9",
+      "ttft_s": 1.0305900479997945,
+      "duration_s": 1.4438985849997152,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/10",
+      "ttft_s": 0.048985565999828395,
+      "duration_s": 0.4376727550002215,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/11",
+      "ttft_s": 0.15180531999976665,
+      "duration_s": 0.5270657559999563,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/12",
+      "ttft_s": 0.3074856309999632,
+      "duration_s": 0.758584468999743,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/13",
+      "ttft_s": 0.5390672730000006,
+      "duration_s": 0.923368173000199,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/14",
+      "ttft_s": 1.0803797839998879,
+      "duration_s": 1.4934222050001154,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/15",
+      "ttft_s": 0.04896836699981577,
+      "duration_s": 0.43993916499994157,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/16",
+      "ttft_s": 0.1517404009996426,
+      "duration_s": 0.5254729559997031,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/17",
+      "ttft_s": 0.3060976369997661,
+      "duration_s": 0.6830413839998073,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/18",
+      "ttft_s": 0.5380971399999908,
+      "duration_s": 0.91983836899999,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/19",
+      "ttft_s": 1.079661096000109,
+      "duration_s": 1.490939903999788,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/20",
+      "ttft_s": 0.04882068799997796,
+      "duration_s": 0.4203080190000037,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/21",
+      "ttft_s": 0.15226029099994776,
+      "duration_s": 0.526299009000013,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/22",
+      "ttft_s": 0.30628862999992634,
+      "duration_s": 0.6829246219999732,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/23",
+      "ttft_s": 0.5379223359996104,
+      "duration_s": 0.9194052999996529,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/24",
+      "ttft_s": 1.0307811880002191,
+      "duration_s": 1.4230610510003316,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/25",
+      "ttft_s": 0.049139628000375524,
+      "duration_s": 0.4235423670002092,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/26",
+      "ttft_s": 0.1530203310003344,
+      "duration_s": 0.526968571999987,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/27",
+      "ttft_s": 0.3071127009998236,
+      "duration_s": 0.73801767499981,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/28",
+      "ttft_s": 0.5398637469997993,
+      "duration_s": 0.9573058689998106,
+      "protocol_faults": 0
+    },
+    {
+      "request_id": "prefill_calibration|conc=1|rep0/measure/29",
+      "ttft_s": 1.0781972400000086,
+      "duration_s": 1.4693760079999265,
+      "protocol_faults": 0
+    }
+  ],
+  "startup": [
+    {
+      "launch_index": 0,
+      "completed_probe_elapsed_s": 31.332711325999753
+    }
+  ],
+  "failures": []
+}

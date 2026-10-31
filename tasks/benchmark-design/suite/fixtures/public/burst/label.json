@@ -1,0 +1,12 @@
+{
+  "profile": "burst",
+  "seed": 102,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 30.97,
+  "family": "bursts",
+  "description": "Tokens withheld and released in bursts of 8 per SSE chunk.",
+  "expected": {
+    "status": "valid",
+    "signal": "token_evidence.multi_token_deltas flag (chunk != token); Etalon fluidity stays 1.0 by design: 8-token bursts at ~83 tok/s sit inside playback slack"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "profile": "timing_invalid",
+  "seed": 900,
+  "family": "evidence_corruption",
+  "derived_from": "clean",
+  "description": "events in 10% of measured requests re-ordered: non-monotonic timestamps",
+  "expected": {
+    "status": "invalid",
+    "signal": "gate invalid_timing -> evidence_invalid -> run invalid",
+    "checks": [
+      {
+        "kind": "reason",
+        "contains": "untrustworthy evidence"
+      },
+      {
+        "kind": "total",
+        "name": "evidence_invalid",
+        "min": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "checks": {
+    "protected_integrity": {
+      "exit_code": 0,
+      "log_sha256": "f2883d87b0a1e13dcf1f84ac2c85727b41c4d6150b43b7c84d794a165784195c",
+      "stdout": "PASS: protected organizer files unchanged from 81aead87d78ed468c4c374fb42921471b44c3f80"
+    },
+    "ruff": {
+      "exit_code": 0,
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stdout": "All checks passed!"
+    }
+  },
+  "focused_checks": {
+    "command": "python -B -m unittest tests.test_startup_sufficiency tests.test_evidence_boundaries -v",
+    "environment": "Windows CPython3.13",
+    "passed": 18,
+    "tests_run": 18
+  },
+  "frozen_deployment_packet_modified": false,
+  "full_native_log_sha256": "5b7929cadce7e240491415c32a2f80c3dc9aeff789b81cadeb7e4ae8a0865835",
+  "full_native_receipt_sha256": "b72ea8c479069400f9e20c49d3b1bfec3ab9fb2c27c65bf6eb6e7446282ca223",
+  "full_or_quick_completed": false,
+  "full_suite": {
+    "command": "CPython3.14.4 -I -S -B; unittest discover -s tests -t . -v",
+    "elapsed_s": 105.356388836,
+    "environment": "Native Linux canonical LF archive plus three declared overlays; pinned cached tokenizers; loopback CPU mock servers.",
+    "passed": 199,
+    "skip_reason": "held-out key not available on this machine (kept outside the tree)",
+    "skipped": 1,
+    "tests_run": 200
+  },
+  "historical_raw_reports_or_real_calibration_rewritten": false,
+  "kind": "EXACT_STARTUP_COHORT_CPU_VALIDATION_NOT_LIVE_MEASUREMENT",
+  "measured_runtime_or_power_established": false,
+  "new_real_GPU_or_model_calls": 0,
+  "official_grade": false,
+  "prior_receipt_digest_correction": {
+    "commit": "bc22c65ba44fd03d093f733d3097d95a1e999379",
+    "correct_committed_Git_LF_sha256": "583e1f247f162a6e3dfbd51fc0f5092b2de447584e75daced1e2a1e3f35c16ae",
+    "incorrect_prior_manifest_working_CRLF_sha256": "61e99f302081f56ac37b39d6b7031b9e11069db06803819bfd63801a4b4138a1",
+    "old_full_native_receipt_and_log_already_match_committed_bytes": true,
+    "old_receipt_bytes_rewritten": false,
+    "path": "tasks/benchmark-design/validation/startup-sufficiency-20261028/verification.json"
+  },
+  "qualification": "The existing pinned recorder does not produce these extra retry populations. This hardens incoming evaluator evidence; no observed GPU failure or new GPU result is inferred.",
+  "receipt_digest_scope": "Exact canonical LF bytes as stored in Git; each newly written public proof is LF and verified against the repository clean filter.",
+  "reproduced_acceptance": [
+    {
+      "after": "valid",
+      "before": "valid",
+      "case": "declared_two_complete"
+    },
+    {
+      "after": "inconclusive",
+      "before": "valid",
+      "case": "extra_retry_replaces_failed_cold"
+    },
+    {
+      "after": "inconclusive",
+      "before": "valid",
+      "case": "extra_successful_cold"
+    },
+    {
+      "after": "inconclusive",
+      "before": "valid",
+      "case": "extra_warm_attach"
+    }
+  ],
+  "source_base_commit": "bc22c65ba44fd03d093f733d3097d95a1e999379",
+  "source_files_canonical_lf_sha256": {
+    "tasks/benchmark-design/DESIGN.md": "b75dd1d1aa27f76a54361e40e390dc20c362335715f90c6a4363dca04f88317f",
+    "tasks/benchmark-design/suite/evaluate.py": "60d45641509360aaf4ce4084f1e2aa99c026e1a698650ac6b7e244a8bbbfb648",
+    "tasks/benchmark-design/suite/tests/test_startup_sufficiency.py": "a8104de6a184f23bb9aa8e8ff2191a99aacea3c9b5e6c511181940509d184457"
+  },
+  "source_scope": "Canonical bc22 Git archive plus three declared working-tree LF overlays; immutable per-file hashes identify tested code, not a future commit.",
+  "status": "PASS"
+}

@@ -1,0 +1,17 @@
+{
+  "profile": "client_lag",
+  "seed": 901,
+  "family": "evidence_corruption",
+  "derived_from": "clean",
+  "description": "run.json client_integrity reports a 0.4 s event-loop stall in a measure window",
+  "expected": {
+    "status": "invalid",
+    "signal": "run gate: event_loop_lag_max_s > max -> run invalid",
+    "checks": [
+      {
+        "kind": "reason",
+        "contains": "event-loop lag"
+      }
+    ]
+  }
+}

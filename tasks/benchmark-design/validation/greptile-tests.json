@@ -1,0 +1,22 @@
+{
+  "tested_code_commit": "b1987ff58c8511bcedb64ce426502480fd2958d4",
+  "suite_tree_sha": "f5cb1c56e9e24406cf0a44abd29befb9bf3657e7",
+  "environment": "fresh LF Linux clone; Python 3.14.4; pinned Tokenizers 0.22.2 and both Qwen snapshots",
+  "tests_run": 131,
+  "passed": 130,
+  "skipped": 1,
+  "elapsed_s": 90.683,
+  "skip_reason": "out-of-tree opaque fixture key unavailable",
+  "ruff": {
+    "version": "0.16.10",
+    "result": "passed",
+    "scope": "tasks/benchmark-design"
+  },
+  "protected_integrity": {
+    "base": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "result": "passed"
+  },
+  "historical_raw_mock_captures_regenerated": false,
+  "public_unicode_discrimination_row_recomputed": true,
+  "gpu_or_live_model_inference_performed": false
+}

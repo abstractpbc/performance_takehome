@@ -1,0 +1,30 @@
+{
+  "kind": "DOCUMENTATION_AND_EVIDENCE_PUBLICATION_CHECKS",
+  "checked_utc": "2026-10-28T18:36:02.467147+00:00",
+  "source_code_unchanged_from": "ea97cb833644aefd48569a805c83269bd0c8eaed",
+  "whole_suite_rerun_claimed": false,
+  "plan_tests": {
+    "command": "python -B -m unittest tests.test_plan -v",
+    "run": 12,
+    "status": "PASS"
+  },
+  "archive_verification": {
+    "command": "python -B tasks/benchmark-design/suite/capture.py verify-export <phase>.tar.gz 150000000",
+    "phases": [
+      "calibration-direct-1",
+      "quick-direct-1",
+      "full-direct-2"
+    ],
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "raw_request_files_reextracted": false
+  },
+  "protected_integrity": {
+    "command": "python -B -m tools.check_integrity --base 81aead87d78ed468c4c374fb42921471b44c3f80",
+    "status": "PASS"
+  },
+  "qualification": "These checks validate publication and preserved historical plan arithmetic. Whole-source native CPU validation remains attributed only to ea97cb8."
+}

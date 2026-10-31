@@ -1,0 +1,147 @@
+{
+  "source_commit": "96a9fa5a716d54a9700d14627fe184dec4e7dedc",
+  "kind": "ACTUAL_GIT_OBJECT_BYTE_SNAPSHOT",
+  "Git_metadata_fabricated": false,
+  "files": {
+    "baseline/lock.json": {
+      "bytes": 731,
+      "sha256": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2"
+    },
+    "benchmarks/__init__.py": {
+      "bytes": 80,
+      "sha256": "c8a97adc59c559629a6010e5a48df03254a2424955b809243b9e5c0e847aad18"
+    },
+    "benchmarks/metrics.py": {
+      "bytes": 6432,
+      "sha256": "d52841ec82e273d8991b741d8716e3b5cc790470610fa7698b4f67b289d7f4ac"
+    },
+    "benchmarks/smoke.py": {
+      "bytes": 5691,
+      "sha256": "cc2a07dd9b3dd39d9808c53357e2ab5fc63a338ed0dadc9ccb07dfdaae0f5689"
+    },
+    "benchmarks/streaming.py": {
+      "bytes": 2851,
+      "sha256": "f0bdcf3cffad7a19398a1c356dec96ea8c6b4bd805dd906aacc19185c364ae86"
+    },
+    "tasks/benchmark-design/suite/audit_timing.py": {
+      "bytes": 7430,
+      "sha256": "afa2d26e0802fd53c26bc1502623886f8973a437219f0a6e72c0deaa36531ad6"
+    },
+    "tasks/benchmark-design/suite/bench/__init__.py": {
+      "bytes": 620,
+      "sha256": "5ee3ac0e13aaff00948e2e9f6935e1205a761fa82c6d174a649e867ece14db83"
+    },
+    "tasks/benchmark-design/suite/bench/arrivals.py": {
+      "bytes": 1084,
+      "sha256": "50b480613dbb5b456177293888ddaa9b527b4cd178454cb73f1f1abbd233a72e"
+    },
+    "tasks/benchmark-design/suite/bench/calibration.py": {
+      "bytes": 11452,
+      "sha256": "1cf28df0e2f8aac5a7f25007e49ef54d7535bb5f3482d90b10e881fd6f373214"
+    },
+    "tasks/benchmark-design/suite/bench/gates.py": {
+      "bytes": 14800,
+      "sha256": "251e0c2ec04dd5a2754d7e0681c51c4f8139c806771ef4b834d75cc61add5078"
+    },
+    "tasks/benchmark-design/suite/bench/identity.py": {
+      "bytes": 5452,
+      "sha256": "a73a86ff9382ad99c8c7d72dfd344f6e24680a5dff8bc8613b289ca3b4a0df8e"
+    },
+    "tasks/benchmark-design/suite/bench/model_tokens.py": {
+      "bytes": 7341,
+      "sha256": "1a7a0a0c53516580746f4c1dbfec9a308c08352a53bc3567a08421061815e383"
+    },
+    "tasks/benchmark-design/suite/bench/plan.py": {
+      "bytes": 20087,
+      "sha256": "39dd2f07daeed492fcafaf845382574b5c6c4f4dafa504a6d43ab7d00be91832"
+    },
+    "tasks/benchmark-design/suite/bench/prompts.py": {
+      "bytes": 9668,
+      "sha256": "965e2cdbdfa7df469aa0b8692e1554049809ba4b10948ea38224611b389e1b45"
+    },
+    "tasks/benchmark-design/suite/bench/records.py": {
+      "bytes": 11707,
+      "sha256": "db3fdafeed58a5e7b4ec36cb9b83ca145bacde5ed89982822e981815dcdae751"
+    },
+    "tasks/benchmark-design/suite/bench/stats.py": {
+      "bytes": 6171,
+      "sha256": "717c3114f12eac317e572b44a353438763f5c36e7c0449a27ef067cccb7cdc68"
+    },
+    "tasks/benchmark-design/suite/bench/tokens.py": {
+      "bytes": 2358,
+      "sha256": "bb902af6ed468abda3fbb332a612940df50c726cca413c9410f969600f3ffbeb"
+    },
+    "tasks/benchmark-design/suite/capture.py": {
+      "bytes": 28240,
+      "sha256": "f21796cce137ea8122169cb2c480409118b9cd2a12af7dc23de2038146b45bfc"
+    },
+    "tasks/benchmark-design/suite/evaluate.py": {
+      "bytes": 44088,
+      "sha256": "2fa6cf8ecc285be845782e85a480e80485ba94a1e0fd5ee4d74cb7558ad69062"
+    },
+    "tasks/benchmark-design/suite/mock_server/__init__.py": {
+      "bytes": 546,
+      "sha256": "cdb1b8a383563989c101e17dbcf4390c854c25469eb1d7ea45508b801866bf09"
+    },
+    "tasks/benchmark-design/suite/mock_server/__main__.py": {
+      "bytes": 152,
+      "sha256": "39e6dc04106796610fb6951130de716927a0ad23201ab34b038af9b1eb9027f6"
+    },
+    "tasks/benchmark-design/suite/mock_server/faults.py": {
+      "bytes": 16810,
+      "sha256": "752594f98a1b617747ff4ed9c9a9234136c3193480d7070c92c0bb5f00a6a597"
+    },
+    "tasks/benchmark-design/suite/mock_server/server.py": {
+      "bytes": 10845,
+      "sha256": "98d6352b39e5996b23a873325cf6440c7fda1f8c42b012548b8e48c5523301c3"
+    },
+    "tasks/benchmark-design/suite/owned_docker.py": {
+      "bytes": 4957,
+      "sha256": "ccfab98bdd26ced98f9c4606cbb7f563035b6aa3b54798b1a269ea1d8c4a5564"
+    },
+    "tasks/benchmark-design/suite/runner/__init__.py": {
+      "bytes": 388,
+      "sha256": "19dbb218847cfb5aea02d13c337569eaa6a6f3d8f1c9d3319fa3f768e8dc15e5"
+    },
+    "tasks/benchmark-design/suite/runner/__main__.py": {
+      "bytes": 139,
+      "sha256": "308113f35a5b6456cb211736d19c5dcb5845feb6e6c5afc3f5d9840ded53f772"
+    },
+    "tasks/benchmark-design/suite/runner/run.py": {
+      "bytes": 37027,
+      "sha256": "72176a1b10e49fa79c489172f4741de7654d893e84d761d22d03ab5d8c7edfc4"
+    },
+    "tasks/benchmark-design/suite/schema/request.schema.json": {
+      "bytes": 3795,
+      "sha256": "d3b399c9f38329e5c413c79b76443983b0f2e94545bb1ace5773f3ee89d4de34"
+    },
+    "tasks/benchmark-design/suite/schema/run.schema.json": {
+      "bytes": 6046,
+      "sha256": "2740d7280825d7c9e7486205d6a11ff0be7ac6ec3708edab9f419255834c7021"
+    },
+    "tasks/benchmark-design/suite/tokenizer.lock.json": {
+      "bytes": 1469,
+      "sha256": "62a7dfbb2193897964c4cbbfe9d694cd768a29a85b0b74f14851d8ee652ec7f7"
+    },
+    "tasks/benchmark-design/suite/workload.efficient.json": {
+      "bytes": 13267,
+      "sha256": "36b4f308c43fa9b98818d4a50f94884d6950082cfa5c854d28f7edf56e1ce8a6"
+    },
+    "tools/__init__.py": {
+      "bytes": 79,
+      "sha256": "838bf5276d7e12d1edc852ef64fc1a62c02769ff1136511b40bb96cf2879f518"
+    },
+    "tools/baseline.py": {
+      "bytes": 7402,
+      "sha256": "e4054ec4bbad4fcbc91b4afe673b927d4458956d93e418bc2d9612c81761bb02"
+    },
+    "tools/budget.py": {
+      "bytes": 6184,
+      "sha256": "1caafb84fd7976252f510f7ffe33de5c7678d2ab9abd343016d24a330f63616c"
+    },
+    "tools/check_integrity.py": {
+      "bytes": 3799,
+      "sha256": "ccd9ca5d4d8e90f657c0922760710eb7846a6c41079be4aaa41b7355b5b76eca"
+    }
+  }
+}

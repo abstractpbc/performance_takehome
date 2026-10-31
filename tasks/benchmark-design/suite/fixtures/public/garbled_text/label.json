@@ -1,0 +1,12 @@
+{
+  "profile": "garbled_text",
+  "seed": 113,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 33.86,
+  "family": "invalid_output",
+  "description": "Replacement characters and mojibake injected into the text.",
+  "expected": {
+    "status": "valid",
+    "signal": "gate invalid_output (replacement/garbled) -> failed"
+  }
+}

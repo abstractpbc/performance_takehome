@@ -1,0 +1,12 @@
+{
+  "profile": "truncated_text",
+  "seed": 114,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 24.49,
+  "family": "invalid_output",
+  "description": "Stops at 40% of the answer but reports finish_reason=stop.",
+  "expected": {
+    "status": "valid",
+    "signal": "gate invalid_output (too short / sequence) -> failed"
+  }
+}

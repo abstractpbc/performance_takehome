@@ -1,0 +1,20 @@
+{
+  "Windows_replica_verified_after_cloud_deletion": true,
+  "active_proxy_requests_at_stop": [],
+  "capture_finished_UTC": "2026-10-30T13:16:05.176412+00:00",
+  "capture_owned_stop_validity_seconds": 143.02423665100002,
+  "capture_started_UTC": "2026-10-30T13:13:42.556373+00:00",
+  "capture_validity_cap_seconds": 180,
+  "frozen_helper_sha256": "eba5fc8b5c8bbb56e617c34f0ea0499475e73d2e01a37605209893e29d3ecbb2",
+  "helper_status": "COMPLETE_FIXED90_DESCRIPTIVE_NOT_OFFICIAL_GRADE",
+  "native_offhost_export_verified_before_original_delete_minus35": true,
+  "no_official_grade_power_or_primary_revalidation_claim": true,
+  "original_evaluator_exit_code": 3,
+  "original_evaluator_status": "inconclusive",
+  "original_report_not_relabelled": true,
+  "owned_container_absent": true,
+  "owned_supervisor_reaped": true,
+  "runner_exit_code": 0,
+  "status": "COMPLETE_FIXED90_DESCRIPTIVE_NOT_OFFICIAL_GRADE",
+  "timing_audit_exit_code": 0
+}

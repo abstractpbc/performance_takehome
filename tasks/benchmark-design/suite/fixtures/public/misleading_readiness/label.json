@@ -1,0 +1,12 @@
+{
+  "profile": "misleading_readiness",
+  "seed": 116,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 34.68,
+  "family": "misleading_readiness",
+  "description": "/v1/models is 200 immediately; inference 503s for 3 s.",
+  "expected": {
+    "status": "valid",
+    "signal": "startup.readiness_lead_s > 0: ready probe long before first valid generation"
+  }
+}

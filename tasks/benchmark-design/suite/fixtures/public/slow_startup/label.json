@@ -1,0 +1,12 @@
+{
+  "profile": "slow_startup",
+  "seed": 117,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 34.19,
+  "family": "startup",
+  "description": "/v1/models unavailable for 2 s, inference ready at 2.5 s.",
+  "expected": {
+    "status": "valid",
+    "signal": "startup_to_first_valid_generation_s > readiness"
+  }
+}

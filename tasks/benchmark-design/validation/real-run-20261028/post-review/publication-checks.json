@@ -1,0 +1,18 @@
+{
+  "kind": "FINAL_POST_REVIEW_DOCUMENTATION_PUBLICATION_CHECKS",
+  "checked_utc": "2026-10-28T22:54:22.625513+00:00",
+  "source_code_unchanged_from": "331c4678af81627a7a6fa2a99e1e63d1b7214b12",
+  "whole_source_validation": "native-validation-331c467.json",
+  "later_reanalysis": "post-review/receipt.json",
+  "original_resource_closure": "resource-closure.json",
+  "plan_tests": {
+    "run": 12,
+    "status": "PASS"
+  },
+  "protected_integrity": {
+    "base": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "status": "PASS"
+  },
+  "original_archives_reports_fit_and_plan_unchanged": true,
+  "qualification": "Original execution clock, later quality/calibration replay and later combined-source CPU QA remain separately identified. No new GPU capture or retrospective certification of missing boundary-lag evidence."
+}

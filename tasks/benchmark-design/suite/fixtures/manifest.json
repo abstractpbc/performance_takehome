@@ -1,0 +1,123 @@
+{
+  "time_scale": 1.0,
+  "public": {
+    "burst": {
+      "profile": "burst",
+      "seed": 102,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 30.97
+    },
+    "clean": {
+      "profile": "clean",
+      "seed": 100,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 31.83
+    },
+    "client_lag": {
+      "derived_from": "clean"
+    },
+    "drop": {
+      "profile": "drop",
+      "seed": 111,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 30.82
+    },
+    "false_usage": {
+      "profile": "false_usage",
+      "seed": 115,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 31.93
+    },
+    "garbled_text": {
+      "profile": "garbled_text",
+      "seed": 113,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 33.86
+    },
+    "http_error": {
+      "profile": "http_error",
+      "seed": 110,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 29.25
+    },
+    "late_first_token": {
+      "profile": "late_first_token",
+      "seed": 104,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 56.58
+    },
+    "misleading_readiness": {
+      "profile": "misleading_readiness",
+      "seed": 116,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 34.68
+    },
+    "missing_done": {
+      "profile": "missing_done",
+      "seed": 108,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 31.83
+    },
+    "missing_finish_reason": {
+      "profile": "missing_finish_reason",
+      "seed": 109,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 31.89
+    },
+    "noisy": {
+      "profile": "noisy",
+      "seed": 101,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 31.86
+    },
+    "reasoning_channel": {
+      "profile": "reasoning_channel",
+      "seed": 106,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 39.35
+    },
+    "slow_decode": {
+      "profile": "slow_decode",
+      "seed": 105,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 73.86
+    },
+    "slow_startup": {
+      "profile": "slow_startup",
+      "seed": 117,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 34.19
+    },
+    "stall": {
+      "profile": "stall",
+      "seed": 103,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 68.02
+    },
+    "timing_invalid": {
+      "derived_from": "clean"
+    },
+    "truncated_text": {
+      "profile": "truncated_text",
+      "seed": 114,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 24.49
+    },
+    "unicode_split": {
+      "profile": "unicode_split",
+      "seed": 107,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 74.6
+    },
+    "wrong_text": {
+      "profile": "wrong_text",
+      "seed": 112,
+      "runner_exit": 0,
+      "wall_s_cpu_mock": 31.74
+    }
+  },
+  "heldout_count": 13,
+  "note": "CPU mock fixtures; injected timings, not GPU measurements.",
+  "heldout_key_sha256": "1434d2f46e36ef14fc18dd8566fc2e30a2cdc98ef2d7bec2ae436a7c721c326d",
+  "heldout_key_location": "outside the public tree (revealed after review); see fixtures/heldout/COMMITMENT.sha256"
+}

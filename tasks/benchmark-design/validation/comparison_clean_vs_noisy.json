@@ -1,0 +1,196 @@
+{
+  "cells_compared": 3,
+  "decision": "regression",
+  "per_cell": {
+    "chat_short_open|rate=4rps": {
+      "confidence_adjusted": 0.9833333333333333,
+      "decision": "regression",
+      "label": "chat_short_open|rate=4rps",
+      "metrics": {
+        "fluidity_strict_mean": {
+          "a": 1.0,
+          "b": 1.0,
+          "decision": "no_difference",
+          "difference": {
+            "confidence": 0.9833333333333333,
+            "high": 0.0,
+            "low": 0.0,
+            "n_a": 16,
+            "n_b": 16,
+            "point": 0.0
+          },
+          "why": "CI [-0.000, -0.000] within +/-0.05"
+        },
+        "min_decode_deadline_p99_s": {
+          "a": 0.017763044377009277,
+          "b": 0.019510979506979158,
+          "decision": "inconclusive",
+          "difference": {
+            "confidence": 0.9833333333333333,
+            "high": 0.001989519660128322,
+            "low": 0.0005684341886080871,
+            "n_a": 16,
+            "n_b": 16,
+            "point": 0.0017479351299698812
+          },
+          "why": "CI [+0.032, +0.112] straddles the 0.1 boundary (underpowered)"
+        },
+        "ttft_p50_s": {
+          "a": 0.09617497599970193,
+          "b": 0.11825917499982097,
+          "decision": "inconclusive",
+          "difference": {
+            "confidence": 0.9833333333333333,
+            "high": 0.07485417929149966,
+            "low": -0.02287271249974765,
+            "n_a": 16,
+            "n_b": 16,
+            "point": 0.022084199000119042
+          },
+          "why": "CI [-0.238, +0.778] straddles the 0.1 boundary (underpowered)"
+        },
+        "ttft_p90_s": {
+          "a": 0.09994421050009805,
+          "b": 0.18412319349999962,
+          "decision": "regression",
+          "difference": {
+            "confidence": 0.9833333333333333,
+            "high": 0.09849002799978734,
+            "low": 0.034820116420691764,
+            "n_a": 16,
+            "n_b": 16,
+            "point": 0.08417898299990156
+          },
+          "why": "CI excludes 0 and effect +0.842 > 0.15"
+        }
+      }
+    },
+    "closed_loop_sweep|conc=8": {
+      "confidence_adjusted": 0.9833333333333333,
+      "decision": "regression",
+      "label": "closed_loop_sweep|conc=8",
+      "metrics": {
+        "fluidity_strict_mean": {
+          "a": 1.0,
+          "b": 1.0,
+          "decision": "no_difference",
+          "difference": {
+            "confidence": 0.9833333333333333,
+            "high": 0.0,
+            "low": 0.0,
+            "n_a": 16,
+            "n_b": 16,
+            "point": 0.0
+          },
+          "why": "CI [-0.000, -0.000] within +/-0.05"
+        },
+        "min_decode_deadline_p99_s": {
+          "a": 0.017521459846850836,
+          "b": 0.01986625087485921,
+          "decision": "regression",
+          "difference": {
+            "confidence": 0.9833333333333333,
+            "high": 0.0025579538487364092,
+            "low": 0.0005684341886080906,
+            "n_a": 16,
+            "n_b": 16,
+            "point": 0.0023447910280083757
+          },
+          "why": "CI excludes 0 and effect +0.134 > 0.1"
+        },
+        "ttft_p50_s": {
+          "a": 0.10047517299994979,
+          "b": 0.07376949900003638,
+          "decision": "inconclusive",
+          "difference": {
+            "confidence": 0.9833333333333333,
+            "high": 0.0315091167794113,
+            "low": -0.05264186909577679,
+            "n_a": 16,
+            "n_b": 16,
+            "point": -0.026705673999913415
+          },
+          "why": "CI [-0.524, +0.314] straddles the 0.1 boundary (underpowered)"
+        },
+        "ttft_p90_s": {
+          "a": 0.10512916849984322,
+          "b": 0.17229003550005473,
+          "decision": "regression",
+          "difference": {
+            "confidence": 0.9833333333333333,
+            "high": 0.08343932931653815,
+            "low": 0.0016391595002005488,
+            "n_a": 16,
+            "n_b": 16,
+            "point": 0.06716086700021151
+          },
+          "why": "CI excludes 0 and effect +0.639 > 0.15"
+        }
+      }
+    },
+    "generation_long_open|rate=4rps": {
+      "confidence_adjusted": 0.9833333333333333,
+      "decision": "regression",
+      "label": "generation_long_open|rate=4rps",
+      "metrics": {
+        "fluidity_strict_mean": {
+          "a": 1.0,
+          "b": 1.0,
+          "decision": "no_difference",
+          "difference": {
+            "confidence": 0.9833333333333333,
+            "high": 0.0,
+            "low": 0.0,
+            "n_a": 16,
+            "n_b": 16,
+            "point": 0.0
+          },
+          "why": "CI [-0.000, -0.000] within +/-0.05"
+        },
+        "min_decode_deadline_p99_s": {
+          "a": 0.006436993168993052,
+          "b": 0.006678577699151491,
+          "decision": "no_difference",
+          "difference": {
+            "confidence": 0.9833333333333333,
+            "high": 0.0002842170943040453,
+            "low": -4.263256414560688e-05,
+            "n_a": 16,
+            "n_b": 16,
+            "point": 0.0002415845301584384
+          },
+          "why": "CI [-0.007, +0.044] within +/-0.1"
+        },
+        "ttft_p50_s": {
+          "a": 0.0989863824997883,
+          "b": 0.1025380744999893,
+          "decision": "inconclusive",
+          "difference": {
+            "confidence": 0.9833333333333333,
+            "high": 0.021793990999867674,
+            "low": -0.023014599474864398,
+            "n_a": 16,
+            "n_b": 16,
+            "point": 0.003551692000201001
+          },
+          "why": "CI [-0.233, +0.220] straddles the 0.1 boundary (underpowered)"
+        },
+        "ttft_p90_s": {
+          "a": 0.1029643159997704,
+          "b": 0.1381293274998825,
+          "decision": "regression",
+          "difference": {
+            "confidence": 0.9833333333333333,
+            "high": 0.06726912199974322,
+            "low": 0.011707335866763443,
+            "n_a": 16,
+            "n_b": 16,
+            "point": 0.03516501150011209
+          },
+          "why": "CI excludes 0 and effect +0.342 > 0.15"
+        }
+      }
+    }
+  },
+  "why": "cell decisions: {'regression': 3}; run statuses valid/valid"
+}

@@ -1,0 +1,158 @@
+{
+  "status": "PASS",
+  "scope": "Exact committed source in a fresh native Linux bundle checkout; no source overlay",
+  "started_at_utc": "2026-10-25T21:47:35.664612+00:00",
+  "source_commit": "a3d3b0381b0c0c88a83f9099c02f6e68c436354b",
+  "suite_tree_sha": "94d40673a4cb8625bbf8197c72abc06064f01a23",
+  "environment": {
+    "platform": "linux",
+    "python": "3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]",
+    "dependency_root": "/var/tmp/abstract-benchmark-greptile-deps-20261025",
+    "native_checkout": "/var/tmp/abstract-task1-recovery-checkpoint-20261025",
+    "tokenizer_wheel_sha256": "369cc9fc8cc10cb24143873a0d95438bb8ee257bb80c71989e3ee290e8d72c67",
+    "ruff_binary_sha256": "14704de5ea0d07038512de127bd52d6a169fb70bd70ddfa25bf39e21fed6b2b6"
+  },
+  "commands": {
+    "clone": {
+      "argv": [
+        "git",
+        "-c",
+        "core.autocrlf=false",
+        "clone",
+        "--no-hardlinks",
+        "-b",
+        "codex/abstract-benchmark-audit",
+        "/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/task1-recovery-checkpoint-20261025/committed-source.bundle",
+        "/var/tmp/abstract-task1-recovery-checkpoint-20261025"
+      ],
+      "cwd": "/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/task1-recovery-checkpoint-20261025",
+      "log": "clone.txt",
+      "exit_code": 0,
+      "sha256": "4caec66ab6c5cc5fd33e01c120ba86e1eab317c1d4119dd99b82e2709966873d",
+      "seconds": 0.892673474999981
+    },
+    "runtime-identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-c",
+        "import httpx,tokenizers,json;print(json.dumps({\"httpx\":httpx.__version__,\"tokenizers\":tokenizers.__version__}))"
+      ],
+      "cwd": "/var/tmp/abstract-task1-recovery-checkpoint-20261025",
+      "log": "runtime-identity.txt",
+      "exit_code": 0,
+      "sha256": "fae41698d2e2d2aaba5c7383422aa2e6e1772358e32eebb421a4757740e273da",
+      "seconds": 0.7469384990000094
+    },
+    "full-tests": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "/var/tmp/abstract-task1-recovery-checkpoint-20261025/tasks/benchmark-design/suite",
+      "log": "full-tests.txt",
+      "exit_code": 0,
+      "sha256": "2c52f4479f37b20ed74ae36db080fe38b1e82c9b88f458d14c2a3a115e52079d",
+      "seconds": 136.112551736,
+      "tests_run": 161,
+      "test_seconds": 135.003,
+      "passed": true,
+      "skipped": 1
+    },
+    "integrity": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "tools.check_integrity",
+        "--base",
+        "81aead87d78ed468c4c374fb42921471b44c3f80"
+      ],
+      "cwd": "/var/tmp/abstract-task1-recovery-checkpoint-20261025",
+      "log": "integrity.txt",
+      "exit_code": 0,
+      "sha256": "55e38e05d0cd11399ded4f2fc707bd6055b42f3d87708a4dd9907b6538ab0879",
+      "seconds": 0.19180466799997475
+    },
+    "ruff-version": {
+      "argv": [
+        "/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/harness-final-identity-20261025/task-tools/ruff",
+        "--version"
+      ],
+      "cwd": "/var/tmp/abstract-task1-recovery-checkpoint-20261025",
+      "log": "ruff-version.txt",
+      "exit_code": 0,
+      "sha256": "6f6aa526bc6edcde5679b20d97cb3c35cbf72ce02845f4200c08df82be30158f",
+      "seconds": 0.09005228400002352
+    },
+    "ruff-check": {
+      "argv": [
+        "/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/harness-final-identity-20261025/task-tools/ruff",
+        "check",
+        "--no-cache",
+        "."
+      ],
+      "cwd": "/var/tmp/abstract-task1-recovery-checkpoint-20261025",
+      "log": "ruff-check.txt",
+      "exit_code": 0,
+      "sha256": "ba3c2c1fd80a400180f7f48454b4bc967978bf795f3d55e7adfd6582f7afc623",
+      "seconds": 0.18981868700001314
+    },
+    "diff-check": {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "dfb5a51ffe472e1e16a86c3a7ace7d6b0f5e4df0",
+        "a3d3b0381b0c0c88a83f9099c02f6e68c436354b"
+      ],
+      "cwd": "/var/tmp/abstract-task1-recovery-checkpoint-20261025",
+      "log": "diff-check.txt",
+      "exit_code": 0,
+      "sha256": "16e08d8d590ec24d8d22b1ac0908caf4883a695ad2f8179e6de3981422633299",
+      "seconds": 0.026729652999961218
+    },
+    "plans": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-c",
+        "import json;from bench.plan import load_plan,estimate_mode;p=load_plan(\"workload.efficient.json\");print(json.dumps({m:estimate_mode(p,m) for m in p[\"modes\"]},indent=2))"
+      ],
+      "cwd": "/var/tmp/abstract-task1-recovery-checkpoint-20261025/tasks/benchmark-design/suite",
+      "log": "plans.txt",
+      "exit_code": 0,
+      "sha256": "d58cc68d550856126190692a0d434f7389f6a1d43c10e3126589a044f5bd4c98",
+      "seconds": 0.1438901699999633
+    }
+  },
+  "paid_spend_usd": 0,
+  "gpu_inference": false,
+  "provider_calls": 0,
+  "bundle_sha256": "27b785b077b6ea854479845399c650b18bcca320b33be23aad892a14635b791d",
+  "candidate_files_committed_sha256": {
+    "tasks/benchmark-design/EXECUTION.md": "cdc5f31a507de04907f6bf2c624b20a0f5b7bf04ceef12afe3a3d8c9800a890c",
+    "tasks/benchmark-design/suite/capture.py": "766f11254a190575e99d13fb1a22366c007ef9bf4b36ec634be0be288402dfbd",
+    "tasks/benchmark-design/suite/tests/test_ownership_checkpoint.py": "69947c2a795c80a58663da8491fadaa8aa5a0623fd3ec3459304f50077b47ea9"
+  },
+  "tests": {
+    "run": 161,
+    "passed": 160,
+    "skipped": 1,
+    "skip_reason": "existing opaque held-out fixture key unavailable",
+    "seconds": 135.003
+  },
+  "workload": {
+    "path": "tasks/benchmark-design/suite/workload.efficient.json",
+    "sha256": "3360446ba00399278b10a65989da3545827d2c2f9b6752d34c97cd6e8e0e621a"
+  },
+  "source_bytes_unchanged": true,
+  "worktree_clean_after_verification": true,
+  "finished_at_utc": "2026-10-25T21:49:54.700221+00:00"
+}

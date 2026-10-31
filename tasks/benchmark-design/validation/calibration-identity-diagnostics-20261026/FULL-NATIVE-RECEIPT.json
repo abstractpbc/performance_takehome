@@ -1,0 +1,33 @@
+{
+  "all_canonical_input_bytes_unchanged": true,
+  "base_head": "d67e63dd7d4caf7a5962eaa457c9512ddcfbf75f",
+  "candidate_source_lf_sha256": {
+    "tasks/benchmark-design/suite/INFERENCE-CORRIGENDUM.md": "a076b0e1011fb5e3add8bfee349410826008faea94c525a861fbe734f9010498",
+    "tasks/benchmark-design/suite/bench/identity.py": "a73a86ff9382ad99c8c7d72dfd344f6e24680a5dff8bc8613b289ca3b4a0df8e",
+    "tasks/benchmark-design/suite/bench/stats.py": "717c3114f12eac317e572b44a353438763f5c36e7c0449a27ef067cccb7cdc68",
+    "tasks/benchmark-design/suite/evaluate.py": "3c7ef19a09a33beaf6c8d3f1ef8bce739f74dc01df86465345fe0840b373defa",
+    "tasks/benchmark-design/suite/tests/test_calibration_identity_and_diagnostics.py": "ec2dd623b10c4c7e00bad3f24261112bf0610907e0ab6556c76df90963f6df40"
+  },
+  "changed_input_files": [],
+  "errors": [],
+  "existing_tokenizer_assets_enabled": true,
+  "failures": [],
+  "historical_live_calibration_refit_repeated": false,
+  "kind": "FULL_NATIVE_BENCHMARK_CANDIDATE_SOFTWARE_SUITE_ONCE",
+  "log_sha256": "93d432fa5b75192c9c2ffe6ee09edf0e6d7c6bff527b0dd39efdc79b61ea8490",
+  "loopback_CPU_mock_software_allowed": true,
+  "original_opaque_heldout_key_unavailable_not_regenerated": true,
+  "passed": 191,
+  "python": "3.14.4 (main, Apr 14 2026, 14:26:14) [Clang 22.1.3 ]",
+  "python_sha256": "4e7a6eebdb5bc100c59217d6ee085d04244495113e347e77af4d589b679f63ce",
+  "real_GPU_API_model_download_provider_auth_cash_public_git_calls": 0,
+  "skips": [
+    {
+      "reason": "held-out key not available on this machine (kept outside the tree)",
+      "test": "test_heldout_key_matches_evaluator (tests.test_fixtures.FixtureIdentityIndependenceTests.test_heldout_key_matches_evaluator)"
+    }
+  ],
+  "software_only_not_measured_power_or_official_grade": true,
+  "status": "PASS",
+  "tests_run": 192
+}

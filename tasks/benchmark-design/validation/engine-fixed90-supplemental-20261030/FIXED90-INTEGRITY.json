@@ -1,0 +1,6 @@
+{
+  "status": "PASS_FIXED90_EXACT_RAW_SSE",
+  "measured_streams": 90,
+  "actual100ms_delays": 30,
+  "all_bytes_identical": true
+}

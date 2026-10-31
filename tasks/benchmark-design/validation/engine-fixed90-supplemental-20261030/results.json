@@ -1,0 +1,40 @@
+{
+  "additional_startup_probe": 1,
+  "archive": {
+    "archive_members_hash_verified": true,
+    "bytes": 383385,
+    "file": "capture.tar.gz",
+    "payload_members": 382,
+    "sha256": "fab4f7d0ffb9d1bf5625664f01d32b79a20afee4f1afcbbd454e2bacbb398f23"
+  },
+  "client_integrity": "client-integrity.json",
+  "cold_qualification": "Separate physical wrapper launch clock; recorder cold=false is retained unchanged. No host page-cache-cold claim.",
+  "completion": "completion.json",
+  "effects": "effects.json",
+  "independent_replay": "independent-replay.json",
+  "kind": "PUBLIC_COMPLETE_SEPARATE_FIXED90_REAL_ENGINE_POINT_DIAGNOSTIC",
+  "no_model_API_calls": true,
+  "original_evaluator_exit_code": 3,
+  "original_evaluator_status": "inconclusive",
+  "population": {
+    "completed": 90,
+    "evidence_invalid": 0,
+    "failed": 0,
+    "not_offered": 0,
+    "offered": 90,
+    "planned": 90,
+    "unfinished": 0
+  },
+  "raw_integrity": {
+    "actual100ms_delays": 30,
+    "all_bytes_identical": true,
+    "measured_streams": 90,
+    "status": "PASS_FIXED90_EXACT_RAW_SSE"
+  },
+  "recorder_version": "1.1.1",
+  "resource_closure": "resource-closure.json",
+  "scope": "Separate supplemental point diagnostic outside original primary3h; no full-suite rerun, measured power, promotion, official grade or general clean-control false-positive-rate claim.",
+  "source_commit": "96a9fa5a716d54a9700d14627fe184dec4e7dedc",
+  "status": "COMPLETE_FIXED90_DESCRIPTIVE_NOT_OFFICIAL_GRADE",
+  "wrapper_first_valid_generation_seconds": 33.62981891199999
+}

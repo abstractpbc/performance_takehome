@@ -1,0 +1,2715 @@
+{
+  "aa_control": {
+    "comparison_family_size": 4,
+    "confidence_adjusted": 0.9875,
+    "decision": "inconclusive",
+    "inference_diagnostics": {
+      "bootstrap_resamples": 2000,
+      "caveat": "Sparse Monte Carlo tails can be seed-sensitive; more resamples do not add observations or establish population coverage, independence or measured power.",
+      "cluster_or_block_correction": false,
+      "comparison_family_size": 4,
+      "conditional_on_empirical_samples": true,
+      "confidence_adjusted": 0.9875,
+      "diagnostic_only": true,
+      "expected_resamples_per_tail": 12.499999999999956,
+      "finite_sample_familywise_control_established": false,
+      "iid_exchangeable_requests_assumed": true,
+      "measured_power_established": false,
+      "method": "percentile-bootstrap-independent-requests",
+      "repetitions_pooled_within_cell_load": true,
+      "tail_probability": 0.006249999999999978,
+      "zero_based_percentile_order_index": 12.493749999999956
+    },
+    "label": "aa_control_a|rate=1rps vs aa_control_b|rate=1rps",
+    "metrics": {
+      "fluidity_strict_mean": {
+        "a": 1.0,
+        "b": 1.0,
+        "decision": "no_difference",
+        "difference": {
+          "confidence": 0.9875,
+          "high": 0.0,
+          "low": 0.0,
+          "n_a": 90,
+          "n_b": 90,
+          "point": 0.0
+        },
+        "inference_diagnostics": {
+          "bootstrap_resamples": 2000,
+          "caveat": "Sparse Monte Carlo tails can be seed-sensitive; more resamples do not add observations or establish population coverage, independence or measured power.",
+          "cluster_or_block_correction": false,
+          "comparison_family_size": 4,
+          "conditional_on_empirical_samples": true,
+          "confidence_adjusted": 0.9875,
+          "diagnostic_only": true,
+          "expected_resamples_per_tail": 12.499999999999956,
+          "finite_sample_familywise_control_established": false,
+          "iid_exchangeable_requests_assumed": true,
+          "measured_power_established": false,
+          "method": "percentile-bootstrap-independent-requests",
+          "n_a": 90,
+          "n_b": 90,
+          "repetitions_pooled_within_cell_load": true,
+          "tail_probability": 0.006249999999999978,
+          "zero_based_percentile_order_index": 12.493749999999956
+        },
+        "why": "CI [-0.000, -0.000] within +/-0.05"
+      },
+      "min_decode_deadline_p99_s": {
+        "a": 0.017268506632920233,
+        "b": 0.017521459846850836,
+        "decision": "no_difference",
+        "difference": {
+          "confidence": 0.9875,
+          "high": 0.000284217094304047,
+          "low": -0.0002529532139306026,
+          "n_a": 90,
+          "n_b": 90,
+          "point": 0.0002529532139306026
+        },
+        "inference_diagnostics": {
+          "bootstrap_resamples": 2000,
+          "caveat": "Sparse Monte Carlo tails can be seed-sensitive; more resamples do not add observations or establish population coverage, independence or measured power.",
+          "cluster_or_block_correction": false,
+          "comparison_family_size": 4,
+          "conditional_on_empirical_samples": true,
+          "confidence_adjusted": 0.9875,
+          "diagnostic_only": true,
+          "expected_resamples_per_tail": 12.499999999999956,
+          "finite_sample_familywise_control_established": false,
+          "iid_exchangeable_requests_assumed": true,
+          "measured_power_established": false,
+          "method": "percentile-bootstrap-independent-requests",
+          "n_a": 90,
+          "n_b": 90,
+          "p99_data_support": {
+            "caveat": "Conditional IID-continuous illustration, not measured failure/power. Finite-sample p99 support can be sparse; more bootstrap draws do not fix it.",
+            "nominal_observations_above_population_quantile_if_iid_continuous": {
+              "a": 0.9,
+              "b": 0.9
+            },
+            "probability_sample_max_below_population_quantile_if_iid_continuous": {
+              "a": 0.4047319726783238,
+              "b": 0.4047319726783238
+            },
+            "quantile": 0.99
+          },
+          "repetitions_pooled_within_cell_load": true,
+          "tail_probability": 0.006249999999999978,
+          "zero_based_percentile_order_index": 12.493749999999956
+        },
+        "why": "CI [-0.015, +0.016] within +/-0.1"
+      },
+      "ttft_p50_s": {
+        "a": 0.061937590499837825,
+        "b": 0.06068307500027004,
+        "decision": "inconclusive",
+        "difference": {
+          "confidence": 0.9875,
+          "high": 0.0027294600561333484,
+          "low": -0.00731700090259723,
+          "n_a": 90,
+          "n_b": 90,
+          "point": -0.0012545154995677876
+        },
+        "inference_diagnostics": {
+          "bootstrap_resamples": 2000,
+          "caveat": "Sparse Monte Carlo tails can be seed-sensitive; more resamples do not add observations or establish population coverage, independence or measured power.",
+          "cluster_or_block_correction": false,
+          "comparison_family_size": 4,
+          "conditional_on_empirical_samples": true,
+          "confidence_adjusted": 0.9875,
+          "diagnostic_only": true,
+          "expected_resamples_per_tail": 12.499999999999956,
+          "finite_sample_familywise_control_established": false,
+          "iid_exchangeable_requests_assumed": true,
+          "measured_power_established": false,
+          "method": "percentile-bootstrap-independent-requests",
+          "n_a": 90,
+          "n_b": 90,
+          "repetitions_pooled_within_cell_load": true,
+          "tail_probability": 0.006249999999999978,
+          "zero_based_percentile_order_index": 12.493749999999956
+        },
+        "why": "CI [-0.118, +0.044] straddles the 0.1 boundary (underpowered)"
+      },
+      "ttft_p90_s": {
+        "a": 0.11041072269999859,
+        "b": 0.108568925000327,
+        "decision": "no_difference",
+        "difference": {
+          "confidence": 0.9875,
+          "high": 0.003968393943554826,
+          "low": -0.00790345601485968,
+          "n_a": 90,
+          "n_b": 90,
+          "point": -0.0018417976996715907
+        },
+        "inference_diagnostics": {
+          "bootstrap_resamples": 2000,
+          "caveat": "Sparse Monte Carlo tails can be seed-sensitive; more resamples do not add observations or establish population coverage, independence or measured power.",
+          "cluster_or_block_correction": false,
+          "comparison_family_size": 4,
+          "conditional_on_empirical_samples": true,
+          "confidence_adjusted": 0.9875,
+          "diagnostic_only": true,
+          "expected_resamples_per_tail": 12.499999999999956,
+          "finite_sample_familywise_control_established": false,
+          "iid_exchangeable_requests_assumed": true,
+          "measured_power_established": false,
+          "method": "percentile-bootstrap-independent-requests",
+          "n_a": 90,
+          "n_b": 90,
+          "repetitions_pooled_within_cell_load": true,
+          "tail_probability": 0.006249999999999978,
+          "zero_based_percentile_order_index": 12.493749999999956
+        },
+        "why": "CI [-0.072, +0.036] within +/-0.15"
+      }
+    }
+  },
+  "adapter": "native",
+  "cells": {
+    "aa_control_a|rate=1rps": {
+      "categories": {
+        "completed": 90
+      },
+      "cell_id": "aa_control_a",
+      "completed": 90,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 57.90888704259035,
+        "min_decode_deadline_s": {
+          "n": 90,
+          "p50": 0.01723724275254679,
+          "p99": 0.017268506632920233,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=1rps",
+      "offered": 90,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {},
+      "role": "aa_control",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 90
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.061937590499837825,
+        "max": 0.14324018199931743,
+        "n": 90,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.06380724549990191,
+          "low": 0.060746772499896906,
+          "n": 90,
+          "point": 0.061937590499837825,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.11313335500017274,
+          "low": 0.10733926099965174,
+          "n": 90,
+          "point": 0.11041072269999859,
+          "resamples": 2000
+        },
+        "p99": 0.13591683212968747,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1
+      }
+    },
+    "aa_control_b|rate=1rps": {
+      "categories": {
+        "completed": 90
+      },
+      "cell_id": "aa_control_b",
+      "completed": 90,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 57.072869997172745,
+        "min_decode_deadline_s": {
+          "n": 90,
+          "p50": 0.01723724275254679,
+          "p99": 0.017521459846850836,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=1rps",
+      "offered": 90,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {},
+      "role": "aa_control",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 90
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.06068307500027004,
+        "max": 0.11391505000028701,
+        "n": 90,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.06305888799988679,
+          "low": 0.05636245050027355,
+          "n": 90,
+          "point": 0.06068307500027004,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.11239290199955576,
+          "low": 0.10449096889979047,
+          "n": 90,
+          "point": 0.108568925000327,
+          "resamples": 2000
+        },
+        "p99": 0.11311706353998488,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1
+      }
+    },
+    "chat_short_open|rate=0.5rps": {
+      "categories": {
+        "completed": 90
+      },
+      "cell_id": "chat_short_open",
+      "completed": 90,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 56.16186361826352,
+        "min_decode_deadline_s": {
+          "n": 90,
+          "p50": 0.01723724275254679,
+          "p99": 0.017805676941154883,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=0.5rps",
+      "offered": 90,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {},
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 90
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.06062787299970296,
+        "max": 0.1905884559992046,
+        "n": 90,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.0635107660000358,
+          "low": 0.05916671449995192,
+          "n": 90,
+          "point": 0.06062787299970296,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.11618855800043093,
+          "low": 0.10153228330054848,
+          "n": 90,
+          "point": 0.11325161699996898,
+          "resamples": 2000
+        },
+        "p99": 0.13069039155939205,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1
+      }
+    },
+    "chat_short_open|rate=1rps": {
+      "categories": {
+        "completed": 90
+      },
+      "cell_id": "chat_short_open",
+      "completed": 90,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 56.16186361826352,
+        "min_decode_deadline_s": {
+          "n": 90,
+          "p50": 0.01723724275254679,
+          "p99": 0.017805676941154883,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=1rps",
+      "offered": 90,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {},
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 90
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.06287328200005504,
+        "max": 0.15279996000026586,
+        "n": 90,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.06994327087469397,
+          "low": 0.06012103700004445,
+          "n": 90,
+          "point": 0.06287328200005504,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.12729735800076014,
+          "low": 0.10639626688760476,
+          "n": 90,
+          "point": 0.11453606280010718,
+          "resamples": 2000
+        },
+        "p99": 0.13605440797005938,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1
+      }
+    },
+    "chat_short_open|rate=2rps": {
+      "categories": {
+        "completed": 135
+      },
+      "cell_id": "chat_short_open",
+      "completed": 135,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 55.279483563576925,
+        "min_decode_deadline_s": {
+          "n": 135,
+          "p50": 0.01723724275254679,
+          "p99": 0.018089894035458926,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 135,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 135,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 135,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 135,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 135,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 135,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 135,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 135,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 135,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=2rps",
+      "offered": 135,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {},
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 135
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.060224025000024994,
+        "max": 0.15906086300037714,
+        "n": 135,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.06466218300010951,
+          "low": 0.05858044900014647,
+          "n": 135,
+          "point": 0.060224025000024994,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.11790917800026365,
+          "low": 0.10471336736083686,
+          "n": 135,
+          "point": 0.11414370400016197,
+          "resamples": 2000
+        },
+        "p99": 0.1566300755604243,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1
+      }
+    },
+    "chat_short_open|rate=4rps": {
+      "categories": {
+        "completed": 180
+      },
+      "cell_id": "chat_short_open",
+      "completed": 180,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 50.51730579605237,
+        "min_decode_deadline_s": {
+          "n": 180,
+          "p50": 0.018658328224067017,
+          "p99": 0.0197951966012832,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.931828592172526,
+            "low": 0.9072099475857628,
+            "n": 180,
+            "point": 0.9196149222996364,
+            "resamples": 2000
+          },
+          "index_p50": 0.9444444444444444,
+          "n": 180,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.6666666666666666,
+            "low": 0.5222222222222223,
+            "n": 180,
+            "point": 0.5944444444444444,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9760530004048791,
+            "low": 0.9671667524225079,
+            "n": 180,
+            "point": 0.9717176723651382,
+            "resamples": 2000
+          },
+          "index_p50": 0.9807692307692307,
+          "n": 180,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.9722222222222222,
+            "n": 180,
+            "point": 0.9888888888888889,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.8819410276724272,
+            "low": 0.8412525343558014,
+            "n": 180,
+            "point": 0.8615617506142399,
+            "resamples": 2000
+          },
+          "index_p50": 0.8914210168071627,
+          "n": 180,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.5611111111111111,
+            "low": 0.4222222222222222,
+            "n": 180,
+            "point": 0.4888888888888889,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=4rps",
+      "offered": 180,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {},
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 180
+      },
+      "ttft_s": {
+        "first_byte_p50": 1.0630150184997547,
+        "max": 4.229657474000305,
+        "n": 180,
+        "p50": {
+          "confidence": 0.95,
+          "high": 1.5214274919999298,
+          "low": 0.5276035269379467,
+          "n": 180,
+          "point": 1.0630150184997547,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 3.5318553940005586,
+          "low": 3.1385106257002917,
+          "n": 180,
+          "point": 3.3355086651998134,
+          "resamples": 2000
+        },
+        "p99": 3.8853686749201923,
+        "prefill_deadline_hit_rate": 0.4,
+        "ttft_slo_hit_rate": 0.49444444444444446,
+        "ttft_slo_s": 1
+      }
+    },
+    "closed_loop_sweep|conc=1": {
+      "categories": {
+        "completed": 90
+      },
+      "cell_id": "closed_loop_sweep",
+      "completed": 90,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 58.8779411541683,
+        "min_decode_deadline_s": {
+          "n": 90,
+          "p50": 0.01695302565824274,
+          "p99": 0.016984289538616186,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "conc=1",
+      "offered": 90,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {},
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 90
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.06346057649989234,
+        "max": 0.10752102700007526,
+        "n": 90,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.06625292799981253,
+          "low": 0.059606276825161335,
+          "n": 90,
+          "point": 0.06346057649989234,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.1066951165997125,
+          "low": 0.09367792489983913,
+          "n": 90,
+          "point": 0.09437318829950528,
+          "resamples": 2000
+        },
+        "p99": 0.1074205682500633,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1
+      }
+    },
+    "closed_loop_sweep|conc=16": {
+      "categories": {
+        "completed": 96
+      },
+      "cell_id": "closed_loop_sweep",
+      "completed": 96,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 52.712125772741345,
+        "min_decode_deadline_s": {
+          "n": 96,
+          "p50": 0.017379351299698812,
+          "p99": 0.018970967027801468,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9999593098958334,
+            "low": 0.9996433632046569,
+            "n": 96,
+            "point": 0.9998268675959968,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 96,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 96,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9999593098958334,
+            "low": 0.9996433632046569,
+            "n": 96,
+            "point": 0.9998268675959968,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 96,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 96,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9995865934595286,
+            "low": 0.9987569699395005,
+            "n": 96,
+            "point": 0.9992116803960788,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 96,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 96,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "conc=16",
+      "offered": 96,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {},
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 96
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.20234837950010842,
+        "max": 0.3792854419998548,
+        "n": 96,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.23595482850032568,
+          "low": 0.16449218638740606,
+          "n": 96,
+          "point": 0.20234837950010842,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.3396301500001755,
+          "low": 0.3350555689999055,
+          "n": 96,
+          "point": 0.3377298880000126,
+          "resamples": 2000
+        },
+        "p99": 0.3790637024998887,
+        "prefill_deadline_hit_rate": 0.9583333333333334,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1
+      }
+    },
+    "closed_loop_sweep|conc=32": {
+      "categories": {
+        "completed": 142,
+        "failed": 2
+      },
+      "cell_id": "closed_loop_sweep",
+      "completed": 142,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 48.70607709433633,
+        "min_decode_deadline_s": {
+          "n": 142,
+          "p50": 0.017805676941154883,
+          "p99": 0.02053131887553068,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.8648497956844822,
+            "low": 0.8115787900820651,
+            "n": 144,
+            "point": 0.8395613751027902,
+            "resamples": 2000
+          },
+          "index_p50": 0.773901630284609,
+          "n": 144,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.5210069444444435,
+            "low": 0.3611111111111111,
+            "n": 144,
+            "point": 0.4444444444444444,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9485493594864394,
+            "low": 0.908929755861383,
+            "n": 144,
+            "point": 0.9314267177014686,
+            "resamples": 2000
+          },
+          "index_p50": 0.9172661870503597,
+          "n": 144,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.7777777777777778,
+            "low": 0.625,
+            "n": 144,
+            "point": 0.7013888888888888,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.7880103959976046,
+            "low": 0.7169008586384811,
+            "n": 144,
+            "point": 0.7522091743052759,
+            "resamples": 2000
+          },
+          "index_p50": 0.6293018963981163,
+          "n": 144,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.5138888888888888,
+            "low": 0.3472222222222222,
+            "n": 144,
+            "point": 0.4305555555555556,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "conc=32",
+      "offered": 144,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {
+        "invalid_output": 2
+      },
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 144
+      },
+      "ttft_s": {
+        "first_byte_p50": 3.852733011500277,
+        "max": 5.3404606249996505,
+        "n": 142,
+        "p50": {
+          "confidence": 0.95,
+          "high": 4.106120763000035,
+          "low": 0.6115680948249755,
+          "n": 142,
+          "point": 3.852733011500277,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 5.267589887300256,
+          "low": 4.73369497430058,
+          "n": 142,
+          "point": 5.175416621899785,
+          "resamples": 2000
+        },
+        "p99": 5.326476273229664,
+        "prefill_deadline_hit_rate": 0.352112676056338,
+        "ttft_slo_hit_rate": 0.43661971830985913,
+        "ttft_slo_s": 1
+      }
+    },
+    "closed_loop_sweep|conc=4": {
+      "categories": {
+        "completed": 90
+      },
+      "cell_id": "closed_loop_sweep",
+      "completed": 90,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 57.072869997172745,
+        "min_decode_deadline_s": {
+          "n": 90,
+          "p50": 0.01723724275254679,
+          "p99": 0.017521459846850836,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "conc=4",
+      "offered": 90,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {},
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 90
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.07637913850021505,
+        "max": 0.1903795589996662,
+        "n": 90,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.08070740787486555,
+          "low": 0.07339230036270693,
+          "n": 90,
+          "point": 0.07637913850021505,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.17733171399959247,
+          "low": 0.12874759520000226,
+          "n": 90,
+          "point": 0.14963194489982926,
+          "resamples": 2000
+        },
+        "p99": 0.19033873559035783,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1
+      }
+    },
+    "generation_long_open|rate=0.2rps": {
+      "categories": {
+        "completed": 90
+      },
+      "cell_id": "generation_long_open",
+      "completed": 90,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 56.16186361826352,
+        "min_decode_deadline_s": {
+          "n": 90,
+          "p50": 0.01723724275254679,
+          "p99": 0.017805676941154883,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=0.2rps",
+      "offered": 90,
+      "prompt_source": "generation_long",
+      "rejection_reasons": {},
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 90
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.05480005000026722,
+        "max": 0.06334947200048191,
+        "n": 90,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.0562527570000384,
+          "low": 0.052896932500516414,
+          "n": 90,
+          "point": 0.05480005000026722,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.0625448820001111,
+          "low": 0.059719347897012096,
+          "n": 90,
+          "point": 0.061736303300040166,
+          "resamples": 2000
+        },
+        "p99": 0.06331450923949887,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1
+      }
+    },
+    "mixed_open|rate=1rps": {
+      "categories": {
+        "completed": 90
+      },
+      "cell_id": "mixed_open",
+      "completed": 90,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 14.927724783373476,
+        "min_decode_deadline_s": {
+          "n": 90,
+          "p50": 0.018089894035458926,
+          "p99": 0.06698944511046999,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9890267978027445,
+            "low": 0.9432785680960417,
+            "n": 90,
+            "point": 0.9688247354181557,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.9777777777777777,
+            "low": 0.8777777777777778,
+            "n": 90,
+            "point": 0.9333333333333333,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.995395085429868,
+            "low": 0.9859984775289123,
+            "n": 90,
+            "point": 0.9909539703452748,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 90,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9752042387610704,
+            "low": 0.9118578987138483,
+            "n": 90,
+            "point": 0.9465547760417803,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.9666666666666667,
+            "low": 0.8555555555555555,
+            "n": 90,
+            "point": 0.9111111111111111,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=1rps",
+      "offered": 90,
+      "prompt_source": "rag_long",
+      "rejection_reasons": {},
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 90
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.09381441950017688,
+        "max": 1.4159757529996568,
+        "n": 90,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.10891774600077042,
+          "low": 0.06709504150012435,
+          "n": 90,
+          "point": 0.09381441950017688,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 1.1594273380005689,
+          "low": 0.9478138964003848,
+          "n": 90,
+          "point": 1.0264222298002097,
+          "resamples": 2000
+        },
+        "p99": 1.3310859474398602,
+        "prefill_deadline_hit_rate": 0.8444444444444444,
+        "ttft_slo_hit_rate": 0.8666666666666667,
+        "ttft_slo_s": 1
+      }
+    },
+    "rag_long_open|rate=0.25rps": {
+      "categories": {
+        "completed": 90
+      },
+      "cell_id": "rag_long_open",
+      "completed": 90,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 10.999648260744653,
+        "min_decode_deadline_s": {
+          "n": 90,
+          "p50": 0.017805676941154883,
+          "p99": 0.09091199793804153,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9464735707362769,
+            "low": 0.8604159321575073,
+            "n": 90,
+            "point": 0.9068931834440129,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.8888888888888888,
+            "low": 0.7222222222222222,
+            "n": 90,
+            "point": 0.8111111111111111,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9878508778258778,
+            "low": 0.9740973707049794,
+            "n": 90,
+            "point": 0.9811632578371708,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.9888888888888889,
+            "low": 0.9111111111111111,
+            "n": 90,
+            "point": 0.9555555555555556,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9120576450023243,
+            "low": 0.8051017306131272,
+            "n": 90,
+            "point": 0.8612533925602378,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.8222222222222222,
+            "low": 0.6333333333333333,
+            "n": 90,
+            "point": 0.7333333333333333,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=0.25rps",
+      "offered": 90,
+      "prompt_source": "rag_long",
+      "rejection_reasons": {},
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 90
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.8958858049995797,
+        "max": 1.558794947000024,
+        "n": 90,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.908170032000271,
+          "low": 0.8417606054999851,
+          "n": 90,
+          "point": 0.8958858049995797,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 1.2645742659997268,
+          "low": 1.0704042899997148,
+          "n": 90,
+          "point": 1.194433188899802,
+          "resamples": 2000
+        },
+        "p99": 1.3859309073802706,
+        "prefill_deadline_hit_rate": 0.7,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 4
+      }
+    },
+    "rag_long_open|rate=0.5rps": {
+      "categories": {
+        "completed": 90
+      },
+      "cell_id": "rag_long_open",
+      "completed": 90,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 11.294122659432455,
+        "min_decode_deadline_s": {
+          "n": 90,
+          "p50": 0.01837411112976297,
+          "p99": 0.08854162737154578,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.8340891417128762,
+            "low": 0.7182172105455111,
+            "n": 90,
+            "point": 0.7774985852624288,
+            "resamples": 2000
+          },
+          "index_p50": 0.9090909090909091,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.6222222222222222,
+            "low": 0.4222222222222222,
+            "n": 90,
+            "point": 0.5222222222222223,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9744265771064684,
+            "low": 0.9573483468222599,
+            "n": 90,
+            "point": 0.9661320032624381,
+            "resamples": 2000
+          },
+          "index_p50": 0.956439393939394,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.9666666666666667,
+            "low": 0.8666666666666667,
+            "n": 90,
+            "point": 0.9222222222222223,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.72102452885289,
+            "low": 0.5746771615847415,
+            "n": 90,
+            "point": 0.6480459253859165,
+            "resamples": 2000
+          },
+          "index_p50": 0.8,
+          "n": 90,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.5,
+            "low": 0.3,
+            "n": 90,
+            "point": 0.4,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=0.5rps",
+      "offered": 90,
+      "prompt_source": "rag_long",
+      "rejection_reasons": {},
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.0,
+        "tokens_per_delta_mean": 1.0,
+        "usage_discrepancies": 0,
+        "usage_reported": 90
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.9294981364996602,
+        "max": 1.6577879770002255,
+        "n": 90,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.9700103130003299,
+          "low": 0.861121870000261,
+          "n": 90,
+          "point": 0.9294981364996602,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 1.2327305429998887,
+          "low": 1.1000982120097256,
+          "n": 90,
+          "point": 1.1692533679994086,
+          "resamples": 2000
+        },
+        "p99": 1.6562126173697742,
+        "prefill_deadline_hit_rate": 0.4888888888888889,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 4
+      }
+    }
+  },
+  "engine": {
+    "base_url": "http://127.0.0.1:8000",
+    "kind": "unknown",
+    "lock_digest": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+    "lock_image": "docker.io/zmlai/llmd@sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+    "lock_model": "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "model_id": "model",
+    "server_header": "zml/httpd"
+  },
+  "events_dir": "/srv/abstract-direct-runc/evidence/full-direct-2/events",
+  "inconclusive_reasons": [],
+  "mode": "full",
+  "plan_id": "abstract-t1-llmd-mi355x-assistant-prefill-v3-cal-cabc5698508f",
+  "population": {
+    "totals": {
+      "completed": 1453,
+      "evidence_invalid": 0,
+      "failed": 2,
+      "not_offered": 0,
+      "offered": 1455,
+      "planned": 1455,
+      "unfinished": 0
+    },
+    "units": {
+      "aa_control_a|rate=1rps|rep0": {
+        "cell_id": "aa_control_a",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=1rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "aa_control",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "aa_control_a|rate=1rps|rep1": {
+        "cell_id": "aa_control_a",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=1rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "aa_control",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "aa_control_a|rate=1rps|rep2": {
+        "cell_id": "aa_control_a",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=1rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "aa_control",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "aa_control_b|rate=1rps|rep0": {
+        "cell_id": "aa_control_b",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=1rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "aa_control",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "aa_control_b|rate=1rps|rep1": {
+        "cell_id": "aa_control_b",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=1rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "aa_control",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "aa_control_b|rate=1rps|rep2": {
+        "cell_id": "aa_control_b",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=1rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "aa_control",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "chat_short_open|rate=0.5rps|rep0": {
+        "cell_id": "chat_short_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=0.5rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "chat_short_open|rate=0.5rps|rep1": {
+        "cell_id": "chat_short_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=0.5rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "chat_short_open|rate=0.5rps|rep2": {
+        "cell_id": "chat_short_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=0.5rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "chat_short_open|rate=1rps|rep0": {
+        "cell_id": "chat_short_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=1rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "chat_short_open|rate=1rps|rep1": {
+        "cell_id": "chat_short_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=1rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "chat_short_open|rate=1rps|rep2": {
+        "cell_id": "chat_short_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=1rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "chat_short_open|rate=2rps|rep0": {
+        "cell_id": "chat_short_open",
+        "completed": 45,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=2rps",
+        "not_offered": 0,
+        "offered": 45,
+        "planned": 45,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "chat_short_open|rate=2rps|rep1": {
+        "cell_id": "chat_short_open",
+        "completed": 45,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=2rps",
+        "not_offered": 0,
+        "offered": 45,
+        "planned": 45,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "chat_short_open|rate=2rps|rep2": {
+        "cell_id": "chat_short_open",
+        "completed": 45,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=2rps",
+        "not_offered": 0,
+        "offered": 45,
+        "planned": 45,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "chat_short_open|rate=4rps|rep0": {
+        "cell_id": "chat_short_open",
+        "completed": 60,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=4rps",
+        "not_offered": 0,
+        "offered": 60,
+        "planned": 60,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "chat_short_open|rate=4rps|rep1": {
+        "cell_id": "chat_short_open",
+        "completed": 60,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=4rps",
+        "not_offered": 0,
+        "offered": 60,
+        "planned": 60,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "chat_short_open|rate=4rps|rep2": {
+        "cell_id": "chat_short_open",
+        "completed": 60,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=4rps",
+        "not_offered": 0,
+        "offered": 60,
+        "planned": 60,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "closed_loop_sweep|conc=16|rep0": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 32,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "conc=16",
+        "not_offered": 0,
+        "offered": 32,
+        "planned": 32,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "closed_loop_sweep|conc=16|rep1": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 32,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "conc=16",
+        "not_offered": 0,
+        "offered": 32,
+        "planned": 32,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "closed_loop_sweep|conc=16|rep2": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 32,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "conc=16",
+        "not_offered": 0,
+        "offered": 32,
+        "planned": 32,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "closed_loop_sweep|conc=1|rep0": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "conc=1",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "closed_loop_sweep|conc=1|rep1": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "conc=1",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "closed_loop_sweep|conc=1|rep2": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "conc=1",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "closed_loop_sweep|conc=32|rep0": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 47,
+        "evidence_invalid": 0,
+        "failed": 1,
+        "load_label": "conc=32",
+        "not_offered": 0,
+        "offered": 48,
+        "planned": 48,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "closed_loop_sweep|conc=32|rep1": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 47,
+        "evidence_invalid": 0,
+        "failed": 1,
+        "load_label": "conc=32",
+        "not_offered": 0,
+        "offered": 48,
+        "planned": 48,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "closed_loop_sweep|conc=32|rep2": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 48,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "conc=32",
+        "not_offered": 0,
+        "offered": 48,
+        "planned": 48,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "closed_loop_sweep|conc=4|rep0": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "conc=4",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "closed_loop_sweep|conc=4|rep1": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "conc=4",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "closed_loop_sweep|conc=4|rep2": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "conc=4",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "generation_long_open|rate=0.2rps|rep0": {
+        "cell_id": "generation_long_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=0.2rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "generation_long_open|rate=0.2rps|rep1": {
+        "cell_id": "generation_long_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=0.2rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "generation_long_open|rate=0.2rps|rep2": {
+        "cell_id": "generation_long_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=0.2rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "mixed_open|rate=1rps|rep0": {
+        "cell_id": "mixed_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=1rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "mixed_open|rate=1rps|rep1": {
+        "cell_id": "mixed_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=1rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "mixed_open|rate=1rps|rep2": {
+        "cell_id": "mixed_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=1rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "rag_long_open|rate=0.25rps|rep0": {
+        "cell_id": "rag_long_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=0.25rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "rag_long_open|rate=0.25rps|rep1": {
+        "cell_id": "rag_long_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=0.25rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "rag_long_open|rate=0.25rps|rep2": {
+        "cell_id": "rag_long_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=0.25rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 4,
+        "warmup_planned": 4
+      },
+      "rag_long_open|rate=0.5rps|rep0": {
+        "cell_id": "rag_long_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=0.5rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "rag_long_open|rate=0.5rps|rep1": {
+        "cell_id": "rag_long_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=0.5rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      },
+      "rag_long_open|rate=0.5rps|rep2": {
+        "cell_id": "rag_long_open",
+        "completed": 30,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=0.5rps",
+        "not_offered": 0,
+        "offered": 30,
+        "planned": 30,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 0,
+        "warmup_planned": 0
+      }
+    }
+  },
+  "reasons": [],
+  "report_schema_version": "1.0.0",
+  "request_verdicts": {
+    "closed_loop_sweep|conc=32|rep0/measure/18": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "invalid_output:nonce_missing"
+      ]
+    },
+    "closed_loop_sweep|conc=32|rep1/measure/0": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "invalid_output:nonce_missing"
+      ]
+    }
+  },
+  "run_id": "run-1793208572-8dafad",
+  "startup": {
+    "cold_launches": 2,
+    "launches": [
+      {
+        "cold": true,
+        "first_ready_probe_s": 24.049623989999873,
+        "generation_probes": 1,
+        "launch_index": 0,
+        "probe_categories": {
+          "completed": 1
+        },
+        "readiness_lead_s": 0.25840323300008095,
+        "readiness_probes": 25,
+        "startup_to_first_valid_generation_s": 24.308027222999954,
+        "status": "valid"
+      },
+      {
+        "cold": true,
+        "first_ready_probe_s": 31.071039577999727,
+        "generation_probes": 1,
+        "launch_index": 1,
+        "probe_categories": {
+          "completed": 1
+        },
+        "readiness_lead_s": 0.25509746800025823,
+        "readiness_probes": 32,
+        "startup_to_first_valid_generation_s": 31.326137045999985,
+        "status": "valid"
+      }
+    ],
+    "planned_launches": 2,
+    "startup_to_first_valid_generation_s": {
+      "median": 27.81708213449997,
+      "n": 2,
+      "values": [
+        24.308027222999954,
+        31.326137045999985
+      ]
+    }
+  },
+  "status": "valid",
+  "suite_version": "1.0.0",
+  "time_scale": 1.0,
+  "tokenizer": {
+    "count_semantics": "reencoded-decoded-output",
+    "files": {
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "tokenizer_config.json": "5186f0defcd7f232382c7f0aebcd2252d073bb921ab240e407b7ae8745d2b29b"
+    },
+    "identifier": "hf-tokenizers:Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9:sha256:5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "model": "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "offset_mapping": "nfc-cluster-end-v1",
+    "prompt_count_semantics": "regex-approximation-without-chat-template",
+    "runtime": "tokenizers==0.22.2",
+    "timing_resolution": "delta",
+    "unicode_database": "16.0.0"
+  }
+}

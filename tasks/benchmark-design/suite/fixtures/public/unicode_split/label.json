@@ -1,0 +1,12 @@
+{
+  "profile": "unicode_split",
+  "seed": 107,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 74.6,
+  "family": "unicode_splits",
+  "description": "Appends CJK/emoji/combining text and splits deltas mid-grapheme.",
+  "expected": {
+    "status": "valid",
+    "signal": "tokens counted once across split deltas; no replacement chars"
+  }
+}

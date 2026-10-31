@@ -1,0 +1,289 @@
+{
+  "schema_version": 2,
+  "task": "benchmark-design",
+  "status": "REAL_CALIBRATION_QUICK_FULL_VALID_DEVELOPMENT_RESULTS",
+  "official_result": false,
+  "source": {
+    "repository": "https://github.com/sharonbasovich/performance_takehome",
+    "branch": "codex/task1-real-run-final",
+    "capture_commit": "7d6fd182aa494eff1975e41f3fb67934f30994f6",
+    "tested_code_commit": "ea97cb833644aefd48569a805c83269bd0c8eaed",
+    "provenance": "tasks/benchmark-design/validation/real-run-20261028/provenance.json",
+    "qualification": "Measurements keep their actual source plus disclosed external full-run lifecycle adapter. Exact ea97 code validation precedes documentation-only publication."
+  },
+  "suite": {
+    "entrypoint": "tasks/benchmark-design/suite/evaluate.py",
+    "workload": "tasks/benchmark-design/suite/workload.json",
+    "actual_frozen_scoring_workload": "tasks/benchmark-design/validation/real-run-20261028/frozen-workload.json",
+    "actual_frozen_scoring_workload_sha256": "fb82d603967046ab14f895d1bc5be4e681cc25f341a3cc31ce76ca9268edc412",
+    "tests": "tasks/benchmark-design/suite/tests",
+    "test_command": "cd tasks/benchmark-design/suite && python -B -m unittest discover -s tests -v",
+    "run_wall_budget_minutes": 180.0,
+    "planned_wall_minutes": {
+      "quick": 39.6,
+      "full": 160.0
+    },
+    "planned_gpu_hours": {
+      "quick": 0.66,
+      "full": 2.67
+    },
+    "planning_qualification": "These required historical arithmetic fields refer to unchanged suite/workload.json, not the actual frozen efficient scoring plan or measured time.",
+    "optional_tokenizer": {
+      "asset_lock": "tasks/benchmark-design/suite/tokenizer.lock.json",
+      "runtime_lock": "tasks/benchmark-design/suite/requirements-tokenizer.txt",
+      "runtime": "tokenizers==0.22.2",
+      "timing_resolution": "delta",
+      "count_semantics": "reencoded-decoded-output",
+      "real_run_requirement": "--tokenizer-snapshot on runner and evaluator; selected assets must match plan.target.model_role",
+      "cpu_validation": "tests/test_model_tokens.py verifies both protected model tokenizer snapshots without weights or GPU"
+    },
+    "latest_validation": {
+      "kind": "SANITIZED_EXACT_PUBLIC_TASK1_NATIVE_CPU_VALIDATION",
+      "source_commit": "ea97cb833644aefd48569a805c83269bd0c8eaed",
+      "status": "PASS",
+      "started_utc": "2026-10-28T18:11:48.297791+00:00",
+      "finished_utc": "2026-10-28T18:12:50.644265+00:00",
+      "candidate_tests": {
+        "run": 202,
+        "passed": 201,
+        "skipped": 1,
+        "reason": "Original opaque held-out key unavailable; not regenerated"
+      },
+      "protected_root_tests": {
+        "run": 40,
+        "passed": 40
+      },
+      "ruff": {
+        "version": "0.16.10",
+        "scope": "full repository",
+        "status": "PASS"
+      },
+      "protected_integrity": {
+        "base": "81aead87d78ed468c4c374fb42921471b44c3f80",
+        "status": "PASS"
+      },
+      "runtime": "CPython 3.14.4; Tokenizers 0.22.2",
+      "GPU_actions": 0,
+      "qualification": "Whole-source checks apply to exact ea97cb8. This publication changes documentation/evidence only, and does not claim a new whole-suite run at the later documentation commit.",
+      "log_digests": {
+        "clone.stderr": {
+          "bytes": 64,
+          "sha256": "41b1f371672fac21aa739fc3d9897e1a335578622d0466f224495a66f5cfaea2"
+        },
+        "clone.stdout": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "integrity.stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "integrity.stdout": {
+          "bytes": 88,
+          "sha256": "f2883d87b0a1e13dcf1f84ac2c85727b41c4d6150b43b7c84d794a165784195c"
+        },
+        "root-tests.stderr": {
+          "bytes": 4833,
+          "sha256": "49409412c256bfb58010bfbaa269f4396e0ef584f322348aa5b1f15cc513ae70"
+        },
+        "root-tests.stdout": {
+          "bytes": 506,
+          "sha256": "2ed665c30d27fcd17541085f27e88c39fb44dfb8574bce9c626c522af3276902"
+        },
+        "ruff-full.stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "ruff-full.stdout": {
+          "bytes": 19,
+          "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+        },
+        "ruff-version.stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "ruff-version.stdout": {
+          "bytes": 13,
+          "sha256": "69b1c258a98757c0f0f474d1a74c08f610db7bfb1d8ef5aca35520ca1a0238f2"
+        },
+        "runtime.stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "runtime.stdout": {
+          "bytes": 160,
+          "sha256": "a9e146ee6123f873cd050e6a17dcf6f434596ff2f5661e820b9c85bcf1e1c04e"
+        },
+        "whole-suite.stderr": {
+          "bytes": 31517,
+          "sha256": "701048bcf194e9130bf7b178271813d35f22c1b4c5993fe622869d7c7efaca48"
+        },
+        "whole-suite.stdout": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    }
+  },
+  "fixed_environment": {
+    "baseline_lock": "baseline/lock.json",
+    "baseline_lock_sha256": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+    "measurement_harness_digest": "UNAVAILABLE_IN_DRAFT: the fixed measurement runner has not been released (docs/RELEASE_STATUS.md); a candidate-built stand-in lives in tasks/benchmark-design/suite/runner",
+    "agent_harness_profile": "enhanced-pi-1.0",
+    "agent_harness_release_digest": "UNAVAILABLE_IN_DRAFT: the enhanced Pi harness release has not been published (docs/RELEASE_STATUS.md)",
+    "actual_measurement_image": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+    "image_qualification": "Digest-bound development LLMD wrapper; the protected baseline lock identity is separately retained, not replaced."
+  },
+  "integrity": {
+    "starter_commit": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "starter_tag": "UNAVAILABLE_IN_DRAFT: no takehome-start tag exists in the draft repository; the only upstream commit was used as the base",
+    "command": "python -B -m tools.check_integrity --base 81aead87d78ed468c4c374fb42921471b44c3f80",
+    "report": "tasks/benchmark-design/validation/integrity.txt"
+  },
+  "evidence": {
+    "report": "tasks/benchmark-design/DESIGN.md",
+    "real_results": "tasks/benchmark-design/REAL-RUN-20261028.md",
+    "public_capture_packet": "tasks/benchmark-design/validation/real-run-20261028/README.md",
+    "manifest": "tasks/benchmark-design/validation/real-run-20261028/manifest.json",
+    "results": "tasks/benchmark-design/validation/real-run-20261028/results.json",
+    "native_validation": "tasks/benchmark-design/validation/real-run-20261028/native-validation.json",
+    "historical_pre_completion_manifest": "tasks/benchmark-design/submission.pre-complete-20261028.json",
+    "historical_pre_live_manifest": "tasks/benchmark-design/submission.pre-live-20261026.json",
+    "historical_cpu_validation_reports": [
+      "tasks/benchmark-design/validation/discrimination.md",
+      "tasks/benchmark-design/validation/discrimination.json",
+      "tasks/benchmark-design/validation/controls.json",
+      "tasks/benchmark-design/validation/heldout_results.json",
+      "tasks/benchmark-design/validation/comparison_clean_vs_noisy.json",
+      "tasks/benchmark-design/validation/comparison_clean_vs_slow_decode.json",
+      "tasks/benchmark-design/validation/comparison_clean_vs_late_first_token.json",
+      "tasks/benchmark-design/validation/reports/public",
+      "tasks/benchmark-design/validation/reports/heldout"
+    ]
+  },
+  "measurement": {
+    "calibration": {
+      "archive": "calibration-direct-1.tar.gz",
+      "archive_bytes": 122377,
+      "archive_sha256": "d9b4776c13ba0639d3112ec43e73271a2d06961e11944c9a3f84e1c3b26a1931",
+      "export_manifest": "calibration-direct-1/export-manifest.json",
+      "archive_members_hash_verified": true,
+      "report": "calibration-direct-1/report.json",
+      "report_sha256": "9feee99d3cd1752eb9047bc6282ad98ecc1bc35e418b9aa7ebb613d6f4490b77",
+      "completion": "calibration-direct-1/completion.json",
+      "status": "valid",
+      "population": {
+        "completed": 60,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "not_offered": 0,
+        "offered": 60,
+        "planned": 60,
+        "unfinished": 0
+      },
+      "warmups": 8,
+      "cold_launches": 1,
+      "startup_to_first_valid_generation_s": {
+        "median": 31.332711325999753,
+        "n": 1,
+        "values": [
+          31.332711325999753
+        ]
+      },
+      "runner_exit_code": 0,
+      "evaluation_exit_code": 0,
+      "independent_audit_exit_code": 0,
+      "cleanup_owned_container_absent": true,
+      "total_suite_seconds_from_original_T0": 3041.708581577771,
+      "within_suite_deadline": true
+    },
+    "quick": {
+      "archive": "quick-direct-1.tar.gz",
+      "archive_bytes": 1792788,
+      "archive_sha256": "bbae33fcbd6176eac64e9e250fc05d36eeda07a0b8a6c64f855f85bde85a5443",
+      "export_manifest": "quick-direct-1/export-manifest.json",
+      "archive_members_hash_verified": true,
+      "report": "quick-direct-1/report.json",
+      "report_sha256": "d5f9a0b836fdbc5240cdb4006e852a005c3025172b2685dfadd4fc0e622f2da7",
+      "completion": "quick-direct-1/completion.json",
+      "status": "valid",
+      "population": {
+        "completed": 242,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "not_offered": 0,
+        "offered": 242,
+        "planned": 242,
+        "unfinished": 0
+      },
+      "warmups": 28,
+      "cold_launches": 1,
+      "startup_to_first_valid_generation_s": {
+        "median": 25.28745089999984,
+        "n": 1,
+        "values": [
+          25.28745089999984
+        ]
+      },
+      "runner_exit_code": 0,
+      "evaluation_exit_code": 0,
+      "independent_audit_exit_code": 0,
+      "cleanup_owned_container_absent": true,
+      "total_suite_seconds_from_original_T0": 4003.242815727895,
+      "within_suite_deadline": true
+    },
+    "full": {
+      "archive": "full-direct-2.tar.gz",
+      "archive_bytes": 9459728,
+      "archive_sha256": "342cf6ca938b629a0c0a0952ac7929d25e7a1dfc20db91dee9900414d6dc275d",
+      "export_manifest": "full-direct-2/export-manifest.json",
+      "archive_members_hash_verified": true,
+      "report": "full-direct-2/report.json",
+      "report_sha256": "f3b80728cd417187a6e3cad09dac4eeb07650e1f169d348bfcb6527d42ff009e",
+      "completion": "full-direct-2/completion.json",
+      "status": "valid",
+      "population": {
+        "completed": 1453,
+        "evidence_invalid": 0,
+        "failed": 2,
+        "not_offered": 0,
+        "offered": 1455,
+        "planned": 1455,
+        "unfinished": 0
+      },
+      "warmups": 84,
+      "cold_launches": 2,
+      "startup_to_first_valid_generation_s": {
+        "median": 27.81708213449997,
+        "n": 2,
+        "values": [
+          24.308027222999954,
+          31.326137045999985
+        ]
+      },
+      "runner_exit_code": 0,
+      "evaluation_exit_code": 0,
+      "independent_audit_exit_code": 0,
+      "cleanup_owned_container_absent": true,
+      "total_suite_seconds_from_original_T0": 7572.170621909687,
+      "within_suite_deadline": true
+    },
+    "original_suite_start_utc": "2026-10-28T16:10:34.243406+00:00",
+    "full_total_suite_seconds_including_prior_setup_calibration_quick_failed_full_attempt_analysis_cleanup_export": 7572.170621909687,
+    "clock_qualification": "Capture completion includes prior work from the original T0; offhost verification and cloud deletion occur later and require separate evidence.",
+    "measured_power_established": false,
+    "configuration_speedup_claimed": false,
+    "official_grade_claimed": false,
+    "cloud_deletion_and_invoice": "Not asserted by the capture receipt; separately closed by the resource controller.",
+    "paths_relative_to": "tasks/benchmark-design/validation/real-run-20261028"
+  },
+  "limitations": [
+    "One GPU/host/model and one full run; two cold launches do not establish startup stability.",
+    "Two nonce_missing output failures retained at concurrency32; zero protocol/evidence-invalid/unfinished requests.",
+    "Full A/A overall inconclusive: fluidity, minimum-decode p99 and TTFT p90 no_difference; TTFT p50 inconclusive.",
+    "Bootstrap intervals are conditional request-level diagnostics, with no measured power or finite-sample familywise guarantee.",
+    "Re-encoded decoded output at delta timing; prompt length remains an approximate covariate.",
+    "Brief CPU-only metadata build overlap disclosed in provenance.",
+    "No official harness/release/schema acceptance or organizer grade asserted."
+  ]
+}

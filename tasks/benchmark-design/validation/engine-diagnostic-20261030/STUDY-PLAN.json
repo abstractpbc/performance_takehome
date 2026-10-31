@@ -1,0 +1,44 @@
+{
+  "kind": "FROZEN_SEPARATE_ENGINE_BACKED_POINT_DIAGNOSTIC",
+  "frozen_utc": "2026-10-29T03:59:46.318588+00:00",
+  "source_commit": "96a9fa5a716d54a9700d14627fe184dec4e7dedc",
+  "recorder_version": "1.1.1",
+  "arms_in_order": [
+    [
+      "control_a",
+      3
+    ],
+    [
+      "delay100",
+      3
+    ],
+    [
+      "wrongnonce",
+      1
+    ],
+    [
+      "earlyclose",
+      1
+    ],
+    [
+      "control_b",
+      3
+    ]
+  ],
+  "timing_fault": "100ms sleep before first nonempty final-content SSE frame only",
+  "upstream_capture": "Dedicated receiver records exact body and monotonic read boundaries",
+  "downstream_capture": "Exact successfully forwarded bytes and monotonic write/injection events",
+  "wrongnonce": "Buffer this diagnostic; change only an actually echoed nonce, preserving length; not a timing comparison",
+  "earlyclose": "Close downstream after first visible frame; continue retaining full upstream",
+  "cold_boundary": "Owned wrapper launch monotonic -> recorder first valid completed generation; recorder cold=false is retained because wrapper owns launch",
+  "n": 11,
+  "startup_probe_additional": true,
+  "power_or_promotion_claimed": false,
+  "original_full_suite_or_clock_changed": false,
+  "official_grade": false,
+  "maximum_total_wall_seconds": 480,
+  "cleanup_reserve_seconds": 30,
+  "export_reserve_seconds": 30,
+  "admission": "Only if Task2 is finished and at least480seconds remain before same original GPU work stop",
+  "artifact_qualification": "CPU fixture preflight is not real engine/GPU evidence"
+}

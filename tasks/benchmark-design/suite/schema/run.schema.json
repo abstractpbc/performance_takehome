@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/benchmark-design/run.schema.json",
+  "title": "Run-level record (CANDIDATE-BUILT STAND-IN, schema_version 1.0.0)",
+  "description": "run.json: identity of the engine/plan/host, GPU allocation, phase markers, startup probes, and client-integrity evidence. Times are seconds on the same monotonic clock as requests.jsonl.",
+  "type": "object",
+  "required": ["schema_version", "record_type", "run_id", "created_utc", "suite_version", "mode", "plan", "engine", "host", "clock", "gpu", "phases", "startup", "client_integrity", "units", "adapter", "status"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "record_type": {"const": "run"},
+    "run_id": {"type": "string", "minLength": 1},
+    "created_utc": {"type": "string"},
+    "suite_version": {"type": "string"},
+    "mode": {"type": "string"},
+    "planned_startup_launches": {"type": "integer", "minimum": 0},
+    "status": {"enum": ["completed", "aborted", "in_progress"]},
+    "plan": {
+      "type": "object",
+      "required": ["plan_id", "digest", "schema_version"],
+      "properties": {
+        "plan_id": {"type": "string"},
+        "digest": {"type": "string"},
+        "schema_version": {"type": "string"},
+        "path": {"type": ["string", "null"]}
+      }
+    },
+    "engine": {
+      "type": "object",
+      "required": ["base_url", "model_id", "lock_digest", "lock_image"],
+      "properties": {
+        "base_url": {"type": "string"},
+        "model_id": {"type": ["string", "null"]},
+        "lock_digest": {"type": ["string", "null"]},
+        "lock_image": {"type": ["string", "null"]},
+        "server_header": {"type": ["string", "null"]},
+        "kind": {"type": "string", "description": "e.g. mock-cpu-stand-in or pinned-llmd; informational, never used by gates"}
+      }
+    },
+    "host": {
+      "type": "object",
+      "required": ["platform", "python", "cpu_count", "hostname_sha256"],
+      "properties": {
+        "platform": {"type": "string"},
+        "python": {"type": "string"},
+        "cpu_count": {"type": ["integer", "null"]},
+        "hostname_sha256": {"type": "string"}
+      }
+    },
+    "clock": {
+      "type": "object",
+      "required": ["source", "wall_utc_at_mono_zero_reference"],
+      "properties": {
+        "source": {"const": "time.monotonic"},
+        "wall_utc_at_mono_zero_reference": {"type": "object", "required": ["mono_s", "utc"]}
+      }
+    },
+    "gpu": {
+      "type": "object",
+      "required": ["count_allocated", "hours_allocated", "kind"],
+      "properties": {
+        "count_allocated": {"type": "integer", "minimum": 0},
+        "hours_allocated": {"type": ["number", "null"]},
+        "kind": {"type": "string"}
+      }
+    },
+    "phases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "start", "end"],
+        "properties": {
+          "name": {"type": "string"},
+          "unit_id": {"type": ["string", "null"]},
+          "start": {"type": "number"},
+          "end": {"type": ["number", "null"]}
+        }
+      }
+    },
+    "startup": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["launch_index", "launch_mono_s", "cold", "readiness_probes", "generation_probe_request_ids", "readiness_at", "first_valid_generation_at", "first_valid_request_id", "status"],
+        "properties": {
+          "launch_index": {"type": "integer", "minimum": 0},
+          "launch_mono_s": {"type": "number", "minimum": 0},
+          "cold": {"type": "boolean"},
+          "launch_command_sha256": {"type": ["string", "null"]},
+          "readiness_probes": {
+            "type": "array",
+            "items": {
+              "type": "object", "required": ["t", "http_status", "ok"],
+              "properties": {
+                "t": {"type": "number", "minimum": 0},
+                "http_status": {"type": ["integer", "null"]},
+                "ok": {"type": "boolean"}
+              }
+            }
+          },
+          "generation_probe_request_ids": {"type": "array", "items": {"type": "string"}},
+          "readiness_at": {"type": ["number", "null"]},
+          "first_valid_generation_at": {"type": ["number", "null"]},
+          "first_valid_request_id": {"type": ["string", "null"]},
+          "status": {"enum": ["valid", "timeout", "skipped", "aborted", "in_progress", "preexisting_server", "process_exited"]}
+        }
+      }
+    },
+    "client_integrity": {
+      "type": "object",
+      "required": ["event_loop_lag_max_s", "event_loop_lag_p99_s", "samples", "measured_phases"],
+      "properties": {
+        "event_loop_lag_max_s": {"type": ["number", "null"], "minimum": 0},
+        "event_loop_lag_p99_s": {"type": ["number", "null"], "minimum": 0},
+        "samples": {"type": "integer", "minimum": 0},
+        "measured_phases": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["unit_id", "cell_id", "repetition", "load_label", "arrival_type", "load", "planned_requests", "planned_warmup", "role", "deadline_profile", "prompt_source"],
+        "properties": {
+          "unit_id": {"type": "string", "minLength": 1},
+          "cell_id": {"type": "string", "minLength": 1},
+          "repetition": {"type": "integer", "minimum": 0},
+          "load_label": {"type": "string"},
+          "arrival_type": {"enum": ["poisson", "closed_loop"]},
+          "load": {"type": "number", "minimum": 0},
+          "role": {"enum": ["measure", "aa_control", "calibration"]},
+          "deadline_profile": {"type": "string"},
+          "prompt_source": {"type": "string"},
+          "planned_requests": {"type": "integer", "minimum": 0},
+          "planned_warmup": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "adapter": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": {"name": {"type": "string"}, "version": {"type": "string"}}
+    }
+  }
+}

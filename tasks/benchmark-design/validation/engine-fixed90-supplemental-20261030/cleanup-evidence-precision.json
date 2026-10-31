@@ -1,0 +1,16 @@
+{
+  "kind": "ACTUAL_GPU614222005_POST_DELETE_EVIDENCE_PRECISION",
+  "observed_UTC": "2026-10-30T13:23:46.496907+00:00",
+  "actual_sequence": [
+    "Initial fresh exact owned identity verified",
+    "DELETE returned204 at2026-10-30T13:16:08.406073Z",
+    "Later GET returned200 and original identity check raised IdentityMismatch",
+    "Independent original watchdog exactGET404 at2026-10-30T13:16:21.636356Z; original Journal closed at13:16:21.667504Z"
+  ],
+  "retention_gap": "The later GET200 response body was not retained. It is unknown which ID/name/creation-time/tag check differed or why. A provider destruction transition is a plausible inference, not an observed body fact.",
+  "historical_errors_preserved": true,
+  "original_archive_and_cash_receipt_unchanged": true,
+  "future_fixture_scope": "Synthetic name/tag/ID-change mock cases exercise actual old/new functions. They do not reconstruct or replay a missing actual provider body.",
+  "provider_calls": 0,
+  "Journal_events": 0
+}

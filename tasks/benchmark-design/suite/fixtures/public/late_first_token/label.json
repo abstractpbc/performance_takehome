@@ -1,0 +1,12 @@
+{
+  "profile": "late_first_token",
+  "seed": 104,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 56.58,
+  "family": "late_first_tokens",
+  "description": "First token delayed by an extra 2.0 s.",
+  "expected": {
+    "status": "valid",
+    "signal": "TTFT p50 rises; prefill_deadline_hit_rate falls"
+  }
+}

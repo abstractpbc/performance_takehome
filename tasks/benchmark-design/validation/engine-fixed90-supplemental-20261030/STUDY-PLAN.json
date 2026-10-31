@@ -1,0 +1,34 @@
+{
+  "kind": "PROSPECTIVE_FIXED90_ENGINE_BACKED_DIAGNOSTIC",
+  "status": "PREPARED_ONLY_NO_CLOCK_OR_RESOURCE",
+  "source_commit": "96a9fa5a716d54a9700d14627fe184dec4e7dedc",
+  "recorder_version": "1.1.1",
+  "arms_in_order": [
+    [
+      "control_a",
+      30
+    ],
+    [
+      "delay100",
+      30
+    ],
+    [
+      "control_b",
+      30
+    ]
+  ],
+  "n": 90,
+  "startup_probe_additional": true,
+  "maximum_capture_validity_wall_seconds": 180,
+  "minimum_remaining_work_seconds": 180,
+  "minimum_remaining_delete_seconds": 240,
+  "work_before_delete_seconds": 90,
+  "official_grade": false,
+  "power_or_promotion_claimed": false,
+  "full_suite_or_historical_clocks_changed": false,
+  "all90_must_complete": true,
+  "max_event_loop_lag_s": 0.05,
+  "timing_fault": "Unchanged byte-retaining100ms before first nonempty final-contentSSE only",
+  "new_contract": "Distinct proposed11minute scope: workT0+510/deleteT0+600/absenceT0+660; at invocation require180beforework AND240beforedelete, not old240-beforework. Capture,ownedstopandvalidity\u2264180; cleanup/export may use remaining predelete reserve, no new requests after cap.",
+  "partial_policy": "Preserve every failed, timed out or incomplete request and archive; never promote partial completion."
+}

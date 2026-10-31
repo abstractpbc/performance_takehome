@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "status": "valid",
+  "official_result": false,
+  "suite_start_utc": "2026-10-28T16:10:34.243406+00:00",
+  "wrapper_started_utc": "2026-10-28T17:04:21.098986+00:00",
+  "prior_setup_seconds": 3226.855580329895,
+  "max_wall_seconds": 10800,
+  "plan_digest": "sha256:fb82d603967046ab14f895d1bc5be4e681cc25f341a3cc31ce76ca9268edc412",
+  "image": {
+    "id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+    "os": "linux",
+    "architecture": "amd64"
+  },
+  "model_marker": {
+    "status": "complete",
+    "repository": "Qwen/Qwen3.6-27B",
+    "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "verified_files": 29,
+    "verified_bytes": 55586107940,
+    "verification_receipt": "/srv/abstract-direct-runc/model-ready.json"
+  },
+  "model_marker_scope": "bookkeeping only; independent snapshot validation remains required",
+  "container_name": "abstract-t1-a014faccd073486e834ed024ed351b54",
+  "container_owner": "a014faccd073486e834ed024ed351b54",
+  "runtime_args": [
+    "docker",
+    "run",
+    "--rm",
+    "--pull=never",
+    "--label",
+    "abstract.task1.capture=a014faccd073486e834ed024ed351b54",
+    "--name",
+    "abstract-t1-a014faccd073486e834ed024ed351b54",
+    "--platform",
+    "linux/amd64",
+    "--device",
+    "/dev/kfd",
+    "--device",
+    "/dev/dri/renderD129",
+    "--security-opt",
+    "no-new-privileges",
+    "--shm-size",
+    "16g",
+    "--cpus",
+    "16",
+    "--memory",
+    "128g",
+    "--env",
+    "ROCR_VISIBLE_DEVICES=0",
+    "--publish",
+    "127.0.0.1:8000:8000",
+    "--mount",
+    "type=bind,src=/srv/abstract-direct-runc/target,dst=/models/model,readonly",
+    "--group-add",
+    "992",
+    "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+    "--io-impl=zio",
+    "--model=/models/model"
+  ],
+  "errors": [],
+  "ownership_checkpoint": {
+    "path": "ownership.json",
+    "sha256": "2dad47c6c196f87888c89171d8f9dae469c2ac495c80264c81fa097d09350dac"
+  },
+  "prelaunch_absence": {
+    "owned_container_absent": true,
+    "container_name": "abstract-t1-a014faccd073486e834ed024ed351b54"
+  },
+  "runner_exit_code": 0,
+  "evaluation_exit_code": 0,
+  "independent_audit_exit_code": 0,
+  "cleanup": {
+    "owned_container_absent": true,
+    "container_name": "abstract-t1-a014faccd073486e834ed024ed351b54"
+  },
+  "elapsed_before_export_s": 4002.741392096895
+}

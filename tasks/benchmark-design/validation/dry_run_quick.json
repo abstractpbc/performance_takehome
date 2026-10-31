@@ -1,0 +1,108 @@
+{
+  "status": "planning-arithmetic-unmeasured",
+  "mode": "quick",
+  "units": 8,
+  "offered_requests": 242,
+  "warmup_requests": 28,
+  "startup_launches": 1,
+  "arrival_and_drain_s": 1302.8,
+  "startup_s": 540,
+  "teardown_s": 60,
+  "raw_total_minutes": 31.7,
+  "safety_margin": 1.25,
+  "planned_wall_minutes": 39.6,
+  "planned_gpu_hours": 0.66,
+  "planned_wall_minutes_max": 45,
+  "fits_cap": true,
+  "suite_wall_budget_minutes": 180.0,
+  "fits_suite_budget": true,
+  "assumptions": {
+    "status": "UNMEASURED placeholders for --dry-run arithmetic; replace with pilot measurements",
+    "gpus_at_once": 1,
+    "prefill_tokens_per_s": 4000,
+    "decode_tokens_per_s_per_stream": 30,
+    "aggregate_decode_tokens_per_s": 900,
+    "expected_output_fraction_of_max_tokens": 0.8,
+    "per_cell_setup_s": 10,
+    "cache_flush_s": 5,
+    "drain_grace_s": 30,
+    "teardown_s": 60,
+    "safety_margin": 1.25
+  },
+  "breakdown": [
+    {
+      "unit": "chat_short_open|rate=1rps|rep0",
+      "requests": 30,
+      "busy_s": 68.6,
+      "warmup_s": 27.5,
+      "setup_s": 15,
+      "total_s": 111.1
+    },
+    {
+      "unit": "rag_long_open|rate=0.25rps|rep0",
+      "requests": 30,
+      "busy_s": 155.3,
+      "warmup_s": 16.7,
+      "setup_s": 15,
+      "total_s": 187.0
+    },
+    {
+      "unit": "generation_long_open|rate=0.2rps|rep0",
+      "requests": 30,
+      "busy_s": 214.2,
+      "warmup_s": 109.3,
+      "setup_s": 15,
+      "total_s": 338.5
+    },
+    {
+      "unit": "mixed_open|rate=1rps|rep0",
+      "requests": 30,
+      "busy_s": 94.2,
+      "warmup_s": 40.6,
+      "setup_s": 15,
+      "total_s": 149.8
+    },
+    {
+      "unit": "closed_loop_sweep|conc=1|rep0",
+      "requests": 30,
+      "busy_s": 214.6,
+      "warmup_s": 27.5,
+      "setup_s": 15,
+      "total_s": 257.1
+    },
+    {
+      "unit": "closed_loop_sweep|conc=16|rep0",
+      "requests": 32,
+      "busy_s": 22.3,
+      "warmup_s": 0.0,
+      "setup_s": 15,
+      "total_s": 37.3
+    },
+    {
+      "unit": "aa_control_a|rate=1rps|rep0",
+      "requests": 30,
+      "busy_s": 68.6,
+      "warmup_s": 27.5,
+      "setup_s": 15,
+      "total_s": 111.1
+    },
+    {
+      "unit": "aa_control_b|rate=1rps|rep0",
+      "requests": 30,
+      "busy_s": 68.6,
+      "warmup_s": 27.5,
+      "setup_s": 15,
+      "total_s": 111.1
+    }
+  ],
+  "scheduled_units": [
+    "chat_short_open|rate=1rps|rep0",
+    "rag_long_open|rate=0.25rps|rep0",
+    "generation_long_open|rate=0.2rps|rep0",
+    "mixed_open|rate=1rps|rep0",
+    "closed_loop_sweep|conc=1|rep0",
+    "closed_loop_sweep|conc=16|rep0",
+    "aa_control_a|rate=1rps|rep0",
+    "aa_control_b|rate=1rps|rep0"
+  ]
+}

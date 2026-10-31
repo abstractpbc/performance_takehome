@@ -1,0 +1,46 @@
+{
+  "focused_startup_tests": {
+    "command": "python -B -m unittest tests.test_startup_sufficiency tests.test_evaluate.StartupTests -v",
+    "elapsed_s": 2.11,
+    "environment": "Windows CPython3.13 on the initial sufficiency fix, before final attach-diagnostic clarification. The final native197-test run covers all final source bytes.",
+    "passed": 15,
+    "tests_run": 15
+  },
+  "frozen_C_v2_packet_modified": false,
+  "full_native_log_sha256": "0ad75528d53d69cb5896a6f1710894f70d4a0a7afe617dac21bf4d3ea1e15f76",
+  "full_native_receipt_sha256": "00c5c31396ae96df578d44921b94c9bcdbcb4c436cb72cf0b42aac0af3e05541",
+  "full_suite": {
+    "command": "CPython3.14.4 -I -S -B; unittest discover -s tests -t . -v",
+    "environment": "Native Linux canonical LF source; declared three-file overlay; existing pinned Tokenizers0.22.2 and both protected tokenizer snapshots; loopback CPU mock servers only.",
+    "native_total_elapsed_s": 73.987709102,
+    "passed": 196,
+    "skip_reason": "held-out key not available on this machine (kept outside the tree)",
+    "skipped": 1,
+    "tests_run": 197
+  },
+  "historical_raw_reports_or_calibration_rewritten": false,
+  "kind": "STARTUP_SUFFICIENCY_CPU_VALIDATION_NOT_LIVE_MEASUREMENT",
+  "measured_runtime_or_power_established": false,
+  "new_real_GPU_or_model_calls": 0,
+  "official_grade": false,
+  "protected_integrity": {
+    "base": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "command": "python -B -m tools.check_integrity --base 81aead87d78ed468c4c374fb42921471b44c3f80",
+    "observed_exit_code": 0,
+    "status": "PASS"
+  },
+  "qualification": "The pinned recorder already aborts its own failed startups. This corrects evaluator acceptance of partial or mixed incoming evidence; no real-run failure or new full/quick result is inferred.",
+  "ruff": {
+    "changed_python_files": "PASS",
+    "version": "ruff 0.11.9"
+  },
+  "source_base_commit": "f3aa892863742bf6cd96ea49567da871cfa9096d",
+  "source_files_canonical_lf_sha256": {
+    "tasks/benchmark-design/DESIGN.md": "c3ac59ad84b421dd4881da38c78e96143e30021f440b00fc914bbc2e95ba3a38",
+    "tasks/benchmark-design/suite/evaluate.py": "79349a6505db1659ab296c6c6d618940ba6008ee09fff4b10bf72b69ea026e5a",
+    "tasks/benchmark-design/suite/tests/test_startup_sufficiency.py": "167a18c0743492bc71c46146ebaa94fa6b829bf466146ac1ce63254fb428a301"
+  },
+  "source_scope": "Canonical base Git archive plus three declared working-tree overlays; exact content hashes identify tested code without a circular future commit claim.",
+  "status": "PASS",
+  "validation": "Two complete cold starts retain their result. Warm attaches cannot replace cold observations or enter the cold aggregate; failed or missing planned cold generations make the run inconclusive while preserving per-launch diagnostics."
+}

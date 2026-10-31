@@ -1,0 +1,106 @@
+"""Render recorded Task1 intervals; no resampling or statistical estimation."""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import tarfile
+
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+
+
+ARCHIVE_SHA256 = "fab4f7d0ffb9d1bf5625664f01d32b79a20afee4f1afcbbd454e2bacbb398f23"
+SUMMARY_SHA256 = "8580b4343fea003b377e83d46228faca106e8341c37f1cf9cedd78b335c75aec"
+SUMMARY_MEMBER = "study-summary.json"
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--archive", type=Path, required=True)
+    parser.add_argument("--out", type=Path, default=Path(__file__).resolve().parent)
+    args = parser.parse_args()
+    archive_bytes = args.archive.read_bytes()
+    if hashlib.sha256(archive_bytes).hexdigest() != ARCHIVE_SHA256:
+        raise ValueError("Original study archive SHA256 does not match")
+    with tarfile.open(args.archive) as packed:
+        raw_summary = packed.extractfile(SUMMARY_MEMBER).read()
+    if hashlib.sha256(raw_summary).hexdigest() != SUMMARY_SHA256:
+        raise ValueError("Original recorded summary SHA256 does not match")
+    summary = json.loads(raw_summary)
+    groups = {key: len(value) for key, value in summary["groups_TTFT_samples_s"].items()}
+    if groups != {"control_a": 30, "delay100": 30, "control_b": 30}:
+        raise ValueError("Unexpected study block counts")
+    if summary["official_grade"] or summary["power_or_promotion_claimed"]:
+        raise ValueError("Unexpected claim status")
+
+    specs = [
+        ("delay_minus_clean_median_descriptive_CI95", "Injected delay − pooled healthy", 100,
+         (99.25, 100.85), [99.5, 100, 100.5], "#177c68"),
+        ("healthy_b_minus_a_median_descriptive_CI95", "Healthy B − Healthy A", 0,
+         (-0.9, 1.6), [-0.5, 0, 0.5, 1, 1.5], "#516a89"),
+    ]
+    recorded = {}
+    plt.rcParams.update({
+        "font.family": "DejaVu Sans", "font.size": 11,
+        "svg.fonttype": "none", "svg.hashsalt": "task1-fixed90-recorded-intervals",
+    })
+    fig, axes = plt.subplots(1, 2, figsize=(10.8, 5), dpi=200)
+    fig.patch.set_facecolor("#fafbf9")
+    fig.subplots_adjust(left=.075, right=.955, top=.64, bottom=.35, wspace=.32)
+    fig.text(.075, .91, "Fixed-order TTFT diagnostic", fontsize=20, weight="bold", color="#19342e")
+    fig.text(.075, .842, "One AMD MI355X host · 30 healthy A → 30 delayed → 30 healthy B", fontsize=12, color="#52625f")
+    for ax, (key, title, reference, limits, ticks, color) in zip(axes, specs):
+        original = summary[key]
+        values = {name: original[name] * 1000 for name in ("point", "low", "high")}
+        recorded[key] = {"original_seconds": original, "display_milliseconds": values}
+        point, low, high = (values[name] for name in ("point", "low", "high"))
+        ax.set_facecolor(fig.get_facecolor())
+        ax.axvline(reference, color="#939f99", lw=1.2, ls=(0, (4, 3)))
+        ax.errorbar(point, 0, xerr=[[point - low], [high - point]], fmt="o", ms=8,
+                    color=color, ecolor=color, elinewidth=2.5, capsize=6, capthick=1.8)
+        ax.set_title(title, loc="left", fontsize=12, weight="bold", pad=54, color="#19342e")
+        ax.text(0, 1.1, f"{point:.3f} [{low:.3f}, {high:.3f}] ms", transform=ax.transAxes,
+                ha="left", fontsize=13, color=color)
+        ax.set_xlim(*limits)
+        ax.set_ylim(-.45, .45)
+        ax.set_xticks(ticks)
+        ax.set_yticks([])
+        ax.set_xlabel("Difference in median TTFT (ms)", labelpad=12, color="#394d47")
+        ax.grid(axis="x", color="#e0e5e1", lw=.8)
+        ax.set_axisbelow(True)
+        ax.tick_params(axis="x", length=0, pad=9, colors="#394d47")
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+    fig.text(.075, .205, "Points and whiskers: original descriptive 95% bootstrap intervals. Dashed lines: 100 ms / 0 ms references.",
+             fontsize=9.5, color="#52625f")
+    fig.text(.075, .15, "90 completed measured requests · fixed order, single host · no measured power or official regression grade.",
+             fontsize=9.5, color="#52625f")
+    fig.text(.075, .095, "Supplemental diagnostic; not a revalidation of the primary three-hour study. Separate panel scales.",
+             fontsize=9.5, color="#52625f")
+    fig.text(.075, .043, "Source: TASK1-STUDY.tar.gz · SHA256 fab4f7d0ffb9…398f23 · recorded intervals only; statistics not recomputed.",
+             fontsize=8.5, color="#687773")
+    args.out.mkdir(parents=True, exist_ok=True)
+    for suffix in ("png", "svg"):
+        metadata = {"Software": "Matplotlib " + matplotlib.__version__} if suffix == "png" else {"Date": None}
+        fig.savefig(args.out / ("task1-fixed90-descriptive-intervals." + suffix),
+                    facecolor=fig.get_facecolor(), metadata=metadata)
+    plt.close(fig)
+    provenance = {
+        "schema": "recorded-descriptive-figure-v1",
+        "archive_name": "TASK1-STUDY.tar.gz", "archive_bytes": len(archive_bytes),
+        "archive_sha256": ARCHIVE_SHA256, "summary_member": SUMMARY_MEMBER,
+        "summary_sha256": SUMMARY_SHA256, "groups": groups, "fixed_block_order": ["control_a", "delay100", "control_b"],
+        "recorded_intervals": recorded, "unit_conversion": "original seconds multiplied by 1000 only",
+        "statistics_recomputed": False, "official_grade": False, "measured_power_claimed": False,
+        "primary_three_hour_revalidation": False, "single_host": True,
+        "original_CI_qualification": summary["CI_qualification"],
+        "matplotlib_version": matplotlib.__version__,
+    }
+    (args.out / "FIGURE-PROVENANCE.json").write_text(json.dumps(provenance, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps({"png": str(args.out / "task1-fixed90-descriptive-intervals.png"), "statistics_recomputed": False}))
+
+
+if __name__ == "__main__":
+    main()

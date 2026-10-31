@@ -1,0 +1,12 @@
+"""Run the unchanged capture/evaluator/workload with an explicit owned lifecycle shim."""
+from pathlib import Path
+import hashlib,sys
+root=Path('/srv/abstract-direct-runc')
+sys.path[:0]=[str(root/'python-site'),str(root/'benchmark/tasks/benchmark-design/suite'),str(root/'benchmark')]
+import capture
+original=capture.launch_arguments
+supervisor=root/'owned_docker_supervisor.py'
+def supervised(*args,**kwargs):
+ return [sys.executable,'-B',str(supervisor),*original(*args,**kwargs)]
+capture.launch_arguments=supervised
+raise SystemExit(capture.main())

@@ -1,0 +1,39 @@
+{
+  "status": "REAL_BASELINE_CALIBRATION_ONLY_NO_FULL_SCORE",
+  "source_commit": "0174ca423cc583f4b8356284a79fdf4cbfb19a24",
+  "actual_image": "sha256:4afe375c77e07d20d83c381db0b1441b7929ca51c0a97dadb5db56477253b023",
+  "original_mode_start_utc": "2026-10-26T08:13:49.335036+00:00",
+  "wrapper_started_utc": "2026-10-26T08:30:39.661961+00:00",
+  "runner_evaluator_independent_audit_passed": true,
+  "measured_requests": 60,
+  "warmup_requests": 8,
+  "completed_startup_generations": 1,
+  "full_completed": false,
+  "quick_completed": false,
+  "official_result": false,
+  "source_bytes_preserved": true,
+  "receiver_note": "Normal offhost verification exposed missing explicit importlib.util under isolated Python3.14. Complete unchanged archive independently verified and promoted with explicit stdlib preload; original failure and partial preserved privately. No recapture.",
+  "timing_note": "This is calibration only. No full-suite runtime below3h, comparison power or quick/full score is established. Historical attributable setup and partial failed diagnostic remain recorded separately.",
+  "files": {
+    "calibration.tar.gz": {
+      "bytes": 121885,
+      "sha256": "d36c4906ea0c6eda48ce1ebbbea68481e88251f72e62a51c2288aa46a5bbf2b5"
+    },
+    "capture-receipt.json": {
+      "bytes": 2252,
+      "sha256": "43e4d2426dfa8124d6e208398c6fc5e11622805596faa37fb42a4c4dfe144f5f"
+    },
+    "fit-receipt.json": {
+      "bytes": 2537,
+      "sha256": "d402d86de4942cf2d25fce7f9e719bcad35553f30d948d01a09a09e18de9b88d"
+    },
+    "frozen-plan.json": {
+      "bytes": 15736,
+      "sha256": "2301607e75b78ae0bdb800cd6e55e0ac9c09b0517e7df71971dcde4f2ad2c589"
+    },
+    "summary.md": {
+      "bytes": 777,
+      "sha256": "f9f1e7ff13ec7fd94b6d7ce1fb1b8cea052fcf88279f675be1195dc682120d6e"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "profile": "missing_done",
+  "seed": 108,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 31.83,
+  "family": "missing_completion",
+  "description": "finish_reason sent but the [DONE] sentinel is never emitted.",
+  "expected": {
+    "status": "valid",
+    "signal": "gate missing_done -> unfinished"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "profile": "drop",
+  "seed": 111,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 30.82,
+  "family": "errors_and_drops",
+  "description": "30% of streams closed after half the tokens, no finish.",
+  "expected": {
+    "status": "valid",
+    "signal": "gate missing_done/missing_finish_reason -> unfinished (an EOF-terminated SSE stream is a premature end, not a transport error)"
+  }
+}

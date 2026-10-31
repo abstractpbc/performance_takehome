@@ -1,0 +1,46 @@
+{
+  "audit.log": {
+    "bytes": 103,
+    "sha256": "c59040b49219988b00768dbb5faddc05830076f9a89935628ab84567b4fdd83c"
+  },
+  "capture-receipt.json": {
+    "bytes": 2381,
+    "sha256": "3d305c4888d095f3e48987f0a413cef63e6d9e2bdafe827cb959e139fcee5eb2"
+  },
+  "evaluate.log": {
+    "bytes": 1526,
+    "sha256": "3010b1fc1ff760ae3c4f795954d5b40c7c84d96d05a9ffbd5b1501d5d70dec95"
+  },
+  "events/requests.jsonl": {
+    "bytes": 20928236,
+    "sha256": "29c7cf09fcab55a132bfde6b3f0aec580f0bd528b7fdb649b1c2c9da9c022697"
+  },
+  "events/run.json": {
+    "bytes": 14208,
+    "sha256": "fa9eea0c13b89cd37463605fbde0720a557d4fdf9ca6827a6bdbef75b2a0b6bb"
+  },
+  "independent-timing.json": {
+    "bytes": 49207,
+    "sha256": "e80e10e1474e363f757729c07fbbf0b5b31c0f18ebac844c667594e493f626a3"
+  },
+  "ownership.json": {
+    "bytes": 349,
+    "sha256": "2dad47c6c196f87888c89171d8f9dae469c2ac495c80264c81fa097d09350dac"
+  },
+  "report.json": {
+    "bytes": 40436,
+    "sha256": "d5f9a0b836fdbc5240cdb4006e852a005c3025172b2685dfadd4fc0e622f2da7"
+  },
+  "runner.log": {
+    "bytes": 13626,
+    "sha256": "cc4f4d32c74d79e2599a2182b5774309b60abd253c155d73754eaeb5a8b66315"
+  },
+  "summary.md": {
+    "bytes": 1525,
+    "sha256": "601b3ddd47f640651b9fdc700a62731a0cd1578a1b8de52a7fc1de41ecf2cd66"
+  },
+  "workload.json": {
+    "bytes": 15733,
+    "sha256": "fb82d603967046ab14f895d1bc5be4e681cc25f341a3cc31ce76ca9268edc412"
+  }
+}

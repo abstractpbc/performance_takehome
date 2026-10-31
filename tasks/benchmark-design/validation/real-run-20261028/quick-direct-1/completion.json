@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0.0",
+  "status": "valid",
+  "official_result": false,
+  "suite_start_utc": "2026-10-28T16:10:34.243406+00:00",
+  "wrapper_started_utc": "2026-10-28T17:04:21.098986+00:00",
+  "prior_setup_seconds": 3226.855580329895,
+  "max_wall_seconds": 10800,
+  "plan_digest": "sha256:fb82d603967046ab14f895d1bc5be4e681cc25f341a3cc31ce76ca9268edc412",
+  "image": {
+    "id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+    "os": "linux",
+    "architecture": "amd64"
+  },
+  "model_marker": {
+    "status": "complete",
+    "repository": "Qwen/Qwen3.6-27B",
+    "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "verified_files": 29,
+    "verified_bytes": 55586107940,
+    "verification_receipt": "/srv/abstract-direct-runc/model-ready.json"
+  },
+  "model_marker_scope": "bookkeeping only; independent snapshot validation remains required",
+  "container_name": "abstract-t1-a014faccd073486e834ed024ed351b54",
+  "container_owner": "a014faccd073486e834ed024ed351b54",
+  "runtime_args": [
+    "docker",
+    "run",
+    "--rm",
+    "--pull=never",
+    "--label",
+    "abstract.task1.capture=a014faccd073486e834ed024ed351b54",
+    "--name",
+    "abstract-t1-a014faccd073486e834ed024ed351b54",
+    "--platform",
+    "linux/amd64",
+    "--device",
+    "/dev/kfd",
+    "--device",
+    "/dev/dri/renderD129",
+    "--security-opt",
+    "no-new-privileges",
+    "--shm-size",
+    "16g",
+    "--cpus",
+    "16",
+    "--memory",
+    "128g",
+    "--env",
+    "ROCR_VISIBLE_DEVICES=0",
+    "--publish",
+    "127.0.0.1:8000:8000",
+    "--mount",
+    "type=bind,src=/srv/abstract-direct-runc/target,dst=/models/model,readonly",
+    "--group-add",
+    "992",
+    "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+    "--io-impl=zio",
+    "--model=/models/model"
+  ],
+  "errors": [],
+  "ownership_checkpoint": {
+    "path": "ownership.json",
+    "sha256": "2dad47c6c196f87888c89171d8f9dae469c2ac495c80264c81fa097d09350dac"
+  },
+  "prelaunch_absence": {
+    "owned_container_absent": true,
+    "container_name": "abstract-t1-a014faccd073486e834ed024ed351b54"
+  },
+  "runner_exit_code": 0,
+  "evaluation_exit_code": 0,
+  "independent_audit_exit_code": 0,
+  "cleanup": {
+    "owned_container_absent": true,
+    "container_name": "abstract-t1-a014faccd073486e834ed024ed351b54"
+  },
+  "elapsed_before_export_s": 4002.741392096895,
+  "export": {
+    "path": "/srv/abstract-direct-runc/exports/quick-direct-1.tar.gz",
+    "bytes": 1792788
+  },
+  "export_manifest": {
+    "files": {
+      "events/run.json": {
+        "sha256": "fa9eea0c13b89cd37463605fbde0720a557d4fdf9ca6827a6bdbef75b2a0b6bb",
+        "bytes": 14208
+      },
+      "events/requests.jsonl": {
+        "sha256": "29c7cf09fcab55a132bfde6b3f0aec580f0bd528b7fdb649b1c2c9da9c022697",
+        "bytes": 20928236
+      },
+      "report.json": {
+        "sha256": "d5f9a0b836fdbc5240cdb4006e852a005c3025172b2685dfadd4fc0e622f2da7",
+        "bytes": 40436
+      },
+      "summary.md": {
+        "sha256": "601b3ddd47f640651b9fdc700a62731a0cd1578a1b8de52a7fc1de41ecf2cd66",
+        "bytes": 1525
+      },
+      "independent-timing.json": {
+        "sha256": "e80e10e1474e363f757729c07fbbf0b5b31c0f18ebac844c667594e493f626a3",
+        "bytes": 49207
+      },
+      "audit.log": {
+        "sha256": "c59040b49219988b00768dbb5faddc05830076f9a89935628ab84567b4fdd83c",
+        "bytes": 103
+      },
+      "runner.log": {
+        "sha256": "cc4f4d32c74d79e2599a2182b5774309b60abd253c155d73754eaeb5a8b66315",
+        "bytes": 13626
+      },
+      "evaluate.log": {
+        "sha256": "3010b1fc1ff760ae3c4f795954d5b40c7c84d96d05a9ffbd5b1501d5d70dec95",
+        "bytes": 1526
+      },
+      "capture-receipt.json": {
+        "sha256": "3d305c4888d095f3e48987f0a413cef63e6d9e2bdafe827cb959e139fcee5eb2",
+        "bytes": 2381
+      },
+      "ownership.json": {
+        "sha256": "2dad47c6c196f87888c89171d8f9dae469c2ac495c80264c81fa097d09350dac",
+        "bytes": 349
+      },
+      "workload.json": {
+        "sha256": "fb82d603967046ab14f895d1bc5be4e681cc25f341a3cc31ce76ca9268edc412",
+        "bytes": 15733
+      }
+    },
+    "uncompressed_bytes": 21067330,
+    "archive_bytes": 1792788,
+    "archive_sha256": "bbae33fcbd6176eac64e9e250fc05d36eeda07a0b8a6c64f855f85bde85a5443"
+  },
+  "total_suite_seconds": 4003.242815727895,
+  "within_suite_deadline": true
+}

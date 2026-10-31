@@ -1,0 +1,307 @@
+{
+  "kind": "ACTUAL_TASK1_COMPLETED_CALIBRATION_QUICK_FULL_DEVELOPMENT_RESULTS",
+  "official_result": false,
+  "capture_source_commit": "7d6fd182aa494eff1975e41f3fb67934f30994f6",
+  "phases": {
+    "calibration-direct-1": {
+      "archive": "calibration-direct-1.tar.gz",
+      "archive_bytes": 122377,
+      "archive_sha256": "d9b4776c13ba0639d3112ec43e73271a2d06961e11944c9a3f84e1c3b26a1931",
+      "export_manifest": "calibration-direct-1/export-manifest.json",
+      "archive_members_hash_verified": true,
+      "report": "calibration-direct-1/report.json",
+      "report_sha256": "9feee99d3cd1752eb9047bc6282ad98ecc1bc35e418b9aa7ebb613d6f4490b77",
+      "completion": "calibration-direct-1/completion.json",
+      "status": "valid",
+      "population": {
+        "completed": 60,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "not_offered": 0,
+        "offered": 60,
+        "planned": 60,
+        "unfinished": 0
+      },
+      "warmups": 8,
+      "cold_launches": 1,
+      "startup_to_first_valid_generation_s": {
+        "median": 31.332711325999753,
+        "n": 1,
+        "values": [
+          31.332711325999753
+        ]
+      },
+      "runner_exit_code": 0,
+      "evaluation_exit_code": 0,
+      "independent_audit_exit_code": 0,
+      "cleanup_owned_container_absent": true,
+      "total_suite_seconds_from_original_T0": 3041.708581577771,
+      "within_suite_deadline": true
+    },
+    "quick-direct-1": {
+      "archive": "quick-direct-1.tar.gz",
+      "archive_bytes": 1792788,
+      "archive_sha256": "bbae33fcbd6176eac64e9e250fc05d36eeda07a0b8a6c64f855f85bde85a5443",
+      "export_manifest": "quick-direct-1/export-manifest.json",
+      "archive_members_hash_verified": true,
+      "report": "quick-direct-1/report.json",
+      "report_sha256": "d5f9a0b836fdbc5240cdb4006e852a005c3025172b2685dfadd4fc0e622f2da7",
+      "completion": "quick-direct-1/completion.json",
+      "status": "valid",
+      "population": {
+        "completed": 242,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "not_offered": 0,
+        "offered": 242,
+        "planned": 242,
+        "unfinished": 0
+      },
+      "warmups": 28,
+      "cold_launches": 1,
+      "startup_to_first_valid_generation_s": {
+        "median": 25.28745089999984,
+        "n": 1,
+        "values": [
+          25.28745089999984
+        ]
+      },
+      "runner_exit_code": 0,
+      "evaluation_exit_code": 0,
+      "independent_audit_exit_code": 0,
+      "cleanup_owned_container_absent": true,
+      "total_suite_seconds_from_original_T0": 4003.242815727895,
+      "within_suite_deadline": true
+    },
+    "full-direct-2": {
+      "archive": "full-direct-2.tar.gz",
+      "archive_bytes": 9459728,
+      "archive_sha256": "342cf6ca938b629a0c0a0952ac7929d25e7a1dfc20db91dee9900414d6dc275d",
+      "export_manifest": "full-direct-2/export-manifest.json",
+      "archive_members_hash_verified": true,
+      "report": "full-direct-2/report.json",
+      "report_sha256": "f3b80728cd417187a6e3cad09dac4eeb07650e1f169d348bfcb6527d42ff009e",
+      "completion": "full-direct-2/completion.json",
+      "status": "valid",
+      "population": {
+        "completed": 1453,
+        "evidence_invalid": 0,
+        "failed": 2,
+        "not_offered": 0,
+        "offered": 1455,
+        "planned": 1455,
+        "unfinished": 0
+      },
+      "warmups": 84,
+      "cold_launches": 2,
+      "startup_to_first_valid_generation_s": {
+        "median": 27.81708213449997,
+        "n": 2,
+        "values": [
+          24.308027222999954,
+          31.326137045999985
+        ]
+      },
+      "runner_exit_code": 0,
+      "evaluation_exit_code": 0,
+      "independent_audit_exit_code": 0,
+      "cleanup_owned_container_absent": true,
+      "total_suite_seconds_from_original_T0": 7572.170621909687,
+      "within_suite_deadline": true
+    }
+  },
+  "full_measured_units": 42,
+  "full_requests_per_repetition": [
+    485,
+    485,
+    485
+  ],
+  "full_failures": {
+    "closed_loop_sweep|conc=32|rep0/measure/18": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "invalid_output:nonce_missing"
+      ]
+    },
+    "closed_loop_sweep|conc=32|rep1/measure/0": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "invalid_output:nonce_missing"
+      ]
+    }
+  },
+  "full_aa": {
+    "comparison_family_size": 4,
+    "confidence_adjusted": 0.9875,
+    "decision": "inconclusive",
+    "inference_diagnostics": {
+      "bootstrap_resamples": 2000,
+      "caveat": "Sparse Monte Carlo tails can be seed-sensitive; more resamples do not add observations or establish population coverage, independence or measured power.",
+      "cluster_or_block_correction": false,
+      "comparison_family_size": 4,
+      "conditional_on_empirical_samples": true,
+      "confidence_adjusted": 0.9875,
+      "diagnostic_only": true,
+      "expected_resamples_per_tail": 12.499999999999956,
+      "finite_sample_familywise_control_established": false,
+      "iid_exchangeable_requests_assumed": true,
+      "measured_power_established": false,
+      "method": "percentile-bootstrap-independent-requests",
+      "repetitions_pooled_within_cell_load": true,
+      "tail_probability": 0.006249999999999978,
+      "zero_based_percentile_order_index": 12.493749999999956
+    },
+    "label": "aa_control_a|rate=1rps vs aa_control_b|rate=1rps",
+    "metrics": {
+      "fluidity_strict_mean": {
+        "a": 1.0,
+        "b": 1.0,
+        "decision": "no_difference",
+        "difference": {
+          "confidence": 0.9875,
+          "high": 0.0,
+          "low": 0.0,
+          "n_a": 90,
+          "n_b": 90,
+          "point": 0.0
+        },
+        "inference_diagnostics": {
+          "bootstrap_resamples": 2000,
+          "caveat": "Sparse Monte Carlo tails can be seed-sensitive; more resamples do not add observations or establish population coverage, independence or measured power.",
+          "cluster_or_block_correction": false,
+          "comparison_family_size": 4,
+          "conditional_on_empirical_samples": true,
+          "confidence_adjusted": 0.9875,
+          "diagnostic_only": true,
+          "expected_resamples_per_tail": 12.499999999999956,
+          "finite_sample_familywise_control_established": false,
+          "iid_exchangeable_requests_assumed": true,
+          "measured_power_established": false,
+          "method": "percentile-bootstrap-independent-requests",
+          "n_a": 90,
+          "n_b": 90,
+          "repetitions_pooled_within_cell_load": true,
+          "tail_probability": 0.006249999999999978,
+          "zero_based_percentile_order_index": 12.493749999999956
+        },
+        "why": "CI [-0.000, -0.000] within +/-0.05"
+      },
+      "min_decode_deadline_p99_s": {
+        "a": 0.017268506632920233,
+        "b": 0.017521459846850836,
+        "decision": "no_difference",
+        "difference": {
+          "confidence": 0.9875,
+          "high": 0.000284217094304047,
+          "low": -0.0002529532139306026,
+          "n_a": 90,
+          "n_b": 90,
+          "point": 0.0002529532139306026
+        },
+        "inference_diagnostics": {
+          "bootstrap_resamples": 2000,
+          "caveat": "Sparse Monte Carlo tails can be seed-sensitive; more resamples do not add observations or establish population coverage, independence or measured power.",
+          "cluster_or_block_correction": false,
+          "comparison_family_size": 4,
+          "conditional_on_empirical_samples": true,
+          "confidence_adjusted": 0.9875,
+          "diagnostic_only": true,
+          "expected_resamples_per_tail": 12.499999999999956,
+          "finite_sample_familywise_control_established": false,
+          "iid_exchangeable_requests_assumed": true,
+          "measured_power_established": false,
+          "method": "percentile-bootstrap-independent-requests",
+          "n_a": 90,
+          "n_b": 90,
+          "p99_data_support": {
+            "caveat": "Conditional IID-continuous illustration, not measured failure/power. Finite-sample p99 support can be sparse; more bootstrap draws do not fix it.",
+            "nominal_observations_above_population_quantile_if_iid_continuous": {
+              "a": 0.9,
+              "b": 0.9
+            },
+            "probability_sample_max_below_population_quantile_if_iid_continuous": {
+              "a": 0.4047319726783238,
+              "b": 0.4047319726783238
+            },
+            "quantile": 0.99
+          },
+          "repetitions_pooled_within_cell_load": true,
+          "tail_probability": 0.006249999999999978,
+          "zero_based_percentile_order_index": 12.493749999999956
+        },
+        "why": "CI [-0.015, +0.016] within +/-0.1"
+      },
+      "ttft_p50_s": {
+        "a": 0.061937590499837825,
+        "b": 0.06068307500027004,
+        "decision": "inconclusive",
+        "difference": {
+          "confidence": 0.9875,
+          "high": 0.0027294600561333484,
+          "low": -0.00731700090259723,
+          "n_a": 90,
+          "n_b": 90,
+          "point": -0.0012545154995677876
+        },
+        "inference_diagnostics": {
+          "bootstrap_resamples": 2000,
+          "caveat": "Sparse Monte Carlo tails can be seed-sensitive; more resamples do not add observations or establish population coverage, independence or measured power.",
+          "cluster_or_block_correction": false,
+          "comparison_family_size": 4,
+          "conditional_on_empirical_samples": true,
+          "confidence_adjusted": 0.9875,
+          "diagnostic_only": true,
+          "expected_resamples_per_tail": 12.499999999999956,
+          "finite_sample_familywise_control_established": false,
+          "iid_exchangeable_requests_assumed": true,
+          "measured_power_established": false,
+          "method": "percentile-bootstrap-independent-requests",
+          "n_a": 90,
+          "n_b": 90,
+          "repetitions_pooled_within_cell_load": true,
+          "tail_probability": 0.006249999999999978,
+          "zero_based_percentile_order_index": 12.493749999999956
+        },
+        "why": "CI [-0.118, +0.044] straddles the 0.1 boundary (underpowered)"
+      },
+      "ttft_p90_s": {
+        "a": 0.11041072269999859,
+        "b": 0.108568925000327,
+        "decision": "no_difference",
+        "difference": {
+          "confidence": 0.9875,
+          "high": 0.003968393943554826,
+          "low": -0.00790345601485968,
+          "n_a": 90,
+          "n_b": 90,
+          "point": -0.0018417976996715907
+        },
+        "inference_diagnostics": {
+          "bootstrap_resamples": 2000,
+          "caveat": "Sparse Monte Carlo tails can be seed-sensitive; more resamples do not add observations or establish population coverage, independence or measured power.",
+          "cluster_or_block_correction": false,
+          "comparison_family_size": 4,
+          "conditional_on_empirical_samples": true,
+          "confidence_adjusted": 0.9875,
+          "diagnostic_only": true,
+          "expected_resamples_per_tail": 12.499999999999956,
+          "finite_sample_familywise_control_established": false,
+          "iid_exchangeable_requests_assumed": true,
+          "measured_power_established": false,
+          "method": "percentile-bootstrap-independent-requests",
+          "n_a": 90,
+          "n_b": 90,
+          "repetitions_pooled_within_cell_load": true,
+          "tail_probability": 0.006249999999999978,
+          "zero_based_percentile_order_index": 12.493749999999956
+        },
+        "why": "CI [-0.072, +0.036] within +/-0.15"
+      }
+    }
+  },
+  "measured_power_established": false,
+  "configuration_speedup_claimed": false,
+  "failed_attempts_pooled": false
+}

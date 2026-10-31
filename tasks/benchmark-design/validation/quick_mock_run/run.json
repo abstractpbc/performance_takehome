@@ -1,0 +1,309 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "run",
+  "run_id": "quick-mock-clean-7",
+  "created_utc": "2026-10-24T09:39:58.457991+00:00",
+  "suite_version": "1.0.0",
+  "runner_version": "1.0.0",
+  "mode": "quick",
+  "status": "completed",
+  "plan": {
+    "plan_id": "abstract-t1-llmd-mi355x-v1",
+    "digest": "sha256:80e7b16993a9196495fc499e1b8860b8f2bcb25d6a780521e2e92521899690b4",
+    "schema_version": "1.0.0",
+    "path": "tasks/benchmark-design/suite/workload.json"
+  },
+  "engine": {
+    "base_url": "http://127.0.0.1:18451",
+    "model_id": "mock/llm-d-stand-in",
+    "lock_digest": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+    "lock_image": "docker.io/zmlai/llmd@sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+    "lock_model": "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "server_header": null,
+    "kind": "mock"
+  },
+  "host": {
+    "platform": "Linux-6.8.0-1061-aws-x86_64-with-glibc2.35",
+    "python": "3.11.17",
+    "cpu_count": 8,
+    "hostname_sha256": "7a9acb691b87e9c726b1f69304a2aa67fd72104fd90d5d7663679b667b1c17fa"
+  },
+  "clock": {
+    "source": "time.monotonic",
+    "wall_utc_at_mono_zero_reference": {
+      "mono_s": 6649.050519296,
+      "utc": "2026-10-24T09:39:58.459639+00:00"
+    }
+  },
+  "gpu": {
+    "count_allocated": 0,
+    "hours_allocated": 0.0,
+    "kind": "none (CPU)"
+  },
+  "phases": [
+    {
+      "name": "warmup",
+      "unit_id": "chat_short_open|rate=1rps|rep0",
+      "start": 6161.269861054,
+      "end": 6165.285112535,
+      "cache_state": "nonce_isolation_fallback"
+    },
+    {
+      "name": "measure",
+      "unit_id": "chat_short_open|rate=1rps|rep0",
+      "start": 6165.298155361,
+      "end": 6192.833212078
+    },
+    {
+      "name": "warmup",
+      "unit_id": "rag_long_open|rate=0.25rps|rep0",
+      "start": 6192.840632104,
+      "end": 6194.037408484,
+      "cache_state": "nonce_isolation_fallback"
+    },
+    {
+      "name": "measure",
+      "unit_id": "rag_long_open|rate=0.25rps|rep0",
+      "start": 6194.182627758,
+      "end": 6331.154308956
+    },
+    {
+      "name": "warmup",
+      "unit_id": "generation_long_open|rate=0.2rps|rep0",
+      "start": 6331.162138376,
+      "end": 6344.149847768,
+      "cache_state": "nonce_isolation_fallback"
+    },
+    {
+      "name": "measure",
+      "unit_id": "generation_long_open|rate=0.2rps|rep0",
+      "start": 6344.168072914,
+      "end": 6494.29002838
+    },
+    {
+      "name": "warmup",
+      "unit_id": "mixed_open|rate=1rps|rep0",
+      "start": 6494.29852127,
+      "end": 6496.929639166,
+      "cache_state": "nonce_isolation_fallback"
+    },
+    {
+      "name": "measure",
+      "unit_id": "mixed_open|rate=1rps|rep0",
+      "start": 6496.989415533,
+      "end": 6536.167396661
+    },
+    {
+      "name": "warmup",
+      "unit_id": "closed_loop_sweep|conc=1|rep0",
+      "start": 6536.17543592,
+      "end": 6540.172023248,
+      "cache_state": "nonce_isolation_fallback"
+    },
+    {
+      "name": "measure",
+      "unit_id": "closed_loop_sweep|conc=1|rep0",
+      "start": 6540.186626851,
+      "end": 6570.348978217
+    },
+    {
+      "name": "warmup",
+      "unit_id": "closed_loop_sweep|conc=16|rep0",
+      "start": 6570.356903003,
+      "end": 6570.356904848,
+      "cache_state": "nonce_isolation_fallback"
+    },
+    {
+      "name": "measure",
+      "unit_id": "closed_loop_sweep|conc=16|rep0",
+      "start": 6570.368159534,
+      "end": 6572.333260461
+    },
+    {
+      "name": "warmup",
+      "unit_id": "aa_control_a|rate=1rps|rep0",
+      "start": 6572.340658185,
+      "end": 6576.390632521,
+      "cache_state": "nonce_isolation_fallback"
+    },
+    {
+      "name": "measure",
+      "unit_id": "aa_control_a|rate=1rps|rep0",
+      "start": 6576.40423282,
+      "end": 6614.802957021
+    },
+    {
+      "name": "warmup",
+      "unit_id": "aa_control_b|rate=1rps|rep0",
+      "start": 6614.811070468,
+      "end": 6618.827226532,
+      "cache_state": "nonce_isolation_fallback"
+    },
+    {
+      "name": "measure",
+      "unit_id": "aa_control_b|rate=1rps|rep0",
+      "start": 6618.841182234,
+      "end": 6649.024775847
+    }
+  ],
+  "startup": [
+    {
+      "launch_index": 0,
+      "launch_mono_s": 6159.721536108,
+      "cold": true,
+      "launch_command_sha256": "2f31b20242b829ba22a2b668af76329b4aaf5992435182f73217bc1bc230c08e",
+      "readiness_probes": [
+        {
+          "t": 6159.722036249,
+          "http_status": null,
+          "ok": false,
+          "error": "ConnectError('All connection attempts failed')"
+        },
+        {
+          "t": 6160.737996614,
+          "http_status": 200,
+          "ok": true
+        }
+      ],
+      "generation_probe_request_ids": [
+        "startup0/probe/1"
+      ],
+      "readiness_at": 6160.737996614,
+      "first_valid_generation_at": 6161.269269079,
+      "first_valid_request_id": "startup0/probe/1",
+      "status": "valid"
+    }
+  ],
+  "client_integrity": {
+    "event_loop_lag_max_s": 0.004623434999521123,
+    "event_loop_lag_p99_s": 0.0020828810004240948,
+    "samples": 44183,
+    "measured_phases": [
+      "chat_short_open|rate=1rps|rep0",
+      "rag_long_open|rate=0.25rps|rep0",
+      "generation_long_open|rate=0.2rps|rep0",
+      "mixed_open|rate=1rps|rep0",
+      "closed_loop_sweep|conc=1|rep0",
+      "closed_loop_sweep|conc=16|rep0",
+      "aa_control_a|rate=1rps|rep0",
+      "aa_control_b|rate=1rps|rep0"
+    ],
+    "sample_interval_s": 0.01,
+    "gc_disabled_in_measure_windows": true,
+    "event_loop_lag_spikes": [],
+    "event_loop_lag_max_at_mono_s": 6378.902975724,
+    "event_loop_lag_mean_s": 0.0002848132374003686
+  },
+  "units": [
+    {
+      "unit_id": "chat_short_open|rate=1rps|rep0",
+      "cell_id": "chat_short_open",
+      "repetition": 0,
+      "load_label": "rate=1rps",
+      "arrival_type": "poisson",
+      "load": 1.0,
+      "planned_requests": 30,
+      "planned_warmup": 4,
+      "role": "measure",
+      "deadline_profile": "chat",
+      "prompt_source": "chat_short"
+    },
+    {
+      "unit_id": "rag_long_open|rate=0.25rps|rep0",
+      "cell_id": "rag_long_open",
+      "repetition": 0,
+      "load_label": "rate=0.25rps",
+      "arrival_type": "poisson",
+      "load": 0.25,
+      "planned_requests": 30,
+      "planned_warmup": 4,
+      "role": "measure",
+      "deadline_profile": "rag",
+      "prompt_source": "rag_long"
+    },
+    {
+      "unit_id": "generation_long_open|rate=0.2rps|rep0",
+      "cell_id": "generation_long_open",
+      "repetition": 0,
+      "load_label": "rate=0.2rps",
+      "arrival_type": "poisson",
+      "load": 0.2,
+      "planned_requests": 30,
+      "planned_warmup": 4,
+      "role": "measure",
+      "deadline_profile": "generation",
+      "prompt_source": "generation_long"
+    },
+    {
+      "unit_id": "mixed_open|rate=1rps|rep0",
+      "cell_id": "mixed_open",
+      "repetition": 0,
+      "load_label": "rate=1rps",
+      "arrival_type": "poisson",
+      "load": 1.0,
+      "planned_requests": 30,
+      "planned_warmup": 4,
+      "role": "measure",
+      "deadline_profile": "chat",
+      "prompt_source": "mixed"
+    },
+    {
+      "unit_id": "closed_loop_sweep|conc=1|rep0",
+      "cell_id": "closed_loop_sweep",
+      "repetition": 0,
+      "load_label": "conc=1",
+      "arrival_type": "closed_loop",
+      "load": 1.0,
+      "planned_requests": 30,
+      "planned_warmup": 4,
+      "role": "measure",
+      "deadline_profile": "chat",
+      "prompt_source": "chat_short"
+    },
+    {
+      "unit_id": "closed_loop_sweep|conc=16|rep0",
+      "cell_id": "closed_loop_sweep",
+      "repetition": 0,
+      "load_label": "conc=16",
+      "arrival_type": "closed_loop",
+      "load": 16.0,
+      "planned_requests": 32,
+      "planned_warmup": 0,
+      "role": "measure",
+      "deadline_profile": "chat",
+      "prompt_source": "chat_short"
+    },
+    {
+      "unit_id": "aa_control_a|rate=1rps|rep0",
+      "cell_id": "aa_control_a",
+      "repetition": 0,
+      "load_label": "rate=1rps",
+      "arrival_type": "poisson",
+      "load": 1.0,
+      "planned_requests": 30,
+      "planned_warmup": 4,
+      "role": "aa_control",
+      "deadline_profile": "chat",
+      "prompt_source": "chat_short"
+    },
+    {
+      "unit_id": "aa_control_b|rate=1rps|rep0",
+      "cell_id": "aa_control_b",
+      "repetition": 0,
+      "load_label": "rate=1rps",
+      "arrival_type": "poisson",
+      "load": 1.0,
+      "planned_requests": 30,
+      "planned_warmup": 4,
+      "role": "aa_control",
+      "deadline_profile": "chat",
+      "prompt_source": "chat_short"
+    }
+  ],
+  "adapter": {
+    "name": "native",
+    "version": "1.0.0"
+  },
+  "time_scale": 1.0,
+  "planned_startup_launches": 1
+}

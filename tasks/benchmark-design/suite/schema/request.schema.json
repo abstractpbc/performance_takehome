@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/benchmark-design/request.schema.json",
+  "title": "Per-request raw event record (CANDIDATE-BUILT STAND-IN, schema_version 1.0.0)",
+  "description": "One JSON object per line of requests.jsonl. All timestamps are seconds on the client's time.monotonic() clock, shared with run.json. Nothing in this record is derived: the runner writes what it observed, or null when it observed nothing.",
+  "type": "object",
+  "required": ["schema_version", "record_type", "run_id", "request_id", "unit_id", "cell_id", "repetition", "load_label", "arrival_type", "load", "phase", "role", "prompt", "request_body_sha256", "timestamps_mono_s", "http_status", "events", "finish_reason", "done_received", "text", "server_usage", "client_tokens", "error"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "record_type": {"const": "request"},
+    "run_id": {"type": "string", "minLength": 1},
+    "request_id": {"type": "string", "minLength": 1},
+    "unit_id": {"type": "string", "minLength": 1},
+    "cell_id": {"type": "string", "minLength": 1},
+    "repetition": {"type": "integer", "minimum": 0},
+    "load_label": {"type": "string"},
+    "arrival_type": {"enum": ["poisson", "closed_loop", "probe"]},
+    "load": {"type": "number", "minimum": 0},
+    "phase": {"enum": ["warmup", "measure", "startup_probe"]},
+    "role": {"enum": ["measure", "aa_control", "calibration", "startup"]},
+    "prompt": {
+      "type": "object",
+      "required": ["prompt_id", "source", "kind", "approx_prompt_tokens", "max_tokens", "expected"],
+      "properties": {
+        "prompt_id": {"type": "string"},
+        "source": {"type": "string"},
+        "kind": {"type": "string"},
+        "approx_prompt_tokens": {"type": "integer", "minimum": 0},
+        "max_tokens": {"type": "integer", "minimum": 1},
+        "expected": {"type": "object"}
+      }
+    },
+    "request_body_sha256": {"type": "string", "minLength": 64},
+    "timestamps_mono_s": {
+      "type": "object",
+      "required": ["planned_send", "send", "headers", "first_byte", "end"],
+      "properties": {
+        "planned_send": {"type": ["number", "null"]},
+        "send": {"type": "number"},
+        "headers": {"type": ["number", "null"]},
+        "first_byte": {"type": ["number", "null"]},
+        "end": {"type": "number"}
+      }
+    },
+    "http_status": {"type": ["integer", "null"]},
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["t", "raw"],
+        "properties": {
+          "t": {"type": "number", "description": "client monotonic arrival time of the bytes completing this SSE event"},
+          "raw": {"type": "string", "description": "verbatim SSE data payload, including the literal [DONE]"}
+        }
+      }
+    },
+    "finish_reason": {"type": ["string", "null"]},
+    "done_received": {"type": "boolean"},
+    "text": {
+      "type": "object",
+      "required": ["content", "reasoning_content"],
+      "properties": {"content": {"type": "string"}, "reasoning_content": {"type": "string"}}
+    },
+    "server_usage": {"type": ["object", "null"], "description": "server-reported usage, kept verbatim and NOT trusted"},
+    "client_tokens": {
+      "type": "object",
+      "required": ["tokenizer", "resolution", "content", "reasoning_content"],
+      "properties": {
+        "tokenizer": {"type": "string"},
+        "resolution": {"enum": ["delta", "token"]},
+        "content": {"type": "integer", "minimum": 0},
+        "reasoning_content": {"type": "integer", "minimum": 0}
+      }
+    },
+    "error": {
+      "type": ["object", "null"],
+      "required": ["kind", "message"],
+      "properties": {"kind": {"type": "string"}, "message": {"type": "string"}}
+    }
+  }
+}

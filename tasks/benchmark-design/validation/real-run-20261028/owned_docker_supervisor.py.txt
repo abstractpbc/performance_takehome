@@ -1,0 +1,49 @@
+"""Lifecycle-only foreground Docker supervisor for one exact capture owner.
+
+SIGTERM from the recorder removes only the inspected exact ID/label/image before
+this process exits, allowing the next planned cold launch to remain truly cold.
+"""
+import json,os,re,signal,subprocess,sys,time
+args=sys.argv[1:]
+assert args[:2]==['docker','run'] and '--rm' in args and '--pull=never' in args
+name=args[args.index('--name')+1]
+labels=[args[i+1] for i,x in enumerate(args[:-1]) if x=='--label']
+owners=[x.split('=',1)[1] for x in labels if x.startswith('abstract.task1.capture=')]
+assert len(owners)==1 and re.fullmatch('[0-9a-f]{32}',owners[0]) and name=='abstract-t1-'+owners[0]
+owner=owners[0];images=[x for x in args if re.fullmatch('sha256:[0-9a-f]{64}',x)]
+assert len(images)==1;image=images[0]
+stopping=False
+def requested(*unused):
+ global stopping
+ stopping=True
+signal.signal(signal.SIGTERM,requested);signal.signal(signal.SIGINT,requested)
+def docker(*items,timeout=2):
+ return subprocess.run(['docker',*items],stdin=subprocess.DEVNULL,capture_output=True,text=True,timeout=timeout)
+def remove_owned():
+ inspected=docker('inspect',name)
+ if inspected.returncode!=0:
+  assert 'no such object' in inspected.stderr.lower() or 'no such container' in inspected.stderr.lower(),inspected.stderr
+  return
+ value=json.loads(inspected.stdout)[0]
+ assert value['Name']=='/'+name and value['Config']['Labels'].get('abstract.task1.capture')==owner
+ assert value['Image']==image and value['Config']['Image']==image
+ removed=docker('rm','--force',value['Id'],timeout=4)
+ assert removed.returncode==0
+ absent=docker('inspect',value['Id'])
+ assert absent.returncode!=0 and ('no such object' in absent.stderr.lower() or 'no such container' in absent.stderr.lower()),'owned container must be absent before supervisor exit'
+ print(json.dumps({'lifecycle_event':'exact_owned_container_removed_and_absent',
+                   'container_id':value['Id'],'name':name,'owner':owner,'image':image,
+                   'monotonic_s':time.monotonic()}),flush=True)
+child=subprocess.Popen(args,stdin=subprocess.DEVNULL,start_new_session=True)
+try:
+ while child.poll() is None and not stopping:time.sleep(.05)
+ if stopping:
+  remove_owned()
+  try:child.wait(timeout=1)
+  except subprocess.TimeoutExpired:
+   os.killpg(child.pid,signal.SIGTERM);child.wait(timeout=1)
+ else:
+  remove_owned()
+finally:
+ remove_owned()
+raise SystemExit(0 if stopping else child.returncode)

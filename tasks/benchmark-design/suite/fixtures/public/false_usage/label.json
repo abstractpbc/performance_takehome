@@ -1,0 +1,12 @@
+{
+  "profile": "false_usage",
+  "seed": 115,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 31.93,
+  "family": "false_usage",
+  "description": "usage.completion_tokens reports 3x the true count.",
+  "expected": {
+    "status": "valid",
+    "signal": "gate usage_discrepancy -> failed on chat cells; masked on integer lists where the regex-vs-mock tokenizer gap (2x) puts 3x usage inside the band (DESIGN.md 2)"
+  }
+}

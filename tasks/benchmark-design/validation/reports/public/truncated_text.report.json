@@ -1,0 +1,1005 @@
+{
+  "aa_control": {
+    "confidence_adjusted": 0.95,
+    "decision": "no_difference",
+    "label": "aa_control_a|rate=4rps vs aa_control_b|rate=4rps",
+    "metrics": {
+      "fluidity_strict_mean": {
+        "a": 1.0,
+        "b": 1.0,
+        "decision": "no_difference",
+        "difference": {
+          "confidence": 0.95,
+          "high": 0.0,
+          "low": 0.0,
+          "n_a": 16,
+          "n_b": 16,
+          "point": 0.0
+        },
+        "why": "CI [-0.000, -0.000] within +/-0.05"
+      },
+      "min_decode_deadline_p99_s": {
+        "a": 0.018288846001471758,
+        "b": 0.01804726147131332,
+        "decision": "no_difference",
+        "difference": {
+          "confidence": 0.95,
+          "high": 0.0008526512829121376,
+          "low": -0.0008526512829121341,
+          "n_a": 16,
+          "n_b": 16,
+          "point": -0.00024158453015843753
+        },
+        "why": "CI [-0.047, +0.047] within +/-0.1"
+      },
+      "ttft_p50_s": {
+        "a": 0.09725848699986273,
+        "b": 0.09501180450001812,
+        "decision": "no_difference",
+        "difference": {
+          "confidence": 0.95,
+          "high": 0.0037832690002232994,
+          "low": -0.005553309212177737,
+          "n_a": 16,
+          "n_b": 16,
+          "point": -0.00224668249984461
+        },
+        "why": "CI [-0.057, +0.039] within +/-0.1"
+      },
+      "ttft_p90_s": {
+        "a": 0.10239869150018421,
+        "b": 0.0980194459998529,
+        "decision": "no_difference",
+        "difference": {
+          "confidence": 0.95,
+          "high": 0.0005441335749764977,
+          "low": -0.00925377000021399,
+          "n_a": 16,
+          "n_b": 16,
+          "point": -0.004379245500331308
+        },
+        "why": "CI [-0.090, +0.005] within +/-0.15"
+      }
+    }
+  },
+  "adapter": "native",
+  "cells": {
+    "aa_control_a|rate=4rps": {
+      "categories": {
+        "completed": 16
+      },
+      "cell_id": "aa_control_a",
+      "completed": 16,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 54.67813551054709,
+        "min_decode_deadline_s": {
+          "n": 16,
+          "p50": 0.017095134205394765,
+          "p99": 0.018288846001471758,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=4rps",
+      "offered": 16,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {},
+      "role": "aa_control",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 0.7666666666666667,
+        "tokens_per_delta_mean": 0.7666666666666667,
+        "usage_discrepancies": 0,
+        "usage_reported": 16
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.0842705569998543,
+        "max": 0.10683031799999299,
+        "n": 16,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.09917705700036095,
+          "low": 0.0913671714999964,
+          "n": 16,
+          "point": 0.09725848699986273,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.10683031799999299,
+          "low": 0.09858705150008973,
+          "n": 16,
+          "point": 0.10239869150018421,
+          "resamples": 2000
+        },
+        "p99": 0.10634608785003366,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1.0
+      }
+    },
+    "aa_control_b|rate=4rps": {
+      "categories": {
+        "completed": 16
+      },
+      "cell_id": "aa_control_b",
+      "completed": 16,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 55.4100688123531,
+        "min_decode_deadline_s": {
+          "n": 16,
+          "p50": 0.01723724275254679,
+          "p99": 0.01804726147131332,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=4rps",
+      "offered": 16,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {},
+      "role": "aa_control",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 0.7666666666666667,
+        "tokens_per_delta_mean": 0.7666666666666667,
+        "usage_discrepancies": 0,
+        "usage_reported": 16
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.08257808250004928,
+        "max": 0.10044827199999418,
+        "n": 16,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.09717327899988959,
+          "low": 0.09264355300001625,
+          "n": 16,
+          "point": 0.09501180450001812,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.10044827199999418,
+          "low": 0.09665776199972242,
+          "n": 16,
+          "point": 0.0980194459998529,
+          "resamples": 2000
+        },
+        "p99": 0.10015038279998408,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1.0
+      }
+    },
+    "chat_short_open|rate=4rps": {
+      "categories": {
+        "completed": 16
+      },
+      "cell_id": "chat_short_open",
+      "completed": 16,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 56.29665606726181,
+        "min_decode_deadline_s": {
+          "n": 16,
+          "p50": 0.01695302565824274,
+          "p99": 0.017763044377009277,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=4rps",
+      "offered": 16,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {},
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 0.7666666666666667,
+        "tokens_per_delta_mean": 0.7640398550724639,
+        "usage_discrepancies": 0,
+        "usage_reported": 16
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.08394679350021761,
+        "max": 0.10545451799998773,
+        "n": 16,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.10071260700010498,
+          "low": 0.09427106149996689,
+          "n": 16,
+          "point": 0.09654822199991031,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.10545451799998773,
+          "low": 0.09980798286268283,
+          "n": 16,
+          "point": 0.10312095900007989,
+          "resamples": 2000
+        },
+        "p99": 0.10519459125000594,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1.0
+      }
+    },
+    "closed_loop_sweep|conc=8": {
+      "categories": {
+        "completed": 16
+      },
+      "cell_id": "closed_loop_sweep",
+      "completed": 16,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 58.013918719816765,
+        "min_decode_deadline_s": {
+          "n": 16,
+          "p50": 0.01695302565824274,
+          "p99": 0.01723724275254679,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 1.0,
+            "n": 16,
+            "point": 1.0,
+            "resamples": 2000
+          },
+          "slo_met": true,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "conc=8",
+      "offered": 16,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {},
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 0.7666666666666667,
+        "tokens_per_delta_mean": 0.7666666666666667,
+        "usage_discrepancies": 0,
+        "usage_reported": 16
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.08842420399992079,
+        "max": 0.1100462009999319,
+        "n": 16,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.10176017401238938,
+          "low": 0.09708394900007988,
+          "n": 16,
+          "point": 0.10061145750000833,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.1100462009999319,
+          "low": 0.10145451650009818,
+          "n": 16,
+          "point": 0.10278368999979648,
+          "resamples": 2000
+        },
+        "p99": 0.10901312354988021,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1.0
+      }
+    },
+    "generation_long_open|rate=4rps": {
+      "categories": {
+        "failed": 16
+      },
+      "cell_id": "generation_long_open",
+      "completed": 0,
+      "decode": {
+        "ftgr_note": "unresolved: all-at-once delivery in some trace, or no completed multi-token traces",
+        "ftgr_tokens_per_s": null,
+        "min_decode_deadline_s": {
+          "n": 0,
+          "p50": null,
+          "p99": null,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {
+        "multi_token_deltas": 16
+      },
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0,
+            "n": 16,
+            "point": 0.0,
+            "resamples": 2000
+          },
+          "index_p50": 0.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0,
+            "n": 16,
+            "point": 0.0,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0,
+            "n": 16,
+            "point": 0.0,
+            "resamples": 2000
+          },
+          "index_p50": 0.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0,
+            "n": 16,
+            "point": 0.0,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0,
+            "n": 16,
+            "point": 0.0,
+            "resamples": 2000
+          },
+          "index_p50": 0.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.0,
+            "low": 0.0,
+            "n": 16,
+            "point": 0.0,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": false,
+      "load_label": "rate=4rps",
+      "offered": 16,
+      "prompt_source": "generation_long",
+      "rejection_reasons": {
+        "invalid_output": 16
+      },
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": null,
+        "tokens_per_delta_mean": null,
+        "usage_discrepancies": 0,
+        "usage_reported": 16
+      },
+      "ttft_s": {
+        "first_byte_p50": null,
+        "max": null,
+        "n": 0,
+        "p50": {
+          "high": null,
+          "low": null,
+          "n": 0,
+          "point": null
+        },
+        "p90": {
+          "high": null,
+          "low": null,
+          "n": 0,
+          "point": null
+        },
+        "p99": null,
+        "prefill_deadline_hit_rate": null,
+        "ttft_slo_hit_rate": null,
+        "ttft_slo_s": 1.0
+      }
+    }
+  },
+  "engine": {
+    "base_url": "http://127.0.0.1:37451",
+    "kind": "mock",
+    "lock_digest": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+    "lock_image": "docker.io/zmlai/llmd@sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+    "lock_model": "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "model_id": "mock/llm-d-stand-in",
+    "server_header": null
+  },
+  "events_dir": "suite/fixtures/public/truncated_text",
+  "inconclusive_reasons": [],
+  "mode": "fixture",
+  "plan_id": "abstract-t1-mock-cpu-v1",
+  "population": {
+    "totals": {
+      "completed": 64,
+      "evidence_invalid": 0,
+      "failed": 16,
+      "not_offered": 0,
+      "offered": 80,
+      "planned": 80,
+      "unfinished": 0
+    },
+    "units": {
+      "aa_control_a|rate=4rps|rep0": {
+        "cell_id": "aa_control_a",
+        "completed": 16,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=4rps",
+        "not_offered": 0,
+        "offered": 16,
+        "planned": 16,
+        "role": "aa_control",
+        "unfinished": 0,
+        "warmup_offered": 1
+      },
+      "aa_control_b|rate=4rps|rep0": {
+        "cell_id": "aa_control_b",
+        "completed": 16,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=4rps",
+        "not_offered": 0,
+        "offered": 16,
+        "planned": 16,
+        "role": "aa_control",
+        "unfinished": 0,
+        "warmup_offered": 1
+      },
+      "chat_short_open|rate=4rps|rep0": {
+        "cell_id": "chat_short_open",
+        "completed": 16,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "rate=4rps",
+        "not_offered": 0,
+        "offered": 16,
+        "planned": 16,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 1
+      },
+      "closed_loop_sweep|conc=8|rep0": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 16,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "load_label": "conc=8",
+        "not_offered": 0,
+        "offered": 16,
+        "planned": 16,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 1
+      },
+      "generation_long_open|rate=4rps|rep0": {
+        "cell_id": "generation_long_open",
+        "completed": 0,
+        "evidence_invalid": 0,
+        "failed": 16,
+        "load_label": "rate=4rps",
+        "not_offered": 0,
+        "offered": 16,
+        "planned": 16,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 1
+      }
+    }
+  },
+  "reasons": [],
+  "report_schema_version": "1.0.0",
+  "request_verdicts": {
+    "generation_long_open|rate=4rps|rep0/measure/0": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/1": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/10": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/11": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/12": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/13": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/14": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/15": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/2": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/3": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/4": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/5": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/6": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/7": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/8": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/9": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/warmup/0": {
+      "category": "failed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": [
+        "invalid_output:integer_sequence_broken"
+      ]
+    }
+  },
+  "run_id": "fixture-truncated_text-114",
+  "startup": {
+    "cold_launches": 1,
+    "launches": [
+      {
+        "cold": true,
+        "first_ready_probe_s": 0.23618891599971903,
+        "generation_probes": 1,
+        "launch_index": 0,
+        "probe_categories": {
+          "completed": 1
+        },
+        "readiness_lead_s": 0.5287799699999596,
+        "readiness_probes": 2,
+        "startup_to_first_valid_generation_s": 0.7649688859996786,
+        "status": "valid"
+      }
+    ],
+    "planned_launches": 1,
+    "startup_to_first_valid_generation_s": {
+      "median": 0.7649688859996786,
+      "n": 1,
+      "values": [
+        0.7649688859996786
+      ]
+    }
+  },
+  "status": "valid",
+  "time_scale": 1.0
+}

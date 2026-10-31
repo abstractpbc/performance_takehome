@@ -1,0 +1,3 @@
+SOURCE_COMMIT=b0eba2d94230e52c75ccdde9db9b50cd02f0158e
+COMMAND=["/usr/bin/python3", "-B", "-c", "import httpx,tokenizers,json;print(json.dumps({\"httpx\":httpx.__version__,\"tokenizers\":tokenizers.__version__}))"]
+{"httpx": "0.28.1", "tokenizers": "0.22.2"}

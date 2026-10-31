@@ -1,0 +1,3 @@
+# Plan digests identify exact bytes; keep them portable across Windows checkouts.
+/workload.json text eol=lf
+/fixtures/workload.mock.json text eol=lf

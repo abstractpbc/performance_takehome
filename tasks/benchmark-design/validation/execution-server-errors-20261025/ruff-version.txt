@@ -1,0 +1,3 @@
+SOURCE_COMMIT=ce98000ad4de57897d41ea9f67e10340c18f051a
+COMMAND=["/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/harness-final-identity-20261025/task-tools/ruff", "--version"]
+ruff 0.16.10

@@ -1,0 +1,15 @@
+{
+  "event_loop_lag_max_at_mono_s": 198.99864031,
+  "event_loop_lag_max_s": 0.0020629910000218386,
+  "event_loop_lag_mean_s": 0.0005410575229961759,
+  "event_loop_lag_p99_s": 0.001982549000038034,
+  "event_loop_lag_spikes": [],
+  "gc_disabled_in_measure_windows": true,
+  "measured_phases": [
+    "control_a|conc=1|rep0",
+    "delay100|conc=1|rep0",
+    "control_b|conc=1|rep0"
+  ],
+  "sample_interval_s": 0.01,
+  "samples": 10067
+}

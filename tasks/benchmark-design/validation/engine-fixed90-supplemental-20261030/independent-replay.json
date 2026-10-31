@@ -1,0 +1,65 @@
+{
+  "Windows_replica_independently_verified_after_cloud_deletion": true,
+  "actual90_requests_rejudged_with_pinned_tokenizer": true,
+  "additional_startup_probe_rejudged": 1,
+  "all90_categories_completed": true,
+  "archive_bytes": 383385,
+  "archive_payload_members_verified": 382,
+  "archive_sha256": "fab4f7d0ffb9d1bf5625664f01d32b79a20afee4f1afcbbd454e2bacbb398f23",
+  "both_recorded_descriptive_CIs_exactly_reproduced": true,
+  "capture_owned_stop_validity_seconds": 143.02423665100002,
+  "client_integrity": {
+    "event_loop_lag_max_at_mono_s": 198.99864031,
+    "event_loop_lag_max_s": 0.0020629910000218386,
+    "event_loop_lag_mean_s": 0.0005410575229961759,
+    "event_loop_lag_p99_s": 0.001982549000038034,
+    "event_loop_lag_spikes": [],
+    "gc_disabled_in_measure_windows": true,
+    "measured_phases": [
+      "control_a|conc=1|rep0",
+      "delay100|conc=1|rep0",
+      "control_b|conc=1|rep0"
+    ],
+    "sample_interval_s": 0.01,
+    "samples": 10067
+  },
+  "delay_CI95_seconds": {
+    "confidence": 0.95,
+    "high": 0.10052627721247943,
+    "low": 0.09963181636251832,
+    "n_a": 60,
+    "n_b": 30,
+    "point": 0.10007321950000403
+  },
+  "expanded_payload_bytes": 4860934,
+  "full_frozen_completion_validator_replayed": true,
+  "healthy_B_minus_A_CI95_seconds": {
+    "confidence": 0.95,
+    "high": 0.0012454669999613088,
+    "low": -0.0005128384624988767,
+    "n_a": 30,
+    "n_b": 30,
+    "point": 3.30234999807999e-05
+  },
+  "kind": "INDEPENDENT_CLOSED_ACTUAL_FIXED90_RAW_GATE_CI_AND_TIMING_REPLAY",
+  "no_new_model_GPU_provider_financial_or_live_process_actions": true,
+  "official_grade_or_power_claimed": false,
+  "original_and_replayed_timing_audits": "PASS",
+  "original_evaluator_exit_code": 3,
+  "original_evaluator_status_preserved": "inconclusive",
+  "owned_container_absent": true,
+  "owned_supervisor_reaped": true,
+  "parent_cleanup_failure_not_relabelled_as_capture_failure": true,
+  "raw90": {
+    "actual100ms_delays": 30,
+    "all_bytes_identical": true,
+    "measured_streams": 90,
+    "status": "PASS_FIXED90_EXACT_RAW_SSE"
+  },
+  "source_commit": "96a9fa5a716d54a9700d14627fe184dec4e7dedc",
+  "source_files_independently_verified": 35,
+  "status": "PASS",
+  "supplemental_outside_original_primary3h": true,
+  "verified_native_offhost_before_original_delete_minus35": true,
+  "wrapper_first_valid_generation_seconds": 33.62981891199999
+}

@@ -1,0 +1,2 @@
+SOURCE_COMMIT=3396147943e3086edfb6bf35081e9397cfcdd9da
+COMMAND=["git", "diff", "--check", "dbb8555b423fff17663af0768fed36a71d20d60a", "3396147943e3086edfb6bf35081e9397cfcdd9da"]

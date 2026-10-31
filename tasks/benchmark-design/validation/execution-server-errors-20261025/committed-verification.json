@@ -1,0 +1,159 @@
+{
+  "status": "PASS",
+  "scope": "Exact committed source in a fresh native Linux bundle checkout; no source overlay",
+  "started_at_utc": "2026-10-25T22:34:53.930641+00:00",
+  "source_commit": "ce98000ad4de57897d41ea9f67e10340c18f051a",
+  "suite_tree_sha": "e39dba7e3f7a87c876ddf9327af6c3be3bf63733",
+  "environment": {
+    "platform": "linux",
+    "python": "3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]",
+    "dependency_root": "/var/tmp/abstract-benchmark-greptile-deps-20261025",
+    "native_checkout": "/var/tmp/abstract-task1-server-errors-retry02-20261025",
+    "tokenizer_wheel_sha256": "369cc9fc8cc10cb24143873a0d95438bb8ee257bb80c71989e3ee290e8d72c67",
+    "ruff_binary_sha256": "14704de5ea0d07038512de127bd52d6a169fb70bd70ddfa25bf39e21fed6b2b6"
+  },
+  "commands": {
+    "clone": {
+      "argv": [
+        "git",
+        "-c",
+        "core.autocrlf=false",
+        "clone",
+        "--no-hardlinks",
+        "-b",
+        "codex/abstract-benchmark-audit",
+        "/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/task1-server-errors-retry02-20261025/committed-source.bundle",
+        "/var/tmp/abstract-task1-server-errors-retry02-20261025"
+      ],
+      "cwd": "/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/task1-server-errors-retry02-20261025",
+      "log": "clone.txt",
+      "exit_code": 0,
+      "sha256": "1a1b7eb71f6b71562e3b2434b1f66f173714447092b3b964c0bbdb0d02cad31a",
+      "seconds": 0.7839541629999971
+    },
+    "runtime-identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-c",
+        "import httpx,tokenizers,json;print(json.dumps({\"httpx\":httpx.__version__,\"tokenizers\":tokenizers.__version__}))"
+      ],
+      "cwd": "/var/tmp/abstract-task1-server-errors-retry02-20261025",
+      "log": "runtime-identity.txt",
+      "exit_code": 0,
+      "sha256": "5096a9a42b23830f642405e48fe16d01a29f4e74a977a54d1b51db3aeb9fe50f",
+      "seconds": 0.3343302009999931
+    },
+    "full-tests": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "/var/tmp/abstract-task1-server-errors-retry02-20261025/tasks/benchmark-design/suite",
+      "log": "full-tests.txt",
+      "exit_code": 0,
+      "sha256": "74233567df746257dd49ca2914e318d0dd89f726048f9a1bf7f0c970fdfee8ad",
+      "seconds": 66.896948346,
+      "tests_run": 168,
+      "test_seconds": 66.365,
+      "passed": true,
+      "skipped": 1
+    },
+    "integrity": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "tools.check_integrity",
+        "--base",
+        "81aead87d78ed468c4c374fb42921471b44c3f80"
+      ],
+      "cwd": "/var/tmp/abstract-task1-server-errors-retry02-20261025",
+      "log": "integrity.txt",
+      "exit_code": 0,
+      "sha256": "12d42453dd512ca09ec0a05ef8c35c39e2212a9e91f6d5172e53bfff549847be",
+      "seconds": 0.07668894599999021
+    },
+    "ruff-version": {
+      "argv": [
+        "/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/harness-final-identity-20261025/task-tools/ruff",
+        "--version"
+      ],
+      "cwd": "/var/tmp/abstract-task1-server-errors-retry02-20261025",
+      "log": "ruff-version.txt",
+      "exit_code": 0,
+      "sha256": "1aa70e7427d72dc56c054777b7e4dca8de485c71092bd6421a22f562f27fe225",
+      "seconds": 0.04647083799999052
+    },
+    "ruff-check": {
+      "argv": [
+        "/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/harness-final-identity-20261025/task-tools/ruff",
+        "check",
+        "--no-cache",
+        "."
+      ],
+      "cwd": "/var/tmp/abstract-task1-server-errors-retry02-20261025",
+      "log": "ruff-check.txt",
+      "exit_code": 0,
+      "sha256": "ed68ab460e90d2741ad3c7d49682e92ed3a90382c3aa758c5775b42165dd9047",
+      "seconds": 0.13006848099999502
+    },
+    "diff-check": {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "9b427de8454494703a591cd6fba4a984349f5bc5",
+        "ce98000ad4de57897d41ea9f67e10340c18f051a"
+      ],
+      "cwd": "/var/tmp/abstract-task1-server-errors-retry02-20261025",
+      "log": "diff-check.txt",
+      "exit_code": 0,
+      "sha256": "105bfdfe86f6b90f181b577e51d6cd1b604b6fbcdd855da5b9b46c738e8ea5c7",
+      "seconds": 0.017095966999988832
+    },
+    "plans": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-c",
+        "import json;from bench.plan import load_plan,estimate_mode;p=load_plan(\"workload.efficient.json\");print(json.dumps({m:estimate_mode(p,m) for m in p[\"modes\"]},indent=2))"
+      ],
+      "cwd": "/var/tmp/abstract-task1-server-errors-retry02-20261025/tasks/benchmark-design/suite",
+      "log": "plans.txt",
+      "exit_code": 0,
+      "sha256": "a2ba2cd28024d77226d66ec0197bf609d1ab677595c4aa4f7b67c0cad63b75da",
+      "seconds": 0.07821783900000412
+    }
+  },
+  "paid_spend_usd": 0,
+  "gpu_inference": false,
+  "provider_calls": 0,
+  "bundle_sha256": "0e58b12b50e4d1e92ffe0893e36bb1a2adba42d9cc86bc86840e65844501cd7a",
+  "candidate_files_committed_sha256": {
+    "tasks/benchmark-design/suite/audit_timing.py": "afa2d26e0802fd53c26bc1502623886f8973a437219f0a6e72c0deaa36531ad6",
+    "tasks/benchmark-design/suite/bench/gates.py": "251e0c2ec04dd5a2754d7e0681c51c4f8139c806771ef4b834d75cc61add5078",
+    "tasks/benchmark-design/suite/runner/run.py": "6c4732a306ce3b71451d6f632f2a7ddc21334b6b4bf907a6bb5126e801c336ca",
+    "tasks/benchmark-design/suite/tests/test_review_evidence_gates.py": "48821635e66c8d7013c86d7fbca298931f7e612a7f5c15d1656cccd4fe4cdb45"
+  },
+  "tests": {
+    "run": 168,
+    "passed": 167,
+    "skipped": 1,
+    "skip_reason": "existing opaque held-out fixture key unavailable",
+    "seconds": 66.365
+  },
+  "workload": {
+    "path": "tasks/benchmark-design/suite/workload.efficient.json",
+    "sha256": "3360446ba00399278b10a65989da3545827d2c2f9b6752d34c97cd6e8e0e621a"
+  },
+  "source_bytes_unchanged": true,
+  "worktree_clean_after_verification": true,
+  "finished_at_utc": "2026-10-25T22:36:02.699174+00:00"
+}

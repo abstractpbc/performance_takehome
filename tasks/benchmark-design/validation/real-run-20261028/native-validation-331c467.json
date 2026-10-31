@@ -1,0 +1,68 @@
+{
+  "kind": "EXACT_COMBINED_TASK1_NATIVE_CPU_VALIDATION",
+  "source_commit": "331c4678af81627a7a6fa2a99e1e63d1b7214b12",
+  "source_tree": "e4e1a137e088a2fd40eb58dbfcb73138d6beb877",
+  "status": "PASS",
+  "started_utc": "2026-10-28T19:41:35.755537+00:00",
+  "finished_utc": "2026-10-28T22:12:35.959976+00:00",
+  "timing_qualification": "Saved UTC span includes the interrupted desktop interval. This later CPU validation is separate from the original GPU execution clock.",
+  "environment": "Fresh detached native Linux worktree from local Git bundle; canonical LF; CPython 3.14.4, Unicode 16.0.0, Tokenizers 0.22.2, HTTPX 0.28.1; both cached protected-model tokenizer snapshots verified.",
+  "candidate_tests": {
+    "run": 215,
+    "passed": 214,
+    "skipped": 1,
+    "skip_reason": "Original opaque held-out key unavailable; not regenerated",
+    "test_reported_seconds": 131.15
+  },
+  "root_tests": {
+    "run": 40,
+    "passed": 40,
+    "skipped": 0
+  },
+  "ruff": {
+    "version": "0.16.10",
+    "scope": "full repository",
+    "status": "PASS"
+  },
+  "protected_integrity": {
+    "base": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "status": "PASS"
+  },
+  "recorder_version": "1.1.1",
+  "source_worktree_clean_after_checks": true,
+  "GPU_actions": 0,
+  "inference_requests": 0,
+  "downloads_or_installs": 0,
+  "original_private_receipt_sha256": "c2bd93836d399a61b1ac6a21a35101c35dbf755b90b33169b12fe48353ea51c6",
+  "log_digests": {
+    "candidate-tests.stderr": {
+      "bytes": 34178,
+      "sha256": "fd5c839ea1a89f6464b5e8981c9059f57b789810e19c0b1c3219d01857cf8558"
+    },
+    "root-tests.stderr": {
+      "bytes": 4833,
+      "sha256": "ed650a410064ac55b9674d812c492e46c0d408344821b50fca3809be429c756e"
+    },
+    "root-tests.stdout": {
+      "bytes": 512,
+      "sha256": "d5af949459a30c08290b671e2e7a9b37925a65c8c3bb434d70277182a11c405c"
+    },
+    "ruff-version.stdout": {
+      "bytes": 13,
+      "sha256": "69b1c258a98757c0f0f474d1a74c08f610db7bfb1d8ef5aca35520ca1a0238f2"
+    },
+    "ruff-full.stdout": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "integrity.stdout": {
+      "bytes": 88,
+      "sha256": "f2883d87b0a1e13dcf1f84ac2c85727b41c4d6150b43b7c84d794a165784195c"
+    },
+    "runtime-and-assets.stdout": {
+      "bytes": 1436,
+      "sha256": "db1c3a2f0b978595c5feb2db17d76a8943d0ffe3acaecef399c30a5199d18b86"
+    }
+  },
+  "qualification": "Whole-source checks apply to exact 331c467. Following publication edits change documentation/evidence only; no new whole-suite run is attributed to the publication commit."
+}

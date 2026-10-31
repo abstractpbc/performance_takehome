@@ -1,0 +1,12 @@
+{
+  "profile": "noisy",
+  "seed": 101,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 31.86,
+  "family": "control",
+  "description": "Heavy timing jitter but no structural faults (noise control).",
+  "expected": {
+    "status": "valid",
+    "signal": "none (control); A/A must stay no_difference/inconclusive"
+  }
+}

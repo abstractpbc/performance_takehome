@@ -1,0 +1,1149 @@
+{
+  "aa_control": {
+    "confidence_adjusted": 0.95,
+    "decision": "inconclusive",
+    "label": "aa_control_a|rate=4rps vs aa_control_b|rate=4rps",
+    "metrics": {
+      "fluidity_strict_mean": {
+        "a": 0.8125,
+        "b": 0.75,
+        "decision": "inconclusive",
+        "difference": {
+          "confidence": 0.95,
+          "high": 0.1875,
+          "low": -0.3125,
+          "n_a": 16,
+          "n_b": 16,
+          "point": -0.0625
+        },
+        "why": "CI [-0.188, +0.312] straddles the 0.05 boundary (underpowered)"
+      },
+      "min_decode_deadline_p99_s": {
+        "a": 0.017805676941154883,
+        "b": 0.017805676941154883,
+        "decision": "no_difference",
+        "difference": {
+          "confidence": 0.95,
+          "high": 0.000284217094304047,
+          "low": -0.0002501110429875622,
+          "n_a": 13,
+          "n_b": 12,
+          "point": 0.0
+        },
+        "why": "CI [-0.014, +0.016] within +/-0.1"
+      },
+      "ttft_p50_s": {
+        "a": 0.09830619100011972,
+        "b": 0.09864670199999637,
+        "decision": "no_difference",
+        "difference": {
+          "confidence": 0.95,
+          "high": 0.007767209999883562,
+          "low": -0.00408488601249246,
+          "n_a": 13,
+          "n_b": 12,
+          "point": 0.000340510999876642
+        },
+        "why": "CI [-0.042, +0.079] within +/-0.1"
+      },
+      "ttft_p90_s": {
+        "a": 0.10286110379993262,
+        "b": 0.10314053260008223,
+        "decision": "no_difference",
+        "difference": {
+          "confidence": 0.95,
+          "high": 0.0043347626003651385,
+          "low": -0.0030690424297449698,
+          "n_a": 13,
+          "n_b": 12,
+          "point": 0.00027942880014961147
+        },
+        "why": "CI [-0.030, +0.042] within +/-0.15"
+      }
+    }
+  },
+  "adapter": "native",
+  "cells": {
+    "aa_control_a|rate=4rps": {
+      "categories": {
+        "completed": 13,
+        "failed": 3
+      },
+      "cell_id": "aa_control_a",
+      "completed": 13,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 56.16186361826352,
+        "min_decode_deadline_s": {
+          "n": 13,
+          "p50": 0.017521459846850836,
+          "p99": 0.017805676941154883,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.625,
+            "n": 16,
+            "point": 0.8125,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.625,
+            "n": 16,
+            "point": 0.8125,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.625,
+            "n": 16,
+            "point": 0.8125,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.625,
+            "n": 16,
+            "point": 0.8125,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.625,
+            "n": 16,
+            "point": 0.8125,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 1.0,
+            "low": 0.625,
+            "n": 16,
+            "point": 0.8125,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=4rps",
+      "offered": 16,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {
+        "http_error": 3
+      },
+      "role": "aa_control",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 0.7246376811594203,
+        "tokens_per_delta_mean": 0.7246376811594202,
+        "usage_discrepancies": 0,
+        "usage_reported": 13
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.08323272200004794,
+        "max": 0.10479604900001505,
+        "n": 13,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.1003174930001478,
+          "low": 0.09353242599991063,
+          "n": 13,
+          "point": 0.09830619100011972,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.10479604900001505,
+          "low": 0.09919515419987875,
+          "n": 13,
+          "point": 0.10286110379993262,
+          "resamples": 2000
+        },
+        "p99": 0.10463621212000362,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1.0
+      }
+    },
+    "aa_control_b|rate=4rps": {
+      "categories": {
+        "completed": 12,
+        "failed": 4
+      },
+      "cell_id": "aa_control_b",
+      "completed": 12,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 56.16186361826352,
+        "min_decode_deadline_s": {
+          "n": 12,
+          "p50": 0.017521459846850836,
+          "p99": 0.017805676941154883,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9375,
+            "low": 0.5,
+            "n": 16,
+            "point": 0.75,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.9375,
+            "low": 0.5625,
+            "n": 16,
+            "point": 0.75,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9375,
+            "low": 0.5,
+            "n": 16,
+            "point": 0.75,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.9375,
+            "low": 0.5625,
+            "n": 16,
+            "point": 0.75,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9375,
+            "low": 0.5,
+            "n": 16,
+            "point": 0.75,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.9375,
+            "low": 0.5625,
+            "n": 16,
+            "point": 0.75,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=4rps",
+      "offered": 16,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {
+        "http_error": 4
+      },
+      "role": "aa_control",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 0.7246376811594203,
+        "tokens_per_delta_mean": 0.7246376811594203,
+        "usage_discrepancies": 0,
+        "usage_reported": 12
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.08477898699993602,
+        "max": 0.10381484700019428,
+        "n": 12,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.10219590599990624,
+          "low": 0.09474554600001284,
+          "n": 12,
+          "point": 0.09864670199999637,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.10381484700019428,
+          "low": 0.10109407210024983,
+          "n": 12,
+          "point": 0.10314053260008223,
+          "resamples": 2000
+        },
+        "p99": 0.10374588866018257,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1.0
+      }
+    },
+    "chat_short_open|rate=4rps": {
+      "categories": {
+        "completed": 9,
+        "failed": 7
+      },
+      "cell_id": "chat_short_open",
+      "completed": 9,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 54.62719959931845,
+        "min_decode_deadline_s": {
+          "n": 9,
+          "p50": 0.01723724275254679,
+          "p99": 0.01830589902713,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.8125,
+            "low": 0.3125,
+            "n": 16,
+            "point": 0.5625,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.8125,
+            "low": 0.3125,
+            "n": 16,
+            "point": 0.5625,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.8125,
+            "low": 0.3125,
+            "n": 16,
+            "point": 0.5625,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.8125,
+            "low": 0.3125,
+            "n": 16,
+            "point": 0.5625,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.8125,
+            "low": 0.3125,
+            "n": 16,
+            "point": 0.5625,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.8125,
+            "low": 0.3125,
+            "n": 16,
+            "point": 0.5625,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": false,
+      "load_label": "rate=4rps",
+      "offered": 16,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {
+        "http_error": 7
+      },
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 0.7246376811594203,
+        "tokens_per_delta_mean": 0.7246376811594203,
+        "usage_discrepancies": 0,
+        "usage_reported": 9
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.08428818699985641,
+        "max": 0.10896827899978234,
+        "n": 9,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.10325008400013758,
+          "low": 0.09303562900004181,
+          "n": 9,
+          "point": 0.09800943800019013,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.10896827899978234,
+          "low": 0.09853602840012173,
+          "n": 9,
+          "point": 0.10439372300006652,
+          "resamples": 2000
+        },
+        "p99": 0.10851082339981076,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1.0
+      }
+    },
+    "closed_loop_sweep|conc=8": {
+      "categories": {
+        "completed": 9,
+        "failed": 7
+      },
+      "cell_id": "closed_loop_sweep",
+      "completed": 9,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 57.072869997172745,
+        "min_decode_deadline_s": {
+          "n": 9,
+          "p50": 0.017521459846850836,
+          "p99": 0.017521459846850836,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {},
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.8125,
+            "low": 0.3125,
+            "n": 16,
+            "point": 0.5625,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.8125,
+            "low": 0.3125,
+            "n": 16,
+            "point": 0.5625,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.8125,
+            "low": 0.3125,
+            "n": 16,
+            "point": 0.5625,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.8125,
+            "low": 0.3125,
+            "n": 16,
+            "point": 0.5625,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.8125,
+            "low": 0.3125,
+            "n": 16,
+            "point": 0.5625,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.8125,
+            "low": 0.3125,
+            "n": 16,
+            "point": 0.5625,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": false,
+      "load_label": "conc=8",
+      "offered": 16,
+      "prompt_source": "chat_short",
+      "rejection_reasons": {
+        "http_error": 7
+      },
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 0.7246376811594203,
+        "tokens_per_delta_mean": 0.7246376811594203,
+        "usage_discrepancies": 0,
+        "usage_reported": 9
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.09075052599973787,
+        "max": 0.1112473719999798,
+        "n": 9,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.10875053199970353,
+          "low": 0.09977213499996651,
+          "n": 9,
+          "point": 0.10379048400000102,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.1112473719999798,
+          "low": 0.10459601059992565,
+          "n": 9,
+          "point": 0.10924989999975879,
+          "resamples": 2000
+        },
+        "p99": 0.11104762479995771,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1.0
+      }
+    },
+    "generation_long_open|rate=4rps": {
+      "categories": {
+        "completed": 12,
+        "failed": 4
+      },
+      "cell_id": "generation_long_open",
+      "completed": 12,
+      "decode": {
+        "ftgr_note": null,
+        "ftgr_tokens_per_s": 155.3520368511485,
+        "min_decode_deadline_s": {
+          "n": 12,
+          "p50": 0.006436993168993052,
+          "p99": 0.006436993168993052,
+          "unresolved_traces": 0
+        },
+        "traces_excluded_single_token": 0
+      },
+      "enough_evidence": true,
+      "flags": {
+        "multi_token_deltas": 12
+      },
+      "fluidity": {
+        "medium": {
+          "deadline_s": 0.05,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9375,
+            "low": 0.5,
+            "n": 16,
+            "point": 0.75,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.9375,
+            "low": 0.5,
+            "n": 16,
+            "point": 0.75,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "relaxed": {
+          "deadline_s": 0.1667,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9375,
+            "low": 0.5,
+            "n": 16,
+            "point": 0.75,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.9375,
+            "low": 0.5,
+            "n": 16,
+            "point": 0.75,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        },
+        "strict": {
+          "deadline_s": 0.025,
+          "index_mean": {
+            "confidence": 0.95,
+            "high": 0.9375,
+            "low": 0.5,
+            "n": 16,
+            "point": 0.75,
+            "resamples": 2000
+          },
+          "index_p50": 1.0,
+          "n": 16,
+          "slo_fraction": {
+            "confidence": 0.95,
+            "high": 0.9375,
+            "low": 0.5,
+            "n": 16,
+            "point": 0.75,
+            "resamples": 2000
+          },
+          "slo_met": false,
+          "unmeasurable": 0
+        }
+      },
+      "latency_sample_sufficient": true,
+      "load_label": "rate=4rps",
+      "offered": 16,
+      "prompt_source": "generation_long",
+      "rejection_reasons": {
+        "http_error": 4
+      },
+      "role": "measure",
+      "token_evidence": {
+        "grapheme_boundary_splits": 0,
+        "resolution": [
+          "delta"
+        ],
+        "tokens_per_delta_max": 1.9967105263157894,
+        "tokens_per_delta_mean": 1.99606283543,
+        "usage_discrepancies": 0,
+        "usage_reported": 12
+      },
+      "ttft_s": {
+        "first_byte_p50": 0.08272210900031496,
+        "max": 0.10707136200016976,
+        "n": 12,
+        "p50": {
+          "confidence": 0.95,
+          "high": 0.09875433000001976,
+          "low": 0.09203015599996434,
+          "n": 12,
+          "point": 0.09503971450021709,
+          "resamples": 2000
+        },
+        "p90": {
+          "confidence": 0.95,
+          "high": 0.10707136200016976,
+          "low": 0.09571208840006876,
+          "n": 12,
+          "point": 0.10066555159983182,
+          "resamples": 2000
+        },
+        "p99": 0.1063792597101292,
+        "prefill_deadline_hit_rate": 1.0,
+        "ttft_slo_hit_rate": 1.0,
+        "ttft_slo_s": 1.0
+      }
+    }
+  },
+  "engine": {
+    "base_url": "http://127.0.0.1:48667",
+    "kind": "mock",
+    "lock_digest": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+    "lock_image": "docker.io/zmlai/llmd@sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+    "lock_model": "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "model_id": "mock/llm-d-stand-in",
+    "server_header": null
+  },
+  "events_dir": "suite/fixtures/public/http_error",
+  "inconclusive_reasons": [],
+  "mode": "fixture",
+  "plan_id": "abstract-t1-mock-cpu-v1",
+  "population": {
+    "totals": {
+      "completed": 55,
+      "evidence_invalid": 0,
+      "failed": 25,
+      "not_offered": 0,
+      "offered": 80,
+      "planned": 80,
+      "unfinished": 0
+    },
+    "units": {
+      "aa_control_a|rate=4rps|rep0": {
+        "cell_id": "aa_control_a",
+        "completed": 13,
+        "evidence_invalid": 0,
+        "failed": 3,
+        "load_label": "rate=4rps",
+        "not_offered": 0,
+        "offered": 16,
+        "planned": 16,
+        "role": "aa_control",
+        "unfinished": 0,
+        "warmup_offered": 1
+      },
+      "aa_control_b|rate=4rps|rep0": {
+        "cell_id": "aa_control_b",
+        "completed": 12,
+        "evidence_invalid": 0,
+        "failed": 4,
+        "load_label": "rate=4rps",
+        "not_offered": 0,
+        "offered": 16,
+        "planned": 16,
+        "role": "aa_control",
+        "unfinished": 0,
+        "warmup_offered": 1
+      },
+      "chat_short_open|rate=4rps|rep0": {
+        "cell_id": "chat_short_open",
+        "completed": 9,
+        "evidence_invalid": 0,
+        "failed": 7,
+        "load_label": "rate=4rps",
+        "not_offered": 0,
+        "offered": 16,
+        "planned": 16,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 1
+      },
+      "closed_loop_sweep|conc=8|rep0": {
+        "cell_id": "closed_loop_sweep",
+        "completed": 9,
+        "evidence_invalid": 0,
+        "failed": 7,
+        "load_label": "conc=8",
+        "not_offered": 0,
+        "offered": 16,
+        "planned": 16,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 1
+      },
+      "generation_long_open|rate=4rps|rep0": {
+        "cell_id": "generation_long_open",
+        "completed": 12,
+        "evidence_invalid": 0,
+        "failed": 4,
+        "load_label": "rate=4rps",
+        "not_offered": 0,
+        "offered": 16,
+        "planned": 16,
+        "role": "measure",
+        "unfinished": 0,
+        "warmup_offered": 1
+      }
+    }
+  },
+  "reasons": [],
+  "report_schema_version": "1.0.0",
+  "request_verdicts": {
+    "aa_control_a|rate=4rps|rep0/measure/13": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "aa_control_a|rate=4rps|rep0/measure/7": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "aa_control_a|rate=4rps|rep0/measure/9": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "aa_control_a|rate=4rps|rep0/warmup/0": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "aa_control_b|rate=4rps|rep0/measure/1": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "aa_control_b|rate=4rps|rep0/measure/10": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "aa_control_b|rate=4rps|rep0/measure/2": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "aa_control_b|rate=4rps|rep0/measure/6": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "chat_short_open|rate=4rps|rep0/measure/0": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "chat_short_open|rate=4rps|rep0/measure/2": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "chat_short_open|rate=4rps|rep0/measure/3": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "chat_short_open|rate=4rps|rep0/measure/4": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "chat_short_open|rate=4rps|rep0/measure/6": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "chat_short_open|rate=4rps|rep0/measure/7": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "chat_short_open|rate=4rps|rep0/measure/9": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "closed_loop_sweep|conc=8|rep0/measure/0": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "closed_loop_sweep|conc=8|rep0/measure/1": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "closed_loop_sweep|conc=8|rep0/measure/10": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "closed_loop_sweep|conc=8|rep0/measure/13": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "closed_loop_sweep|conc=8|rep0/measure/14": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "closed_loop_sweep|conc=8|rep0/measure/8": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "closed_loop_sweep|conc=8|rep0/measure/9": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "closed_loop_sweep|conc=8|rep0/warmup/0": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/0": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/1": {
+      "category": "completed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": []
+    },
+    "generation_long_open|rate=4rps|rep0/measure/10": {
+      "category": "completed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": []
+    },
+    "generation_long_open|rate=4rps|rep0/measure/11": {
+      "category": "completed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": []
+    },
+    "generation_long_open|rate=4rps|rep0/measure/12": {
+      "category": "completed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": []
+    },
+    "generation_long_open|rate=4rps|rep0/measure/13": {
+      "category": "completed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": []
+    },
+    "generation_long_open|rate=4rps|rep0/measure/14": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/15": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/2": {
+      "category": "completed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": []
+    },
+    "generation_long_open|rate=4rps|rep0/measure/3": {
+      "category": "completed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": []
+    },
+    "generation_long_open|rate=4rps|rep0/measure/4": {
+      "category": "completed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": []
+    },
+    "generation_long_open|rate=4rps|rep0/measure/5": {
+      "category": "completed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": []
+    },
+    "generation_long_open|rate=4rps|rep0/measure/6": {
+      "category": "completed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": []
+    },
+    "generation_long_open|rate=4rps|rep0/measure/7": {
+      "category": "completed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": []
+    },
+    "generation_long_open|rate=4rps|rep0/measure/8": {
+      "category": "failed",
+      "flags": [],
+      "reasons": [
+        "http_error:500"
+      ]
+    },
+    "generation_long_open|rate=4rps|rep0/measure/9": {
+      "category": "completed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": []
+    },
+    "generation_long_open|rate=4rps|rep0/warmup/0": {
+      "category": "completed",
+      "flags": [
+        "multi_token_deltas"
+      ],
+      "reasons": []
+    }
+  },
+  "run_id": "fixture-http_error-110",
+  "startup": {
+    "cold_launches": 1,
+    "launches": [
+      {
+        "cold": true,
+        "first_ready_probe_s": 0.21671853699990606,
+        "generation_probes": 1,
+        "launch_index": 0,
+        "probe_categories": {
+          "completed": 1
+        },
+        "readiness_lead_s": 0.5262216510000144,
+        "readiness_probes": 2,
+        "startup_to_first_valid_generation_s": 0.7429401879999205,
+        "status": "valid"
+      }
+    ],
+    "planned_launches": 1,
+    "startup_to_first_valid_generation_s": {
+      "median": 0.7429401879999205,
+      "n": 1,
+      "values": [
+        0.7429401879999205
+      ]
+    }
+  },
+  "status": "valid",
+  "time_scale": 1.0
+}

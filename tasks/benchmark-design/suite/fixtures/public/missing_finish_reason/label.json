@@ -1,0 +1,12 @@
+{
+  "profile": "missing_finish_reason",
+  "seed": 109,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 31.89,
+  "family": "missing_completion",
+  "description": "[DONE] emitted but finish_reason stays null.",
+  "expected": {
+    "status": "valid",
+    "signal": "gate missing_finish_reason -> unfinished"
+  }
+}

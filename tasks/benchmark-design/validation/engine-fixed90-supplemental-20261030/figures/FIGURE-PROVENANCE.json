@@ -1,0 +1,58 @@
+{
+  "schema": "recorded-descriptive-figure-v1",
+  "archive_name": "TASK1-STUDY.tar.gz",
+  "archive_bytes": 383385,
+  "archive_sha256": "fab4f7d0ffb9d1bf5625664f01d32b79a20afee4f1afcbbd454e2bacbb398f23",
+  "summary_member": "study-summary.json",
+  "summary_sha256": "8580b4343fea003b377e83d46228faca106e8341c37f1cf9cedd78b335c75aec",
+  "groups": {
+    "control_a": 30,
+    "delay100": 30,
+    "control_b": 30
+  },
+  "fixed_block_order": [
+    "control_a",
+    "delay100",
+    "control_b"
+  ],
+  "recorded_intervals": {
+    "delay_minus_clean_median_descriptive_CI95": {
+      "original_seconds": {
+        "point": 0.10007321950000403,
+        "low": 0.09963181636251832,
+        "high": 0.10052627721247943,
+        "n_a": 60,
+        "n_b": 30,
+        "confidence": 0.95
+      },
+      "display_milliseconds": {
+        "point": 100.07321950000403,
+        "low": 99.63181636251832,
+        "high": 100.52627721247943
+      }
+    },
+    "healthy_b_minus_a_median_descriptive_CI95": {
+      "original_seconds": {
+        "point": 3.30234999807999e-05,
+        "low": -0.0005128384624988767,
+        "high": 0.0012454669999613088,
+        "n_a": 30,
+        "n_b": 30,
+        "confidence": 0.95
+      },
+      "display_milliseconds": {
+        "point": 0.0330234999807999,
+        "low": -0.5128384624988767,
+        "high": 1.2454669999613088
+      }
+    }
+  },
+  "unit_conversion": "original seconds multiplied by 1000 only",
+  "statistics_recomputed": false,
+  "official_grade": false,
+  "measured_power_claimed": false,
+  "primary_three_hour_revalidation": false,
+  "single_host": true,
+  "original_CI_qualification": "Fixed30perarm, independent-request descriptive percentile bootstrap only; no measured power, population coverage or regression grade.",
+  "matplotlib_version": "3.9.0"
+}

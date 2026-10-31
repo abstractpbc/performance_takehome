@@ -1,0 +1,12 @@
+{
+  "profile": "wrong_text",
+  "seed": 112,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 31.74,
+  "family": "invalid_output",
+  "description": "Required codes/numbers altered; stream otherwise clean.",
+  "expected": {
+    "status": "valid",
+    "signal": "gate invalid_output (nonce/sequence) -> failed"
+  }
+}

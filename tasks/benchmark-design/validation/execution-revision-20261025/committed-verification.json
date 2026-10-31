@@ -1,0 +1,166 @@
+{
+  "status": "PASS",
+  "scope": "Exact committed source in a fresh native Linux bundle checkout; no source overlay",
+  "started_at_utc": "2026-10-25T21:20:52.966359+00:00",
+  "source_commit": "b0eba2d94230e52c75ccdde9db9b50cd02f0158e",
+  "suite_tree_sha": "6da654fe8965a9ab73707389edfb26266f8f14ba",
+  "environment": {
+    "platform": "linux",
+    "python": "3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]",
+    "dependency_root": "/var/tmp/abstract-benchmark-greptile-deps-20261025",
+    "native_checkout": "/var/tmp/abstract-task1-final-committed-20261025",
+    "tokenizer_wheel_sha256": "369cc9fc8cc10cb24143873a0d95438bb8ee257bb80c71989e3ee290e8d72c67",
+    "ruff_binary_sha256": "14704de5ea0d07038512de127bd52d6a169fb70bd70ddfa25bf39e21fed6b2b6"
+  },
+  "commands": {
+    "clone": {
+      "argv": [
+        "git",
+        "-c",
+        "core.autocrlf=false",
+        "clone",
+        "--no-hardlinks",
+        "-b",
+        "codex/abstract-benchmark-audit",
+        "/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/task1-final-committed-20261025/committed-source.bundle",
+        "/var/tmp/abstract-task1-final-committed-20261025"
+      ],
+      "cwd": "/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/task1-final-committed-20261025",
+      "log": "clone.txt",
+      "exit_code": 0,
+      "sha256": "89c8a6718d02dcdeb6a698604f6cc33922c1b4214544394532fc46565832fb61",
+      "seconds": 1.3037706610000015
+    },
+    "runtime-identity": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-c",
+        "import httpx,tokenizers,json;print(json.dumps({\"httpx\":httpx.__version__,\"tokenizers\":tokenizers.__version__}))"
+      ],
+      "cwd": "/var/tmp/abstract-task1-final-committed-20261025",
+      "log": "runtime-identity.txt",
+      "exit_code": 0,
+      "sha256": "87c9857200fb8d8f4c0ed34d8e8bf080d976d4a61469b412ef361a5e87df1589",
+      "seconds": 0.5403594869999964
+    },
+    "full-tests": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "/var/tmp/abstract-task1-final-committed-20261025/tasks/benchmark-design/suite",
+      "log": "full-tests.txt",
+      "exit_code": 0,
+      "sha256": "65a383b0537895e25d1ca16cdfecd2f49c940a83ee345da897003b20ad5ffa01",
+      "seconds": 81.755088153,
+      "tests_run": 158,
+      "test_seconds": 80.762,
+      "passed": true,
+      "skipped": 1
+    },
+    "integrity": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "tools.check_integrity",
+        "--base",
+        "81aead87d78ed468c4c374fb42921471b44c3f80"
+      ],
+      "cwd": "/var/tmp/abstract-task1-final-committed-20261025",
+      "log": "integrity.txt",
+      "exit_code": 0,
+      "sha256": "309c6d3049a9ca4433f19db87b2b4e14a6a53711bd614dca17e37ab0b19dd026",
+      "seconds": 0.08261440500001527
+    },
+    "ruff-version": {
+      "argv": [
+        "/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/harness-final-identity-20261025/task-tools/ruff",
+        "--version"
+      ],
+      "cwd": "/var/tmp/abstract-task1-final-committed-20261025",
+      "log": "ruff-version.txt",
+      "exit_code": 0,
+      "sha256": "73111338b7c5df8a2bfbb6c071a84cea8387ea7d9e3cc0ed5836c2c2f6e708e0",
+      "seconds": 0.05092614800000206
+    },
+    "ruff-check": {
+      "argv": [
+        "/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/harness-final-identity-20261025/task-tools/ruff",
+        "check",
+        "--no-cache",
+        "."
+      ],
+      "cwd": "/var/tmp/abstract-task1-final-committed-20261025",
+      "log": "ruff-check.txt",
+      "exit_code": 0,
+      "sha256": "b03d8647ffdb97bb69307fd25a43575c0864851d0b3b4762a8882461bcd680e5",
+      "seconds": 0.13205177200001117
+    },
+    "diff-check": {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "3173a82eef0251517a13c1d32548274173ef6a66",
+        "b0eba2d94230e52c75ccdde9db9b50cd02f0158e"
+      ],
+      "cwd": "/var/tmp/abstract-task1-final-committed-20261025",
+      "log": "diff-check.txt",
+      "exit_code": 0,
+      "sha256": "a61323188b970a4e8d1e2a1bcae2e658f23fc3fd9cf90ce027d36c00c2b11c0b",
+      "seconds": 0.02372643900000071
+    },
+    "plans": {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-c",
+        "import json;from bench.plan import load_plan,estimate_mode;p=load_plan(\"workload.efficient.json\");print(json.dumps({m:estimate_mode(p,m) for m in p[\"modes\"]},indent=2))"
+      ],
+      "cwd": "/var/tmp/abstract-task1-final-committed-20261025/tasks/benchmark-design/suite",
+      "log": "plans.txt",
+      "exit_code": 0,
+      "sha256": "c8bd7a61130b9f5f856ade9605ef9bee5ee69d46ab7b6a8d8f47e72041d96e1b",
+      "seconds": 0.08122096100001386
+    }
+  },
+  "paid_spend_usd": 0,
+  "gpu_inference": false,
+  "provider_calls": 0,
+  "bundle_sha256": "9bae85ce0d1b386d77ceb84eca719fe06914c9ce85b2a7e328360ac930e64fde",
+  "candidate_files_committed_sha256": {
+    "tasks/benchmark-design/DESIGN.md": "b4f7f8d8bbd5fdeae6eacaffc4e4f38dae717f2455023cf302f371713051f90b",
+    "tasks/benchmark-design/EXECUTION.md": "e3e81f9aba0801ce1a9698f9ea0ebafd0c905e7b90dc4cd7ebc655be3a4fcf1f",
+    "tasks/benchmark-design/suite/README.md": "c2001a4faa5e1faa03490900ab7c2483dcb38652fd4667c95f9ea5f6ddc3e7be",
+    "tasks/benchmark-design/suite/audit_timing.py": "17c7b986aeea8719ca710ea296eee26b4060c38466f6ec91ca616b03ee2c6932",
+    "tasks/benchmark-design/suite/bench/calibration.py": "110a8b8ea227800f4e8ca04e92497b48c3e6410fe41ab2ef1a73714f4faf7cb9",
+    "tasks/benchmark-design/suite/bench/prompts.py": "2a452bf6f125b48dcc393566583c742cef72d021ef8c3d78b945fd1b9e57841b",
+    "tasks/benchmark-design/suite/capture.py": "64142f036f2e92de34c4b6e5a0ad66a8ee23bbada555927b8158f9b9d07f26a7",
+    "tasks/benchmark-design/suite/evaluate.py": "b85a02e6f2edf40c7e068e9863a18c71637902cdc8e2d88ac22ef1a59f4c87cb",
+    "tasks/benchmark-design/suite/runner/run.py": "8c1ec8444e801819ae8de81e9082417d9a733d9609fd4a7b37f69263ba00ce9a",
+    "tasks/benchmark-design/suite/tests/test_calibration_capture.py": "267ab4d4dc2025a525bfe1d8763582e7d72366337bc66bec5d47640104f881d8",
+    "tasks/benchmark-design/suite/workload.efficient.json": "3360446ba00399278b10a65989da3545827d2c2f9b6752d34c97cd6e8e0e621a"
+  },
+  "tests": {
+    "run": 158,
+    "passed": 157,
+    "skipped": 1,
+    "skip_reason": "existing opaque held-out fixture key unavailable",
+    "seconds": 80.762
+  },
+  "workload": {
+    "path": "tasks/benchmark-design/suite/workload.efficient.json",
+    "sha256": "3360446ba00399278b10a65989da3545827d2c2f9b6752d34c97cd6e8e0e621a"
+  },
+  "source_bytes_unchanged": true,
+  "worktree_clean_after_verification": true,
+  "finished_at_utc": "2026-10-25T21:22:17.859003+00:00"
+}

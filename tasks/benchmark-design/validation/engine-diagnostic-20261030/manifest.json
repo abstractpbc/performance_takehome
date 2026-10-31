@@ -1,0 +1,45 @@
+{
+  "kind": "PUBLIC_SEPARATE_REAL_ENGINE_DIAGNOSTIC",
+  "files": {
+    ".gitattributes": {
+      "bytes": 81,
+      "sha256": "67b0ee66809bafca30375fa6b506b39c5783cde96b4346baf050cf60da34ab94"
+    },
+    "capture.tar.gz": {
+      "bytes": 61812,
+      "sha256": "ecee5b425f202fd54158b642ba2c2ef0c88f78d60d87b9d326cf680fa651245d"
+    },
+    "fault_proxy.py": {
+      "bytes": 12359,
+      "sha256": "d90aeb1fbf76f20a795cdbb123d10cab6fb2b3e94d778b5f6ddcc89fbdd91eb8"
+    },
+    "README.md": {
+      "bytes": 6545,
+      "sha256": "09f2b3efc2936f1a8fdf1a5c63534255d448d2335d6eede67156529501766865"
+    },
+    "results.json": {
+      "bytes": 6721,
+      "sha256": "d902f7e67a703e3b730cd96a8f31f7ead2c405bd7edcc038dc509c78f08d063c"
+    },
+    "SOURCE-PINS.json": {
+      "bytes": 5934,
+      "sha256": "09ea06d841afc85970a2353fbe08c6e28b34ec3c3515f6662bc6caf716bf2501"
+    },
+    "STUDY-PLAN.json": {
+      "bytes": 1592,
+      "sha256": "93c8b98a8b9f98f7fabbc75ca3514dfa2a060ec2f542c860a51be6c73f03b592"
+    },
+    "study_driver.capture.py.txt": {
+      "bytes": 16000,
+      "sha256": "60cfdad3b79d881859939a6f63666675032fe2e61310e6f8e109d502e5022868"
+    },
+    "study_driver.py": {
+      "bytes": 17653,
+      "sha256": "968532dbcba68f3e0ee08fd66e6249e06084e2f1c444ca376419f879bbb142d2"
+    },
+    "workload.study.json": {
+      "bytes": 10463,
+      "sha256": "bc19dc8b6142194dd76342bac7800bc13c2bde8f690448b4e85fadd2fdfa6a76"
+    }
+  }
+}

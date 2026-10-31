@@ -1,0 +1,28 @@
+{
+  "kind": "SANITIZED_ORIGINAL_EXECUTION_AND_SHARED_RESOURCE_CLOSURE",
+  "original_T0_utc": "2026-10-28T16:10:34.243406+00:00",
+  "full_capture_cleanup_export_elapsed_seconds": 7572.170621909687,
+  "identity_verified_DELETE_status": 204,
+  "delete_observed_utc": "2026-10-28T18:29:52.743675+00:00",
+  "independent_GET_status": 404,
+  "GPU_absence_observed_utc": "2026-10-28T18:30:02.437658+00:00",
+  "canonical_absence_recorded": true,
+  "T0_to_GPU_absence_seconds": 8368.194252,
+  "T0_to_GPU_absence_hms": "02:19:28.194252",
+  "original_execution_including_resource_cleanup_within_10800_seconds": true,
+  "absence_evidence_verified_offhost_utc": "2026-10-28T18:30:35.405337+00:00",
+  "T0_to_offhost_absence_receipt_seconds": 8401.161931,
+  "shared_allocation_start_utc": "2026-10-28T16:21:22+00:00",
+  "shared_allocation_elapsed_seconds": 7720.437658,
+  "rate_ceiling_USD_per_GPU_hour": "4.50",
+  "shared_base_allocation_charge_upper_USD": "9.66",
+  "billing_qualification": "Elapsed shared allocation at stated base rate ceiling; provider invoice pending. Shared with Task2, not Task1-exclusive cost. No later CPU QA/reanalysis is included in the original execution clock.",
+  "source_receipt_sha256": {
+    "GPU-EARLY-ABSENCE-OFFHOST.json": "09fa32970cc6ddf025bf43d4014eb7cf8e8b6a48b840689f36b01d8fb02d6608",
+    "DELETE": "137956fafeac900a580040c6a400707ffec32d80294145c710255d8d20138d40",
+    "GET404": "8c23aaa45273aec71f557c01dbd49bcd91a534fd68add99c49943391a44bfc84",
+    "cleanup": "85cd5cefa9125222ee98d1ed21bd1cbc025f7c42125b9ce631dd632143226905",
+    "canonical_absence_confirmation": "c22d387c0a3c435359b08b59ec10fb874374ece136bae2f23efa67f7a47e2b08"
+  },
+  "private_ledger_or_credential_contents_published": false
+}

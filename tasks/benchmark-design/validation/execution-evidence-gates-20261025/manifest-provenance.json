@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-25T22:22:10.696363+00:00",
+  "scope": "Independent JSON/Git/source tree/receipt hash checks; no official schema acceptance",
+  "source_commit": "3396147943e3086edfb6bf35081e9397cfcdd9da",
+  "suite_tree_sha": "cbd20409723126484937af9c8233427406df5b5a",
+  "submission_sha256": "c4c614c69037cc2a988da6abe43ca4024dfbd7cd85fad0c07de4fc727c98fcec",
+  "historical_manifest_fields_preserved": true,
+  "prior_execution_revision_archived_exactly": true,
+  "prior_execution_revision_source": "a3d3b0381b0c0c88a83f9099c02f6e68c436354b",
+  "prior_execution_proof_immutable": true,
+  "native_proof_receipt_sha256": "7516eac10b7fdcaa8da476d2f98fcf4ce3b4c4d10292f7cbf2397acced6f547c",
+  "full_tests_log_sha256": "7aa396e5a9cff89dbb494e28680badc3ecf883b53d477a630d17938b27d6f93a",
+  "gpu_status": "UNMEASURED_GPU",
+  "official_result": false
+}

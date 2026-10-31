@@ -1,0 +1,3 @@
+SOURCE_COMMIT=ce98000ad4de57897d41ea9f67e10340c18f051a
+COMMAND=["git", "-c", "core.autocrlf=false", "clone", "--no-hardlinks", "-b", "codex/abstract-benchmark-audit", "/mnt/c/Users/Sharon/Documents/ChatGPT/jobs & networking/output/abstract-audit/task1-server-errors-retry02-20261025/committed-source.bundle", "/var/tmp/abstract-task1-server-errors-retry02-20261025"]
+Cloning into '/var/tmp/abstract-task1-server-errors-retry02-20261025'...

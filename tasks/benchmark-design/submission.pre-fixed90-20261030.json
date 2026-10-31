@@ -1,0 +1,260 @@
+{
+  "schema_version": 2,
+  "task": "benchmark-design",
+  "status": "REAL_CAPTURES_VALID_UNDER_ORIGINAL_GATES_POST_REVIEW_CPU_VERIFIED",
+  "official_result": false,
+  "source": {
+    "repository": "https://github.com/sharonbasovich/performance_takehome",
+    "branch": "codex/task1-real-run-final",
+    "capture_commit": "7d6fd182aa494eff1975e41f3fb67934f30994f6",
+    "tested_code_commit": "331c4678af81627a7a6fa2a99e1e63d1b7214b12",
+    "provenance": "tasks/benchmark-design/validation/real-run-20261028/provenance.json",
+    "qualification": "Original real captures retain 7d6fd18 plus the disclosed full-run external adapter. Later 556e7b8 quality/calibration reanalysis matches stored metrics; combined 331c467 recorder 1.1.1 is CPU-tested and was not used for historical GPU capture. Final publication changes documentation/evidence only.",
+    "original_code_validation_commit": "ea97cb833644aefd48569a805c83269bd0c8eaed",
+    "quality_calibration_reanalysis_commit": "556e7b8255ac342a806237d6ce83fd90f6d7275f"
+  },
+  "suite": {
+    "entrypoint": "tasks/benchmark-design/suite/evaluate.py",
+    "workload": "tasks/benchmark-design/suite/workload.json",
+    "actual_frozen_scoring_workload": "tasks/benchmark-design/validation/real-run-20261028/frozen-workload.json",
+    "actual_frozen_scoring_workload_sha256": "fb82d603967046ab14f895d1bc5be4e681cc25f341a3cc31ce76ca9268edc412",
+    "tests": "tasks/benchmark-design/suite/tests",
+    "test_command": "cd tasks/benchmark-design/suite && python -B -m unittest discover -s tests -v",
+    "run_wall_budget_minutes": 180.0,
+    "planned_wall_minutes": {
+      "quick": 39.6,
+      "full": 160.0
+    },
+    "planned_gpu_hours": {
+      "quick": 0.66,
+      "full": 2.67
+    },
+    "planning_qualification": "These required historical arithmetic fields refer to unchanged suite/workload.json, not the actual frozen efficient scoring plan or measured time.",
+    "optional_tokenizer": {
+      "asset_lock": "tasks/benchmark-design/suite/tokenizer.lock.json",
+      "runtime_lock": "tasks/benchmark-design/suite/requirements-tokenizer.txt",
+      "runtime": "tokenizers==0.22.2",
+      "timing_resolution": "delta",
+      "count_semantics": "reencoded-decoded-output",
+      "real_run_requirement": "--tokenizer-snapshot on runner and evaluator; selected assets must match plan.target.model_role",
+      "cpu_validation": "tests/test_model_tokens.py verifies both protected model tokenizer snapshots without weights or GPU"
+    },
+    "latest_validation": {
+      "source_commit": "331c4678af81627a7a6fa2a99e1e63d1b7214b12",
+      "status": "PASS",
+      "candidate_tests_run": 215,
+      "candidate_tests_passed": 214,
+      "skipped": 1,
+      "skip_reason": "Original opaque held-out key unavailable; not regenerated",
+      "root_tests_passed": 40,
+      "locked_ruff": "0.16.10 PASS",
+      "protected_integrity": "PASS",
+      "receipt": "tasks/benchmark-design/validation/real-run-20261028/native-validation-331c467.json"
+    }
+  },
+  "fixed_environment": {
+    "baseline_lock": "baseline/lock.json",
+    "baseline_lock_sha256": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+    "measurement_harness_digest": "UNAVAILABLE_IN_DRAFT: the fixed measurement runner has not been released (docs/RELEASE_STATUS.md); a candidate-built stand-in lives in tasks/benchmark-design/suite/runner",
+    "agent_harness_profile": "enhanced-pi-1.0",
+    "agent_harness_release_digest": "UNAVAILABLE_IN_DRAFT: the enhanced Pi harness release has not been published (docs/RELEASE_STATUS.md)",
+    "actual_measurement_image": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+    "image_qualification": "Digest-bound development LLMD wrapper; the protected baseline lock identity is separately retained, not replaced."
+  },
+  "integrity": {
+    "starter_commit": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "starter_tag": "UNAVAILABLE_IN_DRAFT: no takehome-start tag exists in the draft repository; the only upstream commit was used as the base",
+    "command": "python -B -m tools.check_integrity --base 81aead87d78ed468c4c374fb42921471b44c3f80",
+    "report": "tasks/benchmark-design/validation/integrity.txt"
+  },
+  "evidence": {
+    "report": "tasks/benchmark-design/DESIGN.md",
+    "real_results": "tasks/benchmark-design/REAL-RUN-20261028.md",
+    "public_capture_packet": "tasks/benchmark-design/validation/real-run-20261028/README.md",
+    "manifest": "tasks/benchmark-design/validation/real-run-20261028/manifest.json",
+    "results": "tasks/benchmark-design/validation/real-run-20261028/results.json",
+    "native_validation": "tasks/benchmark-design/validation/real-run-20261028/native-validation-331c467.json",
+    "historical_pre_completion_manifest": "tasks/benchmark-design/submission.pre-complete-20261028.json",
+    "historical_pre_live_manifest": "tasks/benchmark-design/submission.pre-live-20261026.json",
+    "historical_cpu_validation_reports": [
+      "tasks/benchmark-design/validation/discrimination.md",
+      "tasks/benchmark-design/validation/discrimination.json",
+      "tasks/benchmark-design/validation/controls.json",
+      "tasks/benchmark-design/validation/heldout_results.json",
+      "tasks/benchmark-design/validation/comparison_clean_vs_noisy.json",
+      "tasks/benchmark-design/validation/comparison_clean_vs_slow_decode.json",
+      "tasks/benchmark-design/validation/comparison_clean_vs_late_first_token.json",
+      "tasks/benchmark-design/validation/reports/public",
+      "tasks/benchmark-design/validation/reports/heldout"
+    ],
+    "historical_native_validation": "tasks/benchmark-design/validation/real-run-20261028/native-validation.json",
+    "post_review_reanalysis": "tasks/benchmark-design/validation/real-run-20261028/post-review/receipt.json",
+    "resource_closure": "tasks/benchmark-design/validation/real-run-20261028/resource-closure.json",
+    "historical_pre_review_manifest": "tasks/benchmark-design/submission.pre-review-fixes-20261028.json"
+  },
+  "measurement": {
+    "calibration": {
+      "archive": "calibration-direct-1.tar.gz",
+      "archive_bytes": 122377,
+      "archive_sha256": "d9b4776c13ba0639d3112ec43e73271a2d06961e11944c9a3f84e1c3b26a1931",
+      "export_manifest": "calibration-direct-1/export-manifest.json",
+      "archive_members_hash_verified": true,
+      "report": "calibration-direct-1/report.json",
+      "report_sha256": "9feee99d3cd1752eb9047bc6282ad98ecc1bc35e418b9aa7ebb613d6f4490b77",
+      "completion": "calibration-direct-1/completion.json",
+      "status": "valid",
+      "population": {
+        "completed": 60,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "not_offered": 0,
+        "offered": 60,
+        "planned": 60,
+        "unfinished": 0
+      },
+      "warmups": 8,
+      "cold_launches": 1,
+      "startup_to_first_valid_generation_s": {
+        "median": 31.332711325999753,
+        "n": 1,
+        "values": [
+          31.332711325999753
+        ]
+      },
+      "runner_exit_code": 0,
+      "evaluation_exit_code": 0,
+      "independent_audit_exit_code": 0,
+      "cleanup_owned_container_absent": true,
+      "total_suite_seconds_from_original_T0": 3041.708581577771,
+      "within_suite_deadline": true
+    },
+    "quick": {
+      "archive": "quick-direct-1.tar.gz",
+      "archive_bytes": 1792788,
+      "archive_sha256": "bbae33fcbd6176eac64e9e250fc05d36eeda07a0b8a6c64f855f85bde85a5443",
+      "export_manifest": "quick-direct-1/export-manifest.json",
+      "archive_members_hash_verified": true,
+      "report": "quick-direct-1/report.json",
+      "report_sha256": "d5f9a0b836fdbc5240cdb4006e852a005c3025172b2685dfadd4fc0e622f2da7",
+      "completion": "quick-direct-1/completion.json",
+      "status": "valid",
+      "population": {
+        "completed": 242,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "not_offered": 0,
+        "offered": 242,
+        "planned": 242,
+        "unfinished": 0
+      },
+      "warmups": 28,
+      "cold_launches": 1,
+      "startup_to_first_valid_generation_s": {
+        "median": 25.28745089999984,
+        "n": 1,
+        "values": [
+          25.28745089999984
+        ]
+      },
+      "runner_exit_code": 0,
+      "evaluation_exit_code": 0,
+      "independent_audit_exit_code": 0,
+      "cleanup_owned_container_absent": true,
+      "total_suite_seconds_from_original_T0": 4003.242815727895,
+      "within_suite_deadline": true
+    },
+    "full": {
+      "archive": "full-direct-2.tar.gz",
+      "archive_bytes": 9459728,
+      "archive_sha256": "342cf6ca938b629a0c0a0952ac7929d25e7a1dfc20db91dee9900414d6dc275d",
+      "export_manifest": "full-direct-2/export-manifest.json",
+      "archive_members_hash_verified": true,
+      "report": "full-direct-2/report.json",
+      "report_sha256": "f3b80728cd417187a6e3cad09dac4eeb07650e1f169d348bfcb6527d42ff009e",
+      "completion": "full-direct-2/completion.json",
+      "status": "valid",
+      "population": {
+        "completed": 1453,
+        "evidence_invalid": 0,
+        "failed": 2,
+        "not_offered": 0,
+        "offered": 1455,
+        "planned": 1455,
+        "unfinished": 0
+      },
+      "warmups": 84,
+      "cold_launches": 2,
+      "startup_to_first_valid_generation_s": {
+        "median": 27.81708213449997,
+        "n": 2,
+        "values": [
+          24.308027222999954,
+          31.326137045999985
+        ]
+      },
+      "runner_exit_code": 0,
+      "evaluation_exit_code": 0,
+      "independent_audit_exit_code": 0,
+      "cleanup_owned_container_absent": true,
+      "total_suite_seconds_from_original_T0": 7572.170621909687,
+      "within_suite_deadline": true
+    },
+    "original_suite_start_utc": "2026-10-28T16:10:34.243406+00:00",
+    "full_total_suite_seconds_including_prior_setup_calibration_quick_failed_full_attempt_analysis_cleanup_export": 7572.170621909687,
+    "clock_qualification": "Original capture/export elapsed 7572.170622 seconds; independent GPU absence 8368.194252 seconds from the same original T0, both below 10800 seconds. Later 19:35 reanalysis and native QA are separate CPU-only work and do not redefine the original clock.",
+    "measured_power_established": false,
+    "configuration_speedup_claimed": false,
+    "official_grade_claimed": false,
+    "cloud_deletion_and_invoice": "Identity-verified DELETE 204, independent GET 404 and canonical absence at 2026-10-28T18:30:02.437658+00:00; shared base allocation upper USD 9.66 at USD 4.50/hour, provider invoice pending.",
+    "paths_relative_to": "tasks/benchmark-design/validation/real-run-20261028",
+    "resource_closure": {
+      "kind": "SANITIZED_ORIGINAL_EXECUTION_AND_SHARED_RESOURCE_CLOSURE",
+      "original_T0_utc": "2026-10-28T16:10:34.243406+00:00",
+      "full_capture_cleanup_export_elapsed_seconds": 7572.170621909687,
+      "identity_verified_DELETE_status": 204,
+      "delete_observed_utc": "2026-10-28T18:29:52.743675+00:00",
+      "independent_GET_status": 404,
+      "GPU_absence_observed_utc": "2026-10-28T18:30:02.437658+00:00",
+      "canonical_absence_recorded": true,
+      "T0_to_GPU_absence_seconds": 8368.194252,
+      "T0_to_GPU_absence_hms": "02:19:28.194252",
+      "original_execution_including_resource_cleanup_within_10800_seconds": true,
+      "absence_evidence_verified_offhost_utc": "2026-10-28T18:30:35.405337+00:00",
+      "T0_to_offhost_absence_receipt_seconds": 8401.161931,
+      "shared_allocation_start_utc": "2026-10-28T16:21:22+00:00",
+      "shared_allocation_elapsed_seconds": 7720.437658,
+      "rate_ceiling_USD_per_GPU_hour": "4.50",
+      "shared_base_allocation_charge_upper_USD": "9.66",
+      "billing_qualification": "Elapsed shared allocation at stated base rate ceiling; provider invoice pending. Shared with Task2, not Task1-exclusive cost. No later CPU QA/reanalysis is included in the original execution clock.",
+      "source_receipt_sha256": {
+        "GPU-EARLY-ABSENCE-OFFHOST.json": "09fa32970cc6ddf025bf43d4014eb7cf8e8b6a48b840689f36b01d8fb02d6608",
+        "DELETE": "137956fafeac900a580040c6a400707ffec32d80294145c710255d8d20138d40",
+        "GET404": "8c23aaa45273aec71f557c01dbd49bcd91a534fd68add99c49943391a44bfc84",
+        "cleanup": "85cd5cefa9125222ee98d1ed21bd1cbc025f7c42125b9ce631dd632143226905",
+        "canonical_absence_confirmation": "c22d387c0a3c435359b08b59ec10fb874374ece136bae2f23efa67f7a47e2b08"
+      },
+      "private_ledger_or_credential_contents_published": false
+    },
+    "post_review_reanalysis": {
+      "source_commit": "556e7b8255ac342a806237d6ce83fd90f6d7275f",
+      "started_utc": "2026-10-28T19:34:42.532846+00:00",
+      "finished_utc": "2026-10-28T19:35:31.333844+00:00",
+      "all_three_reports_match_except_events_dir": true,
+      "new_format_failures": 0,
+      "calibration_fit_and_plan_byte_identical": true,
+      "new_GPU_capture": false,
+      "receipt": "post-review/receipt.json"
+    },
+    "historical_boundary_lag_gate_retroactively_certified": false
+  },
+  "limitations": [
+    "Original filtered lag maximum 8.51089 ms lacks raw interval/global-lag samples; boundary-crossing stalls cannot be excluded retrospectively. Recorder 1.1.1 fixes the observation rule for future captures; later replay cannot reconstruct missing evidence.",
+    "One GPU/host/model and one full run; two cold launches do not establish startup stability.",
+    "Two nonce_missing output failures retained at concurrency32; zero protocol/evidence-invalid/unfinished requests.",
+    "Full A/A overall inconclusive: fluidity, minimum-decode p99 and TTFT p90 no_difference; TTFT p50 inconclusive.",
+    "Bootstrap intervals are conditional request-level diagnostics, with no measured power or finite-sample familywise guarantee.",
+    "Re-encoded decoded output at delta timing; prompt length remains an approximate covariate.",
+    "Brief CPU-only metadata build overlap disclosed in provenance.",
+    "No official harness/release/schema acceptance or organizer grade asserted."
+  ]
+}

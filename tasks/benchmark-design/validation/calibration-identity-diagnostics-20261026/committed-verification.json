@@ -1,0 +1,42 @@
+{
+  "kind": "POST_CALIBRATION_CPU_SOFTWARE_REVISION_NOT_A_NEW_REAL_CAPTURE",
+  "source_commit": "4a730b0cd8ceffe9253c7a5b7a1173ab87ea9a76",
+  "recorded_utc": "2026-10-26T16:23:01.131360+00:00",
+  "source_pins": {
+    "tasks/benchmark-design/suite/INFERENCE-CORRIGENDUM.md": {
+      "bytes": 3698,
+      "sha256": "c5ada42a73c2db91b2c7636fd8083ba2a785f53f4396d2f4be3aa144fccb9d09"
+    },
+    "tasks/benchmark-design/suite/bench/identity.py": {
+      "bytes": 5452,
+      "sha256": "a73a86ff9382ad99c8c7d72dfd344f6e24680a5dff8bc8613b289ca3b4a0df8e"
+    },
+    "tasks/benchmark-design/suite/bench/stats.py": {
+      "bytes": 6171,
+      "sha256": "717c3114f12eac317e572b44a353438763f5c36e7c0449a27ef067cccb7cdc68"
+    },
+    "tasks/benchmark-design/suite/evaluate.py": {
+      "bytes": 43665,
+      "sha256": "3c7ef19a09a33beaf6c8d3f1ef8bce739f74dc01df86465345fe0840b373defa"
+    },
+    "tasks/benchmark-design/suite/tests/test_calibration_identity_and_diagnostics.py": {
+      "bytes": 9765,
+      "sha256": "ec2dd623b10c4c7e00bad3f24261112bf0610907e0ab6556c76df90963f6df40"
+    }
+  },
+  "full_native_tests": {
+    "tests_run": 192,
+    "passed": 191,
+    "skipped": 1,
+    "skip_reason": "Historical opaque held-out fixture key unavailable; not regenerated.",
+    "log": "full-native-tests.log",
+    "log_sha256": "93d432fa5b75192c9c2ffe6ee09edf0e6d7c6bff527b0dd39efdc79b61ea8490",
+    "receipt": "FULL-NATIVE-RECEIPT.json"
+  },
+  "canonical_byte_scope": "Clean d67 Git LF inputs plus the four Python files whose exact hashes match this implementation. The pre-review corrigendum in the original test receipt was later clarified only in prose. All original inputs and historical receipts remain unchanged.",
+  "independent_review": "Metadata predicates and unchanged decision-policy AST verified separately; no new measured power or calibrated full comparison.",
+  "historical_real_source": "0174ca423cc583f4b8356284a79fdf4cbfb19a24",
+  "real_full_or_quick_complete": false,
+  "measured_power_established": false,
+  "official_grade": false
+}

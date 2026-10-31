@@ -1,0 +1,12 @@
+{
+  "profile": "reasoning_channel",
+  "seed": 106,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 39.35,
+  "family": "reasoning_channels",
+  "description": "Emits 24 reasoning_content tokens before the answer.",
+  "expected": {
+    "status": "valid",
+    "signal": "reasoning tokens counted separately; TTFT = first content token"
+  }
+}

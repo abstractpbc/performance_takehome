@@ -1,0 +1,211 @@
+{
+  "kind": "SEPARATE_REAL_ENGINE_DIAGNOSTIC",
+  "capture_date": "2026-10-30",
+  "official_grade": false,
+  "measured_power_or_configuration_speedup_claimed": false,
+  "source_commit": "96a9fa5a716d54a9700d14627fe184dec4e7dedc",
+  "recorder_version": "1.1.1",
+  "model": "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+  "image": "docker.io/zmlai/llmd@sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+  "GPU": "one AMD MI355X Spot shared with Task2",
+  "population": {
+    "completed": 9,
+    "evidence_invalid": 0,
+    "failed": 1,
+    "not_offered": 0,
+    "offered": 11,
+    "planned": 11,
+    "unfinished": 1
+  },
+  "startup_probe_extra_completed": true,
+  "all_request_verdicts": [
+    {
+      "request_id": "startup0/probe/1",
+      "phase": "startup_probe",
+      "cell_id": "startup",
+      "category": "completed",
+      "reasons": [],
+      "TTFT_s": 0.16932495200012454
+    },
+    {
+      "request_id": "control_a|conc=1|rep0/measure/0",
+      "phase": "measure",
+      "cell_id": "control_a",
+      "category": "completed",
+      "reasons": [],
+      "TTFT_s": 0.04866270699994857
+    },
+    {
+      "request_id": "control_a|conc=1|rep0/measure/1",
+      "phase": "measure",
+      "cell_id": "control_a",
+      "category": "completed",
+      "reasons": [],
+      "TTFT_s": 0.06144500799996422
+    },
+    {
+      "request_id": "control_a|conc=1|rep0/measure/2",
+      "phase": "measure",
+      "cell_id": "control_a",
+      "category": "completed",
+      "reasons": [],
+      "TTFT_s": 0.061701830000174596
+    },
+    {
+      "request_id": "delay100|conc=1|rep0/measure/0",
+      "phase": "measure",
+      "cell_id": "delay100",
+      "category": "completed",
+      "reasons": [],
+      "TTFT_s": 0.1530528979999417
+    },
+    {
+      "request_id": "delay100|conc=1|rep0/measure/1",
+      "phase": "measure",
+      "cell_id": "delay100",
+      "category": "completed",
+      "reasons": [],
+      "TTFT_s": 0.16462711999997737
+    },
+    {
+      "request_id": "delay100|conc=1|rep0/measure/2",
+      "phase": "measure",
+      "cell_id": "delay100",
+      "category": "completed",
+      "reasons": [],
+      "TTFT_s": 0.1612144170001102
+    },
+    {
+      "request_id": "wrongnonce|conc=1|rep0/measure/0",
+      "phase": "measure",
+      "cell_id": "wrongnonce",
+      "category": "failed",
+      "reasons": [
+        "invalid_output:nonce_missing"
+      ],
+      "TTFT_s": 1.1484265730000516
+    },
+    {
+      "request_id": "earlyclose|conc=1|rep0/measure/0",
+      "phase": "measure",
+      "cell_id": "earlyclose",
+      "category": "unfinished",
+      "reasons": [
+        "missing_done",
+        "missing_finish_reason",
+        "invalid_output:nonce_missing",
+        "invalid_output:output_too_short"
+      ],
+      "TTFT_s": 0.050813519999792334
+    },
+    {
+      "request_id": "control_b|conc=1|rep0/measure/0",
+      "phase": "measure",
+      "cell_id": "control_b",
+      "category": "completed",
+      "reasons": [],
+      "TTFT_s": 0.05584291600007418
+    },
+    {
+      "request_id": "control_b|conc=1|rep0/measure/1",
+      "phase": "measure",
+      "cell_id": "control_b",
+      "category": "completed",
+      "reasons": [],
+      "TTFT_s": 0.058995907999815245
+    },
+    {
+      "request_id": "control_b|conc=1|rep0/measure/2",
+      "phase": "measure",
+      "cell_id": "control_b",
+      "category": "completed",
+      "reasons": [],
+      "TTFT_s": 0.05767417600009139
+    }
+  ],
+  "groups_TTFT_samples_s": {
+    "control_a": [
+      0.04866270699994857,
+      0.06144500799996422,
+      0.061701830000174596
+    ],
+    "delay100": [
+      0.1530528979999417,
+      0.16462711999997737,
+      0.1612144170001102
+    ],
+    "control_b": [
+      0.05584291600007418,
+      0.058995907999815245,
+      0.05767417600009139
+    ]
+  },
+  "delay_minus_clean_median_descriptive_CI95": {
+    "point": 0.10287937500015687,
+    "low": 0.09270402899994679,
+    "high": 0.10896160550009881,
+    "n_a": 6,
+    "n_b": 3,
+    "confidence": 0.95
+  },
+  "CI_qualification": "Tiny fixed n, independent-request percentile bootstrap only; no measured power, population coverage or regression grade.",
+  "client_integrity": {
+    "event_loop_lag_max_s": 0.0018898919999992356,
+    "event_loop_lag_p99_s": 0.0009642110001004765,
+    "samples": 1113,
+    "measured_phases": [
+      "control_a|conc=1|rep0",
+      "delay100|conc=1|rep0",
+      "wrongnonce|conc=1|rep0",
+      "earlyclose|conc=1|rep0",
+      "control_b|conc=1|rep0"
+    ],
+    "sample_interval_s": 0.01,
+    "gc_disabled_in_measure_windows": true,
+    "event_loop_lag_spikes": [],
+    "event_loop_lag_max_at_mono_s": 1746.970666231,
+    "event_loop_lag_mean_s": 0.00040245614465168655
+  },
+  "wrapper_owned_cold_first_valid_generation_s": 24.50789868800007,
+  "cold_qualification": "Separate physical wrapper launch clock; recorder cold=false is retained unchanged. No host page-cache-cold claim.",
+  "evaluator_status": "inconclusive",
+  "evaluator_inconclusive_reasons": [
+    "startup: 0 valid cold generations < 1 planned",
+    "startup: runner attached to an already running server (no cold launch); clock measures attach-to-first-valid only"
+  ],
+  "independent_raw_timing_audit": "PASS",
+  "proxy_evidence": {
+    "all12_upstream_HTTP200_complete_EOF_retained": true,
+    "all10_clean_and_delay_upstream_downstream_bytes_identical": true,
+    "all65_archive_payload_hashes_verified": true
+  },
+  "capture": {
+    "started_utc": "2026-10-30T06:20:07.479791+00:00",
+    "finished_utc": "2026-10-30T06:20:45.988868+00:00",
+    "offhost_verified_utc": "2026-10-30T06:20:47.318183+00:00",
+    "status": "CAPTURED_DIAGNOSTIC_NOT_OFFICIAL_GRADE",
+    "runner_exit": 0,
+    "evaluator_exit": 3,
+    "independent_timing_exit": 0,
+    "owned_container_absent": true,
+    "archive": "capture.tar.gz",
+    "archive_bytes": 61812,
+    "archive_sha256": "ecee5b425f202fd54158b642ba2c2ef0c88f78d60d87b9d326cf680fa651245d"
+  },
+  "resource_boundary": {
+    "separate_from_original_20261028_full_suite": true,
+    "original_three_hour_clock_or_raw_evidence_changed": false,
+    "shared_Task2_setup_performed_before_this_study": true,
+    "no_Task1_exclusive_setup_cost_or_three_hour_revalidation_claim": true,
+    "study_model_API_calls": 0,
+    "study_new_model_downloads": 0
+  },
+  "study_helper_provenance": {
+    "capture_wrapper": "study_driver.capture.py.txt",
+    "capture_wrapper_sha256": "60cfdad3b79d881859939a6f63666675032fe2e61310e6f8e109d502e5022868",
+    "corrected_completion_helper": "study_driver.py",
+    "corrected_completion_helper_sha256": "968532dbcba68f3e0ee08fd66e6249e06084e2f1c444ca376419f879bbb142d2",
+    "later_CPU_regression_cases": 9,
+    "new_GPU_capture_for_completion_fix": false
+  }
+}

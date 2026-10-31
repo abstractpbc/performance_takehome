@@ -1,0 +1,12 @@
+{
+  "profile": "stall",
+  "seed": 103,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 68.02,
+  "family": "stalls",
+  "description": "Two 1.5 s mid-stream stalls; steady otherwise.",
+  "expected": {
+    "status": "valid",
+    "signal": "fluidity index drops at every tier; min decode deadline p99 rises"
+  }
+}

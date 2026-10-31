@@ -1,0 +1,33 @@
+{
+  "status": "PASS_FRESH_CPU_REPLAY_OF_REAL_CALIBRATION",
+  "results": [
+    {
+      "case": "archive",
+      "exit_code": 0,
+      "elapsed_seconds": 0.2311968260000299,
+      "log_sha256": "e70dade8c65052da901c585144b8fb2bb43c405a6bad1baff30d58d633970e79"
+    },
+    {
+      "case": "evaluate",
+      "exit_code": 0,
+      "elapsed_seconds": 1.340989411999999,
+      "log_sha256": "7b4e88dae509927a8fdd56a32612844f1a872d164f94ba90cba8976d98aac61e"
+    },
+    {
+      "case": "audit",
+      "exit_code": 0,
+      "elapsed_seconds": 0.08137167800003908,
+      "log_sha256": "f7deb98f19b456955ca83325cfc170e4cf88ec6fffb040a0b5397bbd48984512"
+    },
+    {
+      "case": "fit",
+      "exit_code": 0,
+      "elapsed_seconds": 6.853167876999976,
+      "log_sha256": "dcbdfe4a2b2a31d977ebf299a3c3eed116f223115506fdb65304696df3374607"
+    }
+  ],
+  "fit_receipt_byte_identical": true,
+  "frozen_plan_byte_identical": true,
+  "new_gpu_calls": 0,
+  "official_result": false
+}

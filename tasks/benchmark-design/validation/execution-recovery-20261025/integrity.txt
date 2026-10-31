@@ -1,0 +1,3 @@
+SOURCE_COMMIT=a3d3b0381b0c0c88a83f9099c02f6e68c436354b
+COMMAND=["/usr/bin/python3", "-B", "-m", "tools.check_integrity", "--base", "81aead87d78ed468c4c374fb42921471b44c3f80"]
+PASS: protected organizer files unchanged from 81aead87d78ed468c4c374fb42921471b44c3f80

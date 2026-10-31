@@ -1,0 +1,512 @@
+{
+  "cache_state": {
+    "fallback_if_unsupported": "A deterministic request-specific leading user-content nonce prevents identical user prefixes. Shared chat-template state and coincidental short token prefixes remain unflushed; engine block-cache behavior is not asserted.",
+    "request": "unique_leading_nonce_v1",
+    "shared_prefix_cells": []
+  },
+  "calibration": {
+    "engine_identity": {
+      "lock_digest": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+      "lock_image": "docker.io/zmlai/llmd@sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+      "lock_model": "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+      "model_id": "model"
+    },
+    "engine_kind": "unknown",
+    "fit": {
+      "distinct_lengths": 26,
+      "intercept_s": 0.0518969152649337,
+      "length_domain": [
+        44,
+        4117
+      ],
+      "method": "nonnegative-ols-plus-observed-upper-residual-v1",
+      "observed_envelope_covers_all_samples": true,
+      "observed_max_positive_residual_s": 0.02062817064002087,
+      "samples": 60,
+      "slope_s_per_prompt_token": 0.00025068468235145235
+    },
+    "id": "cabc5698508f6b903870c433cf88887f636f60474f3b44e5b3a84ce214e30275",
+    "length_unit": "candidate approximate prompt-length covariate; not engine token IDs",
+    "limitations": [
+      "Observed upper envelope, not a calibrated confidence/prediction interval",
+      "Length extrapolation and engine/tokenizer parity remain unvalidated",
+      "Freeze this plan before fresh controls and comparisons; do not refit on scored runs",
+      "Mock fits are software checks, not real-engine calibration"
+    ],
+    "planned_scoring_length_domain": [
+      44,
+      4081
+    ],
+    "raw_evidence_sha256": {
+      "requests.jsonl": "109892d4519178a0c75a2312d1ddf6603bf97012622571ee16cf8f9541bb5ee1",
+      "run.json": "867707662955032b7f07959b649dededa5afdcf64cde5be3ad8a0f87ba9dbd22"
+    },
+    "run_id": "run-1793206802-ee6a9b",
+    "schema_version": "1.0.0",
+    "source_plan_digest": "sha256:36b4f308c43fa9b98818d4a50f94884d6950082cfa5c854d28f7edf56e1ce8a6",
+    "tokenizer_identity": {
+      "count_semantics": "reencoded-decoded-output",
+      "files": {
+        "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+        "tokenizer_config.json": "5186f0defcd7f232382c7f0aebcd2252d073bb921ab240e407b7ae8745d2b29b"
+      },
+      "identifier": "hf-tokenizers:Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9:sha256:5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "model": "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+      "offset_mapping": "nfc-cluster-end-v1",
+      "prompt_count_semantics": "regex-approximation-without-chat-template",
+      "runtime": "tokenizers==0.22.2",
+      "timing_resolution": "delta",
+      "unicode_database": "16.0.0"
+    }
+  },
+  "cells": [
+    {
+      "arrival": {
+        "rates_rps": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "requests_per_rate": [
+          40,
+          60,
+          90,
+          120
+        ],
+        "type": "poisson"
+      },
+      "axis": "ttft+fluidity",
+      "deadline_profile": "chat",
+      "id": "chat_short_open",
+      "prompt_source": "chat_short"
+    },
+    {
+      "arrival": {
+        "rates_rps": [
+          0.25,
+          0.5
+        ],
+        "requests_per_rate": [
+          30,
+          45
+        ],
+        "type": "poisson"
+      },
+      "axis": "ttft",
+      "deadline_profile": "rag",
+      "id": "rag_long_open",
+      "prompt_source": "rag_long"
+    },
+    {
+      "arrival": {
+        "rates_rps": [
+          0.2
+        ],
+        "requests_per_rate": [
+          30
+        ],
+        "type": "poisson"
+      },
+      "axis": "fluidity",
+      "deadline_profile": "generation",
+      "id": "generation_long_open",
+      "prompt_source": "generation_long"
+    },
+    {
+      "arrival": {
+        "rates_rps": [
+          1
+        ],
+        "requests_per_rate": [
+          60
+        ],
+        "type": "poisson"
+      },
+      "axis": "ttft+fluidity",
+      "deadline_profile": "chat",
+      "id": "mixed_open",
+      "prompt_source": "mixed"
+    },
+    {
+      "arrival": {
+        "concurrency": [
+          1,
+          4,
+          16,
+          32
+        ],
+        "requests_per_level": [
+          16,
+          32,
+          64,
+          96
+        ],
+        "type": "closed_loop"
+      },
+      "axis": "capacity",
+      "deadline_profile": "chat",
+      "id": "closed_loop_sweep",
+      "prompt_source": "chat_short"
+    },
+    {
+      "arrival": {
+        "concurrency": [
+          1
+        ],
+        "requests_per_level": [
+          15
+        ],
+        "type": "closed_loop"
+      },
+      "axis": "ttft",
+      "deadline_profile": "rag",
+      "id": "prefill_calibration",
+      "prompt_source": "rag_long",
+      "prompt_token_grid": [
+        128,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "requests_per_point": 3,
+      "role": "calibration"
+    },
+    {
+      "arrival": {
+        "arrival_seed_offset": 1,
+        "rates_rps": [
+          1
+        ],
+        "requests_per_rate": [
+          60
+        ],
+        "type": "poisson"
+      },
+      "axis": "control",
+      "deadline_profile": "chat",
+      "id": "aa_control_a",
+      "prompt_source": "chat_short",
+      "role": "aa_control"
+    },
+    {
+      "arrival": {
+        "arrival_seed_offset": 2,
+        "rates_rps": [
+          1
+        ],
+        "requests_per_rate": [
+          60
+        ],
+        "type": "poisson"
+      },
+      "axis": "control",
+      "deadline_profile": "chat",
+      "id": "aa_control_b",
+      "prompt_source": "chat_short",
+      "role": "aa_control"
+    },
+    {
+      "arrival": {
+        "concurrency": [
+          1
+        ],
+        "requests_per_level": [
+          30
+        ],
+        "type": "closed_loop"
+      },
+      "axis": "calibration",
+      "deadline_profile": "generation",
+      "id": "prefill_calibration_short",
+      "prompt_source": "calibration_short",
+      "role": "calibration"
+    }
+  ],
+  "client_integrity": {
+    "max_event_loop_lag_s": 0.05,
+    "max_send_lag_s": 0.25,
+    "note": "Runs whose client lagged more than this during the measurement phase are invalid: the client, not the server, would own the timing."
+  },
+  "deadlines": {
+    "decode_tiers": {
+      "medium": {
+        "deadline_s": 0.05,
+        "rationale": "20 tok/s: comfortable interactive reading plus headroom."
+      },
+      "relaxed": {
+        "deadline_s": 0.1667,
+        "rationale": "Etalon 2.2: 250 words/min ~ 6 tok/s is the reading-speed floor."
+      },
+      "strict": {
+        "deadline_s": 0.025,
+        "rationale": "Etalon 5 uses a 25 ms TBT SLO as the strict tier (40 tok/s)."
+      }
+    },
+    "fluidity_slo": {
+      "max_miss_rate": 0.1,
+      "min_index": 0.9,
+      "request_quantile": 0.99
+    },
+    "prefill": {
+      "floor_s": 0.3,
+      "intercept_s": 0.0518969152649337,
+      "model": "intercept_plus_slope",
+      "note": "Separate baseline empirical upper envelope; see calibration and its limitations",
+      "scheduling_slack_s": 0.05,
+      "slope_s_per_prompt_token": 0.00025068468235145235
+    },
+    "ttft_slo_s": {
+      "chat": 1,
+      "generation": 1,
+      "rag": 4
+    }
+  },
+  "design_revision": {
+    "pruned_redundancy": [
+      "Calibration is captured once in a separate mode and never refitted from scored data.",
+      "All four original scored chat rates are retained: A/A controls do not substitute for a cross-run comparison load point.",
+      "No-flush default has zero explicit cache-flush delay. Request-specific leading nonces reduce shared user-prefix reuse; common chat-template state is not flushed."
+    ],
+    "request_profile": "One fixed assistant empty-thinking prefill and continuation flags apply identically to startup, warmup, calibration and scoring. Generated user instructions remain unchanged; source budgets are explicit, including the documented long-generation feasibility correction. No arbitrary messages or body overrides are accepted.",
+    "runtime": "Full suite hard ceiling remains10800s including setup/cleanup/export, enforced by capture.py; planning estimates are not deadlines.",
+    "sequence_feasibility": "Preserve the original 200..320 endpoint range. The pinned target tokenizer needs 1172 output tokens for canonical 1..320 plus newline, so the long-generation cap is 1280; other source caps stay unchanged. This adds 108 tokens of textual headroom without relaxing exact sequence correctness.",
+    "statistics": "Three repetitions and the sample floor are starting policies, not proof of power. Use pilot noise/CI widths to freeze sufficient counts before comparisons; retain inconclusive results when evidence is weak."
+  },
+  "modes": {
+    "calibration": {
+      "cells": [
+        "prefill_calibration_short",
+        "prefill_calibration"
+      ],
+      "description": "Separate baseline-only length calibration; freeze a new plan before any scoring capture.",
+      "interleave": false,
+      "planned_wall_minutes_max": 45,
+      "repetitions": 1,
+      "startup_launches": 1
+    },
+    "full": {
+      "cells": [
+        "chat_short_open",
+        "rag_long_open",
+        "generation_long_open",
+        "mixed_open",
+        "closed_loop_sweep",
+        "aa_control_a",
+        "aa_control_b"
+      ],
+      "description": "Three interleaved repetitions, all 14 original measurement load points, two cold launches and fixed half-scale request counts floored at 30. High-concurrency 32 retains 48 requests. Independent 1rps A/A controls retained; separate calibration excluded from scoring. Counts still require measured noise/power admission.",
+      "interleave": true,
+      "planned_wall_minutes_max": 180,
+      "repetitions": 3,
+      "requests_scale": 0.5,
+      "startup_launches": 2
+    },
+    "quick": {
+      "cells": [
+        "chat_short_open",
+        "rag_long_open",
+        "generation_long_open",
+        "mixed_open",
+        "closed_loop_sweep",
+        "aa_control_a",
+        "aa_control_b"
+      ],
+      "concurrency_subset": {
+        "closed_loop_sweep": [
+          1,
+          16
+        ]
+      },
+      "description": "Smoke-level evidence: one repetition, low/medium rates, one launch. Sized for a PR check, not a decision.",
+      "interleave": false,
+      "planned_wall_minutes_max": 45,
+      "rate_subset": {
+        "chat_short_open": [
+          1
+        ],
+        "generation_long_open": [
+          0.2
+        ],
+        "mixed_open": [
+          1
+        ],
+        "rag_long_open": [
+          0.25
+        ]
+      },
+      "repetitions": 1,
+      "requests_scale": 0.5,
+      "startup_launches": 1
+    }
+  },
+  "output_policy": {
+    "request_profile": "llmd_closed_thinking_v1",
+    "stop": null,
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "temperature": 0
+  },
+  "plan_id": "abstract-t1-llmd-mi355x-assistant-prefill-v3-cal-cabc5698508f",
+  "planning_assumptions": {
+    "aggregate_decode_tokens_per_s": 900,
+    "cache_flush_s": 0,
+    "decode_tokens_per_s_per_stream": 30,
+    "drain_grace_s": 30,
+    "expected_output_fraction_of_max_tokens": 0.8,
+    "gpus_at_once": 1,
+    "per_cell_setup_s": 10,
+    "prefill_tokens_per_s": 4000,
+    "safety_margin": 1.25,
+    "status": "UNMEASURED planning inputs; actual no-flush default uses nonce isolation. Do not treat arithmetic or the safety cushion as measured duration.",
+    "teardown_s": 60
+  },
+  "prompt_sources": {
+    "calibration_short": {
+      "expected": {
+        "finish_reasons": [
+          "stop"
+        ],
+        "integer_sequence": true,
+        "min_output_chars": 1
+      },
+      "kind": "integer_sequence",
+      "max_tokens": 16,
+      "prompt_tokens": {
+        "max": 1,
+        "min": 1
+      },
+      "sequence_end": {
+        "max": 1,
+        "min": 1
+      }
+    },
+    "chat_short": {
+      "expected": {
+        "echo_nonce": true,
+        "finish_reasons": [
+          "stop",
+          "length"
+        ],
+        "min_output_chars": 40
+      },
+      "kind": "synthetic_chat",
+      "max_tokens": 256,
+      "prompt_tokens": {
+        "max": 256,
+        "min": 64
+      }
+    },
+    "generation_long": {
+      "expected": {
+        "finish_reasons": [
+          "stop",
+          "length"
+        ],
+        "integer_sequence": true
+      },
+      "kind": "integer_sequence",
+      "max_tokens": 1280,
+      "prompt_tokens": {
+        "max": 96,
+        "min": 48
+      },
+      "sequence_end": {
+        "max": 320,
+        "min": 200
+      }
+    },
+    "mixed": {
+      "components": [
+        [
+          "chat_short",
+          0.5
+        ],
+        [
+          "rag_long",
+          0.3
+        ],
+        [
+          "generation_long",
+          0.2
+        ]
+      ],
+      "kind": "mixture"
+    },
+    "rag_long": {
+      "expected": {
+        "finish_reasons": [
+          "stop",
+          "length"
+        ],
+        "min_output_chars": 5,
+        "planted_fact": true
+      },
+      "kind": "synthetic_rag",
+      "max_tokens": 128,
+      "prompt_tokens": {
+        "max": 4096,
+        "min": 2048
+      }
+    }
+  },
+  "schema_version": "1.0.0",
+  "seeds": {
+    "arrival_seed": 20260102,
+    "bootstrap_seed": 20260103,
+    "prompt_seed": 20260101
+  },
+  "startup": {
+    "max_wait_s": 1200,
+    "note": "Startup stops at the first valid completed deterministic one-integer generation using the same fixed assistant-prefill profile. This tiny-generation readiness endpoint is explicit and does not represent chat-answer duration. planning_cold_start_s remains an unmeasured placeholder until real cold launches.",
+    "planning_cold_start_s": 480,
+    "probe_interval_s": 2,
+    "probe_max_tokens": 16,
+    "probe_prompt_source": "calibration_short",
+    "procedure": [
+      "cold start the pinned engine container (clock starts at launch)",
+      "poll readiness_endpoint every 1 s; record each probe; readiness never stops the clock",
+      "issue probe generations every 2 s; the first one that is a VALID completed generation stops the clock"
+    ],
+    "readiness_poll_interval_s": 1
+  },
+  "statistics": {
+    "bootstrap_resamples": 2000,
+    "confidence": 0.95,
+    "decision": "two-sided bootstrap percentile CI of the paired-cell difference; regression only if the CI excludes zero AND the point estimate exceeds min_effect; inconclusive if the CI straddles the min_effect boundary; family-wise correction = Bonferroni across compared cells per metric",
+    "min_effect": {
+      "fluidity_index_abs": 0.05,
+      "ftgr_rel": 0.1,
+      "startup_rel": 0.2,
+      "ttft_p50_rel": 0.1,
+      "ttft_p90_rel": 0.15
+    },
+    "min_requests_per_cell": 30
+  },
+  "status": "candidate-baseline-calibrated; fresh scoring captures required",
+  "target": {
+    "base_url": "http://127.0.0.1:8000",
+    "endpoint": "/v1/chat/completions",
+    "engine_lock": "baseline/lock.json",
+    "model_role": "target",
+    "readiness_endpoint": "/v1/models"
+  },
+  "token_accounting": {
+    "method": "verified pinned output tokenizer for real captures; task-local regex only for mock output and approximate prompt lengths",
+    "note": "Counts re-encode completed output, not hidden engine IDs. Prompt length remains an approximate covariate. Do not tighten the usage band until parity is measured.",
+    "server_usage_trusted": false,
+    "usage_ratio_band": [
+      0.5,
+      2
+    ]
+  },
+  "warmup": {
+    "note": "Excluded from every statistic; recorded with phase=warmup so the population table still accounts for them.",
+    "phase": "warmup",
+    "requests_per_cell": 4,
+    "scored": false
+  }
+}

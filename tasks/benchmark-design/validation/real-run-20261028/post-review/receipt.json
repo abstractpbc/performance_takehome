@@ -1,0 +1,122 @@
+{
+  "kind": "POST_REVIEW_OFFLINE_DERIVED_REANALYSIS_NOT_ORIGINAL_TIMED_RESULT",
+  "analysis_source_commit": "556e7b8255ac342a806237d6ce83fd90f6d7275f",
+  "started_utc": "2026-10-28T19:34:42.532846+00:00",
+  "finished_utc": "2026-10-28T19:35:31.333844+00:00",
+  "source_files_canonical_lf_sha256": {
+    "audit_timing.py": "afa2d26e0802fd53c26bc1502623886f8973a437219f0a6e72c0deaa36531ad6",
+    "bench/prompts.py": "965e2cdbdfa7df469aa0b8692e1554049809ba4b10948ea38224611b389e1b45",
+    "evaluate.py": "2fa6cf8ecc285be845782e85a480e80485ba94a1e0fd5ee4d74cb7558ad69062",
+    "schema/run.schema.json": "2740d7280825d7c9e7486205d6a11ff0be7ac6ec3708edab9f419255834c7021"
+  },
+  "runtime": {
+    "python": "3.14.4",
+    "unicode": "16.0.0",
+    "tokenizers": "0.22.2",
+    "tokenizer_identity": {
+      "count_semantics": "reencoded-decoded-output",
+      "files": {
+        "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+        "tokenizer_config.json": "5186f0defcd7f232382c7f0aebcd2252d073bb921ab240e407b7ae8745d2b29b"
+      },
+      "identifier": "hf-tokenizers:Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9:sha256:5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "model": "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+      "offset_mapping": "nfc-cluster-end-v1",
+      "prompt_count_semantics": "regex-approximation-without-chat-template",
+      "runtime": "tokenizers==0.22.2",
+      "timing_resolution": "delta",
+      "unicode_database": "16.0.0"
+    }
+  },
+  "sequence_policy": "Ignore surrounding whitespace and blank lines generically; every nonempty stripped line must be an ASCII decimal integer in expected order. Leading zeros normalize without int conversion. No run-specific exceptions.",
+  "historical_lag_observability": "Original 7d6+shim run metadata contains filtered lag summaries, not raw before/now samples or an unfiltered global maximum. Omitted boundary-crossing stalls cannot be ruled out retrospectively. New recorder logic cannot certify historical coverage.",
+  "new_code_used_for_original_capture": false,
+  "original_clock_redefined": false,
+  "original_archives_or_reports_modified": false,
+  "GPU_actions": 0,
+  "inference_requests": 0,
+  "downloads_or_installs": 0,
+  "full_execution_receipt_sha256": "cbf991e3690d01a9111278e5547af33c0daf0d2f993d7b22b0e17c773b0e9751",
+  "phases": {
+    "calibration-direct-1": {
+      "status_under_stored_evidence_checks": "valid",
+      "population_totals": {
+        "completed": 60,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "not_offered": 0,
+        "offered": 60,
+        "planned": 60,
+        "unfinished": 0
+      },
+      "integer_records_by_phase": {
+        "measure": 30,
+        "startup_probe": 1,
+        "warmup": 4
+      },
+      "new_numeric_format_failures": 0,
+      "same_metrics_populations_and_verdicts_except_local_path": true,
+      "archive_sha256_before_and_after": "d9b4776c13ba0639d3112ec43e73271a2d06961e11944c9a3f84e1c3b26a1931",
+      "original_report_sha256": "9feee99d3cd1752eb9047bc6282ad98ecc1bc35e418b9aa7ebb613d6f4490b77",
+      "derived_report": "calibration-direct-1.derived-report.json",
+      "derived_report_sha256": "e6f20223069b879bed912846038c10418b7ab891d897d8921005ad4e89cd5ffc",
+      "independent_timing_audit_status": "PASS",
+      "derived_audit_sha256": "339892465a7135d2480e130037255b874fb0ac1e0c8740df5d2b62fd14ffdb22"
+    },
+    "full-direct-2": {
+      "status_under_stored_evidence_checks": "valid",
+      "population_totals": {
+        "completed": 1453,
+        "evidence_invalid": 0,
+        "failed": 2,
+        "not_offered": 0,
+        "offered": 1455,
+        "planned": 1455,
+        "unfinished": 0
+      },
+      "integer_records_by_phase": {
+        "measure": 108,
+        "startup_probe": 2,
+        "warmup": 16
+      },
+      "new_numeric_format_failures": 0,
+      "same_metrics_populations_and_verdicts_except_local_path": true,
+      "archive_sha256_before_and_after": "342cf6ca938b629a0c0a0952ac7929d25e7a1dfc20db91dee9900414d6dc275d",
+      "original_report_sha256": "f3b80728cd417187a6e3cad09dac4eeb07650e1f169d348bfcb6527d42ff009e",
+      "derived_report": "full-direct-2.derived-report.json",
+      "derived_report_sha256": "b4cc533dff79d1d75cc824b3064c4447e7e461c3ac778e50a7798f5067599cf0",
+      "independent_timing_audit_status": "PASS",
+      "derived_audit_sha256": "57a87122a6e92daed6e50df7161a9082c13a1a63cf94cd0619da404b0eeba496"
+    },
+    "quick-direct-1": {
+      "status_under_stored_evidence_checks": "valid",
+      "population_totals": {
+        "completed": 242,
+        "evidence_invalid": 0,
+        "failed": 0,
+        "not_offered": 0,
+        "offered": 242,
+        "planned": 242,
+        "unfinished": 0
+      },
+      "integer_records_by_phase": {
+        "measure": 33,
+        "startup_probe": 1,
+        "warmup": 6
+      },
+      "new_numeric_format_failures": 0,
+      "same_metrics_populations_and_verdicts_except_local_path": true,
+      "archive_sha256_before_and_after": "bbae33fcbd6176eac64e9e250fc05d36eeda07a0b8a6c64f855f85bde85a5443",
+      "original_report_sha256": "d5f9a0b836fdbc5240cdb4006e852a005c3025172b2685dfadd4fc0e622f2da7",
+      "derived_report": "quick-direct-1.derived-report.json",
+      "derived_report_sha256": "85862bcdfe19e7f34e00b1ed928251325779ce744602845314f116208d4a98b6",
+      "independent_timing_audit_status": "PASS",
+      "derived_audit_sha256": "1bf5e4e4f971e3f328757aa1336a9d19e4d63d2e1feabaebdc83d7d404886ddd"
+    }
+  },
+  "calibration_fit_rederived_byte_identical": true,
+  "frozen_scoring_plan_rederived_byte_identical": true,
+  "fit_sha256": "ee00f56bd8f7ab8e850e197d82528df804764fcfee41419ad2e8fd3783cee5b3",
+  "frozen_plan_sha256": "fb82d603967046ab14f895d1bc5be4e681cc25f341a3cc31ce76ca9268edc412",
+  "qualification": "Later quality/calibration reanalysis reproduces metrics from immutable stored evidence. Original filtered lag summaries cannot retroactively prove the repaired recorder's boundary-overlap gate."
+}

@@ -1,0 +1,12 @@
+{
+  "profile": "clean",
+  "seed": 100,
+  "runner_exit": 0,
+  "wall_s_cpu_mock": 31.83,
+  "family": "control",
+  "description": "No injected faults; steady decode and tiny jitter.",
+  "expected": {
+    "status": "valid",
+    "signal": "none (control)"
+  }
+}
