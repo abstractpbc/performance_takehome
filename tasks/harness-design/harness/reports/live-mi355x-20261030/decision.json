@@ -1,0 +1,43 @@
+{
+  "comparisons": [
+    {
+      "baseline_median": 0.040886590500008424,
+      "baseline_n": 30,
+      "candidate_median": 0.03764237799998682,
+      "candidate_n": 30,
+      "ci_high": 1.0942005586676844,
+      "ci_low": 0.9402356882409444,
+      "detail": "CI [0.9402, 1.0942] includes 1 or effect +8.70% below 3%",
+      "metric": "ttft_s",
+      "speedup": 1.0870225083391798,
+      "verdict": "no_change"
+    },
+    {
+      "baseline_median": 56.16186361826352,
+      "baseline_n": 30,
+      "candidate_median": 69.46821893167716,
+      "candidate_n": 30,
+      "ci_high": 1.266860815702801,
+      "ci_low": 1.2512266167009887,
+      "detail": "CI [1.2512, 1.2669] excludes 1 and effect +25.93% >= 3%",
+      "metric": "ftgr_tok_s",
+      "speedup": 1.259329070362387,
+      "verdict": "improved"
+    },
+    {
+      "baseline_median": 28.049978304000035,
+      "baseline_n": 1,
+      "candidate_median": 27.122376943000006,
+      "candidate_n": 1,
+      "ci_high": null,
+      "ci_low": null,
+      "detail": "need matching counts and >= 3 samples per prompt on each side",
+      "metric": "startup_s",
+      "speedup": null,
+      "verdict": "insufficient"
+    }
+  ],
+  "kept": true,
+  "outcome": "improved",
+  "reason": "significant improvement: ftgr_tok_s x1.259"
+}

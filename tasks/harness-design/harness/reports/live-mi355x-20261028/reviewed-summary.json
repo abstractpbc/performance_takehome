@@ -1,0 +1,92 @@
+{
+  "kind": "ACTUAL_GENUINE_PI_FAILED_CANDIDATE_REVERTED_AND_FRESH_FINAL_RESULT",
+  "official_grade_claim": false,
+  "bundle_sha256": "f3a564f3df1e20129eb2f888087fc2e382b83e6d4db775540310c5d86f3404c4",
+  "bundle_bytes": 76372,
+  "archive_hash_size_safe_members": "PASS",
+  "Pi_Dockerfile_and_proposal_hashes": "PASS",
+  "candidate_small_metadata_all_hashes_sizes": "PASS",
+  "phases": {
+    "control": {
+      "status": "MEASURED",
+      "requests": 30,
+      "gates_passed": true,
+      "startup_s": 24.91605937499935,
+      "elapsed_s": 37.12878481499956,
+      "error_class": null,
+      "error": null,
+      "image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+      "owned_container_absent": true,
+      "owned_network_removed": true,
+      "durable_all_request_trace_lines_including_startup": 31,
+      "full_report_keys": [
+        "engine_model_id",
+        "startup_s",
+        "repetitions",
+        "ttft_samples",
+        "ftgr_samples",
+        "traces",
+        "gates",
+        "gates_passed",
+        "notes",
+        "ttft_by_prompt",
+        "ftgr_by_prompt"
+      ],
+      "sample_metric_group_count": 3,
+      "prompt_count": 6
+    },
+    "candidate": {
+      "status": "PARTIAL_FAILURE",
+      "requests": null,
+      "gates_passed": null,
+      "startup_s": null,
+      "elapsed_s": null,
+      "error_class": "MeasurementError",
+      "error": "engine process exited before serving /v1/models (ConnectionRefusedError: [Errno 111] Connection refused)",
+      "image_id": "sha256:ab62d880b43412b895dbc1abc25a7eb092f954df40b0f72c896e5ea5bbbee5dd",
+      "owned_container_absent": true,
+      "owned_network_removed": true,
+      "durable_all_request_trace_lines_including_startup": 0
+    },
+    "selected-final": {
+      "status": "MEASURED",
+      "requests": 30,
+      "gates_passed": true,
+      "startup_s": 24.877386918999946,
+      "elapsed_s": 37.18995197300046,
+      "error_class": null,
+      "error": null,
+      "image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+      "owned_container_absent": true,
+      "owned_network_removed": true,
+      "durable_all_request_trace_lines_including_startup": 31,
+      "full_report_keys": [
+        "engine_model_id",
+        "startup_s",
+        "repetitions",
+        "ttft_samples",
+        "ftgr_samples",
+        "traces",
+        "gates",
+        "gates_passed",
+        "notes",
+        "ttft_by_prompt",
+        "ftgr_by_prompt"
+      ],
+      "sample_metric_group_count": 3,
+      "prompt_count": 6
+    }
+  },
+  "decision": {
+    "kept": false,
+    "outcome": "gate_failed",
+    "reason": "no complete control/candidate pair"
+  },
+  "selected_image": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+  "selected_image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+  "fresh_selected_final30_pass": true,
+  "finished_utc": "2026-10-28T18:18:24.553434+00:00",
+  "no_optimization_or_speedup_claim": true,
+  "candidate_startup_failure_log_reason": "Resolving DFlash model repo -> FileNotFound",
+  "original_GPU_deadlines_or_cash_or_clock_changed": false
+}

@@ -1,0 +1,38 @@
+{
+  "kind": "EXACT_FINAL_PACKET_CANONICAL_SOFTWARE_VALIDATION",
+  "source_commit": "da2c9b5c90b44a16bc57d6858fee5178d855e1b9",
+  "started_utc": "2026-10-29T00:30:40.825070+00:00",
+  "finished_utc": "2026-10-29T00:31:16.877151+00:00",
+  "status": "PASS",
+  "runtime": "CPython3.14.4 native Linux, cached dependencies, clean LF checkout",
+  "candidate_tests": {
+    "run": 290,
+    "skipped": 0,
+    "passed": 290
+  },
+  "protected_root_tests": {
+    "run": 40,
+    "passed": 40
+  },
+  "ruff": {
+    "version": "0.16.10",
+    "status": "PASS"
+  },
+  "protected_integrity": {
+    "base": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "status": "PASS"
+  },
+  "checkout_clean": true,
+  "wall_seconds": {
+    "fetch": 0.11647533400000043,
+    "checkout": 0.06601359999999801,
+    "runtime": 0.06604528500000129,
+    "harness-tests": 34.314578985000004,
+    "root-tests": 1.0194140939999983,
+    "ruff": 0.06996690500000113,
+    "integrity": 0.11611938500000463
+  },
+  "full_receipt_sha256": "9a471057a6e2551c03485851d3bb529c482e12744167122ba3b9add17d21eea0",
+  "model_API_GPU_actions": 0,
+  "qualification": "Full checks apply to exactda2c9b5. Final delivery receipts/flags are subsequent artifact-only follow-up, checked separately. Earlier7897 full284 Harness+40root passed but overall FAIL for E501 remains historical; current PASS does not overwrite it. The first final launcher had an incorrect checkoutID and stopped before any test; its failed receipt remains retained privately."
+}

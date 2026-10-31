@@ -1,0 +1,2 @@
+COMMAND=["/var/tmp/abstract-task1-portable-python-20261025/python/bin/python3.14", "-I", "-S", "-B", "-c", "import sys,runpy;sys.path.insert(0,sys.argv.pop(1));sys.argv=[\"tools.check_integrity\",*sys.argv[1:]];runpy.run_module(\"tools.check_integrity\",run_name=\"__main__\")", "/var/tmp/abstract-task2-live-manifest-native-fix-20261026-independent-run2", "--base", "81aead87d78ed468c4c374fb42921471b44c3f80"]
+PASS: protected organizer files unchanged from 81aead87d78ed468c4c374fb42921471b44c3f80

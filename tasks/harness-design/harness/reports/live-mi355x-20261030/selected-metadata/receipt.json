@@ -1,0 +1,41 @@
+{
+  "status": "EXACT_SMALL_METADATA_EXPORTED",
+  "started_utc": "2026-10-30T11:40:37.519390+00:00",
+  "image": "canonical-gpu20-cache-614195936-12510f040ffa-llmd:001-batch-size-1",
+  "expected_image_id": "sha256:1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f",
+  "ctr_address": "/run/containerd/containerd.sock",
+  "ctr_namespace": "moby",
+  "store_mutations": false,
+  "layer_bytes_read": 0,
+  "objects": [
+    {
+      "path": "docker-inspect.json",
+      "bytes": 4570,
+      "digest": "sha256:e3337db99f51a8829e42e0918401c88521c3d60d01e1701d480c2d1d05fc82ec"
+    },
+    {
+      "path": "index.json",
+      "bytes": 856,
+      "digest": "sha256:1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 4662,
+      "digest": "sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9"
+    },
+    {
+      "path": "config.json",
+      "bytes": 5403,
+      "digest": "sha256:baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0"
+    },
+    {
+      "path": "docker-inspect-after.json",
+      "bytes": 4570,
+      "digest": "sha256:e3337db99f51a8829e42e0918401c88521c3d60d01e1701d480c2d1d05fc82ec"
+    }
+  ],
+  "platform_manifest": "sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+  "config": "sha256:baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0",
+  "original_top": "sha256:1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f",
+  "finished_utc": "2026-10-30T11:40:37.661516+00:00"
+}

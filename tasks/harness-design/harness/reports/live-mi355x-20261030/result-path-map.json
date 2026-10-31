@@ -1,0 +1,10 @@
+{
+  "normalized_sha256": "572b32e082e727b69e8bb83828d6fc7ec84866d9ba78f8c45dd80d6bba4c70e8",
+  "paths": {
+    "/srv/abstract-json-gpu20-20261030/job/runs/canonical-gpu20-cache-614195936/patches/001-batch-size-1.patch": "tasks/harness-design/harness/reports/live-mi355x-20261030/proposal.patch",
+    "/srv/abstract-json-gpu20-20261030/job/runs/canonical-gpu20-cache-614195936/reports/000-baseline.json": "tasks/harness-design/harness/reports/live-mi355x-20261030/reports/000-baseline.json",
+    "/srv/abstract-json-gpu20-20261030/job/runs/canonical-gpu20-cache-614195936/reports/001-batch-size-1.json": "tasks/harness-design/harness/reports/live-mi355x-20261030/reports/001-batch-size-1.json"
+  },
+  "raw_sha256": "b10e49ce082501eef50d88c493b202a543c5bd19fa040e0ee7a929e946f5184a",
+  "transformation": "Only development_report and patch_path are mapped to public repository paths; all other cell strings are unchanged."
+}

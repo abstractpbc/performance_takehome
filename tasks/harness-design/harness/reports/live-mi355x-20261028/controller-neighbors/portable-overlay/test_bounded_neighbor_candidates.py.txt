@@ -1,0 +1,155 @@
+"""Free native tests of byte attribution, real scripted replay, and mixed gates."""
+
+import copy
+import importlib.util
+import json
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+WORKSPACE = HERE.parents[2]
+PACKAGE = WORKSPACE / "abstract-harness/tasks/harness-design/harness"
+sys.path.insert(0, str(PACKAGE))
+spec = importlib.util.spec_from_file_location("neighbor", HERE / "bounded_neighbor_candidates.py")
+neighbor = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(neighbor)
+
+
+class NeighborTests(unittest.TestCase):
+    def test_generated_bytes_and_actual_scripted_queue_replay(self):
+        from abstract_harness.configuration_delivery import validate_patch_context
+        from abstract_harness.proposers import ProposerContext, ScriptedProposer, apply_patch
+
+        with tempfile.TemporaryDirectory() as temp:
+            out = Path(temp) / "prepared"
+            receipt = neighbor.prepare(
+                HERE / "neighbor-canonical.Dockerfile",
+                HERE / "pi4-private/candidate.corrected.Dockerfile",
+                HERE / "pi4-private/proposal.json",
+                WORKSPACE / "abstract-harness",
+                out,
+            )
+            baseline = (HERE / "neighbor-canonical.Dockerfile").read_bytes()
+            original = Path(temp) / "original"
+            working = Path(temp) / "working"
+            for tree in (original, working):
+                (tree / neighbor.DOCKERFILE).parent.mkdir(parents=True)
+                (tree / neighbor.DOCKERFILE).write_bytes(baseline)
+            queue = ScriptedProposer.from_file(out / "scripted-neighbor-queue.json")
+            for value in neighbor.GRID:
+                expected = baseline.replace(neighbor.FIND, f'"--batch-size={value}"'.encode(), 1)
+                self.assertEqual((out / f"batch{value}.Dockerfile").read_bytes(), expected)
+                context = ProposerContext("", {}, [], working, Path(temp), "llmd")
+                proposal = queue.propose(context)
+                self.assertIn("Controller-generated", proposal.hypothesis)
+                ok, message = apply_patch(proposal.patch, working)
+                self.assertTrue(ok, message)
+                self.assertEqual((working / neighbor.DOCKERFILE).read_bytes(), expected)
+                proof = validate_patch_context(original, working)
+                self.assertEqual(proof["changed_knobs"], ["--batch-size"])
+            self.assertIsNone(queue.propose(context))
+            policy_raw = (out / "FROZEN-MIXED-SELECTION-POLICY.json").read_bytes()
+            self.assertEqual(receipt["policy_sha256"], neighbor.digest(policy_raw))
+            policy = json.loads(policy_raw)
+            self.assertEqual(policy["candidate_grid"], [4, 8])
+            with self.assertRaises(FileExistsError):
+                neighbor.prepare(
+                    HERE / "neighbor-canonical.Dockerfile",
+                    HERE / "pi4-private/candidate.corrected.Dockerfile",
+                    HERE / "pi4-private/proposal.json",
+                    WORKSPACE / "abstract-harness",
+                    out,
+                )
+            self.assertEqual((out / "FROZEN-MIXED-SELECTION-POLICY.json").read_bytes(), policy_raw)
+
+    def test_wrong_baseline_or_non_one_knob_family_fails_before_output(self):
+        with tempfile.TemporaryDirectory() as temp:
+            wrong = Path(temp) / "wrong"
+            baseline = (HERE / "neighbor-canonical.Dockerfile").read_bytes()
+            wrong.write_bytes(baseline.replace(b"\n", b"\r\n"))
+            out = Path(temp) / "prepared"
+            with self.assertRaises(ValueError):
+                neighbor.prepare(
+                    wrong,
+                    HERE / "pi4-private/candidate.corrected.Dockerfile",
+                    HERE / "pi4-private/proposal.json",
+                    WORKSPACE / "abstract-harness",
+                    out,
+                )
+            self.assertFalse(out.exists())
+            wrong.write_bytes(
+                baseline.replace(neighbor.FIND, b'"--batch-size=1"') + b"# another edit\n"
+            )
+            with self.assertRaises(ValueError):
+                neighbor.prepare(
+                    HERE / "neighbor-canonical.Dockerfile",
+                    wrong,
+                    HERE / "pi4-private/proposal.json",
+                    WORKSPACE / "abstract-harness",
+                    out,
+                )
+            self.assertFalse(out.exists())
+
+    def test_primary_gain_does_not_override_burst_long_or_correctness_failure(self):
+        primary = {
+            "ttft_s": {str(i): [1.0] * 5 for i in range(6)},
+            "ftgr_tok_s": {str(i): [10.0] * 5 for i in range(6)},
+            "startup_s": [10.0],
+        }
+        improved = {
+            "ttft_s": {str(i): [0.9] * 5 for i in range(6)},
+            "ftgr_tok_s": {str(i): [12.0] * 5 for i in range(6)},
+            "startup_s": [11.0],
+        }
+        arm = {
+            "status": "COMPLETE",
+            "groups": {
+                name: {
+                    "requests": count,
+                    "TTFT_median_s": 1.0,
+                    "wall_seconds": 5.0,
+                    "input_tokens": [2086] if name == "long" else [20],
+                    "all_gates_passed": True,
+                    "gates": [{"passed": True}],
+                }
+                for name, count in (("burst-1", 6), ("burst-2", 6), ("long", 2))
+            },
+        }
+
+        def assess(candidate, primary_candidate=improved):
+            return neighbor.assess_mixed(
+                primary,
+                primary_candidate,
+                baseline_gates_passed=True,
+                candidate_gates_passed=True,
+                baseline_supplement=arm,
+                candidate_supplement=candidate,
+            )
+
+        passing = assess(arm)
+        self.assertTrue(passing["eligible"])
+        burst = copy.deepcopy(arm)
+        burst["groups"]["burst-2"]["wall_seconds"] = 5.50001
+        self.assertFalse(assess(burst)["eligible"])
+        long = copy.deepcopy(arm)
+        long["groups"]["long"]["TTFT_median_s"] = 1.10001
+        self.assertFalse(assess(long)["eligible"])
+        wrong_tokens = copy.deepcopy(arm)
+        wrong_tokens["groups"]["long"]["input_tokens"] = [2085, 2086]
+        self.assertFalse(assess(wrong_tokens)["eligible"])
+        bad_gate = copy.deepcopy(arm)
+        bad_gate["groups"]["burst-1"]["gates"][0]["passed"] = False
+        self.assertFalse(assess(bad_gate)["eligible"])
+        slow_start = copy.deepcopy(improved)
+        slow_start["startup_s"] = [15.00001]
+        self.assertFalse(assess(arm, slow_start)["eligible"])
+        self.assertEqual(neighbor.select_mixed({4: passing, 8: passing})["selected_batch_size"], 8)
+        self.assertEqual(
+            neighbor.select_mixed({4: assess(burst), 8: assess(long)})["selected_batch_size"], 16
+        )
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

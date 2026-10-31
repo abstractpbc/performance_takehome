@@ -1,0 +1,8 @@
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -58,4 +58,4 @@
+ WORKDIR /
+ ENTRYPOINT ["/app/llama-server"]
+ # Runtime knobs (experiment surface). Baseline is deliberately conservative.
+-CMD ["--host", "0.0.0.0", "--port", "8000", "--alias", "standin", "--no-webui", "--metrics", "--ctx-size", "2048", "--threads", "8", "--threads-batch", "8", "--batch-size", "512", "--ubatch-size", "512", "--parallel", "1", "--flash-attn", "auto", "--cache-type-k", "f16", "--cache-type-v", "f16"]
++CMD ["--host", "0.0.0.0", "--port", "8000", "--alias", "standin", "--no-webui", "--metrics", "--ctx-size", "2048", "--threads", "8", "--threads-batch", "8", "--batch-size", "512", "--ubatch-size", "512", "--parallel", "1", "--repeat-penalty", "1.5", "--flash-attn", "auto", "--cache-type-k", "f16", "--cache-type-v", "f16"]

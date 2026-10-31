@@ -1,0 +1,52 @@
+warning(zml/vfs/hf): No Hugging Face authentication token found in environment or home config; proceeding without authentication.
+warning(zml/vfs/s3): S3 initialized without full credentials (AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY). Access will be unauthenticated. Using default endpoint: https://s3.amazonaws.com (set AWS_ENDPOINT_URL or AWS_ENDPOINT_URL_S3). Using default region: us-east-1 (set AWS_REGION or AWS_DEFAULT_REGION).
+info(llmd): Resolving model repo
+info(llmd): Loading model config
+info(llmd): Loaded model config [314.227us]
+info(llmd): Loading tokenizer
+info(pjrt): Loading: libzml_rocm.so...
+W1029 00:04:08.109000       1 registration.cpp:742] initialized tool configure for XLA-with-rocprofiler-sdk :: 0x79480c2c6f70 :: 0x5ef5abf1e80 :: 0x79480c2c7390 :: 0x79480c2c69e0
+W1029 00:04:08.109022       1 registration.cpp:792] invoking tool initialize for XLA-with-rocprofiler-sdk :: 0x79480c2c6f70 :: 0x5ef5abf1e80 :: 0x79480c2c7390 :: 0x79480c2c69e0
+info(pjrt): Loaded: libzml_rocm.so
+info(llmd): Loaded tokenizer [518.628ms]
+W1029 00:04:15.099541       1 queue_controller.cpp:215] [queue-intercept] device-memory ring-buffer requested but profiling requires system-memory InterceptQueue; falling back to system-memory ring for agent 6525567058944 (priority and CU-mask from the descriptor are not preserved)
+info(llmd): Devices:
+info(llmd): 	- AMD Instinct MI355X VF (rocm:0)
+info(qwen3_5): Available bytes per device: 245.9716796875GiB
+info(qwen3_5): Required fixed memory per device: 53.539GiB
+info(qwen3_5): Compiled all models [20.302s]
+info(models): Loaded weights [50.10GiB, 3.284s, 15.25GiB/s]
+info(llmd): Loaded a model of type qwen3_5
+info(llmd): Listening on 0.0.0.0:8000
+info(httpd): GET /v1/models
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions
+info(httpd): POST /v1/chat/completions

@@ -1,0 +1,599 @@
+{
+  "schema_version": 3,
+  "task": "harness-design",
+  "status": "FINAL_CONTROLLER_BATCH4_SELECTED_FRESH30_PASS_VERIFIED_PUBLIC_IMAGE",
+  "image": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+  "image_digest": "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+  "image_identity_kind": "linux-amd64-platform-manifest-digest",
+  "platform": "linux/amd64",
+  "source": {
+    "repository": "https://github.com/sharonbasovich/performance_takehome",
+    "branch": "codex/task2-real-run-final",
+    "canonical_guard_measure_decision_commit": "99c006dfeb1fae2c2e33f3c066927ee43bf056ec",
+    "later_provider_fix_commit": "4960306",
+    "later_provider_documentation_commit": "419a0bd",
+    "actual_orchestration": "tasks/harness-design/harness/reports/live-mi355x-20261028/actual-orchestration",
+    "scope": "Genuine stock Pi proposed the batch-size family at value1; raw pin error was mechanically repaired. Deterministic controller neighbors4/8, frozen mixed policy and external canonical guard/measure/decision selected4. No canonical unattended or Pi-chose4 claim.",
+    "later_actual_guard_measure_decision_commit": "419a0bd07c598dcbaea80b757e74c938c75d8599"
+  },
+  "model": {
+    "repository": "Qwen/Qwen3.6-27B",
+    "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "weights_in_image": false
+  },
+  "agent_harness": {
+    "base_package": "@earendil-works/pi-coding-agent",
+    "base_version": "1.0.0",
+    "actual_proposer": "stock-pi",
+    "successful_proposal": true,
+    "candidate_built": true,
+    "candidate_selected": false,
+    "canonical_unattended_loop_executed": false,
+    "execution_scope": "external_stage_orchestration",
+    "one_knob": "--speculative-drafter-model=native",
+    "candidate_Dockerfile_sha256": "0e68d604ccc7caf7a370d6d582a20be111935d27f0efcc9208da69a2e0ba8b9f",
+    "candidate_image_id": "sha256:ab62d880b43412b895dbc1abc25a7eb092f954df40b0f72c896e5ea5bbbee5dd",
+    "runtime_verification": "tasks/harness-design/harness/reports/live-mi355x-20261028/pi/runtime-verification.json",
+    "tool_events": "tasks/harness-design/harness/reports/live-mi355x-20261028/pi/tool-events.json",
+    "requested_output_tokens": 16384,
+    "effective_historical_wire_output_tokens": 8192,
+    "scope": "This object preserves the original Pi1/native-drafter attempt; additional genuine Pi and controller experiments are separately declared."
+  },
+  "development_benchmark": {
+    "config": "tasks/harness-design/harness/reports/live-mi355x-20261028/actual-source/development-benchmark.llmd.json",
+    "sha256": "4492447b810ebd6af3ed36737e5f26f866a27fbbebb0d86d5563bad1fbcf16bf",
+    "engine": "llmd",
+    "request_profile": "llmd_closed_thinking_v1",
+    "prompts": 6,
+    "repetitions": 5,
+    "measured_requests_per_complete_phase": 30,
+    "official_grade": false
+  },
+  "evidence": {
+    "directory": "tasks/harness-design/harness/reports/live-mi355x-20261028",
+    "inventory": "tasks/harness-design/harness/reports/live-mi355x-20261028/inventory.json",
+    "phases": {
+      "baseline": {
+        "status": "MEASURED",
+        "requests": 30,
+        "trace_lines_including_startup": 31,
+        "gates_passed": true,
+        "report": "baseline/full-report.json",
+        "traces": "baseline/all-request-traces.jsonl"
+      },
+      "control": {
+        "status": "MEASURED",
+        "requests": 30,
+        "trace_lines_including_startup": 31,
+        "gates_passed": true,
+        "report": "control/full-report.json",
+        "traces": "control/all-request-traces.jsonl"
+      },
+      "candidate": {
+        "status": "PARTIAL_FAILURE",
+        "requests": 0,
+        "trace_lines_including_startup": 0,
+        "gates_passed": null,
+        "report": null,
+        "traces": "candidate/all-request-traces.jsonl",
+        "result": "candidate/result.json",
+        "failure": "DFlash model repository resolution FileNotFound during startup"
+      },
+      "selected-final": {
+        "status": "MEASURED",
+        "requests": 30,
+        "trace_lines_including_startup": 31,
+        "gates_passed": true,
+        "report": "selected-final/full-report.json",
+        "traces": "selected-final/all-request-traces.jsonl"
+      }
+    },
+    "measured_requests_total": 90,
+    "optimization_gain_claimed": false,
+    "decision": {
+      "kept": false,
+      "outcome": "gate_failed",
+      "reason": "no complete control/candidate pair"
+    },
+    "outer_bundle": {
+      "bytes": 76372,
+      "sha256": "f3a564f3df1e20129eb2f888087fc2e382b83e6d4db775540310c5d86f3404c4"
+    },
+    "historical_live_manifest": "tasks/harness-design/submission.live-mi355x-20261026.json",
+    "historical_live_manifest_sha256": "c8d39e3d6ef4afa017e18e45456ea9338a616e08082b193db840a282412bd07e",
+    "historical_cpu_manifest": "tasks/harness-design/submission.cpu-standin-legacy.json",
+    "historical_git_manifest": "tasks/harness-design/submission.live-mi355x-20261026.git.json",
+    "historical_git_manifest_sha256": "0fe246c21b0d88026cb0fa34d304090aaeda7991cf8e48718da5f600b8e41d2a",
+    "software_validation": "tasks/harness-design/harness/reports/live-mi355x-20261028/software-validation-final.json",
+    "latest_selected_final_report": "tasks/harness-design/harness/reports/live-mi355x-20261028/controller-neighbors/final-after-mixed/selected-final-after-mixed/full-report.json",
+    "combined_actual_measured_requests": 570,
+    "prior_pi1_public_manifest": "tasks/harness-design/submission.pi1-live-20261028.json",
+    "prior_pi1_public_manifest_sha256": "78022dbb5903e06dc508ab6fd5ab9c615ef308d7206a21e07b7d43dda88d9553",
+    "prior_pi2_public_manifest": "tasks/harness-design/submission.pi2-live-20261028.json",
+    "prior_pi2_public_manifest_sha256": "0f92d86257ccdbe074adc8752c5ec91a3de5299938c12a40439d774109782634",
+    "primary_measured_requests": 570,
+    "supplemental_measured_requests": 100
+  },
+  "delivery": {
+    "kind": "public-ghcr-immutable-image",
+    "platform_manifest": "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+    "config": "sha256:1a19b238c6ce1448fed276005ff14e3425e845db266141deb5391c6a84159586",
+    "registry_publication_verified": true,
+    "anonymous_complete_graph_verified": true,
+    "anonymous_docker_pull_and_help_verified": true,
+    "verification_scope": "Exact pinned hosted checker streamed/hash-verified every complete object, followed by a separate actual anonymous Docker pull/inspect/CPU-help. Independent local review binds retained receipts/progress/log hashes and raw graph. The 5.9GB streamed bodies/image were not retained or rehashed on this local computer.",
+    "existing_destination": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd",
+    "workflow_run": "https://github.com/sharonbasovich/performance_takehome/actions/runs/40794303749",
+    "workflow_commit": "54b356b2ff21740da992a4b976b3e4d466902d9f",
+    "anonymous_graph_objects": 25,
+    "anonymous_graph_bytes": 5923168772,
+    "proof": "tasks/harness-design/harness/reports/live-mi355x-20261028/publication/VERIFIED.json"
+  },
+  "cost": {
+    "reported_settled_api_usd": 0.567614,
+    "unknown_historical_liabilities_retained": true,
+    "scope": "Reported aggregate newly settled model API cost through the final Pi4 proposal; not a total billing reconciliation. Both earlier unresolved full holds remain fully accounted for separately. No new unknown cost; no private ledger published."
+  },
+  "evaluation": {
+    "owner": "organizer",
+    "official_result": "UNAVAILABLE_IN_DRAFT",
+    "optimization_or_speedup_claimed": true,
+    "gain_scope": "Local frozen serial development comparison plus descriptive two-burst/two-long bounds. Controller-generated4/8 exploratory selection after observed batch1 tradeoff; no official/unseen-workload gain or unaltered-Pi winner claim."
+  },
+  "integrity": {
+    "starter_commit": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "protected_files_modified": false
+  },
+  "pending_proposals": [],
+  "additional_experiments": [
+    {
+      "name": "pi2-page-chunk-size64",
+      "status": "MEASURED_NO_CHANGE",
+      "directory": "tasks/harness-design/harness/reports/live-mi355x-20261028/pi2-measured",
+      "execution_scope": "external_stage_orchestration",
+      "source_head": "419a0bd07c598dcbaea80b757e74c938c75d8599",
+      "candidate_Dockerfile_sha256": "bba48efed8f310ba56ad104acfacf4212a188ca151254253cf8107c336d559b0",
+      "candidate_image_id": "sha256:047fca293b9bba553ad3c22088eae41620c2895c31edb167eb2927f58e7502a7",
+      "selected_image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+      "measured_requests": 90,
+      "durable_trace_lines_including_startup": 93,
+      "decision": {
+        "outcome": "no_change",
+        "kept": false,
+        "reason": "no primary metric moved significantly",
+        "comparisons": [
+          {
+            "metric": "ttft_s",
+            "baseline_n": 30,
+            "candidate_n": 30,
+            "baseline_median": 0.04142492900001571,
+            "candidate_median": 0.04069918000001849,
+            "speedup": 1.0177859770354074,
+            "ci_low": 0.9936536206984565,
+            "ci_high": 1.0529946080916954,
+            "verdict": "no_change",
+            "detail": "CI [0.9937, 1.0530] includes 1 or effect +1.78% below 3%"
+          },
+          {
+            "metric": "ftgr_tok_s",
+            "baseline_n": 30,
+            "candidate_n": 30,
+            "baseline_median": 55.279483563576925,
+            "candidate_median": 55.279483563576925,
+            "speedup": 0.9971710029327194,
+            "ci_low": 0.9921540348120836,
+            "ci_high": 1.04863894623642,
+            "verdict": "no_change",
+            "detail": "CI [0.9922, 1.0486] includes 1 or effect -0.28% below 3%"
+          },
+          {
+            "metric": "startup_s",
+            "baseline_n": 1,
+            "candidate_n": 1,
+            "baseline_median": 32.08914722999998,
+            "candidate_median": 31.02291573900004,
+            "speedup": null,
+            "ci_low": null,
+            "ci_high": null,
+            "verdict": "insufficient",
+            "detail": "need matching counts and >= 3 samples per prompt on each side"
+          }
+        ]
+      },
+      "fresh_selected_final30_pass": true,
+      "optimization_gain_claimed": false,
+      "registry_publication_required": false,
+      "outer_bundle_bytes": 96670,
+      "outer_bundle_sha256": "e3848e7ae2631372faa05e0bd2821923cef77be5be0a9668d2a984856d339280",
+      "finished_utc": "2026-10-28T23:14:09.961104+00:00"
+    },
+    {
+      "name": "pi3-prefill-chunk-size1024",
+      "status": "MEASURED_NO_CHANGE",
+      "directory": "tasks/harness-design/harness/reports/live-mi355x-20261028/pi3-measured",
+      "execution_scope": "external_stage_orchestration",
+      "source_head": "419a0bd07c598dcbaea80b757e74c938c75d8599",
+      "candidate_Dockerfile_sha256": "01d31cb69b4789de70ed8829a64fe043b4810c44082979e5f6f5d5e7895fd2e7",
+      "candidate_image_id": "sha256:7a555bea9efaca1b92e5f9e1c86bfe19e95a63c434161d977febd3fc5d71961a",
+      "selected_image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+      "measured_requests": 90,
+      "durable_trace_lines_including_startup": 93,
+      "decision": {
+        "outcome": "no_change",
+        "kept": false,
+        "reason": "no primary metric moved significantly",
+        "comparisons": [
+          {
+            "metric": "ttft_s",
+            "baseline_n": 30,
+            "candidate_n": 30,
+            "baseline_median": 0.04163504799998918,
+            "candidate_median": 0.04079647250000562,
+            "speedup": 1.019123406630516,
+            "ci_low": 0.9984306496738279,
+            "ci_high": 1.0370541231307697,
+            "verdict": "no_change",
+            "detail": "CI [0.9984, 1.0371] includes 1 or effect +1.91% below 3%"
+          },
+          {
+            "metric": "ftgr_tok_s",
+            "baseline_n": 30,
+            "candidate_n": 30,
+            "baseline_median": 55.279483563576925,
+            "candidate_median": 56.16186361826352,
+            "speedup": 1.0103760643485205,
+            "ci_low": 1.0026015829722255,
+            "ci_high": 1.0157667794414755,
+            "verdict": "no_change",
+            "detail": "CI [1.0026, 1.0158] includes 1 or effect +1.04% below 3%"
+          },
+          {
+            "metric": "startup_s",
+            "baseline_n": 1,
+            "candidate_n": 1,
+            "baseline_median": 24.387453788999892,
+            "candidate_median": 32.06288778099997,
+            "speedup": null,
+            "ci_low": null,
+            "ci_high": null,
+            "verdict": "insufficient",
+            "detail": "need matching counts and >= 3 samples per prompt on each side"
+          }
+        ]
+      },
+      "fresh_selected_final30_pass": true,
+      "optimization_gain_claimed": false,
+      "registry_publication_required": false,
+      "outer_bundle_bytes": 154126,
+      "outer_bundle_sha256": "63f0a0882fc1096780a870b5bd4b3f68f7efdc66c3512a21b35f439e5e8d4562",
+      "finished_utc": "2026-10-28T23:31:24.906797+00:00"
+    },
+    {
+      "name": "pi4-intent-with-controller-pin-repair-batch-size1",
+      "status": "MEASURED_IMPROVED_SERIAL_NOT_FINAL_MIXED_SELECTION",
+      "directory": "tasks/harness-design/harness/reports/live-mi355x-20261028/pi4-measured",
+      "execution_scope": "external_stage_orchestration",
+      "source_head": "419a0bd07c598dcbaea80b757e74c938c75d8599",
+      "candidate_Dockerfile_sha256": "5a8216e4ffae627fec2804cddb7fa9c69b0fa95880893fe9cab2db86710cf0bc",
+      "candidate_image_id": "sha256:9da45e7aee536492404a67637ac314f28f6b40c66d6f85a00b05381cba4c1517",
+      "selected_image_id": "sha256:9da45e7aee536492404a67637ac314f28f6b40c66d6f85a00b05381cba4c1517",
+      "measured_requests": 90,
+      "durable_trace_lines_including_startup": 93,
+      "decision": {
+        "outcome": "improved",
+        "kept": true,
+        "reason": "significant improvement: ttft_s x1.093, ftgr_tok_s x1.269",
+        "comparisons": [
+          {
+            "metric": "ttft_s",
+            "baseline_n": 30,
+            "candidate_n": 30,
+            "baseline_median": 0.041457085499587265,
+            "candidate_median": 0.03795779500023855,
+            "speedup": 1.0928777003542174,
+            "ci_low": 1.0777815298709863,
+            "ci_high": 1.1177840189854114,
+            "verdict": "improved",
+            "detail": "CI [1.0778, 1.1178] excludes 1 and effect +9.29% >= 3%"
+          },
+          {
+            "metric": "ftgr_tok_s",
+            "baseline_n": 30,
+            "candidate_n": 30,
+            "baseline_median": 56.16186361826352,
+            "candidate_median": 70.16782415509311,
+            "speedup": 1.2687589300878819,
+            "ci_low": 1.260517031246393,
+            "ci_high": 1.2751745902391085,
+            "verdict": "improved",
+            "detail": "CI [1.2605, 1.2752] excludes 1 and effect +26.88% >= 3%"
+          },
+          {
+            "metric": "startup_s",
+            "baseline_n": 1,
+            "candidate_n": 1,
+            "baseline_median": 24.445363377000376,
+            "candidate_median": 30.566187607999836,
+            "speedup": null,
+            "ci_low": null,
+            "ci_high": null,
+            "verdict": "insufficient",
+            "detail": "need matching counts and >= 3 samples per prompt on each side"
+          }
+        ]
+      },
+      "fresh_selected_final30_pass": true,
+      "optimization_gain_claimed": false,
+      "registry_publication_required": false,
+      "outer_bundle_bytes": 208959,
+      "outer_bundle_sha256": "7524674d2f8aa2bcb470f82ab60b2d6649453bfead566c13d0a1945d2e64a6af",
+      "finished_utc": "2026-10-28T23:47:59.128481+00:00",
+      "raw_model_Dockerfile_sha256": "eed21a634ccccfdb6c1b917eab5ddeead9e164af3c7f5cdabe0ed67fcf117e25",
+      "experiment_attribution": "Pi4-intent-with-controller-pin-repair",
+      "raw_model_artifact_status": "REJECTED_BEFORE_BUILD_NO_IMAGE_OR_TRACES",
+      "controller_repair": "Restore only canonical original ARG BASE_IMAGE line; preserve model-chosen batch-size16-to1.",
+      "local_serial_development_gain": true,
+      "supplemental_tradeoff": "Six-request bursts regressed strongly; retained supplemental40 requests. The original serial keep is unchanged; final delivery uses separately attributed controller batch4."
+    }
+  ],
+  "future_feedback_scope": "All model/candidate/GPU work is closed; GPU independently observed deleted404 after complete offhost export. Exact selected image published and anonymous complete graph/Docker pull/inspect/isolated CPU help verified on hosted CI. No further paid work or registry action is requested.",
+  "controller_neighbors": {
+    "status": "MIXED_POLICY_SELECTED_BATCH4_FRESH_POST_SELECTION30_PASS",
+    "directory": "tasks/harness-design/harness/reports/live-mi355x-20261028/controller-neighbors",
+    "attribution": "Two deterministic controller-derived neighbors of Pi-selected batch-size1 family; values4/8 were not chosen by Pi.",
+    "candidate_grid": [
+      4,
+      8
+    ],
+    "frozen_policy_sha256": "1b46842f8f05d41a521115aac6952137843c7d2902fcd71089e86cef040ea45d",
+    "frozen_before_new_measurements_utc": "2026-10-28T23:59:36.180698+00:00",
+    "original_Pi4_serial_keep_unchanged": true,
+    "official_grade": false,
+    "statistical_limit": "Exploratory fixed-neighbor selection after observed batch1 tradeoff, not independent confirmatory evidence.",
+    "selected_batch": 4,
+    "selected_image_id": "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+    "primary_measured_requests": 180,
+    "mixed_probe_measured_requests": 60,
+    "final_post_mixed_measured_requests": 30,
+    "final_selection": "controller-neighbors/final-selection.json",
+    "fresh_final30": "controller-neighbors/final-after-mixed/selected-final-after-mixed/full-report.json",
+    "assessments": {
+      "4": {
+        "eligible": true,
+        "primary": {
+          "outcome": "improved",
+          "kept": true,
+          "reason": "significant improvement: ttft_s x1.078, ftgr_tok_s x1.265",
+          "comparisons": [
+            {
+              "metric": "ttft_s",
+              "baseline_n": 30,
+              "candidate_n": 30,
+              "baseline_median": 0.04101031850018444,
+              "candidate_median": 0.03796441400004369,
+              "speedup": 1.0778347527395389,
+              "ci_low": 1.0673637364345936,
+              "ci_high": 1.1084559660958635,
+              "verdict": "improved",
+              "detail": "CI [1.0674, 1.1085] excludes 1 and effect +7.78% >= 3%"
+            },
+            {
+              "metric": "ftgr_tok_s",
+              "baseline_n": 30,
+              "candidate_n": 30,
+              "baseline_median": 56.16186361826352,
+              "candidate_median": 70.86742937850909,
+              "speedup": 1.265443134402991,
+              "ci_low": 1.2535909610017302,
+              "ci_high": 1.2718943604211448,
+              "verdict": "improved",
+              "detail": "CI [1.2536, 1.2719] excludes 1 and effect +26.54% >= 3%"
+            },
+            {
+              "metric": "startup_s",
+              "baseline_n": 1,
+              "candidate_n": 1,
+              "baseline_median": 24.880746592999913,
+              "candidate_median": 32.4856804850001,
+              "speedup": null,
+              "ci_low": null,
+              "ci_high": null,
+              "verdict": "insufficient",
+              "detail": "need matching counts and >= 3 samples per prompt on each side"
+            }
+          ]
+        },
+        "supplemental_checks": [
+          {
+            "group": "burst-1",
+            "metric": "TTFT_median_s",
+            "candidate_over_baseline": 0.976560275492336,
+            "passed": true
+          },
+          {
+            "group": "burst-1",
+            "metric": "wall_seconds",
+            "candidate_over_baseline": 0.8485194088504837,
+            "passed": true
+          },
+          {
+            "group": "burst-2",
+            "metric": "TTFT_median_s",
+            "candidate_over_baseline": 0.9409127078336925,
+            "passed": true
+          },
+          {
+            "group": "burst-2",
+            "metric": "wall_seconds",
+            "candidate_over_baseline": 0.8430926747579455,
+            "passed": true
+          },
+          {
+            "group": "long",
+            "metric": "TTFT_median_s",
+            "candidate_over_baseline": 0.9688516789555203,
+            "passed": true
+          }
+        ],
+        "failures": [],
+        "ranking_score": 1.1678778137610093,
+        "supplemental_significance_claimed": false,
+        "official_grade": false
+      },
+      "8": {
+        "eligible": true,
+        "primary": {
+          "outcome": "improved",
+          "kept": true,
+          "reason": "significant improvement: ttft_s x1.074, ftgr_tok_s x1.207",
+          "comparisons": [
+            {
+              "metric": "ttft_s",
+              "baseline_n": 30,
+              "candidate_n": 30,
+              "baseline_median": 0.04116648049989635,
+              "candidate_median": 0.03833674249995056,
+              "speedup": 1.073634433272341,
+              "ci_low": 1.0681340709079936,
+              "ci_high": 1.2127395118633222,
+              "verdict": "improved",
+              "detail": "CI [1.0681, 1.2127] excludes 1 and effect +7.36% >= 3%"
+            },
+            {
+              "metric": "ftgr_tok_s",
+              "baseline_n": 30,
+              "candidate_n": 30,
+              "baseline_median": 56.16186361826352,
+              "candidate_median": 66.82925780402077,
+              "speedup": 1.207248444985324,
+              "ci_low": 1.2042994901662625,
+              "ci_high": 1.2182012055755975,
+              "verdict": "improved",
+              "detail": "CI [1.2043, 1.2182] excludes 1 and effect +20.72% >= 3%"
+            },
+            {
+              "metric": "startup_s",
+              "baseline_n": 1,
+              "candidate_n": 1,
+              "baseline_median": 28.983894000999953,
+              "candidate_median": 30.96039037699984,
+              "speedup": null,
+              "ci_low": null,
+              "ci_high": null,
+              "verdict": "insufficient",
+              "detail": "need matching counts and >= 3 samples per prompt on each side"
+            }
+          ]
+        },
+        "supplemental_checks": [
+          {
+            "group": "burst-1",
+            "metric": "TTFT_median_s",
+            "candidate_over_baseline": 0.9384420086105406,
+            "passed": true
+          },
+          {
+            "group": "burst-1",
+            "metric": "wall_seconds",
+            "candidate_over_baseline": 0.8412186615365626,
+            "passed": true
+          },
+          {
+            "group": "burst-2",
+            "metric": "TTFT_median_s",
+            "candidate_over_baseline": 0.9300496757031191,
+            "passed": true
+          },
+          {
+            "group": "burst-2",
+            "metric": "wall_seconds",
+            "candidate_over_baseline": 0.8243968917057918,
+            "passed": true
+          },
+          {
+            "group": "long",
+            "metric": "TTFT_median_s",
+            "candidate_over_baseline": 0.9652555147144297,
+            "passed": true
+          }
+        ],
+        "failures": [],
+        "ranking_score": 1.1384829818889404,
+        "supplemental_significance_claimed": false,
+        "official_grade": false
+      }
+    },
+    "delivery_archive_bytes": 403850,
+    "delivery_archive_sha256": "5167b01c7bbd8d3347cfa585aec1a24673b0210470810c90303e45aa79fc8f1d"
+  },
+  "prior_verified_baseline_delivery": {
+    "kind": "public-ghcr-immutable-image",
+    "platform_manifest": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+    "config": "sha256:0c06ab372a7e347dd84145cdcdc6570c123e585f5740508d665987601e3fac6f",
+    "registry_publication_verified": true,
+    "anonymous_complete_graph_verified": true,
+    "anonymous_docker_pull_and_help_verified": true,
+    "verification_scope": "Previously published baseline, verified27October in delivery PR5; no new image publication or candidate-winner claim.",
+    "delivery_pr": "https://github.com/sharonbasovich/performance_takehome/pull/5",
+    "anonymous_graph_objects": 25,
+    "anonymous_graph_bytes": 5923167710
+  },
+  "build_recipe": {
+    "Dockerfile": "tasks/harness-design/harness/reports/live-mi355x-20261028/controller-neighbors/batch4/original-built-candidate.Dockerfile",
+    "sha256": "e0c0683f7c82d63b637827038384ec2e130d0fbf91aaa94db58df1c006a4720a",
+    "one_changed_knob_from_canonical_baseline": "--batch-size=16 to --batch-size=4",
+    "actual_build_scope": "The external builder used the already verified public7db wrapper as BASE_IMAGE override; all23 original layers/diffIDs and entrypoint were preserved. Raw immutable graph is authoritative; no bit-reproducible-build claim."
+  },
+  "selected_experiment": {
+    "attribution": "controller-neighbor-batch4-seeded-by-genuine-Pi4",
+    "Pi_selected_batch_value": 1,
+    "controller_selected_batch_value": 4,
+    "primary_decision": {
+      "outcome": "improved",
+      "kept": true,
+      "reason": "significant improvement: ttft_s x1.078, ftgr_tok_s x1.265",
+      "comparisons": [
+        {
+          "metric": "ttft_s",
+          "baseline_n": 30,
+          "candidate_n": 30,
+          "baseline_median": 0.04101031850018444,
+          "candidate_median": 0.03796441400004369,
+          "speedup": 1.0778347527395389,
+          "ci_low": 1.0673637364345936,
+          "ci_high": 1.1084559660958635,
+          "verdict": "improved",
+          "detail": "CI [1.0674, 1.1085] excludes 1 and effect +7.78% >= 3%"
+        },
+        {
+          "metric": "ftgr_tok_s",
+          "baseline_n": 30,
+          "candidate_n": 30,
+          "baseline_median": 56.16186361826352,
+          "candidate_median": 70.86742937850909,
+          "speedup": 1.265443134402991,
+          "ci_low": 1.2535909610017302,
+          "ci_high": 1.2718943604211448,
+          "verdict": "improved",
+          "detail": "CI [1.2536, 1.2719] excludes 1 and effect +26.54% >= 3%"
+        },
+        {
+          "metric": "startup_s",
+          "baseline_n": 1,
+          "candidate_n": 1,
+          "baseline_median": 24.880746592999913,
+          "candidate_median": 32.4856804850001,
+          "speedup": null,
+          "ci_low": null,
+          "ci_high": null,
+          "verdict": "insufficient",
+          "detail": "need matching counts and >= 3 samples per prompt on each side"
+        }
+      ]
+    },
+    "frozen_mixed_policy_sha256": "1b46842f8f05d41a521115aac6952137843c7d2902fcd71089e86cef040ea45d",
+    "fresh_final30_after_mixed_choice": true,
+    "canonical_unattended_loop_executed": false,
+    "official_grade": false
+  }
+}

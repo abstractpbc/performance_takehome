@@ -1,0 +1,41 @@
+{
+  "candidate_grid": [
+    4,
+    8
+  ],
+  "controller_generated_values_not_Pi_choices": true,
+  "earlier_primary_batch1_decision": "Retained unchanged; this policy applies only to the two new neighbors.",
+  "frozen_before_new_neighbor_measurements": true,
+  "frozen_utc": "2026-10-28T23:59:36.180698+00:00",
+  "kind": "NEW_PROSPECTIVE_MIXED_WORKLOAD_NEIGHBOR_SELECTION_V1",
+  "official_grade": false,
+  "primary": {
+    "confidence": 0.9,
+    "implementation": "abstract_harness.decision.decide",
+    "iterations": 2000,
+    "min_effect": 0.03,
+    "min_samples": 3,
+    "profile": "unchanged development-benchmark.llmd.json",
+    "requires": "canonical kept=True: >=1 primary improvement, no significant primary regression, complete matching samples and all correctness gates",
+    "samples": "six unchanged prompts, five serial repetitions each, per image",
+    "seed": 0,
+    "startup_regression_limit": 1.5
+  },
+  "selection": {
+    "eligibility": "primary canonical keep AND every supplemental bound/correctness check",
+    "final_revalidation": "selected exact image requires a fresh 30-request serial run and every correctness gate before delivery",
+    "if_both_eligible": "largest geometric mean of canonical TTFT and FTGR point speedups; exact tie prefers batch8",
+    "if_none_eligible": "canonical baseline batch16 for the mixed-workload selection; earlier batch1 serial keep is still retained as a separate result",
+    "multiplicity_limit": "two fixed neighbors selected after observed batch1 tradeoff; exploratory selection, not independent confirmatory evidence"
+  },
+  "supplemental": {
+    "all_requests_and_correctness_gates_must_pass": true,
+    "burst_each_wave_max_candidate_over_baseline_TTFT_median": 1.1,
+    "burst_each_wave_max_candidate_over_baseline_wall_seconds": 1.1,
+    "expected_long_input_tokens_each_request": 2086,
+    "long_max_candidate_over_baseline_TTFT_median": 1.1,
+    "method": "same frozen six prompts; two synchronized six-request bursts per image; two separate 2086-input-token long requests per image",
+    "missing_partial_invalid_or_mismatched_evidence": "ineligible, preserve evidence; do not impute success",
+    "statistical_limit": "Two bursts and two long requests are descriptive checks, not significance, power, or general workload claims."
+  }
+}

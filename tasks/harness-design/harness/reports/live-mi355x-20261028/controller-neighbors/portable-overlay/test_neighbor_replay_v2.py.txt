@@ -1,0 +1,71 @@
+"""Actual ScriptedProposer replay from both serial-kept and canonical states."""
+
+import importlib.util
+import json
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+WORKSPACE = HERE.parents[2]
+sys.path.insert(0, str(WORKSPACE / "abstract-harness/tasks/harness-design/harness"))
+spec = importlib.util.spec_from_file_location("replay_v2", HERE / "prepare_neighbor_replay_v2.py")
+m = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(m)
+
+
+class ReplayTests(unittest.TestCase):
+    def test_old_batch1_refusal_and_v2_both_start_states(self):
+        from abstract_harness.configuration_delivery import validate_patch_context
+        from abstract_harness.proposers import (
+            ProposerContext,
+            ProposerError,
+            ScriptedProposer,
+            apply_patch,
+        )
+
+        frozen = HERE / "neighbor-candidates-frozen-20261029"
+        baseline = (HERE / "neighbor-canonical.Dockerfile").read_bytes()
+        target = Path("tasks/harness-design/Dockerfile")
+        pins_before = {p.name: m.sha(p.read_bytes()) for p in frozen.iterdir() if p.is_file()}
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            out = root / "v2"
+            m.prepare(frozen, out, WORKSPACE / "abstract-harness")
+            original = root / "original"
+            (original / target).parent.mkdir(parents=True)
+            (original / target).write_bytes(baseline)
+            for start in (1, 16):
+                tree = root / f"start{start}"
+                (tree / target).parent.mkdir(parents=True)
+                (tree / target).write_bytes(
+                    baseline.replace(b'"--batch-size=16"', f'"--batch-size={start}"'.encode())
+                )
+                context = ProposerContext("", {}, [], tree, root, "llmd")
+                if start == 1:
+                    old = ScriptedProposer.from_file(frozen / "scripted-neighbor-queue.json")
+                    with self.assertRaises(ProposerError):
+                        old.propose(context)
+                new = ScriptedProposer.from_file(out / "scripted-neighbor-queue-v2.json")
+                for value in (4, 8):
+                    proposal = new.propose(context)
+                    ok, message = apply_patch(proposal.patch, tree)
+                    self.assertTrue(ok, message)
+                    self.assertEqual(
+                        (tree / target).read_bytes(),
+                        (frozen / f"batch{value}.Dockerfile").read_bytes(),
+                    )
+                    self.assertEqual(
+                        validate_patch_context(original, tree)["changed_knobs"], ["--batch-size"]
+                    )
+                self.assertIsNone(new.propose(context))
+            receipt = json.loads((out / "REPLAY-V2-RECEIPT.json").read_bytes())
+            self.assertEqual(receipt["actual_mixed_round_baseline"], 16)
+        self.assertEqual(
+            {p.name: m.sha(p.read_bytes()) for p in frozen.iterdir() if p.is_file()}, pins_before
+        )
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

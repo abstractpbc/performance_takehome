@@ -1,0 +1,22 @@
+{
+  "api_accounting_unresolved": "",
+  "api_usd_cumulative": 0.0144,
+  "deferred_Pi_proposal": true,
+  "execution_policy": {
+    "controller_written_files": true,
+    "max_remote_calls": 1,
+    "mode": "one-response-no-tools-v1",
+    "model_authored": "final-text-JSON",
+    "output_cap": 2048,
+    "response_seconds": 60,
+    "stock_Pi": "1.0.0",
+    "tools": []
+  },
+  "note": "Verified completed Pi proposal from a prior CPU phase; this adapter makes no model call. Already incurred CPU provider costs are carried separately.",
+  "pi_integrity": "sha512-/FtbxoSQU/mEv1QnichJjRjqteqaIaMWxmhB4G367+MwZfX7/DI5B9YAg5lqbN7nztFskBEtUSZ+FlmMBECtMw==",
+  "pi_node_requirement": ">=22.19.0",
+  "pi_package": "@earendil-works/pi-coding-agent",
+  "pi_used_for_these_rows": false,
+  "pi_version": "1.0.0",
+  "proposer": "verified-completed-stock-pi-one-response-no-tools-deferred"
+}

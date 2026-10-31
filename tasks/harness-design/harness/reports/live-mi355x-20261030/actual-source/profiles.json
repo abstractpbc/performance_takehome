@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "specification-not-runnable-release",
+  "pi": {
+    "package": "@earendil-works/pi-coding-agent",
+    "version": "1.0.0",
+    "artifact_integrity": "sha512-/FtbxoSQU/mEv1QnichJjRjqteqaIaMWxmhB4G367+MwZfX7/DI5B9YAg5lqbN7nztFskBEtUSZ+FlmMBECtMw==",
+    "node_requirement": ">=22.19.0",
+    "dependency_lock_status": "organizer-must-freeze-transitive-dependencies"
+  },
+  "profiles": {
+    "harness-design": {
+      "name": "plain-pi-1.0",
+      "stock_tools": ["read", "bash", "edit", "write"],
+      "stock_system_prompt": true,
+      "organizer_optimization_layer": false,
+      "inherit_personal_resources": false,
+      "candidate_enhancements": "tasks/harness-design/harness/",
+      "release_status": "isolated-launcher-and-distribution-required"
+    },
+    "benchmark-design": {
+      "name": "enhanced-pi-1.0",
+      "organizer_enhancements": [
+        "planning-and-task-playbooks",
+        "controlled-tool-orchestration",
+        "bounded-job-timeout-and-recovery-management",
+        "transcript-and-artifact-capture",
+        "fixed-measurement-runner-and-report-schema-helpers",
+        "public-fixture-replay-and-debugging",
+        "resource-and-balance-visibility"
+      ],
+      "candidate_can_modify_supplied_harness": false,
+      "inherit_personal_resources": false,
+      "release_status": "enhanced-harness-implementation-freeze-and-pilot-required"
+    }
+  }
+}

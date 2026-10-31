@@ -1,0 +1,2 @@
+COMMAND=["/var/tmp/abstract-harness-final-identity-20261025-tools/ruff", "check", "--no-cache", "tasks/harness-design"]
+All checks passed!

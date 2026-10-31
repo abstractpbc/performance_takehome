@@ -1,0 +1,1 @@
+{"body_complete": true, "bytes_received": 311, "client_exit_code": 0, "expected_bytes": 311, "expected_digest": "sha256:ebddc55facdc6b1f7e0f30816a5fc7cc62f38abdf76c0a8b0a0ce52085754795", "received_prefix_sha256": "ebddc55facdc6b1f7e0f30816a5fc7cc62f38abdf76c0a8b0a0ce52085754795", "role": "layer", "stop_reasons": []}

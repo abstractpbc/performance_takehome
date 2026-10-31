@@ -1,0 +1,109 @@
+{
+  "actual_usage_prompt_tokens_in_all_Pi3_phases": {
+    "capital": 23,
+    "colors": 15,
+    "explain": 22,
+    "haiku": 19,
+    "list": 22,
+    "startup-probe": 14,
+    "sum": 27
+  },
+  "instruction": "Choose your own one different documented knob and value with a mechanism that can affect this small serial decode workload; do not repeat nonbinding input-threshold changes. No knob or value is preselected.",
+  "interpretation": "All actual inputs fit the original 256 prefill chunk threshold. The prior larger-prefill hypothesis therefore did not bind these inputs. Both measured candidates were rejected as no_change; original baseline remains selected.",
+  "native_DFlash": {
+    "outcome": "startup_failed",
+    "reason": "Required native DFlash model repository/assets unavailable; no extra assets, downloads or egress allowed."
+  },
+  "page_chunk_size_16_to_64": {
+    "all_90_requests_and_six_gates_passed": true,
+    "decision": {
+      "comparisons": [
+        {
+          "baseline_median": 0.04142492900001571,
+          "baseline_n": 30,
+          "candidate_median": 0.04069918000001849,
+          "candidate_n": 30,
+          "ci_high": 1.0529946080916954,
+          "ci_low": 0.9936536206984565,
+          "detail": "CI [0.9937, 1.0530] includes 1 or effect +1.78% below 3%",
+          "metric": "ttft_s",
+          "speedup": 1.0177859770354074,
+          "verdict": "no_change"
+        },
+        {
+          "baseline_median": 55.279483563576925,
+          "baseline_n": 30,
+          "candidate_median": 55.279483563576925,
+          "candidate_n": 30,
+          "ci_high": 1.04863894623642,
+          "ci_low": 0.9921540348120836,
+          "detail": "CI [0.9922, 1.0486] includes 1 or effect -0.28% below 3%",
+          "metric": "ftgr_tok_s",
+          "speedup": 0.9971710029327194,
+          "verdict": "no_change"
+        },
+        {
+          "baseline_median": 32.08914722999998,
+          "baseline_n": 1,
+          "candidate_median": 31.02291573900004,
+          "candidate_n": 1,
+          "ci_high": null,
+          "ci_low": null,
+          "detail": "need matching counts and >= 3 samples per prompt on each side",
+          "metric": "startup_s",
+          "speedup": null,
+          "verdict": "insufficient"
+        }
+      ],
+      "kept": false,
+      "outcome": "no_change",
+      "reason": "no primary metric moved significantly"
+    }
+  },
+  "prefill_chunk_size_256_to_1024": {
+    "all_90_requests_and_six_gates_passed": true,
+    "decision": {
+      "comparisons": [
+        {
+          "baseline_median": 0.04163504799998918,
+          "baseline_n": 30,
+          "candidate_median": 0.04079647250000562,
+          "candidate_n": 30,
+          "ci_high": 1.0370541231307697,
+          "ci_low": 0.9984306496738279,
+          "detail": "CI [0.9984, 1.0371] includes 1 or effect +1.91% below 3%",
+          "metric": "ttft_s",
+          "speedup": 1.019123406630516,
+          "verdict": "no_change"
+        },
+        {
+          "baseline_median": 55.279483563576925,
+          "baseline_n": 30,
+          "candidate_median": 56.16186361826352,
+          "candidate_n": 30,
+          "ci_high": 1.0157667794414755,
+          "ci_low": 1.0026015829722255,
+          "detail": "CI [1.0026, 1.0158] includes 1 or effect +1.04% below 3%",
+          "metric": "ftgr_tok_s",
+          "speedup": 1.0103760643485205,
+          "verdict": "no_change"
+        },
+        {
+          "baseline_median": 24.387453788999892,
+          "baseline_n": 1,
+          "candidate_median": 32.06288778099997,
+          "candidate_n": 1,
+          "ci_high": null,
+          "ci_low": null,
+          "detail": "need matching counts and >= 3 samples per prompt on each side",
+          "metric": "startup_s",
+          "speedup": null,
+          "verdict": "insufficient"
+        }
+      ],
+      "kept": false,
+      "outcome": "no_change",
+      "reason": "no primary metric moved significantly"
+    }
+  }
+}

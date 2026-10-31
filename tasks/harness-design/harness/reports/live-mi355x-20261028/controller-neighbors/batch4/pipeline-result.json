@@ -1,0 +1,271 @@
+{
+  "status": "COMPLETE_PAIRED_COMPARISON_SELECTED_FINAL30_AND_EXACT_METADATA",
+  "resource_id": 613675451,
+  "source_head": "419a0bd07c598dcbaea80b757e74c938c75d8599",
+  "started_utc": "2026-10-29T00:00:39.176233+00:00",
+  "hard_stop_utc": "2026-10-29T00:36:46.245553+00:00",
+  "actual_Pi_proposal_replayed_from_saved_artifacts": false,
+  "controller_generated_neighbor": true,
+  "Pi4_seed_raw_rejection_is_separate_history": true,
+  "experiment_attribution": "controller-neighbor-batch4-seeded-by-Pi4",
+  "new_model_API_calls": 0,
+  "official_grade": false,
+  "stages": [
+    {
+      "label": "build-b4",
+      "argv": [
+        "/srv/abstract-task2-pi2-20261028/runtime/python/bin/python3.14",
+        "-I",
+        "-S",
+        "-B",
+        "/srv/abstract-task2-pi2-20261028/build_candidate.py",
+        "--execute",
+        "--root",
+        "/srv/abstract-task2-pi2-20261028",
+        "--candidate-dockerfile",
+        "/srv/abstract-task2-pi2-20261028/feedback-b4/candidate.Dockerfile",
+        "--dockerfile-sha256",
+        "e0c0683f7c82d63b637827038384ec2e130d0fbf91aaa94db58df1c006a4720a",
+        "--tag",
+        "abstract-direct-pi-neighbor-b4-20261028",
+        "--out",
+        "/srv/abstract-task2-pi2-20261028/evidence/build-b4"
+      ],
+      "started_utc": "2026-10-29T00:00:39.177079+00:00",
+      "finished_utc": "2026-10-29T00:00:40.793280+00:00",
+      "exit_code": 0
+    },
+    {
+      "label": "paired-b4",
+      "argv": [
+        "/srv/abstract-task2-pi2-20261028/runtime/python/bin/python3.14",
+        "-I",
+        "-S",
+        "-B",
+        "/srv/abstract-task2-pi2-20261028/measure_pair_and_final.py",
+        "--execute",
+        "--root",
+        "/srv/abstract-task2-pi2-20261028",
+        "--render-device",
+        "/dev/dri/renderD129",
+        "--golden",
+        "/srv/abstract-task2-pi2-20261028/golden.json",
+        "--candidate-image",
+        "abstract-direct-pi-neighbor-b4-20261028",
+        "--candidate-image-id",
+        "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+        "--hard-stop-utc",
+        "2026-10-29T00:36:46.245553+00:00",
+        "--out",
+        "/srv/abstract-task2-pi2-20261028/evidence/paired-b4"
+      ],
+      "started_utc": "2026-10-29T00:00:40.793437+00:00",
+      "finished_utc": "2026-10-29T00:02:41.690459+00:00",
+      "exit_code": 0
+    },
+    {
+      "label": "selected-metadata-b4",
+      "argv": [
+        "/srv/abstract-task2-pi2-20261028/runtime/python/bin/python3.14",
+        "-I",
+        "-S",
+        "-B",
+        "/srv/abstract-task2-pi2-20261028/export_exact_metadata.py",
+        "--image",
+        "abstract-direct-pi-neighbor-b4-20261028",
+        "--expected-image-id",
+        "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+        "--out",
+        "/srv/abstract-task2-pi2-20261028/evidence/selected-metadata-b4"
+      ],
+      "started_utc": "2026-10-29T00:02:41.690645+00:00",
+      "finished_utc": "2026-10-29T00:02:41.954520+00:00",
+      "exit_code": 0
+    }
+  ],
+  "experiment": {
+    "kind": "DIRECT_PAIRED_CONTROL_CANDIDATE_SELECTED_FINAL",
+    "official_result": false,
+    "hard_stop_utc": "2026-10-29T00:36:46.245553+00:00",
+    "new_external_Task2_GPU_cohort": true,
+    "old_Task1_clock_reused": false,
+    "formal_old_Task2_ADMIT_claimed": false,
+    "phases": {
+      "control": {
+        "status": "MEASURED",
+        "requests": 30,
+        "gates_passed": true,
+        "gates": [
+          {
+            "name": "all_requests_succeeded",
+            "passed": true,
+            "detail": "0/30 failed"
+          },
+          {
+            "name": "valid_finish_reason",
+            "passed": true,
+            "detail": "0 traces with finish_reason not in {stop,length}"
+          },
+          {
+            "name": "complete_output",
+            "passed": true,
+            "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+          },
+          {
+            "name": "token_count_matches_usage",
+            "passed": true,
+            "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+          },
+          {
+            "name": "greedy_self_consistency",
+            "passed": true,
+            "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+          },
+          {
+            "name": "golden_output_match",
+            "passed": true,
+            "detail": "0 prompts differ from the baseline golden outputs: []"
+          }
+        ],
+        "startup_s": 24.880746592999913,
+        "elapsed_s": 36.989788191000116,
+        "image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+        "owned_container_absent": true,
+        "owned_network_removed": true
+      },
+      "candidate": {
+        "status": "MEASURED",
+        "requests": 30,
+        "gates_passed": true,
+        "gates": [
+          {
+            "name": "all_requests_succeeded",
+            "passed": true,
+            "detail": "0/30 failed"
+          },
+          {
+            "name": "valid_finish_reason",
+            "passed": true,
+            "detail": "0 traces with finish_reason not in {stop,length}"
+          },
+          {
+            "name": "complete_output",
+            "passed": true,
+            "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+          },
+          {
+            "name": "token_count_matches_usage",
+            "passed": true,
+            "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+          },
+          {
+            "name": "greedy_self_consistency",
+            "passed": true,
+            "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+          },
+          {
+            "name": "golden_output_match",
+            "passed": true,
+            "detail": "0 prompts differ from the baseline golden outputs: []"
+          }
+        ],
+        "startup_s": 32.4856804850001,
+        "elapsed_s": 42.294449705999796,
+        "image_id": "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+        "owned_container_absent": true,
+        "owned_network_removed": true
+      },
+      "selected-final": {
+        "status": "MEASURED",
+        "requests": 30,
+        "gates_passed": true,
+        "gates": [
+          {
+            "name": "all_requests_succeeded",
+            "passed": true,
+            "detail": "0/30 failed"
+          },
+          {
+            "name": "valid_finish_reason",
+            "passed": true,
+            "detail": "0 traces with finish_reason not in {stop,length}"
+          },
+          {
+            "name": "complete_output",
+            "passed": true,
+            "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+          },
+          {
+            "name": "token_count_matches_usage",
+            "passed": true,
+            "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+          },
+          {
+            "name": "greedy_self_consistency",
+            "passed": true,
+            "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+          },
+          {
+            "name": "golden_output_match",
+            "passed": true,
+            "detail": "0 prompts differ from the baseline golden outputs: []"
+          }
+        ],
+        "startup_s": 29.377527340999677,
+        "elapsed_s": 39.23355411900002,
+        "image_id": "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+        "owned_container_absent": true,
+        "owned_network_removed": true
+      }
+    },
+    "decision": {
+      "outcome": "improved",
+      "kept": true,
+      "reason": "significant improvement: ttft_s x1.078, ftgr_tok_s x1.265",
+      "comparisons": [
+        {
+          "metric": "ttft_s",
+          "baseline_n": 30,
+          "candidate_n": 30,
+          "baseline_median": 0.04101031850018444,
+          "candidate_median": 0.03796441400004369,
+          "speedup": 1.0778347527395389,
+          "ci_low": 1.0673637364345936,
+          "ci_high": 1.1084559660958635,
+          "verdict": "improved",
+          "detail": "CI [1.0674, 1.1085] excludes 1 and effect +7.78% >= 3%"
+        },
+        {
+          "metric": "ftgr_tok_s",
+          "baseline_n": 30,
+          "candidate_n": 30,
+          "baseline_median": 56.16186361826352,
+          "candidate_median": 70.86742937850909,
+          "speedup": 1.265443134402991,
+          "ci_low": 1.2535909610017302,
+          "ci_high": 1.2718943604211448,
+          "verdict": "improved",
+          "detail": "CI [1.2536, 1.2719] excludes 1 and effect +26.54% >= 3%"
+        },
+        {
+          "metric": "startup_s",
+          "baseline_n": 1,
+          "candidate_n": 1,
+          "baseline_median": 24.880746592999913,
+          "candidate_median": 32.4856804850001,
+          "speedup": null,
+          "ci_low": null,
+          "ci_high": null,
+          "verdict": "insufficient",
+          "detail": "need matching counts and >= 3 samples per prompt on each side"
+        }
+      ]
+    },
+    "selected_image": "abstract-direct-pi-neighbor-b4-20261028",
+    "selected_image_id": "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+    "fresh_selected_final30_pass": true,
+    "status": "MEASURED_PAIRED_ATTEMPT_AND_SELECTED_FINAL",
+    "finished_utc": "2026-10-29T00:02:41.677818+00:00"
+  },
+  "finished_utc": "2026-10-29T00:02:41.954537+00:00"
+}

@@ -1,0 +1,10 @@
+{
+  "api_usd_cumulative": 0.0,
+  "note": "ScriptedProposer rows involve no coding-model calls; API spend is 0 by construction.",
+  "pi_integrity": "sha512-/FtbxoSQU/mEv1QnichJjRjqteqaIaMWxmhB4G367+MwZfX7/DI5B9YAg5lqbN7nztFskBEtUSZ+FlmMBECtMw==",
+  "pi_node_requirement": ">=22.19.0",
+  "pi_package": "@earendil-works/pi-coding-agent",
+  "pi_used_for_these_rows": false,
+  "pi_version": "1.0.0",
+  "proposer": "scripted"
+}

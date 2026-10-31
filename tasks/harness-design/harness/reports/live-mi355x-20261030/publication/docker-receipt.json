@@ -1,0 +1,127 @@
+{
+  "GPU_or_model_mounts": false,
+  "account_credentials_read": false,
+  "actual_image_id": "sha256:baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0",
+  "actual_image_id_kind": "raw-config-digest",
+  "anonymous_receipt_sha256": "caaba8ee9f23d8d09bd173fc0e1952ed1181cb1cc9d6521163bbe029bdcd6c3b",
+  "cleanup": {
+    "observed_utc": "2026-10-30T12:06:49.493261+00:00",
+    "status": "EXACT_OWNED_HELP_NAME_ABSENT"
+  },
+  "completed_utc": "2026-10-30T12:06:49.290696+00:00",
+  "container_labels": {
+    "abstract.takehome.proof.kind": "anonymous-selected-cpu-help",
+    "abstract.takehome.proof.run_id": "c0487419d5554d65b4bd915466e5d84c"
+  },
+  "container_name": "abstract-selected-help-c0487419d5554d65b4bd915466e5d84c",
+  "docker_free_bytes_before": 109890727936,
+  "host_free_bytes_before": 109890727936,
+  "kind": "ANONYMOUS_SELECTED_DOCKER_CPU_PROOF",
+  "minimum_free_bytes": 27917287424,
+  "phases": [
+    {
+      "argv": [
+        "pull",
+        "--platform",
+        "linux/amd64",
+        "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9"
+      ],
+      "elapsed_seconds": 219.35806488600002,
+      "exit_code": 0,
+      "finished_utc": "2026-10-30T12:06:48.482544+00:00",
+      "phase": "anonymous-pull",
+      "started_utc": "2026-10-30T12:03:09.124063+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "6487bc52671ea9e828b3ceb134b74e0605bd6e06e50bbbac70afd27eb756bf0f",
+      "stop_reason": null,
+      "timeout_seconds": 1800
+    },
+    {
+      "argv": [
+        "image",
+        "inspect",
+        "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9"
+      ],
+      "elapsed_seconds": 0.20063019299999496,
+      "exit_code": 0,
+      "finished_utc": "2026-10-30T12:06:48.684843+00:00",
+      "phase": "pulled-image-inspect",
+      "started_utc": "2026-10-30T12:06:48.483876+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a3f7e4f9702e6772f01c05cdc8e0095957983e7b91862f157aaa8b2b0ecf8c1d",
+      "stop_reason": null,
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "container",
+        "inspect",
+        "abstract-selected-help-c0487419d5554d65b4bd915466e5d84c"
+      ],
+      "elapsed_seconds": 0.2005732959999591,
+      "exit_code": 1,
+      "finished_utc": "2026-10-30T12:06:48.886994+00:00",
+      "phase": "help-name-before",
+      "started_utc": "2026-10-30T12:06:48.686039+00:00",
+      "stderr_sha256": "32dee9d22c341e50fe3f6e374d9cc74ac94c33d8cb49a8b3d0d8abe08d275844",
+      "stdout_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "stop_reason": null,
+      "timeout_seconds": 15
+    },
+    {
+      "argv": [
+        "run",
+        "--pull=never",
+        "--rm",
+        "--name",
+        "abstract-selected-help-c0487419d5554d65b4bd915466e5d84c",
+        "--cidfile",
+        "/home/runner/work/performance_takehome/performance_takehome/docker-selected/help.cid",
+        "--network=none",
+        "--cap-drop=ALL",
+        "--security-opt=no-new-privileges",
+        "--label",
+        "abstract.takehome.proof.kind=anonymous-selected-cpu-help",
+        "--label",
+        "abstract.takehome.proof.run_id=c0487419d5554d65b4bd915466e5d84c",
+        "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+        "--help"
+      ],
+      "elapsed_seconds": 0.4007409099999677,
+      "exit_code": 0,
+      "finished_utc": "2026-10-30T12:06:49.289641+00:00",
+      "phase": "cpu-help",
+      "started_utc": "2026-10-30T12:06:48.888466+00:00",
+      "stderr_sha256": "5113b26064748620b0067eab2ab1c381e589b84c99ad6607ff149d20d1377048",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stop_reason": null,
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "container",
+        "inspect",
+        "abstract-selected-help-c0487419d5554d65b4bd915466e5d84c"
+      ],
+      "elapsed_seconds": 0.20062776899999335,
+      "exit_code": 1,
+      "finished_utc": "2026-10-30T12:06:49.491761+00:00",
+      "phase": "help-cleanup-inspect",
+      "started_utc": "2026-10-30T12:06:49.290704+00:00",
+      "stderr_sha256": "32dee9d22c341e50fe3f6e374d9cc74ac94c33d8cb49a8b3d0d8abe08d275844",
+      "stdout_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "stop_reason": null,
+      "timeout_seconds": 15
+    }
+  ],
+  "reference": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+  "registry_login_used": false,
+  "started_utc": "2026-10-30T12:03:09.123232+00:00",
+  "status": "ANONYMOUS_IMMUTABLE_DOCKER_PULL_INSPECT_CPU_HELP_PASS",
+  "verified_identity_linkage": {
+    "immutable_repository_reference": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+    "platform_manifest_digest": "sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+    "raw_config_digest": "sha256:baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0"
+  },
+  "written_utc": "2026-10-30T12:06:49Z"
+}

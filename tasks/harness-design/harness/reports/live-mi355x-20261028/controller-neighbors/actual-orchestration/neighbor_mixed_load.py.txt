@@ -1,0 +1,94 @@
+"""Descriptive Task 2 concurrency/long-input probe; never an official grade.
+
+Uses the Task 2 streaming client, six unchanged correctness goldens, two
+six-request bursts, and a separate ~2k-token probe. Does not change or pool the
+frozen primary benchmark, its promotion rule, or any existing report.
+"""
+from pathlib import Path
+from datetime import datetime,timezone
+from dataclasses import asdict
+from concurrent.futures import ThreadPoolExecutor
+import copy,hashlib,json,os,signal,statistics,subprocess,sys,threading,time,uuid
+root=Path('/srv/abstract-task2-pi2-20261028')
+sys.path[:0]=[str(root/'python-site'),str(root/'harness/tasks/harness-design/harness'),str(root/'harness')]
+from abstract_harness import measure
+profile=measure.load_benchmark(root/'harness/tasks/harness-design/harness/development-benchmark.llmd.json')
+golden=json.loads((root/'golden.json').read_bytes())
+out=root/'evidence/neighbor-mixed-load';out.mkdir(mode=0o700)
+hard=datetime.fromisoformat('2026-10-29T00:36:46.245553+00:00')
+assert (hard-datetime.now(timezone.utc)).total_seconds()>480
+class Stop(BaseException):pass
+def stop(*_):raise Stop('bounded supplemental probe ended')
+signal.signal(signal.SIGALRM,stop)
+while not all((root/name).exists() for name in ('B4-RESULT.json','B8-RESULT.json')):
+ assert (hard-datetime.now(timezone.utc)).total_seconds()>480
+ time.sleep(3)
+assert hashlib.sha256((root/'FROZEN-MIXED-SELECTION-POLICY.json').read_bytes()).hexdigest()=='1b46842f8f05d41a521115aac6952137843c7d2902fcd71089e86cef040ea45d'
+signal.alarm(420)
+summary={'kind':'FROZEN_CONTROLLER_NEIGHBOR_MIXED_POLICY_PROBE','official_grade':False,
+ 'primary_benchmark_or_promotion_rule_modified':False,'frozen_mixed_policy_sha256':'1b46842f8f05d41a521115aac6952137843c7d2902fcd71089e86cef040ea45d','started_utc':datetime.now(timezone.utc).isoformat(),
+ 'arms':{},'statistical_limit':'Two bursts and two long requests per image; descriptive evidence without a significance or power claim.'}
+long_prompt={'id':'long-input','prompt':'Read the entire context. The requested answer is exactly blue. Context:\n'+' amber'*2048+'\nEnd of context. Reply with only the word blue.','max_tokens':16,'allow_length':False}
+(out/'supplement-profile.json').write_text(json.dumps({'short_prompts':profile['prompts'],'concurrent_waves':2,'concurrency':6,'long_prompt':long_prompt,'long_repetitions':2,'request_profile':profile['request_profile']},indent=2)+'\n')
+def docker(*args,timeout=20):return subprocess.run(['docker',*args],stdin=subprocess.DEVNULL,capture_output=True,text=True,timeout=timeout)
+def one(image,expected,label):
+ phase=out/label;phase.mkdir();owner=uuid.uuid4().hex;name='abstract-t2-supp-'+owner[:10];net=name+'-net';created=False;launched=False
+ result={'image':image,'expected_image_id':expected,'groups':{}}
+ raw=docker('image','inspect',image);assert raw.returncode==0;meta=json.loads(raw.stdout)[0];assert meta['Id']==expected
+ assert not docker('ps','--format','{{.ID}}').stdout.strip(),'supplement must run alone on GPU'
+ command=['run','--detach','--pull=never','--name',name,'--label','abstract.task2.supplement='+owner,
+  '--network',net,'--platform','linux/amd64','--security-opt','no-new-privileges','--shm-size','16g','--cpus','16','--memory','128g',
+  '--device','/dev/kfd','--device','/dev/dri/renderD129','--group-add',str(Path('/dev/dri/renderD129').stat().st_gid),
+  '--env','ROCR_VISIBLE_DEVICES=0','--mount','type=bind,src='+str(root/'target')+',dst=/models/model,readonly',image,*meta['Config']['Cmd'],'--model=/models/model']
+ (phase/'ownership.json').write_text(json.dumps({'owner':owner,'name':name,'argv':command},indent=2)+'\n')
+ journal=(phase/'all-traces.jsonl').open('x');lock=threading.Lock()
+ def record(trace,group):
+  with lock:journal.write(json.dumps({'group':group,'trace':asdict(trace)})+'\n');journal.flush();os.fsync(journal.fileno())
+ def request(prompt,group,barrier=None):
+  if barrier is not None:barrier.wait(timeout=10)
+  t=measure.stream_chat_completion(url,model,prompt['prompt'],prompt_id=prompt['id'],request_profile=profile['request_profile'],
+   extra_fields=profile.get('extra_request_fields'),max_tokens=prompt['max_tokens'],timeout_s=90)
+  record(t,group);return t
+ try:
+  assert docker('network','create','--internal',net).returncode==0;created=True
+  begin=time.monotonic();launch=docker(*command,timeout=25);assert launch.returncode==0;launched=True;ident=launch.stdout.strip()
+  details=json.loads(docker('inspect',ident).stdout)[0];url='http://'+details['NetworkSettings']['Networks'][net]['IPAddress']+':8000'
+  alive=lambda:docker('inspect','--format','{{.State.Running}}',ident,timeout=5).stdout.strip()=='true'
+  startup,model=measure.wait_for_first_valid_generation(url,begin,profile,timeout_s=120,is_alive=alive,on_probe=lambda t:record(t,'startup'))
+  result['startup_s']=startup
+  for group in ('serial','burst-1','burst-2','long'):
+   begin=time.monotonic()
+   if group=='serial':traces=[request(p,group) for p in profile['prompts']]
+   elif group.startswith('burst'):
+    barrier=threading.Barrier(6)
+    with ThreadPoolExecutor(max_workers=6) as pool:traces=list(pool.map(lambda p:request(p,group,barrier),profile['prompts']))
+   else:traces=[request(long_prompt,group) for _ in range(2)]
+   elapsed=time.monotonic()-begin
+   probe_profile=copy.deepcopy(profile);probe_profile['prompts']=[long_prompt] if group=='long' else profile['prompts']
+   if group=='long' and label=='baseline':golden['long-input']=traces[0].text
+   gates=measure.correctness_gates(traces,probe_profile,golden)
+   result['groups'][group]={'requests':len(traces),'wall_seconds':elapsed,'TTFT_median_s':statistics.median([t.ttft_s for t in traces if t.ttft_s is not None]) if any(t.ttft_s is not None for t in traces) else None,
+    'completion_tokens':sum(t.usage_completion_tokens or 0 for t in traces),'input_tokens':sorted({t.usage_prompt_tokens for t in traces if t.usage_prompt_tokens is not None}),
+    'gates':[asdict(g) for g in gates],'all_gates_passed':all(g.passed for g in gates)}
+  result['status']='COMPLETE'
+ except BaseException as exc:result.update(status='PARTIAL_FAILURE',error_class=type(exc).__name__,error=str(exc))
+ finally:
+  journal.close();found=docker('inspect',name)
+  if found.returncode==0:
+   current=json.loads(found.stdout)[0];assert current['Name']=='/'+name and current['Image']==expected and current['Config']['Labels'].get('abstract.task2.supplement')==owner
+   logs=docker('logs',current['Id']);(phase/'container.stdout').write_text(logs.stdout);(phase/'container.stderr').write_text(logs.stderr)
+   assert docker('rm','--force',current['Id']).returncode==0
+  absent=docker('ps','-a','--filter','name=^/'+name+'$','--format','{{.ID}}');result['owned_container_absent']=absent.returncode==0 and not absent.stdout.strip()
+  if created:result['owned_network_removed']=docker('network','rm',net).returncode==0
+  (phase/'result.json').write_text(json.dumps(result,indent=2)+'\n');summary['arms'][label]=result
+  assert result['owned_container_absent']
+ return result
+try:
+ one('ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d','sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d','baseline')
+ for batch in (4,8):
+  completed=json.loads((root/f'B{batch}-RESULT.json').read_bytes());ident=completed['experiment']['phases']['candidate']['image_id']
+  one(ident,ident,f'batch-{batch}')
+except BaseException as exc:summary.update(error_class=type(exc).__name__,error=str(exc))
+finally:
+ signal.alarm(0);summary['finished_utc']=datetime.now(timezone.utc).isoformat();(out/'RESULT.json').write_text(json.dumps(summary,indent=2)+'\n')
+print(json.dumps(summary),flush=True)

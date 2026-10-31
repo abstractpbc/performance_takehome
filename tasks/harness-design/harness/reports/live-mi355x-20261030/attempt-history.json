@@ -1,0 +1,36 @@
+{
+  "attempts": [
+    {
+      "attempt": "full-tool CPU research",
+      "outcome": "no completed eligible proposal; no GPU result",
+      "promoted_to_success": false,
+      "provider_requests": 13,
+      "provider_upper_USD": "0.5076162"
+    },
+    {
+      "attempt": "one-response call1",
+      "outcome": "normal SDK stop, malformed unified-diff hunk counts; strict sealer rejected before GPU",
+      "promoted_to_success": false,
+      "provider_requests": 1,
+      "provider_upper_USD": "0.0144292"
+    },
+    {
+      "attempt": "one-response call2/retry1",
+      "outcome": "normal SDK stop, prose outside required JSON; parser rejected before GPU",
+      "promoted_to_success": false,
+      "provider_requests": 1,
+      "provider_upper_USD": "0.0196708"
+    },
+    {
+      "attempt": "one-response call3/retry2-json",
+      "outcome": "strict JSON patch sealed unchanged; canonical GPU baseline/build/pair/KEEP/fresh-final completed",
+      "promoted_to_success": false,
+      "provider_requests": 1,
+      "provider_upper_USD": "0.0144352"
+    }
+  ],
+  "baseline_only_GPU_cohorts": "baseline-only-history.json",
+  "historical_unknown_liabilities_released": false,
+  "raw_failed_responses_and_financial_records": "private; originals retained",
+  "scope": "Additional 30 October attempts only; older failures remain in prior public packets. Known provider upper costs, not a complete account invoice."
+}

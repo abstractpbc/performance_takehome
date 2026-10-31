@@ -1,0 +1,58 @@
+{
+  "anonymous_complete_graph_verified": true,
+  "anonymous_docker_pull_and_help_verified": true,
+  "anonymous_graph_bytes": 5923167708,
+  "anonymous_graph_layers": 23,
+  "anonymous_graph_objects": 25,
+  "archives": {
+    "experimental-batch-one-anonymous-graph-proof-41051877610.zip": {
+      "bytes": 16451,
+      "expanded_bytes": 38891,
+      "members": 53,
+      "primary_receipt_member": "receipt.json",
+      "public_primary_receipt": "anonymous-receipt.json",
+      "sha256": "2c1a79c9ca41f1954e660ac3db2c81b70db16187e12766bac67d6e280b47849d"
+    },
+    "experimental-batch-one-docker-pull-help-proof-41051877610.zip": {
+      "bytes": 10955,
+      "expanded_bytes": 30082,
+      "members": 15,
+      "primary_receipt_member": "docker-selected/receipt.json",
+      "public_primary_receipt": "docker-receipt.json",
+      "sha256": "a83ad1d41f7c15d2c1c4b63bd9b00392e925c60de28c73f99fb60ac6926efdd2"
+    },
+    "experimental-batch-one-publication-receipt-41051877610.zip": {
+      "bytes": 4144,
+      "expanded_bytes": 20213,
+      "members": 2,
+      "primary_receipt_member": "receipt-selected-publish.json",
+      "public_primary_receipt": "publish-receipt.json",
+      "sha256": "70c8040a3712875263650c2add1f2a424484b11e2905b173dd521cc325019d49"
+    }
+  },
+  "code_review_closure": "tasks/harness-design/harness/reports/live-mi355x-20261030/publication/FINAL-CODE-AND-DELIVERY-REVIEW.json",
+  "code_review_closure_sha256": "fb2f5072eb67928b32f653a11eef4098f32f49565d8cd57412af4fd17bbe4067",
+  "config": "sha256:baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0",
+  "convenience_tag": "experimental-batch1-93f4b72539b0",
+  "independent_review_sha256": "bd310ed01ceac84df6fd51862fd197e262516f28f936dbd92f92abd232cbae16",
+  "jobs": {
+    "Docker_pull_help": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610/job/124050991123",
+    "anonymous_graph": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610/job/124049797139",
+    "publish": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610/job/124049683001",
+    "workflow": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610"
+  },
+  "kind": "verified-public-experimental-ghcr-image",
+  "limitations": [
+    "Full5.9GB bodies were streamed and hash-verified on the pinned hosted runner; this independent local review checks retained metadata/progress/journals/logs and does not claim a second local rehash of every layer.",
+    "Publication and CPU help are delivery proofs, not an official performance grade."
+  ],
+  "official_grade": false,
+  "owned_help_container_absence_verified": true,
+  "platform_manifest": "sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+  "proof": "tasks/harness-design/harness/reports/live-mi355x-20261030/publication/INDEPENDENT-REVIEW.json",
+  "publication_head": "41456da6d144abea96aada865703286a02b935f8",
+  "recommended_global_batch4_replaced": false,
+  "reference": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+  "registry_publication_verified": true,
+  "workflow_run_id": 41051877610
+}

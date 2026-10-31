@@ -1,0 +1,202 @@
+{
+  "schema_version": 3,
+  "task": "harness-design",
+  "status": "TWO_GENUINE_PI_CANDIDATES_NOT_SELECTED_BASELINE_FRESH_FINAL_PASS",
+  "image": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+  "image_digest": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+  "image_identity_kind": "linux-amd64-platform-manifest-digest",
+  "platform": "linux/amd64",
+  "source": {
+    "repository": "https://github.com/sharonbasovich/performance_takehome",
+    "branch": "codex/task2-real-run-final",
+    "canonical_guard_measure_decision_commit": "99c006dfeb1fae2c2e33f3c066927ee43bf056ec",
+    "later_provider_fix_commit": "4960306",
+    "later_provider_documentation_commit": "419a0bd",
+    "actual_orchestration": "tasks/harness-design/harness/reports/live-mi355x-20261028/actual-orchestration",
+    "scope": "Genuine stock Pi proposal; canonical one-knob guard, measurement and decision through external stage orchestration. Not a canonical unattended-loop execution."
+  },
+  "model": {
+    "repository": "Qwen/Qwen3.6-27B",
+    "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "weights_in_image": false
+  },
+  "agent_harness": {
+    "base_package": "@earendil-works/pi-coding-agent",
+    "base_version": "1.0.0",
+    "actual_proposer": "stock-pi",
+    "successful_proposal": true,
+    "candidate_built": true,
+    "candidate_selected": false,
+    "canonical_unattended_loop_executed": false,
+    "execution_scope": "external_stage_orchestration",
+    "one_knob": "--speculative-drafter-model=native",
+    "candidate_Dockerfile_sha256": "0e68d604ccc7caf7a370d6d582a20be111935d27f0efcc9208da69a2e0ba8b9f",
+    "candidate_image_id": "sha256:ab62d880b43412b895dbc1abc25a7eb092f954df40b0f72c896e5ea5bbbee5dd",
+    "runtime_verification": "tasks/harness-design/harness/reports/live-mi355x-20261028/pi/runtime-verification.json",
+    "tool_events": "tasks/harness-design/harness/reports/live-mi355x-20261028/pi/tool-events.json",
+    "requested_output_tokens": 16384,
+    "effective_historical_wire_output_tokens": 8192
+  },
+  "development_benchmark": {
+    "config": "tasks/harness-design/harness/reports/live-mi355x-20261028/actual-source/development-benchmark.llmd.json",
+    "sha256": "4492447b810ebd6af3ed36737e5f26f866a27fbbebb0d86d5563bad1fbcf16bf",
+    "engine": "llmd",
+    "request_profile": "llmd_closed_thinking_v1",
+    "prompts": 6,
+    "repetitions": 5,
+    "measured_requests_per_complete_phase": 30,
+    "official_grade": false
+  },
+  "evidence": {
+    "directory": "tasks/harness-design/harness/reports/live-mi355x-20261028",
+    "inventory": "tasks/harness-design/harness/reports/live-mi355x-20261028/inventory.json",
+    "phases": {
+      "baseline": {
+        "status": "MEASURED",
+        "requests": 30,
+        "trace_lines_including_startup": 31,
+        "gates_passed": true,
+        "report": "baseline/full-report.json",
+        "traces": "baseline/all-request-traces.jsonl"
+      },
+      "control": {
+        "status": "MEASURED",
+        "requests": 30,
+        "trace_lines_including_startup": 31,
+        "gates_passed": true,
+        "report": "control/full-report.json",
+        "traces": "control/all-request-traces.jsonl"
+      },
+      "candidate": {
+        "status": "PARTIAL_FAILURE",
+        "requests": 0,
+        "trace_lines_including_startup": 0,
+        "gates_passed": null,
+        "report": null,
+        "traces": "candidate/all-request-traces.jsonl",
+        "result": "candidate/result.json",
+        "failure": "DFlash model repository resolution FileNotFound during startup"
+      },
+      "selected-final": {
+        "status": "MEASURED",
+        "requests": 30,
+        "trace_lines_including_startup": 31,
+        "gates_passed": true,
+        "report": "selected-final/full-report.json",
+        "traces": "selected-final/all-request-traces.jsonl"
+      }
+    },
+    "measured_requests_total": 90,
+    "optimization_gain_claimed": false,
+    "decision": {
+      "kept": false,
+      "outcome": "gate_failed",
+      "reason": "no complete control/candidate pair"
+    },
+    "outer_bundle": {
+      "bytes": 76372,
+      "sha256": "f3a564f3df1e20129eb2f888087fc2e382b83e6d4db775540310c5d86f3404c4"
+    },
+    "historical_live_manifest": "tasks/harness-design/submission.live-mi355x-20261026.json",
+    "historical_live_manifest_sha256": "c8d39e3d6ef4afa017e18e45456ea9338a616e08082b193db840a282412bd07e",
+    "historical_cpu_manifest": "tasks/harness-design/submission.cpu-standin-legacy.json",
+    "historical_git_manifest": "tasks/harness-design/submission.live-mi355x-20261026.git.json",
+    "historical_git_manifest_sha256": "0fe246c21b0d88026cb0fa34d304090aaeda7991cf8e48718da5f600b8e41d2a",
+    "software_validation": "tasks/harness-design/harness/reports/live-mi355x-20261028/software-validation.json",
+    "latest_selected_final_report": "tasks/harness-design/harness/reports/live-mi355x-20261028/pi2-measured/selected-final/full-report.json",
+    "combined_actual_measured_requests": 180,
+    "prior_pi1_public_manifest": "tasks/harness-design/submission.pi1-live-20261028.json",
+    "prior_pi1_public_manifest_sha256": "78022dbb5903e06dc508ab6fd5ab9c615ef308d7206a21e07b7d43dda88d9553"
+  },
+  "delivery": {
+    "kind": "public-ghcr-immutable-image",
+    "platform_manifest": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+    "config": "sha256:0c06ab372a7e347dd84145cdcdc6570c123e585f5740508d665987601e3fac6f",
+    "registry_publication_verified": true,
+    "anonymous_complete_graph_verified": true,
+    "anonymous_docker_pull_and_help_verified": true,
+    "verification_scope": "Previously published baseline, verified27October in delivery PR5; no new image publication or candidate-winner claim.",
+    "delivery_pr": "https://github.com/sharonbasovich/performance_takehome/pull/5",
+    "anonymous_graph_objects": 25,
+    "anonymous_graph_bytes": 5923167710
+  },
+  "cost": {
+    "reported_settled_api_usd": 0.3664702,
+    "unknown_historical_liabilities_retained": true,
+    "scope": "Reported aggregate newly settled model API cost through the later Pi2 proposal; not a total billing reconciliation. Earlier unresolved holds remain fully reserved. No new unknown cost is claimed; no private ledger is published."
+  },
+  "evaluation": {
+    "owner": "organizer",
+    "official_result": "UNAVAILABLE_IN_DRAFT",
+    "optimization_or_speedup_claimed": false
+  },
+  "integrity": {
+    "starter_commit": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "protected_files_modified": false
+  },
+  "pending_proposals": [],
+  "additional_experiments": [
+    {
+      "name": "pi2-page-chunk-size64",
+      "status": "MEASURED_NO_CHANGE",
+      "directory": "tasks/harness-design/harness/reports/live-mi355x-20261028/pi2-measured",
+      "execution_scope": "external_stage_orchestration",
+      "source_head": "419a0bd07c598dcbaea80b757e74c938c75d8599",
+      "candidate_Dockerfile_sha256": "bba48efed8f310ba56ad104acfacf4212a188ca151254253cf8107c336d559b0",
+      "candidate_image_id": "sha256:047fca293b9bba553ad3c22088eae41620c2895c31edb167eb2927f58e7502a7",
+      "selected_image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+      "measured_requests": 90,
+      "durable_trace_lines_including_startup": 93,
+      "decision": {
+        "outcome": "no_change",
+        "kept": false,
+        "reason": "no primary metric moved significantly",
+        "comparisons": [
+          {
+            "metric": "ttft_s",
+            "baseline_n": 30,
+            "candidate_n": 30,
+            "baseline_median": 0.04142492900001571,
+            "candidate_median": 0.04069918000001849,
+            "speedup": 1.0177859770354074,
+            "ci_low": 0.9936536206984565,
+            "ci_high": 1.0529946080916954,
+            "verdict": "no_change",
+            "detail": "CI [0.9937, 1.0530] includes 1 or effect +1.78% below 3%"
+          },
+          {
+            "metric": "ftgr_tok_s",
+            "baseline_n": 30,
+            "candidate_n": 30,
+            "baseline_median": 55.279483563576925,
+            "candidate_median": 55.279483563576925,
+            "speedup": 0.9971710029327194,
+            "ci_low": 0.9921540348120836,
+            "ci_high": 1.04863894623642,
+            "verdict": "no_change",
+            "detail": "CI [0.9922, 1.0486] includes 1 or effect -0.28% below 3%"
+          },
+          {
+            "metric": "startup_s",
+            "baseline_n": 1,
+            "candidate_n": 1,
+            "baseline_median": 32.08914722999998,
+            "candidate_median": 31.02291573900004,
+            "speedup": null,
+            "ci_low": null,
+            "ci_high": null,
+            "verdict": "insufficient",
+            "detail": "need matching counts and >= 3 samples per prompt on each side"
+          }
+        ]
+      },
+      "fresh_selected_final30_pass": true,
+      "optimization_gain_claimed": false,
+      "registry_publication_required": false,
+      "outer_bundle_bytes": 96670,
+      "outer_bundle_sha256": "e3848e7ae2631372faa05e0bd2821923cef77be5be0a9668d2a984856d339280",
+      "finished_utc": "2026-10-28T23:14:09.961104+00:00"
+    }
+  ],
+  "future_feedback_scope": "A further genuine Pi feedback attempt is separate pending work; no artifact, build, keep or gain from it is claimed here."
+}

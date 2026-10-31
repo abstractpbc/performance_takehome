@@ -1,0 +1,54 @@
+{
+  "Node_version": "22.19.0",
+  "Pi_package": "@earendil-works/pi-coding-agent",
+  "Pi_version": "1.0.0",
+  "SDK_cache_estimate_is_not_financial_upper": true,
+  "SDK_estimate_USD": "0.01397824",
+  "SDK_final_response_count": 1,
+  "SDK_stop_reason": "stop",
+  "active_tools": [],
+  "all_old_UNKNOWNs_full": true,
+  "artifact_manifest_sha256": "90405e9695058478645b59ef3d8ff6004caf4c5ec7364af36f73fcc7484b75ce",
+  "distribution_files_verified": 1243,
+  "execution_policy": {
+    "controller_written_files": true,
+    "max_remote_calls": 1,
+    "mode": "one-response-no-tools-v1",
+    "model_authored": "final-text-JSON",
+    "output_cap": 2048,
+    "response_seconds": 60,
+    "stock_Pi": "1.0.0",
+    "tools": []
+  },
+  "full_WAL_chain_verified": true,
+  "known_usage_priced_upper_USD": "0.0144352",
+  "metadata_filename_alias_fix": {
+    "all_original_paths_preserved": true,
+    "description": "First sealing rejected private provenance filenames containing digits; a versioned adapter used permitted aliases and retained the original input list. No public verifier weakening or model rerun.",
+    "needed": true,
+    "no_model_text_or_patch_change": true,
+    "original_source_context_proposal_status_and_evidence_unchanged": true
+  },
+  "model": "GLM-5.2",
+  "model_experiment": "batch-size-1",
+  "model_patch_sha256": "558e1de01b9a9875c4d3f050c2d3f92bc366a03f55bb82b67aa77bb6a77e80d9",
+  "no_new_UNKNOWNs": true,
+  "original_provider_SDK_JSON_patch_exact": true,
+  "output_cap_tokens": 2048,
+  "provider_requests": 1,
+  "provider_response_format": {
+    "type": "json_object"
+  },
+  "raw_SDK_provider_SSE_WAL_Journal_and_full_prompt": "private; hashes and strict equality independently checked",
+  "source_commit": "5c439274e2d3744da68b310c769c96b0c78bfb92",
+  "source_unchanged": true,
+  "strict_JSON_parse_succeeded": true,
+  "terminal_DONE": true,
+  "terminal_usage_known": true,
+  "usage": {
+    "completion_tokens": 370,
+    "prompt_tokens": 9148,
+    "total_tokens": 9518,
+    "undiscounted_price_usd": "0.0144352"
+  }
+}

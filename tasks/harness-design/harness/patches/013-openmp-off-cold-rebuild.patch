@@ -1,0 +1,11 @@
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -26,7 +26,7 @@
+ ARG GGML_F16C=ON
+ ARG GGML_AVX512=OFF
+ ARG GGML_LTO=OFF
+-ARG GGML_OPENMP=ON
++ARG GGML_OPENMP=OFF
+ ARG GGML_CPU_REPACK=ON
+ ARG EXTRA_CMAKE_ARGS=""
+ RUN apk add --no-cache build-base cmake linux-headers

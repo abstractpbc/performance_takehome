@@ -1,0 +1,8 @@
+{
+  "kind": "PI4_RAW_CANDIDATE_ACTUAL_CANONICAL_SOURCE_GUARD",
+  "guard_source_sha256": "2d257107dd2d552fdc777b2cf0d32fb642c450f95787d3bac6b6aed57908b397",
+  "raw_candidate_sha256": "eed21a634ccccfdb6c1b917eab5ddeead9e164af3c7f5cdabe0ed67fcf117e25",
+  "build_or_GPU_or_API_actions": 0,
+  "status": "REJECTED_BEFORE_BUILD",
+  "reason": "delivery policy: pinned original public FROM unchanged"
+}

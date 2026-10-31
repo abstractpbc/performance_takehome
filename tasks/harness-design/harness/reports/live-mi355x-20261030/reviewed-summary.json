@@ -1,0 +1,151 @@
+{
+  "FTGR_serial_development_improvement_supported": true,
+  "TTFT_improvement_supported": false,
+  "canonical_Harness_run_executed": true,
+  "controller_patch_repair": false,
+  "decision": {
+    "comparisons": [
+      {
+        "baseline_median": 0.040886590500008424,
+        "baseline_n": 30,
+        "candidate_median": 0.03764237799998682,
+        "candidate_n": 30,
+        "ci_high": 1.0942005586676844,
+        "ci_low": 0.9402356882409444,
+        "detail": "CI [0.9402, 1.0942] includes 1 or effect +8.70% below 3%",
+        "metric": "ttft_s",
+        "speedup": 1.0870225083391798,
+        "verdict": "no_change"
+      },
+      {
+        "baseline_median": 56.16186361826352,
+        "baseline_n": 30,
+        "candidate_median": 69.46821893167716,
+        "candidate_n": 30,
+        "ci_high": 1.266860815702801,
+        "ci_low": 1.2512266167009887,
+        "detail": "CI [1.2512, 1.2669] excludes 1 and effect +25.93% >= 3%",
+        "metric": "ftgr_tok_s",
+        "speedup": 1.259329070362387,
+        "verdict": "improved"
+      },
+      {
+        "baseline_median": 28.049978304000035,
+        "baseline_n": 1,
+        "candidate_median": 27.122376943000006,
+        "candidate_n": 1,
+        "ci_high": null,
+        "ci_low": null,
+        "detail": "need matching counts and >= 3 samples per prompt on each side",
+        "metric": "startup_s",
+        "speedup": null,
+        "verdict": "insufficient"
+      }
+    ],
+    "kept": true,
+    "outcome": "improved",
+    "reason": "significant improvement: ftgr_tok_s x1.259"
+  },
+  "durable_benchmark_request_traces": 120,
+  "durable_startup_probe_traces": 4,
+  "execution_scope": "one-response stock Pi CPU proposal, strict immutable artifact, then canonical Harness.run GPU phase; separate root wrapper fresh-final/export",
+  "existing_recommended_batch4_unchanged": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+  "experimental_batch1_delivery": {
+    "anonymous_complete_graph_verified": true,
+    "anonymous_docker_pull_and_help_verified": true,
+    "anonymous_graph_bytes": 5923167708,
+    "anonymous_graph_layers": 23,
+    "anonymous_graph_objects": 25,
+    "archives": {
+      "experimental-batch-one-anonymous-graph-proof-41051877610.zip": {
+        "bytes": 16451,
+        "expanded_bytes": 38891,
+        "members": 53,
+        "primary_receipt_member": "receipt.json",
+        "public_primary_receipt": "anonymous-receipt.json",
+        "sha256": "2c1a79c9ca41f1954e660ac3db2c81b70db16187e12766bac67d6e280b47849d"
+      },
+      "experimental-batch-one-docker-pull-help-proof-41051877610.zip": {
+        "bytes": 10955,
+        "expanded_bytes": 30082,
+        "members": 15,
+        "primary_receipt_member": "docker-selected/receipt.json",
+        "public_primary_receipt": "docker-receipt.json",
+        "sha256": "a83ad1d41f7c15d2c1c4b63bd9b00392e925c60de28c73f99fb60ac6926efdd2"
+      },
+      "experimental-batch-one-publication-receipt-41051877610.zip": {
+        "bytes": 4144,
+        "expanded_bytes": 20213,
+        "members": 2,
+        "primary_receipt_member": "receipt-selected-publish.json",
+        "public_primary_receipt": "publish-receipt.json",
+        "sha256": "70c8040a3712875263650c2add1f2a424484b11e2905b173dd521cc325019d49"
+      }
+    },
+    "code_review_closure": "tasks/harness-design/harness/reports/live-mi355x-20261030/publication/FINAL-CODE-AND-DELIVERY-REVIEW.json",
+    "code_review_closure_sha256": "fb2f5072eb67928b32f653a11eef4098f32f49565d8cd57412af4fd17bbe4067",
+    "config": "sha256:baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0",
+    "convenience_tag": "experimental-batch1-93f4b72539b0",
+    "independent_review_sha256": "bd310ed01ceac84df6fd51862fd197e262516f28f936dbd92f92abd232cbae16",
+    "jobs": {
+      "Docker_pull_help": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610/job/124050991123",
+      "anonymous_graph": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610/job/124049797139",
+      "publish": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610/job/124049683001",
+      "workflow": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610"
+    },
+    "kind": "verified-public-experimental-ghcr-image",
+    "limitations": [
+      "Full5.9GB bodies were streamed and hash-verified on the pinned hosted runner; this independent local review checks retained metadata/progress/journals/logs and does not claim a second local rehash of every layer.",
+      "Publication and CPU help are delivery proofs, not an official performance grade."
+    ],
+    "official_grade": false,
+    "owned_help_container_absence_verified": true,
+    "platform_manifest": "sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+    "proof": "tasks/harness-design/harness/reports/live-mi355x-20261030/publication/INDEPENDENT-REVIEW.json",
+    "publication_head": "41456da6d144abea96aada865703286a02b935f8",
+    "recommended_global_batch4_replaced": false,
+    "reference": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+    "registry_publication_verified": true,
+    "workflow_run_id": 41051877610
+  },
+  "fresh_selected_final30_pass": true,
+  "independent_fresh_baseline": true,
+  "local_selected_Docker_image_index": "sha256:1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f",
+  "local_selected_platform_manifest": "sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+  "measured_requests": 120,
+  "new_GPU_model_calls": 0,
+  "new_batch1_registry_publication_verified": true,
+  "official_grade_claimed": false,
+  "runtime": {
+    "CPU_execution_policy": {
+      "controller_written_files": true,
+      "max_remote_calls": 1,
+      "mode": "one-response-no-tools-v1",
+      "model_authored": "final-text-JSON",
+      "output_cap": 2048,
+      "response_seconds": 60,
+      "stock_Pi": "1.0.0",
+      "tools": []
+    },
+    "artifact_manifest_sha256": "90405e9695058478645b59ef3d8ff6004caf4c5ec7364af36f73fcc7484b75ce",
+    "base_identity_is_immutable_FROM_not_fresh_wrapper_ID": true,
+    "carried_CPU_API_upper_USD": "0.0144352",
+    "compatibility": {
+      "base_image_digest": "sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+      "baseline_lock_sha256": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+      "benchmark_sha256": "4492447b810ebd6af3ed36737e5f26f866a27fbbebb0d86d5563bad1fbcf16bf",
+      "harness_tree_sha256": "8d1b1d315337cfca4457ba51032401cf2910691011e39d5250fb67207cd134e2",
+      "model_runtime_sha256": "a755d78de7abb198f2353d2f3555870e9629a4b8f465014b3d2148688155c0a6",
+      "profile_sha256": "b59e36436e42767d34db13d9988e1513a2377c2bc00d1ac4cdf5c1150184e797",
+      "program_sha256": "afe5e716425125b50961a1714f3e2ac06aa62bc276843fc274c73429529b95c0",
+      "protected_context_sha256": "ecaa5ae75612818e1064e19b1606c183632279478eeb496e7206abef30a6d960",
+      "source_commit": "5c439274e2d3744da68b310c769c96b0c78bfb92"
+    },
+    "new_API_capability": 0
+  },
+  "selected_config": "sha256:baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0",
+  "six_gates_passed_each_phase": true,
+  "source_commit": "5c439274e2d3744da68b310c769c96b0c78bfb92",
+  "startup_statistical_improvement_supported": false,
+  "status": "CANONICAL_DEFERRED_CPU_PI_GPU_BUILD_PAIR_KEEP_AND_FRESH30_COMPLETED"
+}

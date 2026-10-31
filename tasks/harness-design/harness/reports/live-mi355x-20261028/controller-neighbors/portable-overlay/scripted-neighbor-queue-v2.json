@@ -1,0 +1,30 @@
+{
+  "experiments": [
+    {
+      "edits": [
+        {
+          "file": "tasks/harness-design/Dockerfile",
+          "find": "--batch-size=(?:1|16|4|8)(?=\\\")",
+          "regex": true,
+          "replace": "--batch-size=4"
+        }
+      ],
+      "experiment": "controller-neighbor-batch4",
+      "hypothesis": "Controller-generated neighbor batch=4 in the batch-size family selected by Pi. Test whether it retains serial gains while avoiding the observed batch1 six-way queuing tradeoff.",
+      "notes": "Attribution: genuine Pi selected batch-size 16->1; controller fixed the additional 4/8 grid before either neighbor result. No new model call. This scripted queue is a hybrid-planner replay, not two Pi-selected values. Each generated Dockerfile uses the immutable baseline; queue replay changes only this same knob in current last-good context. Replay-v2 correction: generic current-last-good replay may start at batch1 or batch16. Actual measured mixed-round control remains fresh canonical batch16. Policy, candidate bytes, controller attribution and fixed 4/8 values are unchanged."
+    },
+    {
+      "edits": [
+        {
+          "file": "tasks/harness-design/Dockerfile",
+          "find": "--batch-size=(?:1|16|4|8)(?=\\\")",
+          "regex": true,
+          "replace": "--batch-size=8"
+        }
+      ],
+      "experiment": "controller-neighbor-batch8",
+      "hypothesis": "Controller-generated neighbor batch=8 in the batch-size family selected by Pi. Test whether it retains serial gains while avoiding the observed batch1 six-way queuing tradeoff.",
+      "notes": "Attribution: genuine Pi selected batch-size 16->1; controller fixed the additional 4/8 grid before either neighbor result. No new model call. This scripted queue is a hybrid-planner replay, not two Pi-selected values. Each generated Dockerfile uses the immutable baseline; queue replay changes only this same knob in current last-good context. Replay-v2 correction: generic current-last-good replay may start at batch1 or batch16. Actual measured mixed-round control remains fresh canonical batch16. Policy, candidate bytes, controller attribution and fixed 4/8 values are unchanged."
+    }
+  ]
+}

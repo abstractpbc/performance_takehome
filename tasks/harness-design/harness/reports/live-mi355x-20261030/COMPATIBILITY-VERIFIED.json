@@ -1,0 +1,27 @@
+{
+  "CPU_execution_policy": {
+    "controller_written_files": true,
+    "max_remote_calls": 1,
+    "mode": "one-response-no-tools-v1",
+    "model_authored": "final-text-JSON",
+    "output_cap": 2048,
+    "response_seconds": 60,
+    "stock_Pi": "1.0.0",
+    "tools": []
+  },
+  "artifact_manifest_sha256": "90405e9695058478645b59ef3d8ff6004caf4c5ec7364af36f73fcc7484b75ce",
+  "base_identity_is_immutable_FROM_not_fresh_wrapper_ID": true,
+  "carried_CPU_API_upper_USD": "0.0144352",
+  "compatibility": {
+    "base_image_digest": "sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+    "baseline_lock_sha256": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+    "benchmark_sha256": "4492447b810ebd6af3ed36737e5f26f866a27fbbebb0d86d5563bad1fbcf16bf",
+    "harness_tree_sha256": "8d1b1d315337cfca4457ba51032401cf2910691011e39d5250fb67207cd134e2",
+    "model_runtime_sha256": "a755d78de7abb198f2353d2f3555870e9629a4b8f465014b3d2148688155c0a6",
+    "profile_sha256": "b59e36436e42767d34db13d9988e1513a2377c2bc00d1ac4cdf5c1150184e797",
+    "program_sha256": "afe5e716425125b50961a1714f3e2ac06aa62bc276843fc274c73429529b95c0",
+    "protected_context_sha256": "ecaa5ae75612818e1064e19b1606c183632279478eeb496e7206abef30a6d960",
+    "source_commit": "5c439274e2d3744da68b310c769c96b0c78bfb92"
+  },
+  "new_API_capability": 0
+}

@@ -1,0 +1,4 @@
+$ python -B -m tools.check_integrity --base 81aead87d78ed468c4c374fb42921471b44c3f80
+PASS: protected organizer files unchanged from 81aead87d78ed468c4c374fb42921471b44c3f80
+
+[exit code 0]

@@ -1,0 +1,100 @@
+[
+    {
+        "Id": "sha256:1a19b238c6ce1448fed276005ff14e3425e845db266141deb5391c6a84159586",
+        "RepoTags": [],
+        "RepoDigests": [
+            "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb"
+        ],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2026-10-29T00:00:40.696598834Z",
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "0",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt",
+                "LLMD_POSTHOG_TOKEN=phc_rpmxndYCln7En0XBJ81FyNhG3AvuWx6mDIaBvhlL2gj",
+                "LLMD_USAGE_STATS_ENDPOINT=https://eu.i.posthog.com/i/v0/e/"
+            ],
+            "Cmd": [
+                "--io-impl=zio",
+                "--batch-size=4",
+                "--token-batch-size=1024",
+                "--max-context-len=128000",
+                "--prefill-chunk-size=256",
+                "--page-chunk-size=16",
+                "--backend=auto",
+                "--gpu-memory-fraction=0.9",
+                "--cache-memory-fraction=0.95"
+            ],
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "/",
+            "Entrypoint": [
+                "/llmd/llmd"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "ai.zml.sentry.backend": "crashpad",
+                "org.opencontainers.image.authors": "ZML Team <llmd@zml.ai>",
+                "org.opencontainers.image.revision": "<no value>.<no value>",
+                "org.opencontainers.image.title": "ZML/LLMD - The High Performance LLM server",
+                "org.opencontainers.image.url": "https://zml.ai/llmd",
+                "org.opencontainers.image.vendor": "ZML"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 15310683310,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/71b72d123cb67194ef1897d249e7defdb1d756e11fa362bdeb0f70e718c57ec5/diff:/var/lib/docker/overlay2/292b3878d51a470759998bf8db2cf2cc9a989960b21eb26f94bec5a6d639fe93/diff:/var/lib/docker/overlay2/5af66f1ddb09f68ce0c064d7415725af4954089f93bd969e90c828a19204ecdd/diff:/var/lib/docker/overlay2/0a5a448227794f7d3344d21f042a2603acb58c0284b4cac19fad671d968bf27f/diff:/var/lib/docker/overlay2/cc848ed317f874bc124e669c7b95e7d420b22aff60b570c467c571311d506ea5/diff:/var/lib/docker/overlay2/2250480ee6af8954d4898bbf7233d424827a1f438db03409cb8f6f875275172c/diff:/var/lib/docker/overlay2/3f7ab00c7ac6e80e92784f5c73e0cfa0971772e020091c5eaf34e651273c591e/diff:/var/lib/docker/overlay2/ad04af6f9011b6c58524de9e4d04a2fa0ddb44b6d48b8167b5644c10d9ba8329/diff:/var/lib/docker/overlay2/6fadaf8388b22e8ec49d2faabc62c9051e5e3c599274442357f7a39fa44d0e99/diff:/var/lib/docker/overlay2/f371543293a5be544faa83fc24e9c124245881c2c9576e544b2fdad8bace2355/diff:/var/lib/docker/overlay2/9b1d75a147ccaee69e9d3a16f4e0058248a16eab00d7039a0e0b3473e7c8a017/diff:/var/lib/docker/overlay2/4ad379baa49ad3c0bcd8b37ff4bead6407fa08e6fefe61e84cec910124e82855/diff:/var/lib/docker/overlay2/32a8d5ac20ae2ec401fe85139e6ecebbfafd2dce962bcb9734df2b8eefc4e565/diff:/var/lib/docker/overlay2/009043be631e232b7bb192407c76160bfabb9c8ec1a450bd81e3b6d54cd81798/diff:/var/lib/docker/overlay2/f5afcd27e4846320d67dcd9f1bba8cfc68cfa33be3b98f5535d613abf09f252b/diff:/var/lib/docker/overlay2/5bed48899d3ca6500cdccf3dbeb183c68033c1b209feb562a86146f445726cab/diff:/var/lib/docker/overlay2/0d33ea31fbd86cb57e22567c0a9e30b805e00aae666b1beb9e3b2aa2b241e9fa/diff:/var/lib/docker/overlay2/425a65dad08cca3cf06dad6fa8809ad145990ad8b0a7f4aee1dd7437c9ecaf66/diff:/var/lib/docker/overlay2/74ea1af1783ab5d697ed16e3764474999b3bbf2dbb914d029dbf0245eafb8754/diff:/var/lib/docker/overlay2/b9bba0c578996086faba22884b975cf2e52d4b591a834521afa1506285337366/diff:/var/lib/docker/overlay2/f4c7a6460290dbe395707fa8a0b6fda1f4c6d33e64c05b87cdfc7b71516ce292/diff:/var/lib/docker/overlay2/c6d900af6e1fa9a05fe5cdabf0d682a4a5ee7479a680eb88b8d99880e23a89a6/diff",
+                "MergedDir": "/var/lib/docker/overlay2/2026738d87cec85963aad087b8a2b761942a9865a6adbced6ef69defd0da63f4/merged",
+                "UpperDir": "/var/lib/docker/overlay2/2026738d87cec85963aad087b8a2b761942a9865a6adbced6ef69defd0da63f4/diff",
+                "WorkDir": "/var/lib/docker/overlay2/2026738d87cec85963aad087b8a2b761942a9865a6adbced6ef69defd0da63f4/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:50abe06dfc0957e14cb8332ed242e8b884ef2563a9eb202e5172f243f62792f7",
+                "sha256:621c35e751a51a9a9dc3e80aa0b7fe8be2a93402ea6ccd307d30852cd7776cda",
+                "sha256:c8b007d0206e4b10ed4d3b3d99dfeab47c2648e82011989fd78a5731baf33fc3",
+                "sha256:bec7e6bb35e05d1284f28b10d2150c259717d91c658c4c10c08424bb9466caba",
+                "sha256:275a30dd8ce958b21daa9ad962c6fbc09f98306ee2f486b65c9075dc257b1412",
+                "sha256:4d049f83d9cf21d1f5cc0e11deaf36df02790d0e60c1a3829538fb4b61685368",
+                "sha256:af5aa97ebe6ce1604747ec1e21af7136ded391bcabe4acef882e718a87c86bcc",
+                "sha256:6f1cdceb6a3146f0ccb986521156bef8a422cdbb0863396f7f751f575ba308f4",
+                "sha256:bd3cdfae1d3fdd83a2231d608969b38b82349777c2fff9a7c12d54f8ac5c9b38",
+                "sha256:4cde6b0bb6f50a5f255eef7b2a42162c661cf776b803225dcac9a659e396bb6b",
+                "sha256:ad51d0769d16ba578106a177987dfe3d2e02c1668c852b795b2f6b024068242a",
+                "sha256:187cfc6d1e3e8a40a5e64653bcd3239c140807dcf1c09e48021178705a5a6139",
+                "sha256:5fd2536c39c0700be8b7b4344e375196da2f126842fd8ede66996a18860a3890",
+                "sha256:3a7299f559d987305122c7669fc3643095eb0955f8ff4a38c9430d54d0b4452e",
+                "sha256:80bb2aedf42cbf9911cb9073be23406c0e7f799f8083bf13a1cd2d460a25e383",
+                "sha256:c0e409312adc366898967307565f692bb33d43a439d3de48e27d14b742389725",
+                "sha256:e4ba966d7f0527dfe0fcb559e4e18d4da42c4e6beae924719255e0dedb554ed0",
+                "sha256:1f5d28bd51650f429293f7730ede274b81dc0744aa918bc887133c4ad610258c",
+                "sha256:6e18ad80f3d64a8cbbcd1ff2e8a0d5ce7282cf664e816b86183a59d30a618e8a",
+                "sha256:c16b2ec4b1493bad1b1de23d659c899e60abb166bda756d02792f0a03ba54a43",
+                "sha256:7db505d90756626f425c6c5468eca565c82f589b144ecaa4f411ad9bbf79e614",
+                "sha256:18768a0e6b6d83d7a6d993448ad4ee9a60c4b0195cbef2e7ad5ffa05a2b70cb3",
+                "sha256:e58a48312834355c202cce92ec024446aaa11ee713bfd0579a1b86c7e11434a6"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]

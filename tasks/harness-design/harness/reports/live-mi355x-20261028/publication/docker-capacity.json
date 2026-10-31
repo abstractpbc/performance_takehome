@@ -1,0 +1,32 @@
+{
+  "kind": "DEDICATED_GITHUB_HOSTED_DOCKER_CAPACITY",
+  "status": "CAPACITY_PASS_BEFORE_ANONYMOUS_PULL",
+  "started_utc": "2026-10-29T00:33:42.022015+00:00",
+  "minimum_free_bytes": 27917287424,
+  "fixed_sdk_allowlist": [
+    "/usr/local/lib/android",
+    "/opt/ghc",
+    "/usr/share/dotnet"
+  ],
+  "sdk_actions": [
+    {
+      "path": "/usr/local/lib/android",
+      "status": "REMOVED"
+    },
+    {
+      "path": "/opt/ghc",
+      "status": "ABSENT"
+    },
+    {
+      "path": "/usr/share/dotnet",
+      "status": "REMOVED"
+    }
+  ],
+  "workspace_artifact_Docker_runtime_paths_removed": false,
+  "free_bytes_before_pull": {
+    "host_root": 109891002368,
+    "Docker_root": 109891002368,
+    "containerd_root": 109891002368
+  },
+  "finished_utc": "2026-10-29T00:35:38.538121+00:00"
+}

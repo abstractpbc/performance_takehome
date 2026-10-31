@@ -1,0 +1,39 @@
+{
+  "kind": "ACTUAL_SELECTED_BATCH4_PUBLICATION_AND_ANONYMOUS_DOCKER_VERIFIED",
+  "status": "ALL_THREE_HOSTED_JOBS_SUCCESS_RECEIPTS_INDEPENDENTLY_BOUND",
+  "reference": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+  "config": "sha256:1a19b238c6ce1448fed276005ff14e3425e845db266141deb5391c6a84159586",
+  "workflow_commit": "54b356b2ff21740da992a4b976b3e4d466902d9f",
+  "workflow_run": "https://github.com/sharonbasovich/performance_takehome/actions/runs/40794303749",
+  "jobs": {
+    "publish": 123186883695,
+    "anonymous": 123187001515,
+    "Docker": 123188653339
+  },
+  "approval_sha256": "d5e3ec4583e18b56c684403eff6996a87cdd1a7dbfc1c5af009e1640f8ce84d3",
+  "source_Dockerfile_sha256": "e0c0683f7c82d63b637827038384ec2e130d0fbf91aaa94db58df1c006a4720a",
+  "artifact_zips": {
+    "selected-publication-receipt-40794303749.zip": {
+      "sha256": "fc64c3cb3bfe7aeca465cb906f00f0efe2bcc4a100477545d306aaca1d20ac05",
+      "bytes": 4149
+    },
+    "selected-anonymous-graph-proof-40794303749.zip": {
+      "sha256": "9737c9a4157307df840faebec52add8dad303ca4e5d0592d30e042cd404ab99a",
+      "bytes": 16436
+    },
+    "selected-docker-pull-help-proof-40794303749.zip": {
+      "sha256": "be455c3f781c794d69f4bad86db75199d346d81d6449256007401c5ae37fe3ff",
+      "bytes": 10917
+    }
+  },
+  "anonymous_objects": 25,
+  "anonymous_layers": 23,
+  "anonymous_complete_body_bytes": 5923168772,
+  "actual_Docker_id": "sha256:1a19b238c6ce1448fed276005ff14e3425e845db266141deb5391c6a84159586",
+  "actual_Docker_id_kind": "raw-config-digest",
+  "isolated_CPU_help_passed": true,
+  "owned_help_cleanup_confirmed": true,
+  "verification_scope": "Exact pinned hosted checker streamed/hash-verified every complete object, followed by a separate actual anonymous Docker pull/inspect/CPU-help. Independent local review binds retained receipts/progress/log hashes and raw graph. The 5.9GB streamed bodies/image were not retained or rehashed on this local computer.",
+  "local_registry_Docker_GPU_API_or_credential_actions": 0,
+  "actual_pulled_Docker_inspect_Size_bytes": 15310683310
+}

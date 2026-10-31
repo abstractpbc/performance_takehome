@@ -1,0 +1,29 @@
+{
+  "kind": "INDEPENDENT_EXPERIMENTAL_BATCH_ONE_HOSTED_DELIVERY_READBACK",
+  "status": "PASS",
+  "publication_head": "41456da6d144abea96aada865703286a02b935f8",
+  "workflow_run_id": 41051877610,
+  "PR": 10,
+  "reference": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+  "convenience_tag": "experimental-batch1-93f4b72539b0",
+  "approval_sha256": "bc9c0fdae78b17b81aa7faafce4fefc3a15ff2b7f5347c4de272ec03936314c8",
+  "publication_receipt_sha256": "42ce706c7a21bf5ce386addb412601fe19238a1aea9a8d443dcda8f474f559a1",
+  "publication_attempt_events": 57,
+  "anonymous_receipt_sha256": "caaba8ee9f23d8d09bd173fc0e1952ed1181cb1cc9d6521163bbe029bdcd6c3b",
+  "anonymous_attempt_events": 52,
+  "anonymous_objects": 25,
+  "anonymous_layers": 23,
+  "anonymous_whole_graph_bytes": 5923167708,
+  "all_progress_lengths_hashes_exit_codes_journal_rows_checked": true,
+  "Docker_receipt_sha256": "956ad00a32276ce3ee1745e18d6d424bfb14e24960e44f4d152c7043d268397f",
+  "Docker_actual_image_id": "sha256:baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0",
+  "Docker_pull_inspect_CPU_help_and_owned_absence_checked": true,
+  "all_Docker_phase_log_hashes_checked": true,
+  "account_credentials_used_for_read_proofs": false,
+  "new_GPU_model_provider_registry_or_Docker_actions_by_this_review": 0,
+  "existing_selected_batch_four_unchanged": true,
+  "limitations": [
+    "Full5.9GB bodies were streamed and hash-verified on the pinned hosted runner; this independent local review checks retained metadata/progress/journals/logs and does not claim a second local rehash of every layer.",
+    "Publication and CPU help are delivery proofs, not an official performance grade."
+  ]
+}

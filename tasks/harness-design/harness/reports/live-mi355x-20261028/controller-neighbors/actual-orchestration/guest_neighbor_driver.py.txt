@@ -1,0 +1,11 @@
+from pathlib import Path
+from datetime import datetime,timezone
+import json,subprocess
+root=Path('/srv/abstract-task2-pi2-20261028')
+assert not (root/'NEIGHBORS-START.json').exists()
+(root/'NEIGHBORS-START.json').write_text(json.dumps({'started_utc':datetime.now(timezone.utc).isoformat(),'origin':'bounded deterministic controller neighbors of Pi4; no new API/model proposal','policy_sha256':'1b46842f8f05d41a521115aac6952137843c7d2902fcd71089e86cef040ea45d'})+'\n')
+for batch,pin in [(4,'e0c0683f7c82d63b637827038384ec2e130d0fbf91aaa94db58df1c006a4720a'),(8,'ad93c1347156e3b0eba41332e6cd15b9f66dfb279eefa2895e22d600117542dd')]:
+ with (root/f'batch{batch}-pipeline.log').open('xb') as log:
+  result=subprocess.run(['/usr/bin/python3','-u',str(root/f'guest_neighbor_b{batch}.py'),'--root',str(root),'--hard-stop-utc','2026-10-29T00:36:46.245553Z','--candidate-sha256',pin],stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,timeout=600)
+ assert result.returncode==0,('neighbor pipeline failed',batch,result.returncode)
+print('Both neighbor primary pipelines finished',flush=True)

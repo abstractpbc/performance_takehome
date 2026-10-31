@@ -1,0 +1,11 @@
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -19,7 +19,7 @@
+ # llama.cpp tag v0.7.0
+ ARG LLAMA_CPP_COMMIT=620d2225cc436ab0b001e3200e590e3b286ef9ab
+ ARG CMAKE_BUILD_TYPE=Release
+-ARG GGML_NATIVE=OFF
++ARG GGML_NATIVE=ON
+ ARG GGML_AVX=ON
+ ARG GGML_AVX2=ON
+ ARG GGML_FMA=ON

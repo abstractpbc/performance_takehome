@@ -1,0 +1,581 @@
+{
+  "kind": "FROZEN_CONTROLLER_NEIGHBOR_MIXED_POLICY_PROBE",
+  "official_grade": false,
+  "primary_benchmark_or_promotion_rule_modified": false,
+  "frozen_mixed_policy_sha256": "1b46842f8f05d41a521115aac6952137843c7d2902fcd71089e86cef040ea45d",
+  "started_utc": "2026-10-29T00:04:51.830192+00:00",
+  "arms": {
+    "baseline": {
+      "image": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+      "expected_image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+      "groups": {
+        "serial": {
+          "requests": 6,
+          "wall_seconds": 2.416014812999947,
+          "TTFT_median_s": 0.04123915600007422,
+          "completion_tokens": 121,
+          "input_tokens": [
+            15,
+            19,
+            22,
+            23,
+            27
+          ],
+          "gates": [
+            {
+              "name": "all_requests_succeeded",
+              "passed": true,
+              "detail": "0/6 failed"
+            },
+            {
+              "name": "valid_finish_reason",
+              "passed": true,
+              "detail": "0 traces with finish_reason not in {stop,length}"
+            },
+            {
+              "name": "complete_output",
+              "passed": true,
+              "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+            },
+            {
+              "name": "token_count_matches_usage",
+              "passed": true,
+              "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+            },
+            {
+              "name": "greedy_self_consistency",
+              "passed": true,
+              "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+            },
+            {
+              "name": "golden_output_match",
+              "passed": true,
+              "detail": "0 prompts differ from the baseline golden outputs: []"
+            }
+          ],
+          "all_gates_passed": true
+        },
+        "burst-1": {
+          "requests": 6,
+          "wall_seconds": 1.165434665000248,
+          "TTFT_median_s": 0.07867089050000686,
+          "completion_tokens": 121,
+          "input_tokens": [
+            15,
+            19,
+            22,
+            23,
+            27
+          ],
+          "gates": [
+            {
+              "name": "all_requests_succeeded",
+              "passed": true,
+              "detail": "0/6 failed"
+            },
+            {
+              "name": "valid_finish_reason",
+              "passed": true,
+              "detail": "0 traces with finish_reason not in {stop,length}"
+            },
+            {
+              "name": "complete_output",
+              "passed": true,
+              "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+            },
+            {
+              "name": "token_count_matches_usage",
+              "passed": true,
+              "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+            },
+            {
+              "name": "greedy_self_consistency",
+              "passed": true,
+              "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+            },
+            {
+              "name": "golden_output_match",
+              "passed": true,
+              "detail": "0 prompts differ from the baseline golden outputs: []"
+            }
+          ],
+          "all_gates_passed": true
+        },
+        "burst-2": {
+          "requests": 6,
+          "wall_seconds": 1.166360720999819,
+          "TTFT_median_s": 0.07649443450031868,
+          "completion_tokens": 121,
+          "input_tokens": [
+            15,
+            19,
+            22,
+            23,
+            27
+          ],
+          "gates": [
+            {
+              "name": "all_requests_succeeded",
+              "passed": true,
+              "detail": "0/6 failed"
+            },
+            {
+              "name": "valid_finish_reason",
+              "passed": true,
+              "detail": "0 traces with finish_reason not in {stop,length}"
+            },
+            {
+              "name": "complete_output",
+              "passed": true,
+              "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+            },
+            {
+              "name": "token_count_matches_usage",
+              "passed": true,
+              "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+            },
+            {
+              "name": "greedy_self_consistency",
+              "passed": true,
+              "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+            },
+            {
+              "name": "golden_output_match",
+              "passed": true,
+              "detail": "0 prompts differ from the baseline golden outputs: []"
+            }
+          ],
+          "all_gates_passed": true
+        },
+        "long": {
+          "requests": 2,
+          "wall_seconds": 0.6359882269998707,
+          "TTFT_median_s": 0.2823053764998349,
+          "completion_tokens": 4,
+          "input_tokens": [
+            2086
+          ],
+          "gates": [
+            {
+              "name": "all_requests_succeeded",
+              "passed": true,
+              "detail": "0/2 failed"
+            },
+            {
+              "name": "valid_finish_reason",
+              "passed": true,
+              "detail": "0 traces with finish_reason not in {stop,length}"
+            },
+            {
+              "name": "complete_output",
+              "passed": true,
+              "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+            },
+            {
+              "name": "token_count_matches_usage",
+              "passed": true,
+              "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+            },
+            {
+              "name": "greedy_self_consistency",
+              "passed": true,
+              "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+            },
+            {
+              "name": "golden_output_match",
+              "passed": true,
+              "detail": "0 prompts differ from the baseline golden outputs: []"
+            }
+          ],
+          "all_gates_passed": true
+        }
+      },
+      "startup_s": 30.516696954000054,
+      "status": "COMPLETE",
+      "owned_container_absent": true,
+      "owned_network_removed": true
+    },
+    "batch-4": {
+      "image": "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+      "expected_image_id": "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+      "groups": {
+        "serial": {
+          "requests": 6,
+          "wall_seconds": 1.9183276509997995,
+          "TTFT_median_s": 0.03854986599981203,
+          "completion_tokens": 121,
+          "input_tokens": [
+            15,
+            19,
+            22,
+            23,
+            27
+          ],
+          "gates": [
+            {
+              "name": "all_requests_succeeded",
+              "passed": true,
+              "detail": "0/6 failed"
+            },
+            {
+              "name": "valid_finish_reason",
+              "passed": true,
+              "detail": "0 traces with finish_reason not in {stop,length}"
+            },
+            {
+              "name": "complete_output",
+              "passed": true,
+              "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+            },
+            {
+              "name": "token_count_matches_usage",
+              "passed": true,
+              "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+            },
+            {
+              "name": "greedy_self_consistency",
+              "passed": true,
+              "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+            },
+            {
+              "name": "golden_output_match",
+              "passed": true,
+              "detail": "0 prompts differ from the baseline golden outputs: []"
+            }
+          ],
+          "all_gates_passed": true
+        },
+        "burst-1": {
+          "requests": 6,
+          "wall_seconds": 0.988893932999872,
+          "TTFT_median_s": 0.0768268664999141,
+          "completion_tokens": 121,
+          "input_tokens": [
+            15,
+            19,
+            22,
+            23,
+            27
+          ],
+          "gates": [
+            {
+              "name": "all_requests_succeeded",
+              "passed": true,
+              "detail": "0/6 failed"
+            },
+            {
+              "name": "valid_finish_reason",
+              "passed": true,
+              "detail": "0 traces with finish_reason not in {stop,length}"
+            },
+            {
+              "name": "complete_output",
+              "passed": true,
+              "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+            },
+            {
+              "name": "token_count_matches_usage",
+              "passed": true,
+              "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+            },
+            {
+              "name": "greedy_self_consistency",
+              "passed": true,
+              "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+            },
+            {
+              "name": "golden_output_match",
+              "passed": true,
+              "detail": "0 prompts differ from the baseline golden outputs: []"
+            }
+          ],
+          "all_gates_passed": true
+        },
+        "burst-2": {
+          "requests": 6,
+          "wall_seconds": 0.9833501800003432,
+          "TTFT_median_s": 0.07197458549990188,
+          "completion_tokens": 121,
+          "input_tokens": [
+            15,
+            19,
+            22,
+            23,
+            27
+          ],
+          "gates": [
+            {
+              "name": "all_requests_succeeded",
+              "passed": true,
+              "detail": "0/6 failed"
+            },
+            {
+              "name": "valid_finish_reason",
+              "passed": true,
+              "detail": "0 traces with finish_reason not in {stop,length}"
+            },
+            {
+              "name": "complete_output",
+              "passed": true,
+              "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+            },
+            {
+              "name": "token_count_matches_usage",
+              "passed": true,
+              "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+            },
+            {
+              "name": "greedy_self_consistency",
+              "passed": true,
+              "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+            },
+            {
+              "name": "golden_output_match",
+              "passed": true,
+              "detail": "0 prompts differ from the baseline golden outputs: []"
+            }
+          ],
+          "all_gates_passed": true
+        },
+        "long": {
+          "requests": 2,
+          "wall_seconds": 0.6040659539999069,
+          "TTFT_median_s": 0.2735120380000353,
+          "completion_tokens": 4,
+          "input_tokens": [
+            2086
+          ],
+          "gates": [
+            {
+              "name": "all_requests_succeeded",
+              "passed": true,
+              "detail": "0/2 failed"
+            },
+            {
+              "name": "valid_finish_reason",
+              "passed": true,
+              "detail": "0 traces with finish_reason not in {stop,length}"
+            },
+            {
+              "name": "complete_output",
+              "passed": true,
+              "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+            },
+            {
+              "name": "token_count_matches_usage",
+              "passed": true,
+              "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+            },
+            {
+              "name": "greedy_self_consistency",
+              "passed": true,
+              "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+            },
+            {
+              "name": "golden_output_match",
+              "passed": true,
+              "detail": "0 prompts differ from the baseline golden outputs: []"
+            }
+          ],
+          "all_gates_passed": true
+        }
+      },
+      "startup_s": 30.497534122999696,
+      "status": "COMPLETE",
+      "owned_container_absent": true,
+      "owned_network_removed": true
+    },
+    "batch-8": {
+      "image": "sha256:20c6cc444e6e00c1b3294583ed6375c0af5fc8299cf5fb147117a6762472eb8f",
+      "expected_image_id": "sha256:20c6cc444e6e00c1b3294583ed6375c0af5fc8299cf5fb147117a6762472eb8f",
+      "groups": {
+        "serial": {
+          "requests": 6,
+          "wall_seconds": 2.0105519559997447,
+          "TTFT_median_s": 0.0386762020000333,
+          "completion_tokens": 121,
+          "input_tokens": [
+            15,
+            19,
+            22,
+            23,
+            27
+          ],
+          "gates": [
+            {
+              "name": "all_requests_succeeded",
+              "passed": true,
+              "detail": "0/6 failed"
+            },
+            {
+              "name": "valid_finish_reason",
+              "passed": true,
+              "detail": "0 traces with finish_reason not in {stop,length}"
+            },
+            {
+              "name": "complete_output",
+              "passed": true,
+              "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+            },
+            {
+              "name": "token_count_matches_usage",
+              "passed": true,
+              "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+            },
+            {
+              "name": "greedy_self_consistency",
+              "passed": true,
+              "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+            },
+            {
+              "name": "golden_output_match",
+              "passed": true,
+              "detail": "0 prompts differ from the baseline golden outputs: []"
+            }
+          ],
+          "all_gates_passed": true
+        },
+        "burst-1": {
+          "requests": 6,
+          "wall_seconds": 0.9803853889998209,
+          "TTFT_median_s": 0.07382806850000634,
+          "completion_tokens": 121,
+          "input_tokens": [
+            15,
+            19,
+            22,
+            23,
+            27
+          ],
+          "gates": [
+            {
+              "name": "all_requests_succeeded",
+              "passed": true,
+              "detail": "0/6 failed"
+            },
+            {
+              "name": "valid_finish_reason",
+              "passed": true,
+              "detail": "0 traces with finish_reason not in {stop,length}"
+            },
+            {
+              "name": "complete_output",
+              "passed": true,
+              "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+            },
+            {
+              "name": "token_count_matches_usage",
+              "passed": true,
+              "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+            },
+            {
+              "name": "greedy_self_consistency",
+              "passed": true,
+              "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+            },
+            {
+              "name": "golden_output_match",
+              "passed": true,
+              "detail": "0 prompts differ from the baseline golden outputs: []"
+            }
+          ],
+          "all_gates_passed": true
+        },
+        "burst-2": {
+          "requests": 6,
+          "wall_seconds": 0.9615441529999771,
+          "TTFT_median_s": 0.07114362400011487,
+          "completion_tokens": 121,
+          "input_tokens": [
+            15,
+            19,
+            22,
+            23,
+            27
+          ],
+          "gates": [
+            {
+              "name": "all_requests_succeeded",
+              "passed": true,
+              "detail": "0/6 failed"
+            },
+            {
+              "name": "valid_finish_reason",
+              "passed": true,
+              "detail": "0 traces with finish_reason not in {stop,length}"
+            },
+            {
+              "name": "complete_output",
+              "passed": true,
+              "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+            },
+            {
+              "name": "token_count_matches_usage",
+              "passed": true,
+              "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+            },
+            {
+              "name": "greedy_self_consistency",
+              "passed": true,
+              "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+            },
+            {
+              "name": "golden_output_match",
+              "passed": true,
+              "detail": "0 prompts differ from the baseline golden outputs: []"
+            }
+          ],
+          "all_gates_passed": true
+        },
+        "long": {
+          "requests": 2,
+          "wall_seconds": 0.6047916919997078,
+          "TTFT_median_s": 0.272496821499999,
+          "completion_tokens": 4,
+          "input_tokens": [
+            2086
+          ],
+          "gates": [
+            {
+              "name": "all_requests_succeeded",
+              "passed": true,
+              "detail": "0/2 failed"
+            },
+            {
+              "name": "valid_finish_reason",
+              "passed": true,
+              "detail": "0 traces with finish_reason not in {stop,length}"
+            },
+            {
+              "name": "complete_output",
+              "passed": true,
+              "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+            },
+            {
+              "name": "token_count_matches_usage",
+              "passed": true,
+              "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+            },
+            {
+              "name": "greedy_self_consistency",
+              "passed": true,
+              "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+            },
+            {
+              "name": "golden_output_match",
+              "passed": true,
+              "detail": "0 prompts differ from the baseline golden outputs: []"
+            }
+          ],
+          "all_gates_passed": true
+        }
+      },
+      "startup_s": 31.013405722000243,
+      "status": "COMPLETE",
+      "owned_container_absent": true,
+      "owned_network_removed": true
+    }
+  },
+  "statistical_limit": "Two bursts and two long requests per image; descriptive evidence without a significance or power claim.",
+  "finished_utc": "2026-10-29T00:06:40.586762+00:00"
+}

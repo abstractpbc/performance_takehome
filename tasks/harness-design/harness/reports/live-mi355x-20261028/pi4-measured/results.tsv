@@ -1,0 +1,4 @@
+phase	status	image_digest	measured_requests	gates_passed	startup_s	elapsed_s	outcome	kept
+control	MEASURED	sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d	30	True	24.445363377000376	36.6272914580004	measured	
+candidate	MEASURED	sha256:9da45e7aee536492404a67637ac314f28f6b40c66d6f85a00b05381cba4c1517	30	True	30.566187607999836	40.42181919299992	improved	False
+selected-final	MEASURED	sha256:9da45e7aee536492404a67637ac314f28f6b40c66d6f85a00b05381cba4c1517	30	True	30.55160565799997	40.38786803499988	measured	

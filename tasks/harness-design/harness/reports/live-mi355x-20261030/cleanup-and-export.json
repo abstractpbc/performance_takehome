@@ -1,0 +1,30 @@
+{
+  "status": "EXPORTED_OFFHOST_THEN_PROVIDER_CONFIRMED_ABSENT",
+  "resource_id": 614195936,
+  "provider_created_utc": "2026-10-30T11:32:32Z",
+  "provider_exact_GET404_utc": "2026-10-30T11:45:11.075182Z",
+  "original_Journal_closed_utc": "2026-10-30T11:45:11.107148Z",
+  "original_unchanged_absence_deadline_utc": "2026-10-30T11:51:56.084553Z",
+  "provider_invoice_pending": true,
+  "GPU_charge_upper_USD": "0.95",
+  "CPU_proposal_API_upper_USD": "0.0144352",
+  "no_active_GPU_or_API_request_at_closure": true,
+  "new_UNKNOWNs": 0,
+  "both_historical_UNKNOWN_holds_retained_full": true,
+  "controller_and_watchdog_reaped_exit0": true,
+  "original_clocks_extended": false,
+  "Windows_complete_GPU_export_verified_before_delete": true,
+  "GPU_export": {
+    "bytes": 2669038,
+    "sha256": "7488e8adac3d67c148c8dbea3d90b37de92e280a10c1885de3cab41c040fffc5"
+  },
+  "private_source_receipts": {
+    "original_watchdog_sha256": "4f8dcbb35fc93662abaf108aab787a0cb3a25ef606d9fe2d888890a3bdd04aaf",
+    "closed_admin_archive_sha256": "8ee26734f7890014dcfe867d731b43ae87f507212cb855c232e5f049382dd99d",
+    "closed_admin_archive_bytes": 6317997,
+    "closed_admin_archive_members": 62,
+    "all_admin_archive_files_hash_verified": true,
+    "closure_cash_review_sha256": "62753fe4031879854bd1c4e39c129dccec57196303f452cbe64faa9ad9508449"
+  },
+  "scope": "Sanitized closure metadata only; original accounting Journal, provider read/delete token, host keys, credentials and private source receipts remain private. Bounds are not a final provider invoice or an account balance."
+}

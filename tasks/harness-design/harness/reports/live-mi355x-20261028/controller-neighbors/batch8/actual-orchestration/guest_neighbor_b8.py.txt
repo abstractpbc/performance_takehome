@@ -1,0 +1,67 @@
+"""Complete the prepared Pi2 GPU experiment without waiting for chat turns.
+
+Setup workers, measurements and exports all keep the original cohort deadline.
+No allocation, provider/model API request, credential or paid add-on is possible.
+"""
+from pathlib import Path
+from datetime import datetime,timezone
+import argparse,hashlib,json,os,subprocess,sys,tarfile,time
+p=argparse.ArgumentParser();p.add_argument('--root',required=True);p.add_argument('--hard-stop-utc',required=True);p.add_argument('--candidate-sha256',required=True)
+a=p.parse_args();root=Path(a.root);hard=datetime.fromisoformat(a.hard_stop_utc.replace('Z','+00:00'))
+assert root==Path('/srv/abstract-task2-pi2-20261028') and hard.isoformat()=='2026-10-29T00:36:46.245553+00:00'
+assert (root/'jobs.json').is_file() and not (root/'B8-START.json').exists()
+python=str(root/'runtime/python/bin/python3.14')
+summary={'status':'RUNNING','resource_id':613675451,'source_head':'419a0bd07c598dcbaea80b757e74c938c75d8599',
+ 'started_utc':datetime.now(timezone.utc).isoformat(),'hard_stop_utc':hard.isoformat(),
+ 'actual_Pi_proposal_replayed_from_saved_artifacts':False,'controller_generated_neighbor':True,'Pi4_seed_raw_rejection_is_separate_history':True,'experiment_attribution':'controller-neighbor-batch8-seeded-by-Pi4','new_model_API_calls':0,'official_grade':False,'stages':[]}
+def write(name,value):
+ with (root/name).open('x') as f:json.dump(value,f,indent=2);f.write('\n');f.flush();os.fsync(f.fileno())
+write('B8-START.json',summary)
+def run(label,args,timeout):
+ start=datetime.now(timezone.utc).isoformat()
+ with (root/(label+'.stdout')).open('xb') as out,(root/(label+'.stderr')).open('xb') as err:
+  value=subprocess.run(args,stdin=subprocess.DEVNULL,stdout=out,stderr=err,timeout=timeout)
+ summary['stages'].append({'label':label,'argv':args,'started_utc':start,'finished_utc':datetime.now(timezone.utc).isoformat(),'exit_code':value.returncode})
+ assert value.returncode==0,label+' failed; original logs retained'
+try:
+ while not all((root/name).is_file() for name in ('model-ready.json','docker-ready.json')):
+  assert (hard-datetime.now(timezone.utc)).total_seconds()>300,'insufficient original work time for complete comparison'
+  time.sleep(5)
+ model=json.loads((root/'model-ready.json').read_bytes());assert model['status']=='ALL_TARGET_FILES_SIZE_AND_HASH_VERIFIED' and model['files']==29
+ assert model['bytes']==55586107940
+ assert Path('/dev/dri/renderD129').exists() and Path('/sys/class/drm/renderD129/device/vendor').read_text().strip()=='0x1002'
+ run('build-b8',[python,'-I','-S','-B',str(root/'build_candidate.py'),'--execute','--root',str(root),
+  '--candidate-dockerfile',str(root/'feedback-b8/candidate.Dockerfile'),'--dockerfile-sha256',a.candidate_sha256,
+  '--tag','abstract-direct-pi-neighbor-b8-20261028','--out',str(root/'evidence/build-b8')],150)
+ built=json.loads((root/'evidence/build-b8/result.json').read_bytes())
+ run('paired-b8',[python,'-I','-S','-B',str(root/'measure_pair_and_final.py'),'--execute','--root',str(root),
+  '--render-device','/dev/dri/renderD129','--golden',str(root/'golden.json'),
+  '--candidate-image',built['image'],'--candidate-image-id',built['image_id'],
+  '--hard-stop-utc',hard.isoformat(),'--out',str(root/'evidence/paired-b8')],max(1,int((hard-datetime.now(timezone.utc)).total_seconds())))
+ pair=json.loads((root/'evidence/paired-b8/RESULT.json').read_bytes());summary['experiment']=pair
+ assert pair['fresh_selected_final30_pass'] is True,'selected image lacks passing final30'
+ run('selected-metadata-b8',[python,'-I','-S','-B',str(root/'export_exact_metadata.py'),'--image',pair['selected_image'],
+  '--expected-image-id',pair['selected_image_id'],'--out',str(root/'evidence/selected-metadata-b8')],90)
+ summary['status']='COMPLETE_PAIRED_COMPARISON_SELECTED_FINAL30_AND_EXACT_METADATA'
+except BaseException as exc:
+ summary['status']='PARTIAL_FAILURE_PRESERVE_ALL';summary['error_class']=type(exc).__name__;summary['error']=str(exc)
+finally:
+ summary['finished_utc']=datetime.now(timezone.utc).isoformat();write('B8-RESULT.json',summary)
+ sources=root/'actual-source';sources.mkdir(mode=0o700,exist_ok=True)
+ h=root/'harness/tasks/harness-design'
+ for source,name in [(h/'harness/abstract_harness/measure.py','measure.py'),(h/'harness/abstract_harness/decision.py','decision.py'),
+  (h/'harness/abstract_harness/configuration_delivery.py','configuration_delivery.py'),(h/'harness/development-benchmark.llmd.json','profile.json'),(h/'Dockerfile','baseline.Dockerfile')]:
+  (sources/name).write_bytes(source.read_bytes())
+ partial=root/'export/RESULTS-B8.tar.gz.partial';final=root/'export/RESULTS-B8.tar.gz'
+ with tarfile.open(partial,'x:gz') as t:
+  for name in ['evidence','actual-source','target.canonical.json','golden.json','jobs.json','model-ready.json','docker-ready.json',
+   'model.log','docker.log','B8-START.json','B8-RESULT.json','model_worker.py','docker_worker.py','guest_setup.py',
+   'guest_neighbor_b8.py','feedback-b8','build_candidate.py','measure_pair_and_final.py','export_exact_metadata.py','baseline-image-inspect.json',
+   'packet/inventory.json','packet/candidate.Dockerfile','packet/proposal.json','build-b8.stdout','build-b8.stderr',
+   'paired-b8.stdout','paired-b8.stderr','selected-metadata-b8.stdout','selected-metadata-b8.stderr']:
+   path=root/name
+   if path.exists():t.add(path,arcname=name,recursive=True)
+ partial.rename(final)
+ with final.open('rb') as f:sha=hashlib.file_digest(f,'sha256').hexdigest()
+ write('B8-EXPORT-READY.json',{'path':str(final),'bytes':final.stat().st_size,'sha256':sha,'status':summary['status'],'finished_utc':datetime.now(timezone.utc).isoformat()})
+print(json.dumps(summary),flush=True)

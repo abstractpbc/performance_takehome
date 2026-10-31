@@ -1,0 +1,14 @@
+{
+  "PYTHONDONTWRITEBYTECODE": "1",
+  "carried_CPU_cost_once_not_new_provider_charge": "0.0144352",
+  "harness_tree_sha256": "8d1b1d315337cfca4457ba51032401cf2910691011e39d5250fb67207cd134e2",
+  "loop_timeouts": {
+    "build_s": 180,
+    "measure_s": 120,
+    "propose_s": 10,
+    "startup_s": 120,
+    "stop_grace_s": 10
+  },
+  "new_provider_calls_authorized": 0,
+  "worker_pythonpath": "$GPU_ROOT/job/site"
+}

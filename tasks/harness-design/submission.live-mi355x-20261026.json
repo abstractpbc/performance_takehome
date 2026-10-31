@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "task": "harness-design",
+  "status": "REAL_BASELINE_REVALIDATED_PUBLIC_ARCHIVE_OPTIMIZATION_AND_REGISTRY_UNFINISHED",
+  "image": "sha256:ccd73fc2f663734f222070502bca7928d62cfad1cee733170357e1c3dd957540",
+  "image_identity_kind": "image-index-digest",
+  "platform": "linux/amd64",
+  "source": {
+    "repository": "https://github.com/sharonbasovich/performance_takehome",
+    "branch": "submission/harness-design",
+    "tested_code_commit": "09f52c25af380a0daefdea3a183fe45a6ec75730",
+    "dockerfile": "tasks/harness-design/Dockerfile",
+    "build_command": "docker buildx build --platform linux/amd64 --load -f tasks/harness-design/Dockerfile -t candidate tasks/harness-design",
+    "engine_source_revision": "Opaque pinned upstream LLMD image; no full engine-source provenance invented."
+  },
+  "model": {
+    "repository": "Qwen/Qwen3.6-27B",
+    "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "weights_in_image": false
+  },
+  "agent_harness": {
+    "base_package": "@earendil-works/pi-coding-agent",
+    "base_version": "1.0.0",
+    "entrypoint": "tasks/harness-design/harness/run.py",
+    "actual_proposer": "pi",
+    "actual_provider_model": "glm-5.2",
+    "attempt_status": "FAILED_UPSTREAM_120S_RESPONSE_DEADLINE_BEFORE_PATCH",
+    "readonly_tool_calls": 13,
+    "workspace_files_compared": 146,
+    "workspace_changes": 0,
+    "successful_propose_build_measure_keep_or_revert": false,
+    "api_liability": "Unresolved final request retains its full reserved bound; no zero-charge inference from error placeholders."
+  },
+  "integrity": {
+    "starter_commit": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "starter_tag_note": "organizer tag `takehome-start` is absent in the draft; the starter commit SHA was used instead",
+    "command": "python -B -m tools.check_integrity --base 81aead87d78ed468c4c374fb42921471b44c3f80",
+    "returncode": 0,
+    "report": "tasks/harness-design/harness/reports/integrity.txt"
+  },
+  "evaluation": {
+    "owner": "organizer",
+    "mode": "offline-black-box-after-submission",
+    "official_result": "UNAVAILABLE_IN_DRAFT: organizer benchmark has not been run"
+  },
+  "development_benchmark": {
+    "owner": "candidate",
+    "config": "tasks/harness-design/harness/development-benchmark.llmd.json",
+    "engine": "llmd",
+    "request_profile": "llmd_closed_thinking_v1",
+    "official_grade": false
+  },
+  "evidence": {
+    "baseline_report": "tasks/harness-design/harness/reports/live-mi355x-20261026/000-baseline.json",
+    "baseline_report_sha256": "f83cadc074363d7affe2b830a45af96ecacc22e234f8857a9767a4accdc2edff",
+    "baseline_results": "tasks/harness-design/harness/reports/live-mi355x-20261026/baseline-results.tsv",
+    "fresh_revalidation_report_sha256": "d1c197f3a4809af223b8c4d7536f78744df67ac25913b41b66158c91ca7f05b4",
+    "fresh_exact_greedy_usage_finish_requests_passed": 30,
+    "historical_cpu_evidence_manifest": "tasks/harness-design/submission.cpu-standin-legacy.json",
+    "optimization_gain_claimed": false,
+    "fresh_revalidation_execution_receipt": "tasks/harness-design/harness/reports/live-mi355x-20261026/fresh-revalidation-execution-receipt.json",
+    "fresh_revalidation_execution_receipt_sha256": "791d13eab647c37188946f9d4d6b69cd61d043d15923d67c633e70e2b875a3bc",
+    "fresh_revalidation_full_report_retained_offhost": false,
+    "fresh_revalidation_response_records_retained_offhost": false,
+    "fresh_revalidation_retention_scope": "Exact PASS execution receipt and original full-report hash only; the full report and its 30 fresh response records were not preserved offhost before teardown and cannot be independently re-audited. The complete original baseline report is retained.",
+    "current_software_validation": {
+      "tested_commit": "6b50a9dcccc10201a7f8b7c1d17e519f548c59e8",
+      "tests_run": 241,
+      "passed": 241,
+      "skipped": 0,
+      "report": "tasks/harness-design/harness/reports/live-mi355x-20261026/manifest-compatibility/receipt.json",
+      "qualification": "Independent fresh native clean bundle checkout; historical and live manifest roles checked separately. No fresh GPU inference or successful Pi candidate implied."
+    }
+  },
+  "delivery": {
+    "kind": "public-github-release-assets",
+    "release_url": "https://github.com/sharonbasovich/performance_takehome/releases/tag/task2-llmd-baseline-20261026",
+    "archive_bytes": 5923200000,
+    "archive_sha256": "c759f7c2a7dd3b6a1deb083c0df46c435c0165e237f50d6b7e52097031497b47",
+    "platform_manifest": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+    "config": "sha256:0c06ab372a7e347dd84145cdcdc6570c123e585f5740508d665987601e3fac6f",
+    "anonymous_all_archive_bytes_independently_verified": true,
+    "root_verification_completed_utc": "2026-10-26T10:05:04.754872Z",
+    "registry_publication_verified": false,
+    "anonymous_docker_pull_verified": false,
+    "docker_load_verified": true,
+    "delivery_pr": "https://github.com/sharonbasovich/performance_takehome/pull/5",
+    "qualification": "Baseline delivery with delegated/root-reviewed CPU import evidence; not a completed Pi optimization or verified registry submission. PR5 tracks the separately versioned restore/import work.",
+    "docker_load_verification_scope": {
+      "source": "Delegated CPU validation in PR5 delivery evidence cpu_import_check, reviewed by root",
+      "started_utc": "2026-10-26T10:00:40Z",
+      "completed_utc": "2026-10-26T10:02:27Z",
+      "image_index_preserved": true,
+      "isolated_help_exit_code": 0,
+      "help_network": "none",
+      "independently_executed_by_root": false,
+      "gpu_inference_verified_by_this_check": false
+    }
+  }
+}

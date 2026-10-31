@@ -1,0 +1,93 @@
+{
+  "kind": "INDEPENDENT_ACTUAL_FIXED_NEIGHBOR_MIXED_REPLAY",
+  "recorded_utc": "2026-10-29T00:13:49.474028+00:00",
+  "status": "PASS",
+  "archive_sha256": "4ad80c47c3d4e8126f168eb5093a409cc2a0dccc31d87180d33e0df002074219",
+  "policy_sha256": "1b46842f8f05d41a521115aac6952137843c7d2902fcd71089e86cef040ea45d",
+  "archive_members_byte_bound": 326,
+  "archive_unpacked_bytes": 1747007,
+  "primary_requests_replayed": 180,
+  "supplemental_requests_replayed": 60,
+  "all_primary_and_supplemental_gates_replayed": true,
+  "assessments": {
+    "4": {
+      "eligible": true,
+      "checks": [
+        {
+          "group": "burst-1",
+          "metric": "TTFT_median_s",
+          "ratio": 0.976560275492336,
+          "passed": true
+        },
+        {
+          "group": "burst-1",
+          "metric": "wall_seconds",
+          "ratio": 0.8485194088504837,
+          "passed": true
+        },
+        {
+          "group": "burst-2",
+          "metric": "TTFT_median_s",
+          "ratio": 0.9409127078336925,
+          "passed": true
+        },
+        {
+          "group": "burst-2",
+          "metric": "wall_seconds",
+          "ratio": 0.8430926747579455,
+          "passed": true
+        },
+        {
+          "group": "long",
+          "metric": "TTFT_median_s",
+          "ratio": 0.9688516789555203,
+          "passed": true
+        }
+      ],
+      "failures": [],
+      "score": 1.1678778137610093
+    },
+    "8": {
+      "eligible": true,
+      "checks": [
+        {
+          "group": "burst-1",
+          "metric": "TTFT_median_s",
+          "ratio": 0.9384420086105406,
+          "passed": true
+        },
+        {
+          "group": "burst-1",
+          "metric": "wall_seconds",
+          "ratio": 0.8412186615365626,
+          "passed": true
+        },
+        {
+          "group": "burst-2",
+          "metric": "TTFT_median_s",
+          "ratio": 0.9300496757031191,
+          "passed": true
+        },
+        {
+          "group": "burst-2",
+          "metric": "wall_seconds",
+          "ratio": 0.8243968917057918,
+          "passed": true
+        },
+        {
+          "group": "long",
+          "metric": "TTFT_median_s",
+          "ratio": 0.9652555147144297,
+          "passed": true
+        }
+      ],
+      "failures": [],
+      "score": 1.1384829818889404
+    }
+  },
+  "selected_batch": 4,
+  "selected_image_id": "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+  "wall_seconds": 0.26384899700042297,
+  "registry_Docker_GPU_API_actions": 0,
+  "limitations": "Exploratory two-fixed-neighbor selection. Supplemental wall times are retained recorder values, checked against per-request duration but not reconstructible from absent independent group-boundary timestamps. Burst/long checks are descriptive. Post-mixed final30 and root delivery decision remain separate."
+}

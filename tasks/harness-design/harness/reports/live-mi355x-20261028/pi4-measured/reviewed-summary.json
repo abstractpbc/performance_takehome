@@ -1,0 +1,206 @@
+{
+  "status": "COMPLETE_PAIRED_COMPARISON_SELECTED_FINAL30_AND_EXACT_METADATA",
+  "source_head": "419a0bd07c598dcbaea80b757e74c938c75d8599",
+  "started_utc": "2026-10-28T23:45:57.027110+00:00",
+  "finished_utc": "2026-10-28T23:47:59.128481+00:00",
+  "hard_stop_utc": "2026-10-29T00:36:46.245553+00:00",
+  "new_model_API_calls": 0,
+  "official_grade": false,
+  "kind": "SANITIZED_ACTUAL_PI4_MEASURED_CYCLE",
+  "outer_bundle_bytes": 208959,
+  "outer_bundle_sha256": "7524674d2f8aa2bcb470f82ab60b2d6649453bfead566c13d0a1945d2e64a6af",
+  "pipeline_result_sha256": "228e85fe36e4623493c5b15f94c3eefa2f9b29d8cce88c5d56043fd28d521f8f",
+  "execution_scope": "external_stage_orchestration",
+  "decision": {
+    "outcome": "improved",
+    "kept": true,
+    "reason": "significant improvement: ttft_s x1.093, ftgr_tok_s x1.269",
+    "comparisons": [
+      {
+        "metric": "ttft_s",
+        "baseline_n": 30,
+        "candidate_n": 30,
+        "baseline_median": 0.041457085499587265,
+        "candidate_median": 0.03795779500023855,
+        "speedup": 1.0928777003542174,
+        "ci_low": 1.0777815298709863,
+        "ci_high": 1.1177840189854114,
+        "verdict": "improved",
+        "detail": "CI [1.0778, 1.1178] excludes 1 and effect +9.29% >= 3%"
+      },
+      {
+        "metric": "ftgr_tok_s",
+        "baseline_n": 30,
+        "candidate_n": 30,
+        "baseline_median": 56.16186361826352,
+        "candidate_median": 70.16782415509311,
+        "speedup": 1.2687589300878819,
+        "ci_low": 1.260517031246393,
+        "ci_high": 1.2751745902391085,
+        "verdict": "improved",
+        "detail": "CI [1.2605, 1.2752] excludes 1 and effect +26.88% >= 3%"
+      },
+      {
+        "metric": "startup_s",
+        "baseline_n": 1,
+        "candidate_n": 1,
+        "baseline_median": 24.445363377000376,
+        "candidate_median": 30.566187607999836,
+        "speedup": null,
+        "ci_low": null,
+        "ci_high": null,
+        "verdict": "insufficient",
+        "detail": "need matching counts and >= 3 samples per prompt on each side"
+      }
+    ]
+  },
+  "selected_image": "abstract-direct-pi-feedback3-20261028",
+  "phases": {
+    "control": {
+      "status": "MEASURED",
+      "requests": 30,
+      "gates_passed": true,
+      "gates": [
+        {
+          "name": "all_requests_succeeded",
+          "passed": true,
+          "detail": "0/30 failed"
+        },
+        {
+          "name": "valid_finish_reason",
+          "passed": true,
+          "detail": "0 traces with finish_reason not in {stop,length}"
+        },
+        {
+          "name": "complete_output",
+          "passed": true,
+          "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+        },
+        {
+          "name": "token_count_matches_usage",
+          "passed": true,
+          "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+        },
+        {
+          "name": "greedy_self_consistency",
+          "passed": true,
+          "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+        },
+        {
+          "name": "golden_output_match",
+          "passed": true,
+          "detail": "0 prompts differ from the baseline golden outputs: []"
+        }
+      ],
+      "startup_s": 24.445363377000376,
+      "elapsed_s": 36.6272914580004,
+      "image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+      "owned_container_absent": true,
+      "owned_network_removed": true
+    },
+    "candidate": {
+      "status": "MEASURED",
+      "requests": 30,
+      "gates_passed": true,
+      "gates": [
+        {
+          "name": "all_requests_succeeded",
+          "passed": true,
+          "detail": "0/30 failed"
+        },
+        {
+          "name": "valid_finish_reason",
+          "passed": true,
+          "detail": "0 traces with finish_reason not in {stop,length}"
+        },
+        {
+          "name": "complete_output",
+          "passed": true,
+          "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+        },
+        {
+          "name": "token_count_matches_usage",
+          "passed": true,
+          "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+        },
+        {
+          "name": "greedy_self_consistency",
+          "passed": true,
+          "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+        },
+        {
+          "name": "golden_output_match",
+          "passed": true,
+          "detail": "0 prompts differ from the baseline golden outputs: []"
+        }
+      ],
+      "startup_s": 30.566187607999836,
+      "elapsed_s": 40.42181919299992,
+      "image_id": "sha256:9da45e7aee536492404a67637ac314f28f6b40c66d6f85a00b05381cba4c1517",
+      "owned_container_absent": true,
+      "owned_network_removed": true
+    },
+    "selected-final": {
+      "status": "MEASURED",
+      "requests": 30,
+      "gates_passed": true,
+      "gates": [
+        {
+          "name": "all_requests_succeeded",
+          "passed": true,
+          "detail": "0/30 failed"
+        },
+        {
+          "name": "valid_finish_reason",
+          "passed": true,
+          "detail": "0 traces with finish_reason not in {stop,length}"
+        },
+        {
+          "name": "complete_output",
+          "passed": true,
+          "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+        },
+        {
+          "name": "token_count_matches_usage",
+          "passed": true,
+          "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+        },
+        {
+          "name": "greedy_self_consistency",
+          "passed": true,
+          "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+        },
+        {
+          "name": "golden_output_match",
+          "passed": true,
+          "detail": "0 prompts differ from the baseline golden outputs: []"
+        }
+      ],
+      "startup_s": 30.55160565799997,
+      "elapsed_s": 40.38786803499988,
+      "image_id": "sha256:9da45e7aee536492404a67637ac314f28f6b40c66d6f85a00b05381cba4c1517",
+      "owned_container_absent": true,
+      "owned_network_removed": true
+    }
+  },
+  "actual_usage_prompt_tokens": {
+    "startup-probe": 14,
+    "colors": 15,
+    "capital": 23,
+    "sum": 27,
+    "haiku": 19,
+    "explain": 22,
+    "list": 22
+  },
+  "public_optimization_gain_claimed": false,
+  "new_registry_publication_required": true,
+  "interpretation": "The genuine Pi4 model selected batch-size16-to1. Raw output was rejected for a corrupted immutable base pin; root restored only that pin, and the corrected intent passed source guard and improved the measured serial workload. Broader-workload/final-publication decision remains with root.",
+  "experiment_attribution": "Pi4-intent-with-controller-pin-repair",
+  "raw_Pi4_rejected_before_build": true,
+  "raw_Pi4_candidate_sha256": "eed21a634ccccfdb6c1b917eab5ddeead9e164af3c7f5cdabe0ed67fcf117e25",
+  "corrected_built_candidate_sha256": "5a8216e4ffae627fec2804cddb7fa9c69b0fa95880893fe9cab2db86710cf0bc",
+  "canonical_unattended_autocorrection_claimed": false,
+  "local_serial_development_gain": true,
+  "broader_workload_final_selection": "PENDING_ROOT_REVIEW",
+  "tag_alias_note": "The external pipeline reused the old feedback3 tag for this new image. Pi3 archived immutable7a555bea remains unchanged; actual Pi4 build/candidate/final/metadata consistently identify9da45e7a. Tag text is not an image identity."
+}

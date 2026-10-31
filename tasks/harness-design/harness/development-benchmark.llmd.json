@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "description": "CANDIDATE-DEFINED development benchmark. Sequential greedy (temperature 0, top_k 1) streamed chat completions; per-repetition TTFT median and Etalon FTGR via benchmarks.metrics; correctness gates: all requests succeed, finish_reason valid, complete output, streamed-chunk count vs usage.completion_tokens, greedy self-consistency, golden-output match against the baseline. Not an official grade. LLMD-specific frozen compatibility profile: fixed empty-thinking assistant prefill for startup and measurement; use identically for baseline and candidates. Profile selection is not an optimization improvement.",
+  "repetitions": 5,
+  "max_tokens": 48,
+  "request_timeout_s": 120,
+  "prefill_deadline_s": 1.0,
+  "decode_deadline_s": 0.1,
+  "ftgr_max_miss_rate": 0.1,
+  "ftgr_request_quantile": 0.99,
+  "token_count_tolerance": 0.05,
+  "require_usage": true,
+  "startup_probe": {
+    "prompt": "Say hello.",
+    "max_tokens": 4
+  },
+  "prompts": [
+    {
+      "id": "colors",
+      "prompt": "List three colors.",
+      "max_tokens": 48,
+      "allow_length": true
+    },
+    {
+      "id": "capital",
+      "prompt": "What is the capital of France? Answer in one sentence.",
+      "max_tokens": 48,
+      "allow_length": true
+    },
+    {
+      "id": "sum",
+      "prompt": "What is 12 plus 30? Reply with just the number.",
+      "max_tokens": 16,
+      "allow_length": true
+    },
+    {
+      "id": "haiku",
+      "prompt": "Write a two-line poem about rain.",
+      "max_tokens": 64,
+      "allow_length": true
+    },
+    {
+      "id": "explain",
+      "prompt": "Explain in two sentences why the sky is blue.",
+      "max_tokens": 96,
+      "allow_length": true
+    },
+    {
+      "id": "list",
+      "prompt": "Name four planets of the solar system, comma separated.",
+      "max_tokens": 48,
+      "allow_length": true
+    }
+  ],
+  "extra_request_fields": {},
+  "extra_request_fields_note": "The LLMD compatibility profile fixes assistant prefill and continuation flags; no unsupported cache or reasoning fields are added.",
+  "request_profile": "llmd_closed_thinking_v1"
+}

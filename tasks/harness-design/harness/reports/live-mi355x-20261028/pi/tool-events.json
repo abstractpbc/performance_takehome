@@ -1,0 +1,259 @@
+{
+  "kind": "SANITIZED_SUCCESSFUL_PI_CONTINUATION_METADATA_ONLY",
+  "scope": "Successful Pi1 continuation only; distinct from earlier original529 and length-ended retry sessions.",
+  "stock_cli": {
+    "package": "@earendil-works/pi-coding-agent",
+    "version": "1.0.0",
+    "node_version": "22.19.0"
+  },
+  "launch_verification": {
+    "source_sha256": "d5dd5f8f4166047e9fcc16587ea3766c9d59a58c2dc273447fdb550d03cef75e",
+    "context_sha256": "e3630971481722613cac081b4662f269dc661437e4ed1e75ccfb0055550f5ce9",
+    "node_sha256": "596b5144ff242737f1c1be6a5f0ccb3907dbba2482344143cb1a6898633402a9",
+    "started_utc": "2026-10-28T17:52:29.934140+00:00",
+    "Pi_distribution_files_verified": 1243
+  },
+  "requested_output_tokens": 16384,
+  "effective_historical_wire_output_tokens": 8192,
+  "argument_hash_encoding": "json.dumps(args,ensure_ascii=False,sort_keys=True,separators=(comma,colon)), UTF-8",
+  "source_transcript_bytes": 1245415,
+  "source_transcript_sha256": "205e75f810d7d9f8368dcf7ec0153f54b3da3d684dc762efaa239971bc10c4e5",
+  "event_type_counts": {
+    "session": 1,
+    "agent_start": 1,
+    "turn_start": 10,
+    "message_start": 22,
+    "message_end": 22,
+    "message_update": 1145,
+    "tool_execution_start": 10,
+    "tool_execution_update": 7,
+    "tool_execution_end": 10,
+    "turn_end": 10,
+    "agent_end": 1,
+    "agent_settled": 1
+  },
+  "tool_events": [
+    {
+      "sequence": 30,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-9307fc2d89b4c7de",
+      "tool_name": "bash",
+      "argument_canonical_utf8_bytes": 87,
+      "argument_canonical_sha256": "829f49ed3414278e59673fedb6539c634725cd572f1d04509711b3f7d7d9e1e0",
+      "allowed_relative_work_filenames": []
+    },
+    {
+      "sequence": 33,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-9307fc2d89b4c7de",
+      "tool_name": "bash",
+      "is_error": false
+    },
+    {
+      "sequence": 52,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-bee20cc705206b91",
+      "tool_name": "read",
+      "argument_canonical_utf8_bytes": 95,
+      "argument_canonical_sha256": "f043ad5a9e946eeb160701532bb69c0cf3c3c8aefccefd8849a8c191c259ecf8",
+      "allowed_relative_work_filenames": []
+    },
+    {
+      "sequence": 53,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-bee20cc705206b91",
+      "tool_name": "read",
+      "is_error": false
+    },
+    {
+      "sequence": 91,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-86ac520c0e3626ca",
+      "tool_name": "bash",
+      "argument_canonical_utf8_bytes": 179,
+      "argument_canonical_sha256": "54ae0d80eeda4f78cdda2f4866229a521f9942b7f53d62ec87ddbaa83f7a3b01",
+      "allowed_relative_work_filenames": []
+    },
+    {
+      "sequence": 94,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-86ac520c0e3626ca",
+      "tool_name": "bash",
+      "is_error": false
+    },
+    {
+      "sequence": 115,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-b0b0b59c8f991db5",
+      "tool_name": "read",
+      "argument_canonical_utf8_bytes": 108,
+      "argument_canonical_sha256": "3d0105747366479d76b1683924381e0e6942bb8ffdd2f1cc137cb05551d95f17",
+      "allowed_relative_work_filenames": []
+    },
+    {
+      "sequence": 116,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-b0b0b59c8f991db5",
+      "tool_name": "read",
+      "is_error": false
+    },
+    {
+      "sequence": 152,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-b3f700ce11a35ba9",
+      "tool_name": "read",
+      "argument_canonical_utf8_bytes": 108,
+      "argument_canonical_sha256": "c3c98915d5626f445015aae13059918ca1264260d786445e9c1a4d4d427491ad",
+      "allowed_relative_work_filenames": []
+    },
+    {
+      "sequence": 153,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-b3f700ce11a35ba9",
+      "tool_name": "read",
+      "is_error": false
+    },
+    {
+      "sequence": 283,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-8d64815875d61bab",
+      "tool_name": "read",
+      "argument_canonical_utf8_bytes": 87,
+      "argument_canonical_sha256": "efa576fcf86ae1618e6833e693b4e80381bee3a7327b0d58c2703a4d48295db0",
+      "allowed_relative_work_filenames": [
+        "Dockerfile"
+      ]
+    },
+    {
+      "sequence": 284,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-895df66c38c88226",
+      "tool_name": "read",
+      "argument_canonical_utf8_bytes": 90,
+      "argument_canonical_sha256": "efa4d98f82ffde867fbba9b382b1865734d8585a4ba18c06a1848007e142414c",
+      "allowed_relative_work_filenames": [
+        "llmd-help.txt"
+      ]
+    },
+    {
+      "sequence": 285,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-8d64815875d61bab",
+      "tool_name": "read",
+      "is_error": false
+    },
+    {
+      "sequence": 286,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-895df66c38c88226",
+      "tool_name": "read",
+      "is_error": false
+    },
+    {
+      "sequence": 716,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-8c2784c3405c51e0",
+      "tool_name": "write",
+      "argument_canonical_utf8_bytes": 1743,
+      "argument_canonical_sha256": "c20cdbb7632099bd34f1f325a2ecc232f38055f4822c1e6c8aa014afb2009953",
+      "allowed_relative_work_filenames": [
+        "candidate.Dockerfile"
+      ]
+    },
+    {
+      "sequence": 717,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-8c2784c3405c51e0",
+      "tool_name": "write",
+      "is_error": false
+    },
+    {
+      "sequence": 984,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-ae2ea0cc6a77e5f2",
+      "tool_name": "write",
+      "argument_canonical_utf8_bytes": 3178,
+      "argument_canonical_sha256": "47ece665b2682c497a02d1b60c004c6994195823e8ba0f629e1b5aaa9cbe33b8",
+      "allowed_relative_work_filenames": [
+        "proposal.json"
+      ]
+    },
+    {
+      "sequence": 985,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-ae2ea0cc6a77e5f2",
+      "tool_name": "write",
+      "is_error": false
+    },
+    {
+      "sequence": 1060,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-a7bb20a96a5628fd",
+      "tool_name": "bash",
+      "argument_canonical_utf8_bytes": 454,
+      "argument_canonical_sha256": "bab9f1234ac187491d52fb3808e61121bec7ad4cad33a7cbcaa1c5d9c0cba583",
+      "allowed_relative_work_filenames": []
+    },
+    {
+      "sequence": 1064,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-a7bb20a96a5628fd",
+      "tool_name": "bash",
+      "is_error": false
+    }
+  ],
+  "assistant_stop_reason_metadata": [
+    {
+      "sequence": 29,
+      "stop_reason": "toolUse"
+    },
+    {
+      "sequence": 51,
+      "stop_reason": "toolUse"
+    },
+    {
+      "sequence": 90,
+      "stop_reason": "toolUse"
+    },
+    {
+      "sequence": 114,
+      "stop_reason": "toolUse"
+    },
+    {
+      "sequence": 151,
+      "stop_reason": "toolUse"
+    },
+    {
+      "sequence": 282,
+      "stop_reason": "toolUse"
+    },
+    {
+      "sequence": 715,
+      "stop_reason": "toolUse"
+    },
+    {
+      "sequence": 983,
+      "stop_reason": "toolUse"
+    },
+    {
+      "sequence": 1059,
+      "stop_reason": "toolUse"
+    },
+    {
+      "sequence": 1237,
+      "stop_reason": "stop"
+    }
+  ],
+  "known_output_artifacts": {
+    "candidate.Dockerfile": {
+      "bytes": 1580,
+      "sha256": "0e68d604ccc7caf7a370d6d582a20be111935d27f0efcc9208da69a2e0ba8b9f"
+    },
+    "proposal.json": {
+      "bytes": 3043,
+      "sha256": "7e222798450d5a6694e5162e970eab7abaeba7e31a2cf752825d2d650494964b"
+    }
+  },
+  "excluded": "All assistant text/thinking/reasoning, tool output, argument content, raw WAL, provider/client configuration and environment values. Filename extraction is a restrictive explicit basename allowlist.",
+  "API_or_GPU_actions_performed_by_sanitizer": 0
+}

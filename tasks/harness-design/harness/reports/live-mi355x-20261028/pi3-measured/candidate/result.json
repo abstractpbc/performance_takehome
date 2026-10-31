@@ -1,0 +1,42 @@
+{
+  "status": "MEASURED",
+  "requests": 30,
+  "gates_passed": true,
+  "gates": [
+    {
+      "name": "all_requests_succeeded",
+      "passed": true,
+      "detail": "0/30 failed"
+    },
+    {
+      "name": "valid_finish_reason",
+      "passed": true,
+      "detail": "0 traces with finish_reason not in {stop,length}"
+    },
+    {
+      "name": "complete_output",
+      "passed": true,
+      "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+    },
+    {
+      "name": "token_count_matches_usage",
+      "passed": true,
+      "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+    },
+    {
+      "name": "greedy_self_consistency",
+      "passed": true,
+      "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+    },
+    {
+      "name": "golden_output_match",
+      "passed": true,
+      "detail": "0 prompts differ from the baseline golden outputs: []"
+    }
+  ],
+  "startup_s": 32.06288778099997,
+  "elapsed_s": 44.19284935399992,
+  "image_id": "sha256:7a555bea9efaca1b92e5f9e1c86bfe19e95a63c434161d977febd3fc5d71961a",
+  "owned_container_absent": true,
+  "owned_network_removed": true
+}

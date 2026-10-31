@@ -1,0 +1,36 @@
+{
+  "status": "EXACT_SMALL_METADATA_EXPORTED",
+  "started_utc": "2026-10-28T23:31:24.772563+00:00",
+  "image": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+  "expected_image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+  "ctr_address": "/run/containerd/containerd.sock",
+  "ctr_namespace": "moby",
+  "store_mutations": false,
+  "layer_bytes_read": 0,
+  "objects": [
+    {
+      "path": "docker-inspect.json",
+      "bytes": 4565,
+      "digest": "sha256:ef8f271ab0b39488e89f9c8d55b2ec5a1f6940683c4bb2b96a35a25de6ee3703"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 4662,
+      "digest": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d"
+    },
+    {
+      "path": "config.json",
+      "bytes": 5405,
+      "digest": "sha256:0c06ab372a7e347dd84145cdcdc6570c123e585f5740508d665987601e3fac6f"
+    },
+    {
+      "path": "docker-inspect-after.json",
+      "bytes": 4565,
+      "digest": "sha256:ef8f271ab0b39488e89f9c8d55b2ec5a1f6940683c4bb2b96a35a25de6ee3703"
+    }
+  ],
+  "platform_manifest": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+  "config": "sha256:0c06ab372a7e347dd84145cdcdc6570c123e585f5740508d665987601e3fac6f",
+  "original_top": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+  "finished_utc": "2026-10-28T23:31:24.874377+00:00"
+}

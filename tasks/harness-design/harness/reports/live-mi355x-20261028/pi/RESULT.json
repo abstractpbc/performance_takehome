@@ -1,0 +1,13 @@
+{
+  "GPU_build_or_measurement_performed": false,
+  "Pi_exit_code": 0,
+  "automatic_retry": false,
+  "candidate_present": true,
+  "finished_utc": "2026-10-28T17:54:15.600310+00:00",
+  "gateway_stopped_accepting": true,
+  "limitations": "Pi proposal only; root must independently validate one-knob diff, build, measure and keep/revert. Raw SSE bodies (credential-byte redacted), terminal usage and WAL retained separately.",
+  "proposal_present": true,
+  "status": "PI_EXITED",
+  "transcript_oversized": false,
+  "unresolved_request_ids": []
+}

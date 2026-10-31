@@ -1,0 +1,13 @@
+Sending build context to Docker daemon  4.608kB
+Step 1/4 : ARG BASE_IMAGE=docker.io/zmlai/llmd@sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f
+Step 2/4 : FROM ${BASE_IMAGE}
+ ---> 7db01160c574
+Step 3/4 : ENTRYPOINT ["/llmd/llmd"]
+ ---> Using cache
+ ---> fd8b2c1c8357
+Step 4/4 : CMD ["--io-impl=zio", "--batch-size=8", "--token-batch-size=1024", "--max-context-len=128000", "--prefill-chunk-size=256", "--page-chunk-size=16", "--backend=auto", "--gpu-memory-fraction=0.9", "--cache-memory-fraction=0.95"]
+ ---> Running in ad0301d88aef
+ ---> Removed intermediate container ad0301d88aef
+ ---> 20c6cc444e6e
+Successfully built 20c6cc444e6e
+Successfully tagged abstract-direct-pi-neighbor-b8-20261028:latest

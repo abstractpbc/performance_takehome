@@ -1,0 +1,403 @@
+"""One GPU-only canonical build/measure cycle from a previously completed Pi artifact.
+Inactive unless --execute; no Pi/Node/provider/model API process, credential or tunnel.
+"""
+from __future__ import annotations
+import argparse, copy, hashlib, importlib.util, json, os, shutil, subprocess, sys, tarfile, time
+from dataclasses import asdict, replace
+from datetime import datetime, timezone
+from pathlib import Path
+from decimal import Decimal
+SOURCE = "5c439274e2d3744da68b310c769c96b0c78bfb92"
+BASE = "49126d602c7bf9942110eac72fc5972264932371"
+PROFILE_SHA = "4492447b810ebd6af3ed36737e5f26f866a27fbbebb0d86d5563bad1fbcf16bf"
+DOCKERFILE_SHA = "166ae2e3bef39dfc564bc09891f1c15111f11e27fa71d32245ee56bf5d56ab81"
+IMMUTABLE_BASE_DIGEST = "sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f"
+BEST_EXISTING = "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb"
+os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
+sys.dont_write_bytecode = True
+
+
+def need(ok, why):
+    if not ok:
+        raise ValueError(why)
+
+def sha(path):
+    h = hashlib.sha256()
+    with Path(path).open("rb") as stream:
+        for block in iter(lambda: stream.read(1 << 20), b""):
+            h.update(block)
+    return h.hexdigest()
+
+def persist(path, value):
+    raw = (json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n").encode()
+    with path.open("xb") as stream:
+        stream.write(raw)
+        stream.flush()
+        os.fsync(stream.fileno())
+
+def package_outputs(out):
+    """Retain complete or partial owned evidence for root's bounded offhost puller."""
+    receipt = out.with_suffix(".OFFHOST-PACKAGE.json")
+    if receipt.exists():
+        return
+    archive = out.with_suffix(".PRIVATE-evidence.tar.gz")
+    with tarfile.open(archive, "x:gz") as packed:
+        for path in sorted(out.rglob("*")):
+            if path.is_file() and path.name != "selected-image.docker.tar":
+                packed.add(
+                    path, arcname=path.relative_to(out).as_posix(), recursive=False
+                )
+    need(archive.stat().st_size <= 64 << 20, "small offhost package exceeded64MiB")
+    persist(
+        receipt,
+        {
+            "path": str(archive),
+            "bytes": archive.stat().st_size,
+            "sha256": sha(archive),
+            "private_not_for_publication": True,
+            "root_must_verify_offhost_before_GPU_deletion": True,
+        },
+    )
+
+def run(argv, timeout, *, stdout=None):
+    return subprocess.run(
+        argv,
+        check=True,
+        stdin=subprocess.DEVNULL,
+        stdout=stdout or subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        timeout=timeout,
+    )
+
+def verify_model(model, target_manifest):
+    """Verify the exact29 staged target files without downloading anything."""
+    need(
+        sha(target_manifest)
+        == "c1309be8991199c9ca5897874ff6e1c056856789e2ef58d129581083dac357c1",
+        "frozen target inventory differs",
+    )
+    inventory = json.loads(Path(target_manifest).read_bytes())
+    need(
+        inventory["repository"] == "Qwen/Qwen3.6-27B"
+        and inventory["revision"] == "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+        "exact protected target revision required",
+    )
+    count = total = 0
+    model = Path(model)
+    for name, row in inventory["files"].items():
+        path = model / name
+        need(
+            not Path(name).is_absolute()
+            and ".." not in Path(name).parts
+            and not path.is_symlink()
+            and path.is_file()
+            and path.stat().st_size == row["size"],
+            "target path/size differs",
+        )
+        h = hashlib.sha256() if "sha256" in row else hashlib.sha1()
+        if "sha256" not in row:
+            h.update(b"blob " + str(row["size"]).encode() + b"\0")
+        with path.open("rb") as stream:
+            for block in iter(lambda: stream.read(8 << 20), b""):
+                h.update(block)
+        need(
+            h.hexdigest() == row.get("sha256", row.get("git_blob_sha1")),
+            "target bytes differ: " + name,
+        )
+        count += 1
+        total += row["size"]
+    need(count == 29 and total == 55586107940, "complete exact target required")
+    return {
+        "files": count,
+        "bytes": total,
+        "repository": inventory["repository"],
+        "revision": inventory["revision"],
+        "downloaded_by_this_job": False,
+    }
+
+def layer_blob_identities(layers):
+    """Content-addressed identity; retain non-content annotations in raw exports."""
+    need(isinstance(layers, list) and len(layers) == 23, "exact23 layer descriptors required")
+    result = []
+    for layer in layers:
+        need(
+            isinstance(layer, dict)
+            and isinstance(layer.get("mediaType"), str)
+            and isinstance(layer.get("digest"), str)
+            and type(layer.get("size")) is int
+            and layer["size"] >= 0,
+            "complete immutable layer descriptor required",
+        )
+        result.append((layer["mediaType"], layer["digest"], layer["size"]))
+    return result
+
+def verify_export_graph(repo, graph, dockerfile):
+    """Bind actual exported config/manifest to the already-public23-layer graph."""
+    from abstract_harness.configuration_delivery import dockerfile_runtime
+
+    reference = (
+        repo
+        / "tasks/harness-design/harness/reports/live-mi355x-20261028/controller-neighbors/batch4/selected-metadata"
+    )
+    need(
+        sha(reference / "manifest.json")
+        == "84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+        "known-public reference manifest differs",
+    )
+    need(
+        sha(reference / "config.json")
+        == "1a19b238c6ce1448fed276005ff14e3425e845db266141deb5391c6a84159586",
+        "known-public reference config differs",
+    )
+    manifest = json.loads((graph / "manifest.json").read_bytes())
+    config = json.loads((graph / "config.json").read_bytes())
+    prior_manifest = json.loads((reference / "manifest.json").read_bytes())
+    prior_config = json.loads((reference / "config.json").read_bytes())
+    need(
+        layer_blob_identities(manifest["layers"])
+        == layer_blob_identities(prior_manifest["layers"]),
+        "all23 inherited layer mediaType/digest/size identities must agree",
+    )
+    need(
+        config["rootfs"] == prior_config["rootfs"]
+        and len(config["rootfs"]["diff_ids"]) == 23,
+        "all23 inherited filesystem diffIDs must agree",
+    )
+    descriptor = manifest["config"]
+    need(
+        descriptor["digest"] == "sha256:" + sha(graph / "config.json")
+        and descriptor["size"] == (graph / "config.json").stat().st_size,
+        "actual raw config descriptor differs",
+    )
+    need(
+        config["os"] == "linux" and config["architecture"] == "amd64",
+        "exact linux/amd64 graph required",
+    )
+    # ArgsEscaped is deprecated Docker Windows-only compatibility metadata.
+    # Compare private copies for the verified Linux image; raw config bytes,
+    # descriptors, image IDs and archived metadata remain unchanged.
+    runtime_config, runtime_prior = copy.deepcopy(config), copy.deepcopy(prior_config)
+    need(runtime_prior["os"] == "linux", "Linux comparison reference required")
+    args_escaped_values = []
+    for compared in (runtime_config, runtime_prior):
+        value = compared["config"].get("ArgsEscaped")
+        need(value is None or type(value) is bool, "ArgsEscaped must be null/boolean")
+        args_escaped_values.append(value)
+        compared["config"].pop("ArgsEscaped", None)
+    runtime = dockerfile_runtime(dockerfile.read_bytes(), runtime_config, runtime_prior)
+    return {
+        "status": "EXACT_SELECTED_GRAPH_AND_PUBLIC_INHERITANCE_VERIFIED",
+        "manifest": "sha256:" + sha(graph / "manifest.json"),
+        "config": descriptor["digest"],
+        "inherited_layers": 23,
+        "inherited_layer_identity": "mediaType/digest/size; annotations preserved in raw manifests",
+        "inherited_diffIDs": 23,
+        "runtime": runtime,
+        "Linux_comparison_only_ignored_ArgsEscaped": {
+            "actual": args_escaped_values[0], "reference": args_escaped_values[1],
+            "raw_config_bytes_unchanged": True,
+            "basis": "OCI config.md: deprecated compatibility metadata for Docker Windows images",
+        },
+        "public_reference": BEST_EXISTING,
+        "limitation": "This is local graph identity against prior completed public-layer proof; no new registry publication or anonymous pull is claimed.",
+    }
+
+
+def load_runtime(repo, site):
+    os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
+    sys.dont_write_bytecode = True
+    sys.path[:0] = [str(site), str(repo), str(repo / "tasks/harness-design/harness")]
+    os.environ["PYTHONPATH"] = str(site)
+    from abstract_harness import docker_runtime, pi_artifact, procs
+    from abstract_harness.budget import BudgetConfig
+    from abstract_harness.engines import LlmdEngine
+    from abstract_harness.loop import Harness, LoopConfig, Timeouts
+    from abstract_harness.pi_artifact import VerifiedCompletedPiProposal
+    spec = importlib.util.spec_from_file_location("sealed_gpu_only_cli", repo / "tasks/harness-design/harness/run.py")
+    cli = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cli)
+    return (Harness, LoopConfig, Timeouts, BudgetConfig, LlmdEngine,
+            VerifiedCompletedPiProposal, docker_runtime, procs, cli.harness_tree_sha256, pi_artifact)
+
+
+def current_compatibility(repo, target_manifest, engine, tree_sha, artifact):
+    here = repo / "tasks/harness-design/harness"
+    lock = json.loads((repo / "baseline/lock.json").read_bytes())
+    inventory = json.loads(Path(target_manifest).read_bytes())
+    immutable = lock["image"].split("@", 1)[1]
+    need(immutable == IMMUTABLE_BASE_DIGEST, "protected immutable FROM digest differs")
+    profile = json.loads((repo / "agent-harness/profiles.json").read_bytes())["profiles"]["harness-design"]
+    model_runtime = {"engine": "llmd", "model_repository": inventory["repository"],
+        "model_revision": inventory["revision"], "model_inventory_sha256": sha(target_manifest),
+        "model_args": list(engine.spec.model_args)}
+    return artifact.compatibility_binding(context_dir=repo, source_commit=SOURCE,
+        harness_tree_sha256=tree_sha(here.parent), base_image_digest=immutable,
+        program_md=(here / "program.md").read_text(encoding="utf-8"), profile=profile,
+        benchmark=(here / "development-benchmark.llmd.json").read_bytes(),
+        baseline_lock=(repo / "baseline/lock.json").read_bytes(), model_runtime=model_runtime)
+
+
+def execute(cfg):
+    repo, parent, site = (Path(cfg[k]).resolve(strict=True) for k in ("repo", "output_parent", "site"))
+    out = parent / cfg["run_label"]
+    need(not out.exists() and not out.is_relative_to(repo), "new external run directory required")
+    need(cfg["run_label"].replace("-", "").isalnum(), "simple unique run label required")
+    head = run(["git", "-C", str(repo), "rev-parse", "HEAD"], 15).stdout.decode().strip()
+    need(head == SOURCE == cfg["source_commit"] and not run(["git", "-C", str(repo), "status", "--porcelain"], 15).stdout,
+         "exact clean reviewed source required")
+    run(["git", "-C", str(repo), "merge-base", "--is-ancestor", BASE, head], 15)
+    here = repo / "tasks/harness-design/harness"
+    need(sha(here / "development-benchmark.llmd.json") == PROFILE_SHA, "fixed benchmark differs")
+    need(sha(repo / "tasks/harness-design/Dockerfile") == DOCKERFILE_SHA, "fresh protected baseline required")
+    need(set(cfg["payload_files"]) >= {"run_completed_artifact.py", "export_exact_metadata.py"}, "sealed entry/export hashes required")
+    for name, pin in cfg["payload_files"].items():
+        need(sha(Path(__file__).parent / name) == pin, "sealed payload differs: " + name)
+    need(cfg["API_resources_authorized"] == 0, "GPU stage has no model API capability")
+    need(not any(os.environ.get(k) for k in ("ABSTRACT_DO_MODEL_ACCESS_KEY", "ABSTRACT_PILOT_GATEWAY_KEY",
+         "DIGITALOCEAN_ACCESS_TOKEN", "DO_API_TOKEN", "ANTHROPIC_API_KEY", "OPENAI_API_KEY")),
+         "no provider/resource/client credential may enter this job")
+    stop = datetime.fromisoformat(cfg["export_stop_utc"].replace("Z", "+00:00")).timestamp()
+    work = datetime.fromisoformat(cfg["loop_stop_utc"].replace("Z", "+00:00")).timestamp()
+    t0 = cfg["lease_start_unix"]
+    need(work - t0 == 840 and stop - work == 240 and cfg["gpu_hours_limit"] == 1 / 3,
+         "unchanged original GPU20_CACHE clocks required")
+    need(cfg["estimated_attempt_s"] == 90 and cfg["baseline_admission_s"] == 60, "reviewed prospective admission estimates required")
+    now = time.time()
+    need(work - now >= 180 and stop - now >= 420, "setup consumed baseline/candidate/final/export window")
+    out.mkdir(mode=0o700)
+    persist(out / "LAUNCH.json", {"started_utc": datetime.now(timezone.utc).isoformat(), "config": cfg,
+        "source_commit": head, "entrypoint": "unchanged canonical Harness.run",
+        "proposer": "verified completed stock-Pi artifact; zero new API requests",
+        "existing_public_selected_unchanged": BEST_EXISTING, "secret_values_recorded": False,
+        "post_launch_full_model_read_hash_timing": "MODEL-VERIFIED.json",
+        "phase_admission": {"attempt_estimate_seconds": 90, "baseline_estimate_seconds": 60,
+                            "minimum_usable_work_after_verification_seconds": 180,
+                            "minimum_remaining_to_delete_seconds": 420,
+                            "estimated_work_slack_seconds": 30,
+                            "final_export_reserve_seconds": 240, "estimates_not_guarantees": True}})
+    model_started_utc = datetime.now(timezone.utc).isoformat()
+    model_started_monotonic = time.monotonic()
+    verified_model = verify_model(cfg["model_dir"], cfg["target_manifest"])
+    verified_model.update(full_read_hash_elapsed_s=time.monotonic() - model_started_monotonic,
+        full_read_hash_started_utc=model_started_utc,
+        full_read_hash_finished_utc=datetime.now(timezone.utc).isoformat())
+    persist(out / "MODEL-VERIFIED.json", verified_model)
+    (Harness, LoopConfig, Timeouts, BudgetConfig, LlmdEngine, VerifiedCompletedPiProposal,
+     docker, procs, tree_sha, artifact) = load_runtime(repo, site)
+    engine = LlmdEngine.from_lock(repo, Path(cfg["model_dir"]), render_device=cfg["render_device"], render_gid=str(cfg["render_gid"]))
+    binding = current_compatibility(repo, cfg["target_manifest"], engine, tree_sha, artifact)
+    need(binding == cfg["expected_compatibility"], "current source/model/program/profile/context differs from CPU artifact")
+    manifest = artifact.verify_pi_artifact(Path(cfg["artifact_root"]), cfg["artifact_manifest_sha256"], binding)
+    need(manifest["purpose"] == "optimization", "compatibility fixture is not an optimization")
+    need(manifest["execution_policy"]["mode"] == "one-response-no-tools-v1", "declared one-response artifact required")
+    carried = Decimal(manifest["financial"]["undiscounted_upper_USD"])
+    need(carried == Decimal(cfg["carried_CPU_API_upper_USD"]) and carried >= 0, "settled carried CPU cost differs")
+    persist(out / "COMPATIBILITY-VERIFIED.json", {"compatibility": binding, "artifact_manifest_sha256": cfg["artifact_manifest_sha256"],
+        "CPU_execution_policy": manifest["execution_policy"],
+        "carried_CPU_API_upper_USD": str(carried), "new_API_capability": 0,
+        "base_identity_is_immutable_FROM_not_fresh_wrapper_ID": True})
+    need(docker.docker_available(), "working Docker daemon required")
+    run(["docker", "buildx", "version"], 15)
+    for name in ("home", "tmp"):
+        (out / name).mkdir(mode=0o700)
+    os.environ.update(HOME=str(out / "home"), TMPDIR=str(out / "tmp"), LANG="C.UTF-8", LC_ALL="C.UTF-8", TERM="dumb")
+
+    class AuditedCompletedProposal(VerifiedCompletedPiProposal):
+        def propose(self, context):
+            actual = artifact.tree_digest(context.context_dir)
+            persist(out / "BASELINE-CONTEXT-FINGERPRINT.json", {"actual": actual,
+                "expected": binding["protected_context_sha256"], "after_fresh_baseline_workers": True,
+                "PYTHONDONTWRITEBYTECODE": os.environ.get("PYTHONDONTWRITEBYTECODE"),
+                "bytecode_files": len(list(context.context_dir.rglob("*.pyc")))})
+            need(actual == binding["protected_context_sha256"], "fresh baseline/worker changed replay context")
+            return super().propose(context)
+
+    proposer = AuditedCompletedProposal(Path(cfg["artifact_root"]), manifest_sha256=cfg["artifact_manifest_sha256"],
+        expected_compatibility=binding, claim_path=out / "artifact-consumer.claim", consumer_id=cfg["run_label"])
+    budget = BudgetConfig(api_usd_limit=float(carried), gpu_hours_limit=cfg["gpu_hours_limit"], gpus_allocated=1,
+        lease_start_ts=t0, lease_deadline_ts=stop, final_reserve_s=240)
+    loop_cfg = LoopConfig(repo_root=repo, state_dir=out / "state", results_path=out / "results.tsv",
+        reports_dir=out / "reports", patches_dir=out / "patches", benchmark_path=here / "development-benchmark.llmd.json",
+        program_path=here / "program.md", out_manifest=out / "submission.json", source_commit=head,
+        harness_tree_sha256=tree_sha(here.parent), budget=budget,
+        timeouts=Timeouts(propose_s=10, build_s=180, startup_s=120, measure_s=120, stop_grace_s=10),
+        max_attempts=1, estimated_attempt_s=90, delivery_policy="llmd-config-v1", baseline_path=repo / "baseline/lock.json",
+        keep_candidate_images=True, network_name=cfg["run_label"], container_prefix=cfg["run_label"], image_prefix=cfg["run_label"])
+    persist(out / "RUNTIME.json", {"harness_tree_sha256": loop_cfg.harness_tree_sha256, "worker_pythonpath": str(site),
+        "PYTHONDONTWRITEBYTECODE": os.environ["PYTHONDONTWRITEBYTECODE"], "loop_timeouts": asdict(loop_cfg.timeouts),
+        "carried_CPU_cost_once_not_new_provider_charge": str(carried), "new_provider_calls_authorized": 0})
+    now = time.time()
+    need(work - now >= 180 and stop - now >= 420, "verification consumed usable baseline/candidate work window")
+    harness = Harness(loop_cfg, engine, proposer)
+    rc = harness.run()
+    paired = [r for r in harness.state.history if r.get("outcome") in {"improved", "no_change", "regressed"}]
+    persist(out / "CANONICAL-RETURN.json", {"returncode": rc, "paired_optimization_cycle_complete": bool(paired),
+        "paired_rows": paired, "last_good": asdict(harness.state.last_good) if harness.state.last_good else None,
+        "api_usd_cumulative": harness.state.api_usd_cumulative, "accounting_unresolved": harness.state.api_accounting_unresolved,
+        "finished_utc": datetime.now(timezone.utc).isoformat()})
+    actual_context = artifact.tree_digest(repo)
+    persist(out / "SOURCE-CONTEXT-AFTER-LOOP.json", {"expected": binding["protected_context_sha256"], "actual": actual_context,
+        "bytecode_files": len(list(repo.rglob("*.pyc")))})
+    need(actual_context == binding["protected_context_sha256"], "source context changed across workers")
+    need(rc != 3, "interrupted; preserve evidence without restarting serving")
+    need(harness.state.last_good is not None and not harness.state.api_accounting_unresolved, "no passing/accounted last-good")
+    need(stop - time.time() >= 180, "insufficient original fresh-final/export reserve")
+    final_cfg = replace(loop_cfg, budget=replace(budget, final_reserve_s=0))
+    final = Harness(final_cfg, engine, proposer)
+    final.install_signal_handlers()
+    try:
+        final._set_allocation_deadline(max(0, stop - time.time() - 180),
+            max(0, cfg["gpu_hours_limit"] - (time.time() - t0) / 3600))
+        selected = final.state.last_good
+        measured, info = final.measure_image(selected.tag, golden=final.state.golden, label="post-loop-final")
+        persist(out / "FRESH-FINAL.json", {"phase": "separate-post-loop-fresh-validation", "selected": asdict(selected),
+            "measurement": measured.to_json(), "container": info, "finished_utc": datetime.now(timezone.utc).isoformat()})
+        need(measured.gates_passed and len(measured.traces) == 30, "fresh final30 failed")
+    finally:
+        final.cleanup()
+        final._release_locks()
+    export = out / "export"
+    export.mkdir()
+    shutil.copyfile(harness.last_good_context / "tasks/harness-design/Dockerfile", export / "selected.Dockerfile")
+    inspected = docker.image_config(selected.tag)
+    persist(export / "docker-inspect.json", inspected)
+    remaining = stop - time.time() - 90
+    need(remaining >= 60, "insufficient bounded exact graph/export window")
+    run([sys.executable, "-I", "-S", "-B", str(Path(__file__).with_name("export_exact_metadata.py")),
+         "--image", selected.tag, "--expected-image-id", inspected["Id"], "--out", str(export / "graph"),
+         "--address", cfg["ctr_address"], "--namespace", cfg["ctr_namespace"]], min(90, remaining))
+    persist(export / "GRAPH-VALIDATED.json", verify_export_graph(repo, export / "graph", export / "selected.Dockerfile"))
+    need(not cfg.get("save_full_image", False), "use exact inherited public layers; no multi-GB Windows image copy")
+    persist(out / "COMPLETE.json", {"canonical_returncode": rc, "paired_optimization_cycle_complete": bool(paired),
+        "selected": asdict(selected), "fresh_final_passed": True, "finished_utc": datetime.now(timezone.utc).isoformat(),
+        "existing_public_selected_unchanged": BEST_EXISTING, "publication_performed": False, "official_grade_claimed": False})
+    package_outputs(out)
+    return rc
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--config", type=Path, required=True)
+    parser.add_argument("--config-sha256", required=True)
+    parser.add_argument("--execute", action="store_true")
+    args = parser.parse_args()
+    need(sha(args.config) == args.config_sha256, "sealed config digest differs")
+    cfg = json.loads(args.config.read_bytes())
+    if not args.execute:
+        print(json.dumps({"prepared_only": True, "GPU_model_provider_actions": 0, "API_capability": 0}))
+        return 0
+    need(sys.platform == "linux" and sys.flags.isolated and sys.flags.no_site and sys.dont_write_bytecode,
+         "isolated bytecode-free native Linux required")
+    try:
+        return execute(cfg)
+    except Exception as exc:
+        out = Path(cfg["output_parent"]) / cfg["run_label"]
+        if out.is_dir() and not (out / "FAILED.json").exists():
+            persist(out / "FAILED.json", {"status": "FAILED_NO_PUBLIC_SELECTION_CHANGE", "type": type(exc).__name__,
+                "reason": str(exc), "finished_utc": datetime.now(timezone.utc).isoformat(), "existing_public_selected_unchanged": BEST_EXISTING})
+            package_outputs(out)
+        raise
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

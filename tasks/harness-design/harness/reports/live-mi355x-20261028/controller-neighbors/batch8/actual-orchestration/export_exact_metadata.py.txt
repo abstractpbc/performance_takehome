@@ -1,0 +1,117 @@
+"""Read only small image metadata from an existing Docker/containerd store.
+
+Run only after the benchmark owner permits host inspection. No export, rebuild,
+pull, push, container launch, layer read, credential read, or store mutation.
+"""
+from __future__ import annotations
+import argparse
+from datetime import datetime, timezone
+import hashlib
+import json
+from pathlib import Path
+import re
+import subprocess
+import tempfile
+import time
+
+MAX = 256 * 1024
+MT_MANIFEST = 'application/vnd.oci.image.manifest.v1+json'
+MT_INDEX = 'application/vnd.oci.image.index.v1+json'
+
+def digest(raw):
+    return 'sha256:' + hashlib.sha256(raw).hexdigest()
+
+def need(ok, message):
+    if not ok:
+        raise ValueError(message)
+
+def bounded(argv):
+    with tempfile.TemporaryFile() as out, tempfile.TemporaryFile() as err:
+        child = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=out, stderr=err)
+        stop = time.monotonic() + 15
+        try:
+            while child.poll() is None:
+                need(time.monotonic() < stop, 'metadata command exceeded15seconds')
+                need(out.tell() <= MAX and err.tell() <= MAX, 'metadata output bound exceeded')
+                time.sleep(.02)
+            need(child.returncode == 0, 'metadata command failed; no fallback mutation attempted')
+            need(out.tell() <= MAX and err.tell() <= MAX, 'metadata output bound exceeded')
+            out.seek(0)
+            return out.read(MAX + 1)
+        finally:
+            if child.poll() is None:
+                child.kill()
+            child.wait(timeout=5)
+
+def resolve_top(top, getter):
+    """Return exact platform bytes; a Docker29 image ID can identify an index."""
+    value = json.loads(top)
+    if value.get('mediaType') == MT_MANIFEST:
+        return top, None
+    need(value.get('mediaType') == MT_INDEX, 'expected OCI platform manifest or index')
+    choices = [d for d in value.get('manifests', [])
+               if d.get('platform', {}).get('os') == 'linux'
+               and d.get('platform', {}).get('architecture') == 'amd64']
+    need(len(choices) == 1, 'exactly one linux/amd64 platform required')
+    descriptor = choices[0]
+    raw = getter(descriptor['digest'])
+    need(len(raw) == descriptor['size'] and digest(raw) == descriptor['digest'],
+         'platform descriptor does not match exact bytes')
+    need(json.loads(raw).get('mediaType') == MT_MANIFEST, 'nested target is not OCI manifest')
+    return raw, top
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--image', required=True)
+    ap.add_argument('--expected-image-id', required=True)
+    ap.add_argument('--out', required=True, type=Path)
+    ap.add_argument('--ctr', default='/usr/bin/ctr')
+    ap.add_argument('--address', default='/run/containerd/containerd.sock')
+    ap.add_argument('--namespace', default='moby')
+    args = ap.parse_args()
+    need(re.fullmatch(r'sha256:[a-f0-9]{64}', args.expected_image_id), 'exact image digest required')
+    args.out.mkdir(mode=0o700, exist_ok=False)
+    receipt = {'status': 'IN_PROGRESS', 'started_utc': datetime.now(timezone.utc).isoformat(),
+               'image': args.image, 'expected_image_id': args.expected_image_id,
+               'ctr_address': args.address, 'ctr_namespace': args.namespace,
+               'store_mutations': False, 'layer_bytes_read': 0, 'objects': []}
+    def save(name, raw):
+        with (args.out / name).open('xb') as stream:
+            stream.write(raw)
+        receipt['objects'].append({'path': name, 'bytes': len(raw), 'digest': digest(raw)})
+    try:
+        inspect = bounded(['/usr/bin/docker', 'image', 'inspect', args.image])
+        row, = json.loads(inspect)
+        need(row['Id'] == args.expected_image_id, 'actual Docker image ID differs')
+        save('docker-inspect.json', inspect)
+        def get(d):
+            need(re.fullmatch(r'sha256:[a-f0-9]{64}', d), 'invalid content digest')
+            raw = bounded([args.ctr, '--address', args.address, '--namespace', args.namespace,
+                           'content', 'get', d])
+            need(digest(raw) == d, 'content bytes do not hash to requested digest')
+            return raw
+        top = get(args.expected_image_id)
+        manifest, index = resolve_top(top, get)
+        if index is not None:
+            save('index.json', index)
+        save('manifest.json', manifest)
+        descriptor = json.loads(manifest)['config']
+        config = get(descriptor['digest'])
+        need(len(config) == descriptor['size'], 'config descriptor size differs')
+        save('config.json', config)
+        after = bounded(['/usr/bin/docker', 'image', 'inspect', args.image])
+        need(json.loads(after)[0]['Id'] == args.expected_image_id, 'image identity changed')
+        save('docker-inspect-after.json', after)
+        receipt.update(status='EXACT_SMALL_METADATA_EXPORTED', platform_manifest=digest(manifest),
+                       config=digest(config), original_top=digest(top))
+    except Exception as exc:
+        receipt.update(status='REFUSED_OR_FAILED', reason=type(exc).__name__ + ': ' + str(exc))
+        raise
+    finally:
+        receipt['finished_utc'] = datetime.now(timezone.utc).isoformat()
+        with (args.out / 'receipt.json').open('x', encoding='utf-8') as stream:
+            json.dump(receipt, stream, indent=2)
+            stream.write('\n')
+
+if __name__ == '__main__':
+    main()

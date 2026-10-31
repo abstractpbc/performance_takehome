@@ -1,0 +1,104 @@
+"""Prepare a new replay-only queue; preserve every frozen mixed-round artifact.
+
+The measured mixed round uses fresh canonical batch16 as its control. Generic
+ScriptedProposer replay may begin at the separately serial-kept batch1 or at
+batch16, and thereafter changes only the same batch-size knob to 4 then 8.
+"""
+
+import argparse
+import hashlib
+import json
+import os
+import sys
+from datetime import UTC, datetime
+from pathlib import Path
+
+OLD_QUEUE_SHA = "675086965c319d25806f0195970d895664b592181ec9c2f8068dace20f2067e4"
+POLICY_SHA = "1b46842f8f05d41a521115aac6952137843c7d2902fcd71089e86cef040ea45d"
+OLD_FIND = r"--batch-size=(?:16|4|8)(?=\")"
+NEW_FIND = r"--batch-size=(?:1|16|4|8)(?=\")"
+
+
+def sha(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def write(path, value):
+    raw = (json.dumps(value, sort_keys=True, indent=2) + "\n").encode()
+    with path.open("xb") as stream:
+        stream.write(raw)
+        stream.flush()
+        os.fsync(stream.fileno())
+    return sha(raw)
+
+
+def prepare(frozen, out, harness_root):
+    frozen, out, harness_root = Path(frozen), Path(out), Path(harness_root)
+    queue_raw = (frozen / "scripted-neighbor-queue.json").read_bytes()
+    policy_raw = (frozen / "FROZEN-MIXED-SELECTION-POLICY.json").read_bytes()
+    prepared_raw = (frozen / "PREPARED.json").read_bytes()
+    if sha(queue_raw) != OLD_QUEUE_SHA or sha(policy_raw) != POLICY_SHA:
+        raise ValueError("original frozen queue and policy pins required")
+    entries = json.loads(queue_raw)["experiments"]
+    if len(entries) != 2:
+        raise ValueError("exact two-neighbor replay queue required")
+    for value, entry in zip((4, 8), entries, strict=True):
+        edit = entry["edits"]
+        if (
+            len(edit) != 1
+            or edit[0]["find"] != OLD_FIND
+            or edit[0]["regex"] is not True
+            or edit[0]["file"] != "tasks/harness-design/Dockerfile"
+            or edit[0]["replace"] != f"--batch-size={value}"
+        ):
+            raise ValueError("exact prior same-knob replay edit required")
+        edit[0]["find"] = NEW_FIND
+        entry["notes"] += (
+            " Replay-v2 correction: generic current-last-good replay may start at batch1 or "
+            "batch16. Actual measured mixed-round control remains fresh canonical batch16. "
+            "Policy, candidate bytes, controller attribution and fixed 4/8 values are unchanged."
+        )
+    sys.path.insert(0, str(harness_root / "tasks/harness-design/harness"))
+    from abstract_harness.proposers import ScriptedProposer
+
+    ScriptedProposer.validate_queue(entries)
+    if out.exists():
+        raise FileExistsError("new replay-v2 output required")
+    out.mkdir(mode=0o700, parents=True)
+    new_pin = write(out / "scripted-neighbor-queue-v2.json", {"experiments": entries})
+    receipt = {
+        "kind": "REPLAY_ONLY_BATCH1_INTEGRATION_CORRECTION_V2",
+        "created_utc": datetime.now(UTC).isoformat(),
+        "original_queue_sha256": OLD_QUEUE_SHA,
+        "new_queue_sha256": new_pin,
+        "unchanged_policy_sha256": POLICY_SHA,
+        "unchanged_original_PREPARED_sha256": sha(prepared_raw),
+        "actual_mixed_round_baseline": 16,
+        "generic_replay_initial_batch_sizes": [1, 16],
+        "candidate_values": [4, 8],
+        "candidate_values_chosen_by": "controller-generated fixed neighborhood of Pi batch family",
+        "previous_queue_limitation": "first edit did not match serial-kept batch1",
+        "new_code_changes_frozen_policy_or_measurement": False,
+        "API_Docker_GPU_Journal_actions": 0,
+    }
+    write(out / "REPLAY-V2-RECEIPT.json", receipt)
+    if (
+        (frozen / "scripted-neighbor-queue.json").read_bytes() != queue_raw
+        or (frozen / "FROZEN-MIXED-SELECTION-POLICY.json").read_bytes() != policy_raw
+        or (frozen / "PREPARED.json").read_bytes() != prepared_raw
+    ):
+        raise ValueError("frozen artifacts changed during free preparation")
+    return receipt
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--frozen", type=Path, required=True)
+    parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--harness-root", type=Path, required=True)
+    args = parser.parse_args()
+    print(json.dumps(prepare(args.frozen, args.out, args.harness_root), indent=2))
+
+
+if __name__ == "__main__":
+    main()

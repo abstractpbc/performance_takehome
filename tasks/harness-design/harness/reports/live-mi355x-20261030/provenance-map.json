@@ -1,0 +1,268 @@
+{
+  "files": {
+    "BASELINE-CONTEXT-FINGERPRINT.json": {
+      "public_sha256": "ca6dc4067a7106ed7832ae350a9f862e872f0ead9d23359011d21e314913389d",
+      "source_member": "BASELINE-CONTEXT-FINGERPRINT.json",
+      "source_sha256": "ca6dc4067a7106ed7832ae350a9f862e872f0ead9d23359011d21e314913389d",
+      "transformation": "JSON serialization; host paths aliased; private transcript path withheld"
+    },
+    "CANONICAL-RETURN.json": {
+      "public_sha256": "53d934c5ee8a510b5f8dfeb037b68800c44c26f23a06739a2fad86ac2882d986",
+      "source_member": "CANONICAL-RETURN.json",
+      "source_sha256": "3101c82ef1b1cbc06e8526904162f00356542ffd54027cc97cea1d61531a8c6e",
+      "transformation": "JSON serialization; host paths aliased; private transcript path withheld"
+    },
+    "COMPATIBILITY-VERIFIED.json": {
+      "public_sha256": "fbbb05f83e707f30bc8f0f90ef17a2af2d71ce61ca264580f67f792d45506280",
+      "source_member": "COMPATIBILITY-VERIFIED.json",
+      "source_sha256": "fbbb05f83e707f30bc8f0f90ef17a2af2d71ce61ca264580f67f792d45506280",
+      "transformation": "JSON serialization; host paths aliased; private transcript path withheld"
+    },
+    "COMPLETE.json": {
+      "public_sha256": "be09fc11a7575b6a3878744d80313241914bbfdadf680e5e6420b3992f6236d9",
+      "source_member": "COMPLETE.json",
+      "source_sha256": "67d26bfc444b2efe8889b519a8a2c5f15d54fca094115d41e4b2b66f899d8958",
+      "transformation": "JSON serialization; host paths aliased; private transcript path withheld"
+    },
+    "FRESH-FINAL.json": {
+      "public_sha256": "fddff101b4d0d19995a5291cd7196c6ffdb2ce15e28a355c9173cb1f6028c848",
+      "source_member": "FRESH-FINAL.json",
+      "source_sha256": "3b07207b8ede4d64f79b19d0a26b4318710f392a64469eb01115e377f4c13662",
+      "transformation": "JSON serialization; host paths aliased; private transcript path withheld"
+    },
+    "MODEL-VERIFIED.json": {
+      "public_sha256": "8a5e95c3a80618bee293b6108fcc546b512b219c50b9cc191891d6e334fbe1b9",
+      "source_member": "MODEL-VERIFIED.json",
+      "source_sha256": "8a5e95c3a80618bee293b6108fcc546b512b219c50b9cc191891d6e334fbe1b9",
+      "transformation": "JSON serialization; host paths aliased; private transcript path withheld"
+    },
+    "RUNTIME.json": {
+      "public_sha256": "e34e3d739f2f363524e6fc71aa62c0b43dd9d02e66e208ac54e54f2101451ad5",
+      "source_member": "RUNTIME.json",
+      "source_sha256": "6786b916ec791a553e9248724e7ec319448f492a8414557e4d9660927a6e76de",
+      "transformation": "JSON serialization; host paths aliased; private transcript path withheld"
+    },
+    "SOURCE-CONTEXT-AFTER-LOOP.json": {
+      "public_sha256": "f836d5bca222560d5b9aaaa028b777b5af63f1cf7a3ca6fd054251b9a47c18d9",
+      "source_member": "SOURCE-CONTEXT-AFTER-LOOP.json",
+      "source_sha256": "f836d5bca222560d5b9aaaa028b777b5af63f1cf7a3ca6fd054251b9a47c18d9",
+      "transformation": "JSON serialization; host paths aliased; private transcript path withheld"
+    },
+    "actual-orchestration/run_completed_artifact.py.txt": {
+      "public_sha256": "a06bbffcf8327fdf5420e0cc9e6d6a99a8e2109a7e5ad38930a57751f4222f96",
+      "source_member": "root-approved GPU runtime wrapper (separate sealed deployment packet)",
+      "source_sha256": "a06bbffcf8327fdf5420e0cc9e6d6a99a8e2109a7e5ad38930a57751f4222f96",
+      "transformation": "verbatim"
+    },
+    "actual-source/Dockerfile": {
+      "public_sha256": "166ae2e3bef39dfc564bc09891f1c15111f11e27fa71d32245ee56bf5d56ab81",
+      "source_member": "state/contexts/9c2ef9553a5a4e628c98811983ce55f8/tasks/harness-design/Dockerfile",
+      "source_sha256": "166ae2e3bef39dfc564bc09891f1c15111f11e27fa71d32245ee56bf5d56ab81",
+      "transformation": "verbatim"
+    },
+    "actual-source/development-benchmark.llmd.json": {
+      "public_sha256": "4492447b810ebd6af3ed36737e5f26f866a27fbbebb0d86d5563bad1fbcf16bf",
+      "source_member": "state/contexts/9c2ef9553a5a4e628c98811983ce55f8/tasks/harness-design/harness/development-benchmark.llmd.json",
+      "source_sha256": "4492447b810ebd6af3ed36737e5f26f866a27fbbebb0d86d5563bad1fbcf16bf",
+      "transformation": "verbatim"
+    },
+    "actual-source/lock.json": {
+      "public_sha256": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+      "source_member": "state/contexts/9c2ef9553a5a4e628c98811983ce55f8/baseline/lock.json",
+      "source_sha256": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+      "transformation": "verbatim"
+    },
+    "actual-source/profiles.json": {
+      "public_sha256": "aec8622ae0b0b67ffdd1ed324e05ce59b5effbbae21b85345864d2c04765536d",
+      "source_member": "state/contexts/9c2ef9553a5a4e628c98811983ce55f8/agent-harness/profiles.json",
+      "source_sha256": "aec8622ae0b0b67ffdd1ed324e05ce59b5effbbae21b85345864d2c04765536d",
+      "transformation": "verbatim"
+    },
+    "actual-source/program.md": {
+      "public_sha256": "afe5e716425125b50961a1714f3e2ac06aa62bc276843fc274c73429529b95c0",
+      "source_member": "state/contexts/9c2ef9553a5a4e628c98811983ce55f8/tasks/harness-design/harness/program.md",
+      "source_sha256": "afe5e716425125b50961a1714f3e2ac06aa62bc276843fc274c73429529b95c0",
+      "transformation": "verbatim"
+    },
+    "baseline/full-report.json": {
+      "public_sha256": "ab237a166ef4438d6f7e143e2bc0465e606fb77fd9d3d61f2bc7238bd4651e59",
+      "source_member": "state/measurement-workers/worker-benchmark-l33h4ocy/stdout.json",
+      "source_sha256": "ab237a166ef4438d6f7e143e2bc0465e606fb77fd9d3d61f2bc7238bd4651e59",
+      "transformation": "verbatim"
+    },
+    "baseline/request-traces.jsonl": {
+      "public_sha256": "27d08721ea7b8a37af3f18b3e8e5b0a1295ea0fc5e8b6c0880c63763fc50c4e1",
+      "source_member": "state/measurement-workers/worker-benchmark-l33h4ocy/stderr.log",
+      "source_sha256": "27d08721ea7b8a37af3f18b3e8e5b0a1295ea0fc5e8b6c0880c63763fc50c4e1",
+      "transformation": "verbatim"
+    },
+    "baseline/startup-result.json": {
+      "public_sha256": "02f27e443e6380c58ee287f0e60d074ac1e28d361096b6cde85cbc441df40941",
+      "source_member": "state/measurement-workers/worker-startup-dex5wfd_/stdout.json",
+      "source_sha256": "02f27e443e6380c58ee287f0e60d074ac1e28d361096b6cde85cbc441df40941",
+      "transformation": "verbatim"
+    },
+    "baseline/startup-traces.jsonl": {
+      "public_sha256": "a2569238e1e5cb65c313879023ed432b51fbcee7eb7a6b661ecd6dbea5a9426e",
+      "source_member": "state/measurement-workers/worker-startup-dex5wfd_/stderr.log",
+      "source_sha256": "a2569238e1e5cb65c313879023ed432b51fbcee7eb7a6b661ecd6dbea5a9426e",
+      "transformation": "verbatim"
+    },
+    "candidate/full-report.json": {
+      "public_sha256": "3d06f8c289b5a686081ebd566a98c0212285a61660686145dd7444e1524266c4",
+      "source_member": "state/measurement-workers/worker-benchmark-t19_g01n/stdout.json",
+      "source_sha256": "3d06f8c289b5a686081ebd566a98c0212285a61660686145dd7444e1524266c4",
+      "transformation": "verbatim"
+    },
+    "candidate/request-traces.jsonl": {
+      "public_sha256": "2e57e84cc0a9c96e71cec8e9fd84ef7728190c7ff86335fd2a24947789ea45e5",
+      "source_member": "state/measurement-workers/worker-benchmark-t19_g01n/stderr.log",
+      "source_sha256": "2e57e84cc0a9c96e71cec8e9fd84ef7728190c7ff86335fd2a24947789ea45e5",
+      "transformation": "verbatim"
+    },
+    "candidate/startup-result.json": {
+      "public_sha256": "8872cf2eff5242014966b4887c460af2f61efcb596f1ee46957d3eb67ed93dd2",
+      "source_member": "state/measurement-workers/worker-startup-ozoepuhd/stdout.json",
+      "source_sha256": "8872cf2eff5242014966b4887c460af2f61efcb596f1ee46957d3eb67ed93dd2",
+      "transformation": "verbatim"
+    },
+    "candidate/startup-traces.jsonl": {
+      "public_sha256": "e3826da8bac6f50979e03151a5f1d0e50722a6ee10ec464c1906a9a2927891af",
+      "source_member": "state/measurement-workers/worker-startup-ozoepuhd/stderr.log",
+      "source_sha256": "e3826da8bac6f50979e03151a5f1d0e50722a6ee10ec464c1906a9a2927891af",
+      "transformation": "verbatim"
+    },
+    "control/full-report.json": {
+      "public_sha256": "aa2fe9d1638a0cf78c6a75799892723f5eef07ba51f29f97a8e510f1d0833f5e",
+      "source_member": "state/measurement-workers/worker-benchmark-smmea0hj/stdout.json",
+      "source_sha256": "aa2fe9d1638a0cf78c6a75799892723f5eef07ba51f29f97a8e510f1d0833f5e",
+      "transformation": "verbatim"
+    },
+    "control/request-traces.jsonl": {
+      "public_sha256": "b964bed51622bac2cd6de070c489c274ab52c691d07ca9009c78846a035a5437",
+      "source_member": "state/measurement-workers/worker-benchmark-smmea0hj/stderr.log",
+      "source_sha256": "b964bed51622bac2cd6de070c489c274ab52c691d07ca9009c78846a035a5437",
+      "transformation": "verbatim"
+    },
+    "control/startup-result.json": {
+      "public_sha256": "61549e5e449eaef77ce1cd65ba41d7804757b6fdcba66484f9d48a61f79e3cb4",
+      "source_member": "state/measurement-workers/worker-startup-8ac5g06q/stdout.json",
+      "source_sha256": "61549e5e449eaef77ce1cd65ba41d7804757b6fdcba66484f9d48a61f79e3cb4",
+      "transformation": "verbatim"
+    },
+    "control/startup-traces.jsonl": {
+      "public_sha256": "d687e386401ac286badaf4ac681a9f2a01bcffc5379921b2d79e9c60509d403f",
+      "source_member": "state/measurement-workers/worker-startup-8ac5g06q/stderr.log",
+      "source_sha256": "d687e386401ac286badaf4ac681a9f2a01bcffc5379921b2d79e9c60509d403f",
+      "transformation": "verbatim"
+    },
+    "original-built-candidate.Dockerfile": {
+      "public_sha256": "5a8216e4ffae627fec2804cddb7fa9c69b0fa95880893fe9cab2db86710cf0bc",
+      "source_member": "export/selected.Dockerfile",
+      "source_sha256": "5a8216e4ffae627fec2804cddb7fa9c69b0fa95880893fe9cab2db86710cf0bc",
+      "transformation": "verbatim"
+    },
+    "proposal.patch": {
+      "public_sha256": "558e1de01b9a9875c4d3f050c2d3f92bc366a03f55bb82b67aa77bb6a77e80d9",
+      "source_member": "patches/001-batch-size-1.patch",
+      "source_sha256": "558e1de01b9a9875c4d3f050c2d3f92bc366a03f55bb82b67aa77bb6a77e80d9",
+      "transformation": "verbatim"
+    },
+    "protected-integrity.txt": {
+      "public_sha256": "23bc9b40247be024b5307b2146a35b3e48cb5706adf2bfb9dc567995ec51d3e2",
+      "source_member": "reports/integrity.txt",
+      "source_sha256": "23bc9b40247be024b5307b2146a35b3e48cb5706adf2bfb9dc567995ec51d3e2",
+      "transformation": "verbatim"
+    },
+    "reports/000-baseline.json": {
+      "public_sha256": "eb1c637d494b8c05b6adb95a8cf7d66f0e40177c7cc9b785a00609f57641f4d7",
+      "source_member": "reports/000-baseline.json",
+      "source_sha256": "7c410e601550311db9587d271eb015a5e908f66ff8d0517eccddedb9d3d43857",
+      "transformation": "JSON serialization; host paths aliased; private transcript path withheld"
+    },
+    "reports/001-batch-size-1.json": {
+      "public_sha256": "17b6e782b00899fc168eb871a1d5c256ccdd99901f7c060eced269ea6f30a60e",
+      "source_member": "reports/001-batch-size-1.json",
+      "source_sha256": "90b9a8f7b22b590d6565350b7b461254e88fa8865e7587c70c75d8aec8914578",
+      "transformation": "JSON serialization; host paths aliased; private transcript path withheld"
+    },
+    "reports/agent-provenance.json": {
+      "public_sha256": "1cde738470cfe04642d9d16059b22a9c0345e45be44baf795363fb002a7858b2",
+      "source_member": "reports/agent-provenance.json",
+      "source_sha256": "1cde738470cfe04642d9d16059b22a9c0345e45be44baf795363fb002a7858b2",
+      "transformation": "JSON serialization; host paths aliased; private transcript path withheld"
+    },
+    "reports/build-provenance.json": {
+      "public_sha256": "1944de7d21b3c3c085ea749ba96cc7234e1386613d065da12f2c84fa0d6896ba",
+      "source_member": "reports/build-provenance.json",
+      "source_sha256": "f89c30f4c3d1ca121127ef9fa20e04f70cd45ed4509b0269748668670c68b7b3",
+      "transformation": "JSON serialization; host paths aliased; private transcript path withheld"
+    },
+    "selected-final/full-report.json": {
+      "public_sha256": "b9e61c5672d66b114babd5ddc7b8fe067b0c28424bcac6d4ba004a5b007b4164",
+      "source_member": "state/measurement-workers/worker-benchmark-79dj3qk8/stdout.json",
+      "source_sha256": "b9e61c5672d66b114babd5ddc7b8fe067b0c28424bcac6d4ba004a5b007b4164",
+      "transformation": "verbatim"
+    },
+    "selected-final/request-traces.jsonl": {
+      "public_sha256": "eacee25ac77b6387f8ff48624d4706db7802a6b8ee2de350197391a5cfa20f3c",
+      "source_member": "state/measurement-workers/worker-benchmark-79dj3qk8/stderr.log",
+      "source_sha256": "eacee25ac77b6387f8ff48624d4706db7802a6b8ee2de350197391a5cfa20f3c",
+      "transformation": "verbatim"
+    },
+    "selected-final/startup-result.json": {
+      "public_sha256": "7d756877d7e9711a9f327bba0bd19e52e71bb06cd38d1e331f575397e2670f32",
+      "source_member": "state/measurement-workers/worker-startup-ofiznrxy/stdout.json",
+      "source_sha256": "7d756877d7e9711a9f327bba0bd19e52e71bb06cd38d1e331f575397e2670f32",
+      "transformation": "verbatim"
+    },
+    "selected-final/startup-traces.jsonl": {
+      "public_sha256": "6d2de5a681173d9a29e7f75772733d5e0689b11611d4e12e269c02e439c85375",
+      "source_member": "state/measurement-workers/worker-startup-ofiznrxy/stderr.log",
+      "source_sha256": "6d2de5a681173d9a29e7f75772733d5e0689b11611d4e12e269c02e439c85375",
+      "transformation": "verbatim"
+    },
+    "selected-metadata/GRAPH-VALIDATED.json": {
+      "public_sha256": "f2ce38dead9bf0ade22d01df1ffc0252d0e586b8098a0a2dce13771aaab72f4a",
+      "source_member": "export/GRAPH-VALIDATED.json",
+      "source_sha256": "f2ce38dead9bf0ade22d01df1ffc0252d0e586b8098a0a2dce13771aaab72f4a",
+      "transformation": "verbatim"
+    },
+    "selected-metadata/config.json": {
+      "public_sha256": "baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0",
+      "source_member": "export/graph/config.json",
+      "source_sha256": "baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0",
+      "transformation": "verbatim"
+    },
+    "selected-metadata/index.json": {
+      "public_sha256": "1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f",
+      "source_member": "export/graph/index.json",
+      "source_sha256": "1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f",
+      "transformation": "verbatim"
+    },
+    "selected-metadata/manifest.json": {
+      "public_sha256": "93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+      "source_member": "export/graph/manifest.json",
+      "source_sha256": "93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+      "transformation": "verbatim"
+    },
+    "selected-metadata/receipt.json": {
+      "public_sha256": "c0fd58c2dac0923e424e9bb5fac913032d4613e179d89e42458541a5ccd5919d",
+      "source_member": "export/graph/receipt.json",
+      "source_sha256": "c0fd58c2dac0923e424e9bb5fac913032d4613e179d89e42458541a5ccd5919d",
+      "transformation": "verbatim"
+    }
+  },
+  "not_published": [
+    "raw Pi SDK/model reasoning/prose/session/prompt",
+    "provider credentials and WAL",
+    "shared financial Journal",
+    "host Docker home/cache",
+    "duplicated source contexts"
+  ],
+  "private_export": {
+    "bytes": 2669038,
+    "sha256": "7488e8adac3d67c148c8dbea3d90b37de92e280a10c1885de3cab41c040fffc5"
+  },
+  "raw_measurement_objects_and_durable_worker_journals_unchanged": true
+}

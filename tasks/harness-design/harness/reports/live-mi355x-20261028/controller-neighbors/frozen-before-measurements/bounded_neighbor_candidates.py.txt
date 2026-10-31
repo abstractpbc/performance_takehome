@@ -1,0 +1,344 @@
+"""Free, deterministic batch-size neighbors of Pi's hypothesis; no API or Docker.
+
+The values 4 and 8 are controller-generated, not choices made by Pi. Each
+Dockerfile is derived independently from the exact canonical LF baseline.
+The newly declared mixed-workload policy does not alter any earlier decision.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import math
+import os
+import sys
+import tempfile
+from dataclasses import asdict
+from datetime import UTC, datetime
+from pathlib import Path
+
+BASELINE_SHA256 = "166ae2e3bef39dfc564bc09891f1c15111f11e27fa71d32245ee56bf5d56ab81"
+DOCKERFILE = Path("tasks/harness-design/Dockerfile")
+GRID = (4, 8)
+FIND = b'"--batch-size=16"'
+
+
+def digest(raw: bytes) -> str:
+    return hashlib.sha256(raw).hexdigest()
+
+
+def write_new(path: Path, raw: bytes) -> None:
+    with path.open("xb") as stream:
+        stream.write(raw)
+        stream.flush()
+        os.fsync(stream.fileno())
+
+
+def encoded(value: object) -> bytes:
+    return (json.dumps(value, indent=2, sort_keys=True) + "\n").encode("utf-8")
+
+
+def selection_policy(frozen_utc: str) -> dict:
+    return {
+        "kind": "NEW_PROSPECTIVE_MIXED_WORKLOAD_NEIGHBOR_SELECTION_V1",
+        "frozen_utc": frozen_utc,
+        "frozen_before_new_neighbor_measurements": True,
+        "candidate_grid": list(GRID),
+        "controller_generated_values_not_Pi_choices": True,
+        "official_grade": False,
+        "earlier_primary_batch1_decision": (
+            "Retained unchanged; this policy applies only to the two new neighbors."
+        ),
+        "primary": {
+            "implementation": "abstract_harness.decision.decide",
+            "profile": "unchanged development-benchmark.llmd.json",
+            "samples": "six unchanged prompts, five serial repetitions each, per image",
+            "min_effect": 0.03,
+            "confidence": 0.90,
+            "iterations": 2000,
+            "seed": 0,
+            "min_samples": 3,
+            "startup_regression_limit": 1.5,
+            "requires": (
+                "canonical kept=True: >=1 primary improvement, no significant primary regression, "
+                "complete matching samples and all correctness gates"
+            ),
+        },
+        "supplemental": {
+            "method": (
+                "same frozen six prompts; two synchronized six-request bursts per image; "
+                "two separate 2086-input-token long requests per image"
+            ),
+            "burst_each_wave_max_candidate_over_baseline_TTFT_median": 1.10,
+            "burst_each_wave_max_candidate_over_baseline_wall_seconds": 1.10,
+            "long_max_candidate_over_baseline_TTFT_median": 1.10,
+            "expected_long_input_tokens_each_request": 2086,
+            "all_requests_and_correctness_gates_must_pass": True,
+            "missing_partial_invalid_or_mismatched_evidence": (
+                "ineligible, preserve evidence; do not impute success"
+            ),
+            "statistical_limit": (
+                "Two bursts and two long requests are descriptive checks, not significance, "
+                "power, or general workload claims."
+            ),
+        },
+        "selection": {
+            "eligibility": "primary canonical keep AND every supplemental bound/correctness check",
+            "if_both_eligible": (
+                "largest geometric mean of canonical TTFT and FTGR point speedups; "
+                "exact tie prefers batch8"
+            ),
+            "if_none_eligible": (
+                "canonical baseline batch16 for the mixed-workload selection; "
+                "earlier batch1 serial keep is still retained as a separate result"
+            ),
+            "final_revalidation": (
+                "selected exact image requires a fresh 30-request serial run "
+                "and every correctness gate before delivery"
+            ),
+            "multiplicity_limit": (
+                "two fixed neighbors selected after observed batch1 tradeoff; "
+                "exploratory selection, not independent confirmatory evidence"
+            ),
+        },
+    }
+
+
+def assess_mixed(
+    primary_baseline: dict,
+    primary_candidate: dict,
+    *,
+    baseline_gates_passed: bool,
+    candidate_gates_passed: bool,
+    baseline_supplement: dict,
+    candidate_supplement: dict,
+) -> dict:
+    """Apply the frozen rule; caller has loaded the canonical harness package.
+
+    Inputs are actual run samples and each supplemental arm's JSON result, not
+    model estimates. This function performs no measurement or file mutation.
+    """
+    from abstract_harness.decision import decide
+
+    prompts = primary_baseline.get("ttft_s", {})
+    if not isinstance(prompts, dict) or len(prompts) != 6:
+        raise ValueError("six primary prompt groups required")
+    primary = decide(
+        primary_baseline,
+        primary_candidate,
+        gates_passed=baseline_gates_passed is True and candidate_gates_passed is True,
+        min_effect=0.03,
+        min_samples=3,
+        confidence=0.90,
+        iterations=2000,
+        seed=0,
+        startup_regression_limit=1.5,
+        expected_samples={name: 5 for name in prompts},
+    )
+    failures = []
+    checks = []
+    required = {"burst-1": 6, "burst-2": 6, "long": 2}
+    for side, arm in (("baseline", baseline_supplement), ("candidate", candidate_supplement)):
+        groups = arm.get("groups", {})
+        if arm.get("status") != "COMPLETE" or not isinstance(groups, dict):
+            failures.append(f"{side}: incomplete supplemental arm")
+            continue
+        if not required.keys() <= groups.keys():
+            failures.append(f"{side}: missing supplemental groups")
+        for name, group in groups.items():
+            gates = group.get("gates", [])
+            if (
+                not gates
+                or group.get("all_gates_passed") is not True
+                or any(gate.get("passed") is not True for gate in gates)
+            ):
+                failures.append(f"{side}/{name}: correctness did not pass")
+        for name, count in required.items():
+            if groups.get(name, {}).get("requests") != count:
+                failures.append(f"{side}/{name}: incomplete request count")
+        if groups.get("long", {}).get("input_tokens") != [2086]:
+            failures.append(f"{side}/long: expected exactly 2086 input tokens per request")
+    for name, fields in (
+        ("burst-1", ("TTFT_median_s", "wall_seconds")),
+        ("burst-2", ("TTFT_median_s", "wall_seconds")),
+        ("long", ("TTFT_median_s",)),
+    ):
+        for metric in fields:
+            base = baseline_supplement.get("groups", {}).get(name, {}).get(metric)
+            candidate = candidate_supplement.get("groups", {}).get(name, {}).get(metric)
+            valid = all(
+                isinstance(v, (int, float))
+                and not isinstance(v, bool)
+                and math.isfinite(v)
+                and v > 0
+                for v in (base, candidate)
+            )
+            ratio = candidate / base if valid else None
+            passed = valid and ratio <= 1.10
+            checks.append(
+                {
+                    "group": name,
+                    "metric": metric,
+                    "candidate_over_baseline": ratio,
+                    "passed": passed,
+                }
+            )
+            if not passed:
+                failures.append(f"{name}/{metric}: missing, invalid, or exceeds 1.10")
+    if not primary.kept:
+        failures.append("canonical serial decision did not keep candidate")
+    eligible = not failures
+    metric_speedups = [primary.comparison(name).speedup for name in ("ttft_s", "ftgr_tok_s")]
+    score = math.sqrt(math.prod(metric_speedups)) if eligible else None
+    return {
+        "eligible": eligible,
+        "primary": asdict(primary),
+        "supplemental_checks": checks,
+        "failures": failures,
+        "ranking_score": score,
+        "supplemental_significance_claimed": False,
+        "official_grade": False,
+    }
+
+
+def select_mixed(assessments: dict[int, dict]) -> dict:
+    """Rank only the predeclared 4/8 candidates; retain fallback provenance."""
+    if set(assessments) != set(GRID):
+        raise ValueError("exactly the fixed batch4/batch8 grid is required")
+    eligible = [
+        (value["ranking_score"], batch)
+        for batch, value in assessments.items()
+        if value.get("eligible") is True
+    ]
+    selected = max(eligible)[1] if eligible else 16
+    return {
+        "selected_batch_size": selected,
+        "prior_batch1_serial_decision_changed": False,
+        "reason": "highest balanced primary point speedup among mixed-eligible neighbors"
+        if eligible
+        else "neither fixed neighbor satisfied every frozen mixed rule",
+    }
+
+
+def prepare(
+    baseline: Path, family_candidate: Path, family_proposal: Path, harness_root: Path, out: Path
+) -> dict:
+    raw = baseline.read_bytes()
+    if digest(raw) != BASELINE_SHA256 or b"\r" in raw or raw.count(FIND) != 1:
+        raise ValueError("exact canonical 166ae2 LF baseline required")
+    family_raw = family_candidate.read_bytes()
+    if family_raw != raw.replace(FIND, b'"--batch-size=1"', 1):
+        raise ValueError("family candidate must preserve all canonical bytes except batch16->1")
+    proposal_raw = family_proposal.read_bytes()
+    proposal = json.loads(proposal_raw)
+    if proposal.get("changed_knob") != "--batch-size 16 -> 1":
+        raise ValueError("actual Pi batch-family proposal required")
+    if out.exists():
+        raise FileExistsError("new output directory required; never overwrite a frozen policy")
+    package = harness_root / "tasks/harness-design/harness"
+    sys.path.insert(0, str(package))
+    from abstract_harness.configuration_delivery import validate_patch_context
+    from abstract_harness.proposers import ScriptedProposer
+
+    out.mkdir(parents=True, mode=0o700)
+    policy = selection_policy(datetime.now(UTC).isoformat())
+    policy_raw = encoded(policy)
+    # This fsynced file precedes every candidate output and any new measurement.
+    write_new(out / "FROZEN-MIXED-SELECTION-POLICY.json", policy_raw)
+    queue = []
+    candidates = []
+    with tempfile.TemporaryDirectory(prefix="neighbor-source-guard-") as temp:
+        base = Path(temp) / "original"
+        (base / DOCKERFILE).parent.mkdir(parents=True)
+        (base / DOCKERFILE).write_bytes(raw)
+        for value in GRID:
+            candidate_raw = raw.replace(FIND, f'"--batch-size={value}"'.encode(), 1)
+            context = Path(temp) / f"batch{value}"
+            (context / DOCKERFILE).parent.mkdir(parents=True)
+            (context / DOCKERFILE).write_bytes(candidate_raw)
+            proof = validate_patch_context(base, context)
+            name = f"batch{value}.Dockerfile"
+            write_new(out / name, candidate_raw)
+            hypothesis = (
+                f"Controller-generated neighbor batch={value} in the batch-size family "
+                "selected by Pi. Test whether it retains serial gains while avoiding the "
+                "observed batch1 six-way queuing tradeoff."
+            )
+            entry = {
+                "experiment": f"controller-neighbor-batch{value}",
+                "hypothesis": hypothesis,
+                "edits": [
+                    {
+                        "file": DOCKERFILE.as_posix(),
+                        "regex": True,
+                        "find": r"--batch-size=(?:16|4|8)(?=\")",
+                        "replace": f"--batch-size={value}",
+                    }
+                ],
+                "notes": (
+                    "Attribution: genuine Pi selected batch-size 16->1; controller fixed "
+                    "the additional 4/8 grid before either neighbor result. No new model call. "
+                    "This scripted queue is a hybrid-planner replay, not two Pi-selected values. "
+                    "Each generated Dockerfile uses the immutable baseline; queue replay changes "
+                    "only this same knob in current last-good context."
+                ),
+            }
+            queue.append(entry)
+            metadata = {
+                "attribution": "CONTROLLER_GENERATED_FIXED_NEIGHBOR_NOT_PI_SELECTED_VALUE",
+                "batch_size": value,
+                "baseline_sha256": BASELINE_SHA256,
+                "Dockerfile": name,
+                "Dockerfile_sha256": digest(candidate_raw),
+                "family_candidate_sha256": digest(family_raw),
+                "family_proposal_sha256": digest(proposal_raw),
+                "policy_sha256": digest(policy_raw),
+                "source_guard": proof,
+                "hypothesis": hypothesis,
+                "measured": False,
+                "official_grade": False,
+            }
+            write_new(out / f"batch{value}.proposal.json", encoded(metadata))
+            candidates.append(metadata)
+    ScriptedProposer.validate_queue(queue)
+    write_new(out / "scripted-neighbor-queue.json", encoded({"experiments": queue}))
+    manifest = {
+        "status": "PREPARED_SOURCE_ONLY_BEFORE_NEIGHBOR_RESULTS",
+        "created_utc": policy["frozen_utc"],
+        "baseline_sha256": BASELINE_SHA256,
+        "policy_sha256": digest(policy_raw),
+        "candidates": candidates,
+        "new_API_calls": 0,
+        "Docker_or_GPU_actions": 0,
+        "journal_events": 0,
+        "ScriptedProposer_queue_schema_passed": True,
+    }
+    write_new(out / "PREPARED.json", encoded(manifest))
+    return manifest
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--baseline", type=Path, required=True)
+    parser.add_argument("--family-candidate", type=Path, required=True)
+    parser.add_argument("--family-proposal", type=Path, required=True)
+    parser.add_argument("--harness-root", type=Path, required=True)
+    parser.add_argument("--out", type=Path, required=True)
+    args = parser.parse_args()
+    print(
+        json.dumps(
+            prepare(
+                args.baseline,
+                args.family_candidate,
+                args.family_proposal,
+                args.harness_root,
+                args.out,
+            ),
+            indent=2,
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

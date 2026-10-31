@@ -1,0 +1,12 @@
+{
+  "node_sha256": "596b5144ff242737f1c1be6a5f0ccb3907dbba2482344143cb1a6898633402a9",
+  "pi_distribution_files_checked": 1243,
+  "runner_sha256": "03c5cbca77304ba74912ca4ce4925b04558c34bd38162d3512e92e663db97618",
+  "status": "PASS_CACHED_RUNTIME_AND_CLIENT_ONLY_ENVIRONMENT",
+  "limitations": "Read-only package-byte and pure environment-construction checks; not a live Pi result or OS filesystem sandbox.",
+  "kind": "SANITIZED_RUNTIME_INVENTORY_NO_PROVIDER_OR_CREDENTIAL_ENVIRONMENT",
+  "source_sha256": "471c86ed48515d59aa5139a0fdc192e3f4225d7a4f4f9f2ba5ff450a73cf9e5d",
+  "package": "@earendil-works/pi-coding-agent",
+  "version": "1.0.0",
+  "validation_scope": "Cached Node and1243 stock package files verified offline. Does not by itself prove a live Pi call or an OS filesystem sandbox."
+}

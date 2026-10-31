@@ -1,0 +1,47 @@
+{
+  "status": "FRESH_DIRECT_TASK2_BASELINE_MEASURED",
+  "measured_requests": 30,
+  "gates_passed": true,
+  "gates": [
+    {
+      "name": "all_requests_succeeded",
+      "passed": true,
+      "detail": "0/30 failed"
+    },
+    {
+      "name": "valid_finish_reason",
+      "passed": true,
+      "detail": "0 traces with finish_reason not in {stop,length}"
+    },
+    {
+      "name": "complete_output",
+      "passed": true,
+      "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+    },
+    {
+      "name": "token_count_matches_usage",
+      "passed": true,
+      "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+    },
+    {
+      "name": "greedy_self_consistency",
+      "passed": true,
+      "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+    },
+    {
+      "name": "golden_output_match",
+      "passed": true,
+      "detail": "no golden set yet (this measurement establishes it)"
+    }
+  ],
+  "startup_s": 23.84890618700001,
+  "model_id": "model",
+  "golden_saved": true,
+  "profile_sha256": "4492447b810ebd6af3ed36737e5f26f866a27fbbebb0d86d5563bad1fbcf16bf",
+  "elapsed_s": 36.148767962999955,
+  "official_result": false,
+  "genuine_Pi_optimization": false,
+  "owned_container_absent": true,
+  "owned_network_removed": true,
+  "finished_utc": "2026-10-28T17:22:29.412876+00:00"
+}

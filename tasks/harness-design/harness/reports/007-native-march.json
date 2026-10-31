@@ -1,0 +1,46 @@
+{
+  "build": {
+    "digest": null,
+    "duration_s": 16.61,
+    "error": "build failed (rc=130): #9 10.16 [ 12%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/amx.cpp.o\n#9 10.74 [ 12%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/mmq.cpp.o\n#9 10.93 [ 12%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/tiled/tiled.cpp.o\n#9 11.20 [ 13%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/tiled/tiled-kernel.cpp.o\n#9 11.23 [ 13%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/binary-ops.cpp.o\n#9 11.36 [ 13%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/unary-ops.cpp.o\n#9 11.59 [ 15%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/vec.cpp.o\n#9 12.34 [ 15%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ops.cpp.o\n#9 12.49 [ 15%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/llamafile/sgemm.cpp.o\n#9 13.00 [ 16%] Linking CXX static library libllama-ui.a\n#9 13.02 [ 16%] Built target llama-ui\n#9 13.03 [ 17%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/x86/quants.c.o\n#9 13.15 [ 17%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/x86/repack.cpp.o\n#9 CANCELED\nERROR: failed to build: failed to solve: Canceled: context canceled",
+    "image_id": null,
+    "log": "/home/ubuntu/work/evidence-state-r3/logs/007-native-march.build.log",
+    "no_cache": true,
+    "ok": false,
+    "tag": "abstract-harness-standin:007-native-march",
+    "timed_out": false
+  },
+  "engine": "standin",
+  "experiment": "007-native-march",
+  "finished_ts": "2026-10-24T09:57:01Z",
+  "hypothesis": "GGML_NATIVE=ON lets the compiler target the exact build host ISA; may improve matmul kernels slightly on this CPU (expected small improvement or no_change).",
+  "interrupted": "interrupted by SIGTERM (RuntimeError: build failed: build failed (rc=130): #9 10.16 [ 12%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/amx.cpp.o\n#9 10.74 [ 12%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/mmq.cpp.o\n#9 10.93 [ 12%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/tiled/tiled.cpp.o\n#9 11.20 [ 13%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/tiled/tiled-kernel.cpp.o\n#9 11.23 [ 13%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/binary-ops.cpp.o\n#9 11.36 [ 13%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/unary-ops.cpp.o\n#9 11.59 [ 15%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/vec.cpp.o\n#9 12.34 [ 15%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ops.cpp.o\n#9 12.49 [ 15%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/llamafile/sgemm.cpp.o\n#9 13.00 [ 16%] Linking CXX static library libllama-ui.a\n#9 13.02 [ 16%] Built target llama-ui\n#9 13.03 [ 17%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/x86/quants.c.o\n#9 13.15 [ 17%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/x86/repack.cpp.o\n#9 CANCELED\nERROR: failed to build: failed to solve: Canceled: context canceled)",
+  "kept": false,
+  "kind": "attempt",
+  "last_good_after": {
+    "digest": "sha256:6a73ab1d9624591be1741c7017ba9890559c63569ca46facd9dbd45d24706955",
+    "experiment": "001-threads-8",
+    "image_id": "sha256:6a73ab1d9624591be1741c7017ba9890559c63569ca46facd9dbd45d24706955",
+    "patch": "tasks/harness-design/harness/patches/001-threads-8.patch",
+    "report": "tasks/harness-design/harness/reports/001-threads-8.json",
+    "tag": "abstract-harness-standin:001-threads-8"
+  },
+  "last_good_before": {
+    "digest": "sha256:6a73ab1d9624591be1741c7017ba9890559c63569ca46facd9dbd45d24706955",
+    "experiment": "001-threads-8",
+    "image_id": "sha256:6a73ab1d9624591be1741c7017ba9890559c63569ca46facd9dbd45d24706955",
+    "patch": "tasks/harness-design/harness/patches/001-threads-8.patch",
+    "report": "tasks/harness-design/harness/reports/001-threads-8.json",
+    "tag": "abstract-harness-standin:001-threads-8"
+  },
+  "outcome": "interrupted",
+  "patch_apply": {
+    "ok": true,
+    "output": "patching file Dockerfile"
+  },
+  "patch_path": "tasks/harness-design/harness/patches/007-native-march.patch",
+  "proposal_notes": "",
+  "proposer": "scripted",
+  "started_ts": "2026-10-24T09:56:45Z",
+  "transcript": ""
+}

@@ -1,0 +1,37 @@
+{
+  "status": "PASS_CURRENT_MANIFEST_COMPATIBILITY_AND_HISTORICAL_PROVENANCE",
+  "tested_commit": "6b50a9dcccc10201a7f8b7c1d17e519f548c59e8",
+  "tests": {
+    "all_passed": true,
+    "run": 241,
+    "seconds": 21.227,
+    "skip_details": [],
+    "skipped": 0
+  },
+  "source_clean_after_checks": true,
+  "runtime_implementation_unchanged": true,
+  "legacy_manifest_and_all17historical_reports_unchanged": true,
+  "protected_integrity": "PASS",
+  "locked_ruff": "0.16.10 all task source PASS",
+  "canonical_test_source_sha256": "3888d065a31dc05db8f3ccf9fe1c8f316a884edb1dccf748c6db53885d69ff0a",
+  "new_test": "Current manifest binds actual baseline bytes/hash, original TSV source and image identity. Historical CPU checks retain all original assertions against the exact legacy manifest.",
+  "source_scope": "The following metadata commit adds these logs and a manifest link only; real GPU baseline source stays09f52c25. No GPU/provider calls or official grading.",
+  "files": {
+    "native-full.log": {
+      "bytes": 38686,
+      "sha256": "d134ead7452e8cc4f8fe4283ea1edf5f8ee106d413a03030ad095fe079e94f48"
+    },
+    "locked-ruff-all-task-source.log": {
+      "bytes": 139,
+      "sha256": "ba59cac353ab7505a9ee049370989c488ddf47d8304717307ab201da941dc0a5"
+    },
+    "protected-integrity.log": {
+      "bytes": 499,
+      "sha256": "ef014c6b85a0c0ce3079cdc12e68d6d4097fc4b7aec5fa88241a97890c830134"
+    },
+    "ruff-version.log": {
+      "bytes": 99,
+      "sha256": "15bff5511c0de1d703313e76b0abaac35b6e4be3366bc4df78c59c96000f729a"
+    }
+  }
+}

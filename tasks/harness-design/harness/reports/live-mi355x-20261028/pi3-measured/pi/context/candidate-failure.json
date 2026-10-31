@@ -1,0 +1,52 @@
+{
+  "prior_native_speculative_drafter": {
+    "result": "startup_failed",
+    "reason": "native DFlash repository/asset not installed; no extra model downloads or egress allowed"
+  },
+  "actual_page64_comparison": {
+    "outcome": "no_change",
+    "kept": false,
+    "reason": "no primary metric moved significantly",
+    "comparisons": [
+      {
+        "metric": "ttft_s",
+        "baseline_n": 30,
+        "candidate_n": 30,
+        "baseline_median": 0.04142492900001571,
+        "candidate_median": 0.04069918000001849,
+        "speedup": 1.0177859770354074,
+        "ci_low": 0.9936536206984565,
+        "ci_high": 1.0529946080916954,
+        "verdict": "no_change",
+        "detail": "CI [0.9937, 1.0530] includes 1 or effect +1.78% below 3%"
+      },
+      {
+        "metric": "ftgr_tok_s",
+        "baseline_n": 30,
+        "candidate_n": 30,
+        "baseline_median": 55.279483563576925,
+        "candidate_median": 55.279483563576925,
+        "speedup": 0.9971710029327194,
+        "ci_low": 0.9921540348120836,
+        "ci_high": 1.04863894623642,
+        "verdict": "no_change",
+        "detail": "CI [0.9922, 1.0486] includes 1 or effect -0.28% below 3%"
+      },
+      {
+        "metric": "startup_s",
+        "baseline_n": 1,
+        "candidate_n": 1,
+        "baseline_median": 32.08914722999998,
+        "candidate_median": 31.02291573900004,
+        "speedup": null,
+        "ci_low": null,
+        "ci_high": null,
+        "verdict": "insufficient",
+        "detail": "need matching counts and >= 3 samples per prompt on each side"
+      }
+    ]
+  },
+  "all_page64_correctness_gates_passed": true,
+  "selected_last_good": "original page-chunk-size16 baseline",
+  "new_instruction": "Pick your own different documented single knob and value from actual help; preserve all other Dockerfile bytes."
+}

@@ -1,0 +1,63 @@
+{
+  "scope": "CPU software verification of optional prebuild LLMD delivery policy; no GPU/image/performance claim",
+  "recorded_utc": "2026-10-28T10:51:55.938666+00:00",
+  "native_tests_run": 273,
+  "failures": 0,
+  "errors": 0,
+  "passed_tests": 272,
+  "skips": [
+    {
+      "test": "LlmdImageLiveTest.test_help_runs_with_network_none_and_entrypoint_preserved",
+      "reason": "pinned image absent; no new actual image help check"
+    }
+  ],
+  "source_history": "Real native checkout from genuine35abae5b47992050ead78b025998521e297f7927 with reviewed overlays and genuine organizer81/historical45 objects",
+  "canonical_inputs_verified": 163,
+  "only_post_test_code_delta": "loop.py formatter output, complete AST identical to tested input",
+  "source_files": {
+    "abstract_harness/configuration_delivery.py": {
+      "canonical_LF_sha256": "2d257107dd2d552fdc777b2cf0d32fb642c450f95787d3bac6b6aed57908b397"
+    },
+    "abstract_harness/loop.py": {
+      "canonical_LF_sha256": "a9f4ccc4ea54c77aa9e227f73ef3a6080acbae1f19e3d153946a838cefe6b133"
+    },
+    "abstract_harness/state.py": {
+      "canonical_LF_sha256": "da77f69cb0a885712f83b2790b70f765cbf7b7cc5ae692f19b73f4fefe84ff94"
+    },
+    "run.py": {
+      "canonical_LF_sha256": "dc72a608c45fcee2f61206ec2242481f10d7bc4484b7b67fbc81463bb4a0be55"
+    },
+    "tests/test_configuration_delivery.py": {
+      "canonical_LF_sha256": "463dd1079e6e0d8f781c7b7ff02d09b45f5b9ec10ea18bc1e555db9c68aa7818"
+    }
+  },
+  "ruff_version": "0.16.10",
+  "changed_python_checks": [
+    {
+      "argv_without_machine_paths": [
+        "check"
+      ],
+      "exit_code": 0,
+      "output": "All checks passed!"
+    },
+    {
+      "argv_without_machine_paths": [
+        "format",
+        "--check"
+      ],
+      "exit_code": 0,
+      "output": "5 files already formatted"
+    }
+  ],
+  "protected_integrity": {
+    "base": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "native_exit_code": 0,
+    "windows_exit_code": 0
+  },
+  "limits": [
+    "Initial invalid Windows/WSL Git pointer, CRLF shebang and spaced temporary path verification attempts are retained privately; the successful run used the same canonical source in a genuine native checkout.",
+    "Whole Harness Ruff passes; full-repository Ruff finds an unchanged protected tests/test_runtime.py I001.",
+    "Source eligibility and mocked CPU tests do not establish real image layers, runtime flag support, correctness, speedup or publication."
+  ],
+  "reproduce": "From tasks/harness-design/harness in a native canonical Git checkout: python -m unittest discover -v"
+}

@@ -1,0 +1,198 @@
+{
+  "status": "COMPLETE_PAIRED_COMPARISON_SELECTED_FINAL30_AND_EXACT_METADATA",
+  "source_head": "419a0bd07c598dcbaea80b757e74c938c75d8599",
+  "started_utc": "2026-10-28T23:29:17.153894+00:00",
+  "finished_utc": "2026-10-28T23:31:24.906797+00:00",
+  "hard_stop_utc": "2026-10-29T00:36:46.245553+00:00",
+  "new_model_API_calls": 0,
+  "official_grade": false,
+  "kind": "SANITIZED_ACTUAL_PI3_MEASURED_CYCLE",
+  "outer_bundle_bytes": 154126,
+  "outer_bundle_sha256": "63f0a0882fc1096780a870b5bd4b3f68f7efdc66c3512a21b35f439e5e8d4562",
+  "pipeline_result_sha256": "fb80541aacea78337dc8a20e0e71c38b5864afd3cfb9f661d9dde455b2344497",
+  "execution_scope": "external_stage_orchestration",
+  "decision": {
+    "outcome": "no_change",
+    "kept": false,
+    "reason": "no primary metric moved significantly",
+    "comparisons": [
+      {
+        "metric": "ttft_s",
+        "baseline_n": 30,
+        "candidate_n": 30,
+        "baseline_median": 0.04163504799998918,
+        "candidate_median": 0.04079647250000562,
+        "speedup": 1.019123406630516,
+        "ci_low": 0.9984306496738279,
+        "ci_high": 1.0370541231307697,
+        "verdict": "no_change",
+        "detail": "CI [0.9984, 1.0371] includes 1 or effect +1.91% below 3%"
+      },
+      {
+        "metric": "ftgr_tok_s",
+        "baseline_n": 30,
+        "candidate_n": 30,
+        "baseline_median": 55.279483563576925,
+        "candidate_median": 56.16186361826352,
+        "speedup": 1.0103760643485205,
+        "ci_low": 1.0026015829722255,
+        "ci_high": 1.0157667794414755,
+        "verdict": "no_change",
+        "detail": "CI [1.0026, 1.0158] includes 1 or effect +1.04% below 3%"
+      },
+      {
+        "metric": "startup_s",
+        "baseline_n": 1,
+        "candidate_n": 1,
+        "baseline_median": 24.387453788999892,
+        "candidate_median": 32.06288778099997,
+        "speedup": null,
+        "ci_low": null,
+        "ci_high": null,
+        "verdict": "insufficient",
+        "detail": "need matching counts and >= 3 samples per prompt on each side"
+      }
+    ]
+  },
+  "selected_image": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+  "phases": {
+    "control": {
+      "status": "MEASURED",
+      "requests": 30,
+      "gates_passed": true,
+      "gates": [
+        {
+          "name": "all_requests_succeeded",
+          "passed": true,
+          "detail": "0/30 failed"
+        },
+        {
+          "name": "valid_finish_reason",
+          "passed": true,
+          "detail": "0 traces with finish_reason not in {stop,length}"
+        },
+        {
+          "name": "complete_output",
+          "passed": true,
+          "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+        },
+        {
+          "name": "token_count_matches_usage",
+          "passed": true,
+          "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+        },
+        {
+          "name": "greedy_self_consistency",
+          "passed": true,
+          "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+        },
+        {
+          "name": "golden_output_match",
+          "passed": true,
+          "detail": "0 prompts differ from the baseline golden outputs: []"
+        }
+      ],
+      "startup_s": 24.387453788999892,
+      "elapsed_s": 36.63021179799989,
+      "image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+      "owned_container_absent": true,
+      "owned_network_removed": true
+    },
+    "candidate": {
+      "status": "MEASURED",
+      "requests": 30,
+      "gates_passed": true,
+      "gates": [
+        {
+          "name": "all_requests_succeeded",
+          "passed": true,
+          "detail": "0/30 failed"
+        },
+        {
+          "name": "valid_finish_reason",
+          "passed": true,
+          "detail": "0 traces with finish_reason not in {stop,length}"
+        },
+        {
+          "name": "complete_output",
+          "passed": true,
+          "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+        },
+        {
+          "name": "token_count_matches_usage",
+          "passed": true,
+          "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+        },
+        {
+          "name": "greedy_self_consistency",
+          "passed": true,
+          "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+        },
+        {
+          "name": "golden_output_match",
+          "passed": true,
+          "detail": "0 prompts differ from the baseline golden outputs: []"
+        }
+      ],
+      "startup_s": 32.06288778099997,
+      "elapsed_s": 44.19284935399992,
+      "image_id": "sha256:7a555bea9efaca1b92e5f9e1c86bfe19e95a63c434161d977febd3fc5d71961a",
+      "owned_container_absent": true,
+      "owned_network_removed": true
+    },
+    "selected-final": {
+      "status": "MEASURED",
+      "requests": 30,
+      "gates_passed": true,
+      "gates": [
+        {
+          "name": "all_requests_succeeded",
+          "passed": true,
+          "detail": "0/30 failed"
+        },
+        {
+          "name": "valid_finish_reason",
+          "passed": true,
+          "detail": "0 traces with finish_reason not in {stop,length}"
+        },
+        {
+          "name": "complete_output",
+          "passed": true,
+          "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+        },
+        {
+          "name": "token_count_matches_usage",
+          "passed": true,
+          "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+        },
+        {
+          "name": "greedy_self_consistency",
+          "passed": true,
+          "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+        },
+        {
+          "name": "golden_output_match",
+          "passed": true,
+          "detail": "0 prompts differ from the baseline golden outputs: []"
+        }
+      ],
+      "startup_s": 30.475065060000134,
+      "elapsed_s": 42.632751921000136,
+      "image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+      "owned_container_absent": true,
+      "owned_network_removed": true
+    }
+  },
+  "actual_usage_prompt_tokens": {
+    "startup-probe": 14,
+    "colors": 15,
+    "capital": 23,
+    "sum": 27,
+    "haiku": 19,
+    "explain": 22,
+    "list": 22
+  },
+  "public_optimization_gain_claimed": false,
+  "new_registry_publication_required": false,
+  "interpretation": "All actual inputs were below the original256 prefill chunk threshold, so the proposed256-to1024 threshold did not bind these inputs. The measured candidate was rejected as no_change."
+}

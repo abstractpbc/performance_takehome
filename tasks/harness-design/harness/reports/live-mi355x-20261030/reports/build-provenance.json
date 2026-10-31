@@ -1,0 +1,20 @@
+{
+  "attempts": 2,
+  "base_image": "docker.io/zmlai/llmd@sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+  "build_context": ".",
+  "digest_resolution": "docker buildx --metadata-file containerimage.digest / docker image inspect RepoDigests",
+  "dockerfile": "tasks/harness-design/Dockerfile",
+  "engine": "llmd",
+  "harness_tree_sha256": "8d1b1d315337cfca4457ba51032401cf2910691011e39d5250fb67207cd134e2",
+  "image_identity_kind": "docker-resolved-image-digest",
+  "last_good": {
+    "context_path": "$RUN/state/contexts/a95f21ba719e4da483ee73a4b3b2dcfd",
+    "digest": "sha256:1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f",
+    "experiment": "001-batch-size-1",
+    "image_id": "sha256:1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f",
+    "patch": "$RUN/patches/001-batch-size-1.patch",
+    "report": "$RUN/reports/001-batch-size-1.json",
+    "tag": "canonical-gpu20-cache-614195936-12510f040ffa-llmd:001-batch-size-1"
+  },
+  "source_commit": "5c439274e2d3744da68b310c769c96b0c78bfb92"
+}

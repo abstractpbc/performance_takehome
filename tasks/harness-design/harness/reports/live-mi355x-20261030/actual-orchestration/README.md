@@ -1,0 +1,3 @@
+# Exact execution wrapper
+
+`run_completed_artifact.py.txt` is the exact wrapper used for the canonical GPU phase (SHA-256 `a06bbffcf8327fdf5420e0cc9e6d6a99a8e2109a7e5ad38930a57751f4222f96`). It calls the public verified-artifact adapter and `Harness.run()`, then performs separate fresh-final validation and graph export. It contains no provider key or model calls. Financial scope preparation, provider credentials and private provenance inputs are not published or implicitly authorized by this source. Public source5c and exact artifact/source/model binding are recorded in the parent packet. Original absolute clocks remained unchanged.

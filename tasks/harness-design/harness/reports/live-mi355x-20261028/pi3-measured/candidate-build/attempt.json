@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "docker",
+    "build",
+    "--pull=false",
+    "--network=none",
+    "--build-arg",
+    "BASE_IMAGE=ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+    "--file",
+    "/srv/abstract-task2-pi2-20261028/evidence/build-pi3/candidate-minimal-context/tasks/harness-design/Dockerfile",
+    "--tag",
+    "abstract-direct-pi-feedback3-20261028",
+    "/srv/abstract-task2-pi2-20261028/evidence/build-pi3/candidate-minimal-context"
+  ],
+  "policy": {
+    "policy": "llmd-config-v1",
+    "status": "ELIGIBLE_BEFORE_BUILD",
+    "source_only": true,
+    "changed_paths": [
+      "tasks/harness-design/Dockerfile"
+    ],
+    "changed_knobs": [
+      "--prefill-chunk-size"
+    ],
+    "prior_Dockerfile_sha256": "166ae2e3bef39dfc564bc09891f1c15111f11e27fa71d32245ee56bf5d56ab81",
+    "candidate_Dockerfile_sha256": "01d31cb69b4789de70ed8829a64fe043b4810c44082979e5f6f5d5e7895fd2e7",
+    "image_or_layer_verification": false,
+    "scope": "Exact actual minimal build contexts only; root separately retains and reviews genuine Pi patch/worktree. No other Pi files enter this build. Source guard forbids filesystem instructions."
+  },
+  "candidate_Dockerfile_sha256": "01d31cb69b4789de70ed8829a64fe043b4810c44082979e5f6f5d5e7895fd2e7",
+  "started_utc": "2026-10-28T23:29:17.284523+00:00",
+  "CPU_only_no_inference": true
+}

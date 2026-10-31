@@ -1,0 +1,8 @@
+{
+  "status": "PARTIAL_FAILURE",
+  "error_class": "MeasurementError",
+  "error": "engine process exited before serving /v1/models (ConnectionRefusedError: [Errno 111] Connection refused)",
+  "image_id": "sha256:ab62d880b43412b895dbc1abc25a7eb092f954df40b0f72c896e5ea5bbbee5dd",
+  "owned_container_absent": true,
+  "owned_network_removed": true
+}

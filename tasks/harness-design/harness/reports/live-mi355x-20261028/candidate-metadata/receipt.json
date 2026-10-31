@@ -1,0 +1,36 @@
+{
+  "status": "EXACT_SMALL_METADATA_EXPORTED",
+  "started_utc": "2026-10-28T18:18:51.808632+00:00",
+  "image": "abstract-direct-pi-native-175415",
+  "expected_image_id": "sha256:ab62d880b43412b895dbc1abc25a7eb092f954df40b0f72c896e5ea5bbbee5dd",
+  "ctr_address": "/run/containerd/containerd.sock",
+  "ctr_namespace": "moby",
+  "store_mutations": false,
+  "layer_bytes_read": 0,
+  "objects": [
+    {
+      "path": "docker-inspect.json",
+      "bytes": 4525,
+      "digest": "sha256:99148daa9d599267a4a51a9ab602e89282b11b23ef558aa20f3985a06d24d7e9"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 5284,
+      "digest": "sha256:ab62d880b43412b895dbc1abc25a7eb092f954df40b0f72c896e5ea5bbbee5dd"
+    },
+    {
+      "path": "config.json",
+      "bytes": 5923,
+      "digest": "sha256:ed53dd105fa9bc76c1db8ad8261f8cfc435de4e03684b08931025261ff5670de"
+    },
+    {
+      "path": "docker-inspect-after.json",
+      "bytes": 4525,
+      "digest": "sha256:99148daa9d599267a4a51a9ab602e89282b11b23ef558aa20f3985a06d24d7e9"
+    }
+  ],
+  "platform_manifest": "sha256:ab62d880b43412b895dbc1abc25a7eb092f954df40b0f72c896e5ea5bbbee5dd",
+  "config": "sha256:ed53dd105fa9bc76c1db8ad8261f8cfc435de4e03684b08931025261ff5670de",
+  "original_top": "sha256:ab62d880b43412b895dbc1abc25a7eb092f954df40b0f72c896e5ea5bbbee5dd",
+  "finished_utc": "2026-10-28T18:18:51.930468+00:00"
+}

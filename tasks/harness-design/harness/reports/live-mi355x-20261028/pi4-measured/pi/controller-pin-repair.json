@@ -1,0 +1,30 @@
+{
+  "kind": "PI4_INTENT_WITH_CONTROLLER_PIN_REPAIR",
+  "at_utc": "2026-10-28T23:45:31.831174+00:00",
+  "root_explicitly_authorized_mechanical_repair": true,
+  "not_unaltered_Pi_output": true,
+  "raw_artifact_preserved": true,
+  "raw_canonical_guard": "REJECTED_BEFORE_BUILD",
+  "recipe": "Restore only the ARG BASE_IMAGE line byte-for-byte from canonical baseline166ae2. Preserve the model-selected batch-size16-to1 knob/value; no tuning, extra source edits or guard relaxation.",
+  "assertion": "corrected bytes exactly equal baseline.replace(--batch-size=16,--batch-size=1)",
+  "raw_candidate_sha256": "eed21a634ccccfdb6c1b917eab5ddeead9e164af3c7f5cdabe0ed67fcf117e25",
+  "corrected_candidate_sha256": "5a8216e4ffae627fec2804cddb7fa9c69b0fa95880893fe9cab2db86710cf0bc",
+  "baseline_sha256": "166ae2e3bef39dfc564bc09891f1c15111f11e27fa71d32245ee56bf5d56ab81",
+  "proposal_sha256": "3297a6d7412728a7e497cf60ad896812be516dcb3b53902e2c9809803401cde3",
+  "guard": {
+    "policy": "llmd-config-v1",
+    "status": "ELIGIBLE_BEFORE_BUILD",
+    "source_only": true,
+    "changed_paths": [
+      "tasks/harness-design/Dockerfile"
+    ],
+    "changed_knobs": [
+      "--batch-size"
+    ],
+    "prior_Dockerfile_sha256": "166ae2e3bef39dfc564bc09891f1c15111f11e27fa71d32245ee56bf5d56ab81",
+    "candidate_Dockerfile_sha256": "5a8216e4ffae627fec2804cddb7fa9c69b0fa95880893fe9cab2db86710cf0bc",
+    "image_or_layer_verification": false
+  },
+  "provider_GPU_build_actions": 0,
+  "canonical_unattended_autocorrection_claimed": false
+}

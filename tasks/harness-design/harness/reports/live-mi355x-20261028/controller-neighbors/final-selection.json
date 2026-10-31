@@ -1,0 +1,183 @@
+{
+  "kind": "ROOT_ACTUAL_FROZEN_MIXED_SELECTION",
+  "decision": "APPROVED_FINAL_SELECTED_IMAGE_AFTER_MIXED_PROBE",
+  "observed_utc": "2026-10-29T00:09:40.878806+00:00",
+  "policy_sha256": "1b46842f8f05d41a521115aac6952137843c7d2902fcd71089e86cef040ea45d",
+  "selector_source_sha256": "01052a1281c04a0aaedc08350067e7e4ea1ce9c7c4e3aa5799ce8616c8430d74",
+  "assessments": {
+    "4": {
+      "eligible": true,
+      "primary": {
+        "outcome": "improved",
+        "kept": true,
+        "reason": "significant improvement: ttft_s x1.078, ftgr_tok_s x1.265",
+        "comparisons": [
+          {
+            "metric": "ttft_s",
+            "baseline_n": 30,
+            "candidate_n": 30,
+            "baseline_median": 0.04101031850018444,
+            "candidate_median": 0.03796441400004369,
+            "speedup": 1.0778347527395389,
+            "ci_low": 1.0673637364345936,
+            "ci_high": 1.1084559660958635,
+            "verdict": "improved",
+            "detail": "CI [1.0674, 1.1085] excludes 1 and effect +7.78% >= 3%"
+          },
+          {
+            "metric": "ftgr_tok_s",
+            "baseline_n": 30,
+            "candidate_n": 30,
+            "baseline_median": 56.16186361826352,
+            "candidate_median": 70.86742937850909,
+            "speedup": 1.265443134402991,
+            "ci_low": 1.2535909610017302,
+            "ci_high": 1.2718943604211448,
+            "verdict": "improved",
+            "detail": "CI [1.2536, 1.2719] excludes 1 and effect +26.54% >= 3%"
+          },
+          {
+            "metric": "startup_s",
+            "baseline_n": 1,
+            "candidate_n": 1,
+            "baseline_median": 24.880746592999913,
+            "candidate_median": 32.4856804850001,
+            "speedup": null,
+            "ci_low": null,
+            "ci_high": null,
+            "verdict": "insufficient",
+            "detail": "need matching counts and >= 3 samples per prompt on each side"
+          }
+        ]
+      },
+      "supplemental_checks": [
+        {
+          "group": "burst-1",
+          "metric": "TTFT_median_s",
+          "candidate_over_baseline": 0.976560275492336,
+          "passed": true
+        },
+        {
+          "group": "burst-1",
+          "metric": "wall_seconds",
+          "candidate_over_baseline": 0.8485194088504837,
+          "passed": true
+        },
+        {
+          "group": "burst-2",
+          "metric": "TTFT_median_s",
+          "candidate_over_baseline": 0.9409127078336925,
+          "passed": true
+        },
+        {
+          "group": "burst-2",
+          "metric": "wall_seconds",
+          "candidate_over_baseline": 0.8430926747579455,
+          "passed": true
+        },
+        {
+          "group": "long",
+          "metric": "TTFT_median_s",
+          "candidate_over_baseline": 0.9688516789555203,
+          "passed": true
+        }
+      ],
+      "failures": [],
+      "ranking_score": 1.1678778137610093,
+      "supplemental_significance_claimed": false,
+      "official_grade": false
+    },
+    "8": {
+      "eligible": true,
+      "primary": {
+        "outcome": "improved",
+        "kept": true,
+        "reason": "significant improvement: ttft_s x1.074, ftgr_tok_s x1.207",
+        "comparisons": [
+          {
+            "metric": "ttft_s",
+            "baseline_n": 30,
+            "candidate_n": 30,
+            "baseline_median": 0.04116648049989635,
+            "candidate_median": 0.03833674249995056,
+            "speedup": 1.073634433272341,
+            "ci_low": 1.0681340709079936,
+            "ci_high": 1.2127395118633222,
+            "verdict": "improved",
+            "detail": "CI [1.0681, 1.2127] excludes 1 and effect +7.36% >= 3%"
+          },
+          {
+            "metric": "ftgr_tok_s",
+            "baseline_n": 30,
+            "candidate_n": 30,
+            "baseline_median": 56.16186361826352,
+            "candidate_median": 66.82925780402077,
+            "speedup": 1.207248444985324,
+            "ci_low": 1.2042994901662625,
+            "ci_high": 1.2182012055755975,
+            "verdict": "improved",
+            "detail": "CI [1.2043, 1.2182] excludes 1 and effect +20.72% >= 3%"
+          },
+          {
+            "metric": "startup_s",
+            "baseline_n": 1,
+            "candidate_n": 1,
+            "baseline_median": 28.983894000999953,
+            "candidate_median": 30.96039037699984,
+            "speedup": null,
+            "ci_low": null,
+            "ci_high": null,
+            "verdict": "insufficient",
+            "detail": "need matching counts and >= 3 samples per prompt on each side"
+          }
+        ]
+      },
+      "supplemental_checks": [
+        {
+          "group": "burst-1",
+          "metric": "TTFT_median_s",
+          "candidate_over_baseline": 0.9384420086105406,
+          "passed": true
+        },
+        {
+          "group": "burst-1",
+          "metric": "wall_seconds",
+          "candidate_over_baseline": 0.8412186615365626,
+          "passed": true
+        },
+        {
+          "group": "burst-2",
+          "metric": "TTFT_median_s",
+          "candidate_over_baseline": 0.9300496757031191,
+          "passed": true
+        },
+        {
+          "group": "burst-2",
+          "metric": "wall_seconds",
+          "candidate_over_baseline": 0.8243968917057918,
+          "passed": true
+        },
+        {
+          "group": "long",
+          "metric": "TTFT_median_s",
+          "candidate_over_baseline": 0.9652555147144297,
+          "passed": true
+        }
+      ],
+      "failures": [],
+      "ranking_score": 1.1384829818889404,
+      "supplemental_significance_claimed": false,
+      "official_grade": false
+    }
+  },
+  "choice": {
+    "selected_batch_size": 4,
+    "prior_batch1_serial_decision_changed": false,
+    "reason": "highest balanced primary point speedup among mixed-eligible neighbors"
+  },
+  "selected_image_id": "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+  "selected_batch": 4,
+  "raw_original_trials_unchanged": true,
+  "requires_fresh_final30_after_this_selection": true,
+  "official_grade": false
+}

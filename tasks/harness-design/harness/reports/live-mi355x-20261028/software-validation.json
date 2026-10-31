@@ -1,0 +1,30 @@
+{
+  "kind": "SANITIZED_EXACT_PUBLIC_SOFTWARE_VALIDATION",
+  "source_commit": "b1a4b11946d2adc2095b2e5890b5c61db8be7fd7",
+  "started_utc": "2026-10-28T22:59:24.984755+00:00",
+  "finished_utc": "2026-10-28T23:00:03.145978+00:00",
+  "status": "PASS",
+  "runtime": "CPython3.14.4 native Linux, cached dependencies, LF source",
+  "candidate_tests": {
+    "run": 282,
+    "skipped": 0,
+    "passed": 282
+  },
+  "protected_root_tests": {
+    "run": 40,
+    "passed": 40
+  },
+  "ruff": {
+    "version": "0.16.10",
+    "scope": "tasks/harness-design/harness",
+    "status": "PASS"
+  },
+  "protected_integrity": {
+    "base": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "status": "PASS"
+  },
+  "checkout_clean": true,
+  "full_receipt_sha256": "3d74401487952204f9826b8e63766e2837a97ad299e63932c2904fdd75818757",
+  "GPU_model_API_actions": 0,
+  "qualification": "Full checks apply to exact b1a4b11. Follow-up publishes this receipt and clarifies the Pi2 proposal snapshot only; canonical software and tests are unchanged. No new whole-head GPU, provider or performance claim."
+}

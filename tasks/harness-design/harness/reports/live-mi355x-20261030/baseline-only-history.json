@@ -1,0 +1,97 @@
+{
+  "all_original_failure_statuses_retained": true,
+  "cohorts": [
+    {
+      "GPU_charge_upper_USD": "4.13",
+      "benchmark_request_traces": 210,
+      "candidate_build_pair_keep_cycle_completed": false,
+      "closure_review_sha256": "de678790a19dc9b7a75e3aaab5e921fde1f75b6af2b11871c19c057937b354b6",
+      "failure": "Length-ended/format/tool-use/proposal timeouts; a late partial Dockerfile edit was never built or measured.",
+      "full_controller_private_archive_sha256": "5edf2b34a98c80cbf032123e4b6cdb312ba56d517a7024b34a14ac14ca870fce",
+      "partial_model_edit_measured": false,
+      "private_audit_export_references": [
+        {
+          "audit_filename": "FIRST-ATTEMPT-INDEPENDENT-AUDIT.json",
+          "audit_sha256": "0947d6d6d555bf2e70f45aa983e3b45447f6005fca3e53d294059a68c1b2db84",
+          "private_export_sha256": "c64785fe1baffc737bcb8815ad6925778f5bc01c1d8c4d2484bde167190d4f80"
+        },
+        {
+          "audit_filename": "SECOND-ATTEMPT-INDEPENDENT-AUDIT.json",
+          "audit_sha256": "3e3ebde3ee65a7123b6e695b8155360a5c5eef9e56e40c604536b4733eabb00d",
+          "private_export_sha256": "5032c8f44fd4636ebc9d5d8ff621818eac916cac2d517a79aad0b189fd628e87"
+        },
+        {
+          "audit_filename": "THIRD-ATTEMPT-INDEPENDENT-AUDIT.json",
+          "audit_sha256": "cbafc365a065f56a0f4f2f23cc34350e01dac51c6ec596fdacf4eb8d06309deb",
+          "private_export_sha256": "ea24c37e38d1685e0f0e3d5c4e6b29058a8a16752ac7ed177a117440f049d3a2"
+        },
+        {
+          "audit_filename": "CONTINUATION-ATTEMPT-INDEPENDENT-AUDIT.json",
+          "audit_sha256": "35f32381807c34c47e9037aeaff10273f6749058546e3078c5d252e2ed642b15",
+          "private_export_sha256": "674ea583f47e792309357bd6e19ea268f7dc2c01a7c58c68778b14a47c3224da"
+        },
+        {
+          "audit_filename": "FINAL-RESUME-INDEPENDENT-AUDIT.json",
+          "audit_sha256": "30863c51870a3a7ff89062fce100a4e0af35d10c7b4429a7d28d194004cbc13a",
+          "private_export_sha256": "5514c6aad864f17e8ce33686bd5d038d132b70e168e4760d888d6751401a273a"
+        }
+      ],
+      "provider_absent_utc": "2026-10-30T06:45:36.659879+00:00",
+      "provider_requests": 7,
+      "provider_upper_USD": "0.1339892",
+      "resource_id": 614111949,
+      "trace_scope": "Three baseline/final pairs plus one fresh-final continuation; final-resume archive adds zero new measured traces.",
+      "verified_source_snapshot": "f3a793a2587fe52703e6a9de79ddbfccb277ed22"
+    },
+    {
+      "GPU_charge_upper_USD": "2.09",
+      "benchmark_request_traces": 90,
+      "candidate_build_pair_keep_cycle_completed": false,
+      "closed_private_archive_bytes": 22554795,
+      "closed_private_archive_sha256": "14af2cfea2e81655f5e757bec3694dce3704ec6e782508da61980040342b8a99",
+      "closure_review_sha256": "f96f4c2f65a1cc110f56a7955d901165164ca32b093afc45662f08880793beaa",
+      "failure": "No valid completed proposal reached a built/measured candidate; later retained partial work was not used as an optimization result.",
+      "first_attempt_export_sha256": "40ce5d897cacc96866aa7b51db27d5d8cedbc195bedc8624daa5b471e8a7e2de",
+      "fresh_final_only_export_sha256": "6d6315ab10f421a93b38f6d689e0a155881375707f53c39a3b0d4070497ab7e7",
+      "independently_read_nested_measurements": [
+        {
+          "all_six_gates_passed": true,
+          "benchmark_traces": 30,
+          "bytes": 3520393,
+          "private_member": "COHORT/PRIVATE-evidence.tar.gz",
+          "report_member": "reports/000-baseline.json",
+          "sha256": "40ce5d897cacc96866aa7b51db27d5d8cedbc195bedc8624daa5b471e8a7e2de"
+        },
+        {
+          "all_six_gates_passed": true,
+          "benchmark_traces": 30,
+          "bytes": 3377218,
+          "private_member": "COHORT/PRIVATE-evidence-retry.tar.gz",
+          "report_member": "reports/000-baseline.json",
+          "sha256": "4c66c9afb43125816d58d4209fb10a039e0218cd95b8cb81fd2ea6e0a3db7759"
+        },
+        {
+          "all_six_gates_passed": true,
+          "benchmark_traces": 30,
+          "bytes": 25434,
+          "private_member": "COHORT/PRIVATE-evidence-fresh-final-only.tar.gz",
+          "report_member": "FRESH-FINAL.json",
+          "sha256": "6d6315ab10f421a93b38f6d689e0a155881375707f53c39a3b0d4070497ab7e7"
+        }
+      ],
+      "partial_model_edit_measured": false,
+      "provider_absent_utc": "2026-10-30T08:57:05.082715+00:00",
+      "provider_requests": 10,
+      "provider_upper_USD": "0.2309182",
+      "resource_id": 614151330,
+      "trace_scope": "Fresh baseline, baseline retry, and separate fresh final of the unchanged baseline.",
+      "verified_source_snapshot": "49126d602c7bf9942110eac72fc5972264932371"
+    }
+  ],
+  "historical_UNKNOWNs_released": false,
+  "kind": "SANITIZED_PRIOR_BASELINE_ONLY_GPU_COHORT_HISTORY",
+  "official_grade_claimed": false,
+  "older_zero_inference_setup_failures": "retained in private historical audit; not invented benchmark results",
+  "raw_SDK_prose_WAL_and_original_Journal": "private and retained; sanitized status/count/cost/hash metadata only",
+  "scope": "These grouped allocations are failed optimization histories, not additional gains or newly completed canonical cycles. Counts are kept separate from current120 and historical570+100; copied contexts/resume archives are not added again."
+}

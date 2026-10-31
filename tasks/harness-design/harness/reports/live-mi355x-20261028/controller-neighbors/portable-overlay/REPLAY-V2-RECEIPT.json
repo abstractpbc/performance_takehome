@@ -1,0 +1,21 @@
+{
+  "API_Docker_GPU_Journal_actions": 0,
+  "actual_mixed_round_baseline": 16,
+  "candidate_values": [
+    4,
+    8
+  ],
+  "candidate_values_chosen_by": "controller-generated fixed neighborhood of Pi batch family",
+  "created_utc": "2026-10-29T00:05:20.693432+00:00",
+  "generic_replay_initial_batch_sizes": [
+    1,
+    16
+  ],
+  "kind": "REPLAY_ONLY_BATCH1_INTEGRATION_CORRECTION_V2",
+  "new_code_changes_frozen_policy_or_measurement": false,
+  "new_queue_sha256": "b2a141de7112ce40c366539f59fe42e18fc008d66e27911cf7dabe144b2dbaee",
+  "original_queue_sha256": "675086965c319d25806f0195970d895664b592181ec9c2f8068dace20f2067e4",
+  "previous_queue_limitation": "first edit did not match serial-kept batch1",
+  "unchanged_original_PREPARED_sha256": "be67cb80262ba534104d3c479e460ad7a6857b86b5994183e0675f1376b92e75",
+  "unchanged_policy_sha256": "1b46842f8f05d41a521115aac6952137843c7d2902fcd71089e86cef040ea45d"
+}

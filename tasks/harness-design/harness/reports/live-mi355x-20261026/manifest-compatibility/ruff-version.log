@@ -1,0 +1,2 @@
+COMMAND=["/var/tmp/abstract-harness-final-identity-20261025-tools/ruff", "--version"]
+ruff 0.16.10

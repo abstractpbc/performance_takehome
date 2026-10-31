@@ -1,0 +1,27 @@
+Usage: llmd --model=<path> [options]
+
+Serve an OpenAI-compatible API for the provided model.
+
+Required:
+  --model=<path>                      Path to the model repository
+
+Options:
+  --batch-size=<number>               Maximum concurrent request batch size (default: 16)
+  --token-batch-size=<number>         Maximum number of tokens processed in one inference step (default: 1024)
+  --max-context-len=<number>          Maximum context length (in tokens) for the model (default: 128000)
+  --prefill-chunk-size=<number>       Maximum number of tokens processed for a given sequence during chunked-prefill (default: 256)
+
+  --page-chunk-size=<number>          Tokens per KV-cache page chunk (default: 16)
+  --backend=<backend>                 Attention backend: auto, cuda_fa2, cuda_fa3, triton, mosaic_tpu (default: auto)
+  --gpu-memory-fraction=<fraction>    Fraction of GPU memory available to llmd (default: 0.9)
+  --cache-memory-fraction=<fraction>  Fraction of the memory allocated to llmd (--gpu-memory-fraction) that will
+                                      be filled with cache pages after loading the model (default: 0.95)
+
+  --topk=<number>                     Top-k sampling cutoff (default: 50)
+
+  --speculative-drafter-model=<path>  Speculative decoding drafter repository path, or "native" for a built-in drafter. Speculative
+                                      decoding is deactivated by default (default: null)
+  --speculative-draft-count=<num>     Draft tokens to verify (default: derived from model configuration)
+
+  --model-name=<string>               Model name to report in the OpenAI API (default: derived from model path)
+  --listen=<addr>                     Address to listen on (default: 0.0.0.0:8000)

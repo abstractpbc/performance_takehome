@@ -1,0 +1,18 @@
+{
+  "canonical_returncode": 0,
+  "existing_public_selected_unchanged": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+  "finished_utc": "2026-10-30T11:40:37.667108+00:00",
+  "fresh_final_passed": true,
+  "official_grade_claimed": false,
+  "paired_optimization_cycle_complete": true,
+  "publication_performed": false,
+  "selected": {
+    "context_path": "$RUN/state/contexts/a95f21ba719e4da483ee73a4b3b2dcfd",
+    "digest": "sha256:1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f",
+    "experiment": "001-batch-size-1",
+    "image_id": "sha256:1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f",
+    "patch": "$RUN/patches/001-batch-size-1.patch",
+    "report": "$RUN/reports/001-batch-size-1.json",
+    "tag": "canonical-gpu20-cache-614195936-12510f040ffa-llmd:001-batch-size-1"
+  }
+}

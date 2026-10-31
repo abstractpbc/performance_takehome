@@ -1,0 +1,184 @@
+{
+  "kind": "DIRECT_PAIRED_CONTROL_CANDIDATE_SELECTED_FINAL",
+  "official_result": false,
+  "hard_stop_utc": "2026-10-29T00:36:46.245553+00:00",
+  "new_external_Task2_GPU_cohort": true,
+  "old_Task1_clock_reused": false,
+  "formal_old_Task2_ADMIT_claimed": false,
+  "phases": {
+    "control": {
+      "status": "MEASURED",
+      "requests": 30,
+      "gates_passed": true,
+      "gates": [
+        {
+          "name": "all_requests_succeeded",
+          "passed": true,
+          "detail": "0/30 failed"
+        },
+        {
+          "name": "valid_finish_reason",
+          "passed": true,
+          "detail": "0 traces with finish_reason not in {stop,length}"
+        },
+        {
+          "name": "complete_output",
+          "passed": true,
+          "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+        },
+        {
+          "name": "token_count_matches_usage",
+          "passed": true,
+          "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+        },
+        {
+          "name": "greedy_self_consistency",
+          "passed": true,
+          "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+        },
+        {
+          "name": "golden_output_match",
+          "passed": true,
+          "detail": "0 prompts differ from the baseline golden outputs: []"
+        }
+      ],
+      "startup_s": 32.08914722999998,
+      "elapsed_s": 44.439249511000014,
+      "image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+      "owned_container_absent": true,
+      "owned_network_removed": true
+    },
+    "candidate": {
+      "status": "MEASURED",
+      "requests": 30,
+      "gates_passed": true,
+      "gates": [
+        {
+          "name": "all_requests_succeeded",
+          "passed": true,
+          "detail": "0/30 failed"
+        },
+        {
+          "name": "valid_finish_reason",
+          "passed": true,
+          "detail": "0 traces with finish_reason not in {stop,length}"
+        },
+        {
+          "name": "complete_output",
+          "passed": true,
+          "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+        },
+        {
+          "name": "token_count_matches_usage",
+          "passed": true,
+          "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+        },
+        {
+          "name": "greedy_self_consistency",
+          "passed": true,
+          "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+        },
+        {
+          "name": "golden_output_match",
+          "passed": true,
+          "detail": "0 prompts differ from the baseline golden outputs: []"
+        }
+      ],
+      "startup_s": 31.02291573900004,
+      "elapsed_s": 43.33634801300002,
+      "image_id": "sha256:047fca293b9bba553ad3c22088eae41620c2895c31edb167eb2927f58e7502a7",
+      "owned_container_absent": true,
+      "owned_network_removed": true
+    },
+    "selected-final": {
+      "status": "MEASURED",
+      "requests": 30,
+      "gates_passed": true,
+      "gates": [
+        {
+          "name": "all_requests_succeeded",
+          "passed": true,
+          "detail": "0/30 failed"
+        },
+        {
+          "name": "valid_finish_reason",
+          "passed": true,
+          "detail": "0 traces with finish_reason not in {stop,length}"
+        },
+        {
+          "name": "complete_output",
+          "passed": true,
+          "detail": "0 truncated (finish_reason=length on prompts requiring stop): []"
+        },
+        {
+          "name": "token_count_matches_usage",
+          "passed": true,
+          "detail": "mismatched=[] missing_usage=[] tolerance=0.05"
+        },
+        {
+          "name": "greedy_self_consistency",
+          "passed": true,
+          "detail": "0 prompts produced differing greedy outputs across repetitions: []"
+        },
+        {
+          "name": "golden_output_match",
+          "passed": true,
+          "detail": "0 prompts differ from the baseline golden outputs: []"
+        }
+      ],
+      "startup_s": 31.017427685999962,
+      "elapsed_s": 43.227268288999994,
+      "image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+      "owned_container_absent": true,
+      "owned_network_removed": true
+    }
+  },
+  "decision": {
+    "outcome": "no_change",
+    "kept": false,
+    "reason": "no primary metric moved significantly",
+    "comparisons": [
+      {
+        "metric": "ttft_s",
+        "baseline_n": 30,
+        "candidate_n": 30,
+        "baseline_median": 0.04142492900001571,
+        "candidate_median": 0.04069918000001849,
+        "speedup": 1.0177859770354074,
+        "ci_low": 0.9936536206984565,
+        "ci_high": 1.0529946080916954,
+        "verdict": "no_change",
+        "detail": "CI [0.9937, 1.0530] includes 1 or effect +1.78% below 3%"
+      },
+      {
+        "metric": "ftgr_tok_s",
+        "baseline_n": 30,
+        "candidate_n": 30,
+        "baseline_median": 55.279483563576925,
+        "candidate_median": 55.279483563576925,
+        "speedup": 0.9971710029327194,
+        "ci_low": 0.9921540348120836,
+        "ci_high": 1.04863894623642,
+        "verdict": "no_change",
+        "detail": "CI [0.9922, 1.0486] includes 1 or effect -0.28% below 3%"
+      },
+      {
+        "metric": "startup_s",
+        "baseline_n": 1,
+        "candidate_n": 1,
+        "baseline_median": 32.08914722999998,
+        "candidate_median": 31.02291573900004,
+        "speedup": null,
+        "ci_low": null,
+        "ci_high": null,
+        "verdict": "insufficient",
+        "detail": "need matching counts and >= 3 samples per prompt on each side"
+      }
+    ]
+  },
+  "selected_image": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+  "selected_image_id": "sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+  "fresh_selected_final30_pass": true,
+  "status": "MEASURED_PAIRED_ATTEMPT_AND_SELECTED_FINAL",
+  "finished_utc": "2026-10-28T23:14:09.679145+00:00"
+}

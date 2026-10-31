@@ -1,0 +1,5 @@
+--- a/tasks/harness-design/Dockerfile
++++ b/tasks/harness-design/Dockerfile
+@@ -25 +25 @@
+-CMD ["--io-impl=zio", "--batch-size=16", "--token-batch-size=1024", "--max-context-len=128000", "--prefill-chunk-size=256", "--page-chunk-size=16", "--backend=auto", "--gpu-memory-fraction=0.9", "--cache-memory-fraction=0.95"]
++CMD ["--io-impl=zio", "--batch-size=1", "--token-batch-size=1024", "--max-context-len=128000", "--prefill-chunk-size=256", "--page-chunk-size=16", "--backend=auto", "--gpu-memory-fraction=0.9", "--cache-memory-fraction=0.95"]

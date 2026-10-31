@@ -1,0 +1,27 @@
+{
+  "Dockerfile": "batch4.Dockerfile",
+  "Dockerfile_sha256": "e0c0683f7c82d63b637827038384ec2e130d0fbf91aaa94db58df1c006a4720a",
+  "attribution": "CONTROLLER_GENERATED_FIXED_NEIGHBOR_NOT_PI_SELECTED_VALUE",
+  "baseline_sha256": "166ae2e3bef39dfc564bc09891f1c15111f11e27fa71d32245ee56bf5d56ab81",
+  "batch_size": 4,
+  "family_candidate_sha256": "5a8216e4ffae627fec2804cddb7fa9c69b0fa95880893fe9cab2db86710cf0bc",
+  "family_proposal_sha256": "3297a6d7412728a7e497cf60ad896812be516dcb3b53902e2c9809803401cde3",
+  "hypothesis": "Controller-generated neighbor batch=4 in the batch-size family selected by Pi. Test whether it retains serial gains while avoiding the observed batch1 six-way queuing tradeoff.",
+  "measured": false,
+  "official_grade": false,
+  "policy_sha256": "1b46842f8f05d41a521115aac6952137843c7d2902fcd71089e86cef040ea45d",
+  "source_guard": {
+    "candidate_Dockerfile_sha256": "e0c0683f7c82d63b637827038384ec2e130d0fbf91aaa94db58df1c006a4720a",
+    "changed_knobs": [
+      "--batch-size"
+    ],
+    "changed_paths": [
+      "tasks/harness-design/Dockerfile"
+    ],
+    "image_or_layer_verification": false,
+    "policy": "llmd-config-v1",
+    "prior_Dockerfile_sha256": "166ae2e3bef39dfc564bc09891f1c15111f11e27fa71d32245ee56bf5d56ab81",
+    "source_only": true,
+    "status": "ELIGIBLE_BEFORE_BUILD"
+  }
+}

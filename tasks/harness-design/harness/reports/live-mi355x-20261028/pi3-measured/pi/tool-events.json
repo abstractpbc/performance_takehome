@@ -1,0 +1,94 @@
+{
+  "kind": "SANITIZED_SUCCESSFUL_PI3_METADATA_ONLY",
+  "scope": "Successful genuinely new Pi3 feedback only; distinct from Pi1/Pi2 and historical failed sessions.",
+  "stock_cli": {
+    "package": "@earendil-works/pi-coding-agent",
+    "version": "1.0.0",
+    "node_version": "22.19.0"
+  },
+  "launch_verification": {
+    "source_sha256": "9121a324f5234a5221fb10f5209699640d5f80879bb039b6c581a346b8146430",
+    "context_sha256": "a24a0716efb5f2d226f37f963ea734d87cbc7c3f74e3ea8101985a81d8f09229",
+    "node_sha256": "596b5144ff242737f1c1be6a5f0ccb3907dbba2482344143cb1a6898633402a9",
+    "started_utc": "2026-10-28T23:22:39.243654+00:00",
+    "Pi_distribution_files_verified": 1243
+  },
+  "requested_output_tokens": 16384,
+  "effective_historical_wire_output_tokens": 16384,
+  "argument_hash_encoding": "json.dumps(args,ensure_ascii=False,sort_keys=True,separators=(comma,colon)), UTF-8",
+  "source_transcript_bytes": 1206170,
+  "source_transcript_sha256": "4c91ebaf8fb021001899454f125e3eb06ca72e57177a497315473d6454b4f538",
+  "event_type_counts": {
+    "session": 1,
+    "agent_start": 1,
+    "turn_start": 2,
+    "message_start": 6,
+    "message_end": 6,
+    "message_update": 3733,
+    "tool_execution_start": 2,
+    "tool_execution_end": 2,
+    "turn_end": 2,
+    "agent_end": 1,
+    "agent_settled": 1
+  },
+  "tool_events": [
+    {
+      "sequence": 3620,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-b01b435850b994a7",
+      "tool_name": "write",
+      "argument_canonical_utf8_bytes": 1638,
+      "argument_canonical_sha256": "003a512e30c2bd13e4c85d6001d53c6be201dc152242eb8107bde11d8b2ae4cb",
+      "allowed_relative_work_filenames": [
+        "candidate.Dockerfile"
+      ]
+    },
+    {
+      "sequence": 3621,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-88ef1e9842443dd6",
+      "tool_name": "write",
+      "argument_canonical_utf8_bytes": 4373,
+      "argument_canonical_sha256": "0957639321497a0391b18c6ead29b8e4e5db27aded91d10a1b8a93f086c0ecb3",
+      "allowed_relative_work_filenames": [
+        "proposal.json"
+      ]
+    },
+    {
+      "sequence": 3622,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-b01b435850b994a7",
+      "tool_name": "write",
+      "is_error": false
+    },
+    {
+      "sequence": 3623,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-88ef1e9842443dd6",
+      "tool_name": "write",
+      "is_error": false
+    }
+  ],
+  "assistant_stop_reason_metadata": [
+    {
+      "sequence": 3619,
+      "stop_reason": "toolUse"
+    },
+    {
+      "sequence": 3754,
+      "stop_reason": "stop"
+    }
+  ],
+  "known_output_artifacts": {
+    "candidate.Dockerfile": {
+      "bytes": 1543,
+      "sha256": "01d31cb69b4789de70ed8829a64fe043b4810c44082979e5f6f5d5e7895fd2e7"
+    },
+    "proposal.json": {
+      "bytes": 4309,
+      "sha256": "2233815d330d56d1aeef69e4f9ef2f3b996b1641184df5399ded2d074ada765b"
+    }
+  },
+  "excluded": "All assistant text/thinking/reasoning, tool output, argument content, raw WAL, provider/client configuration and environment values. Filename extraction is a restrictive explicit basename allowlist.",
+  "API_or_GPU_actions_performed_by_sanitizer": 0
+}

@@ -1,0 +1,87 @@
+"""Fresh Task2-only paired control/candidate/final30. Inactive without --execute."""
+from pathlib import Path
+from datetime import datetime,timezone
+from dataclasses import asdict
+import argparse,json,os,re,signal,subprocess,sys,time,uuid
+p=argparse.ArgumentParser(description=__doc__)
+p.add_argument('--execute',action='store_true');p.add_argument('--candidate-image');p.add_argument('--candidate-image-id');p.add_argument('--hard-stop-utc');p.add_argument('--out');p.add_argument('--root');p.add_argument('--render-device');p.add_argument('--golden')
+a=p.parse_args()
+if not a.execute:print('{"inactive":true,"GPU_or_API_or_clock_actions":0}');raise SystemExit(0)
+r=Path(a.root);assert r.is_absolute() and r.resolve()==r and r!=Path('/srv/abstract-direct-runc');h=r/'harness'
+assert re.fullmatch(r'/dev/dri/renderD[0-9]+',a.render_device) and Path(a.render_device).exists()
+hard=datetime.fromisoformat(a.hard_stop_utc.replace('Z','+00:00'))
+assert hard.tzinfo is not None
+assert (hard-datetime.now(timezone.utc)).total_seconds()>60
+assert re.fullmatch('sha256:[0-9a-f]{64}',a.candidate_image_id)
+sys.path[:0]=[str(r/'python-site'),str(h/'tasks/harness-design/harness'),str(h)]
+from abstract_harness import measure,decision
+profile=measure.load_benchmark(h/'tasks/harness-design/harness/development-benchmark.llmd.json')
+golden_path=Path(a.golden);assert golden_path.is_absolute() and golden_path.is_relative_to(r) and not golden_path.is_symlink()
+golden=json.loads(golden_path.read_text());assert len(golden)==6
+out=Path(a.out);assert out.is_relative_to(r/'evidence') and not out.exists();out.mkdir(mode=0o700)
+base='ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d'
+baseid='sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d'
+env={k:os.environ[k] for k in ('PATH','HOME','LANG','LC_ALL','TMPDIR') if k in os.environ}
+def docker(*args,timeout=15):return subprocess.run(['docker',*args],env=env,stdin=subprocess.DEVNULL,capture_output=True,text=True,timeout=timeout)
+assert not docker('ps','--format','{{.ID}}').stdout.strip(),'no parallel GPU containers allowed'
+class HardStop(BaseException):pass
+def stop(*unused):raise HardStop('new explicit Task2-only GPU work stop')
+signal.signal(signal.SIGALRM,stop)
+summary={'kind':'FRESH_SELECTED_FINAL30_AFTER_FROZEN_MIXED_SELECTION','official_result':False,
+ 'hard_stop_utc':hard.isoformat(),'new_external_Task2_GPU_cohort':True,'old_Task1_clock_reused':False,'formal_old_Task2_ADMIT_claimed':False,'phases':{}}
+def keep(path,value):
+ with path.open('x') as stream:json.dump(value,stream,indent=2);stream.write('\n');stream.flush();os.fsync(stream.fileno())
+def one(image,expected,label):
+ assert (hard-datetime.now(timezone.utc)).total_seconds()>35
+ phase=out/label;phase.mkdir();owner=uuid.uuid4().hex;name='abstract-t2-'+label+'-'+owner[:8];net=name+'-net'
+ inspected=docker('image','inspect',image);assert inspected.returncode==0
+ meta=json.loads(inspected.stdout)[0];assert meta['Id']==expected
+ command=['run','--detach','--pull=never','--name',name,'--label','abstract.task2.direct='+owner,
+  '--platform','linux/amd64','--network',net,'--security-opt','no-new-privileges','--shm-size','16g',
+  '--cpus','16','--memory','128g','--device','/dev/kfd','--device',a.render_device,
+  '--group-add',str(Path(a.render_device).stat().st_gid),'--env','ROCR_VISIBLE_DEVICES=0',
+  '--mount','type=bind,src='+str(r/'target')+',dst=/models/model,readonly',image,*(meta['Config']['Cmd'] or []),'--model=/models/model']
+ keep(phase/'ownership.json',{'name':name,'network':net,'owner':owner,'image_id':expected,'argv':command})
+ tracefile=(phase/'all-request-traces.jsonl').open('x');original=measure.stream_chat_completion
+ def record(*args,**kwargs):
+  value=original(*args,**kwargs);tracefile.write(json.dumps(asdict(value))+'\n');tracefile.flush();os.fsync(tracefile.fileno());return value
+ measure.stream_chat_completion=record;created=False;value=None;status={}
+ try:
+  assert docker('network','create','--internal',net).returncode==0;created=True
+  begin=time.monotonic();keep(phase/'launch-start.json',{'monotonic':begin,'utc':datetime.now(timezone.utc).isoformat(),'before_actual_docker_run':True})
+  signal.alarm(max(1,int((hard-datetime.now(timezone.utc)).total_seconds()-30)))
+  launch=docker(*command,timeout=25);assert launch.returncode==0,launch.stderr
+  ident=launch.stdout.strip();assert re.fullmatch('[0-9a-f]{64}',ident)
+  details=json.loads(docker('inspect',ident).stdout)[0]
+  url='http://'+details['NetworkSettings']['Networks'][net]['IPAddress']+':8000'
+  alive=lambda:docker('inspect','--format','{{.State.Running}}',ident,timeout=5).stdout.strip()=='true'
+  startup,model=measure.wait_for_first_valid_generation(url,begin,profile,timeout_s=min(120,(hard-datetime.now(timezone.utc)).total_seconds()-30),is_alive=alive)
+  value=measure.run_benchmark(url,model,profile,golden=golden,startup_s=startup,is_alive=alive)
+  keep(phase/'full-report.json',value.to_json());keep(phase/'samples.json',value.samples())
+  status={'status':'MEASURED','requests':len(value.traces),'gates_passed':value.gates_passed,'gates':[asdict(g) for g in value.gates],'startup_s':startup,'elapsed_s':time.monotonic()-begin,'image_id':expected}
+ except BaseException as exc:
+  status={'status':'PARTIAL_FAILURE','error_class':type(exc).__name__,'error':str(exc),'image_id':expected};value=None
+ finally:
+  signal.alarm(0);measure.stream_chat_completion=original;tracefile.close()
+  found=docker('inspect',name)
+  if found.returncode==0:
+   current=json.loads(found.stdout)[0]
+   assert current['Name']=='/'+name and current['Image']==expected and current['Config']['Labels'].get('abstract.task2.direct')==owner
+   logs=docker('logs',current['Id']);(phase/'container.stdout').write_text(logs.stdout);(phase/'container.stderr').write_text(logs.stderr)
+   assert docker('rm','--force',current['Id']).returncode==0
+  absent=docker('ps','-a','--filter','name=^/'+name+'$','--format','{{.ID}}')
+  status['owned_container_absent']=absent.returncode==0 and not absent.stdout.strip()
+  if created:status['owned_network_removed']=docker('network','rm',net).returncode==0
+  keep(phase/'result.json',status);summary['phases'][label]=status
+  assert status['owned_container_absent'],'do not start another phase with an uncertain container'
+ return value
+try:
+ final=one(a.candidate_image,a.candidate_image_id,'selected-final-after-mixed')
+ summary['selected_image']=a.candidate_image;summary['selected_image_id']=a.candidate_image_id
+ summary['fresh_selected_final30_pass']=final is not None and len(final.traces)==30 and final.gates_passed
+ summary['status']='FRESH_FINAL30_ALL_GATES_PASS' if summary['fresh_selected_final30_pass'] else 'PARTIAL_FAILURE_PRESERVE_ALL'
+except BaseException as exc:
+ summary['status']='PARTIAL_FAILURE_PRESERVE_ALL';summary['error_class']=type(exc).__name__;summary['error']=str(exc)
+finally:
+ signal.alarm(0);summary['finished_utc']=datetime.now(timezone.utc).isoformat();keep(out/'RESULT.json',summary)
+print(json.dumps(summary),flush=True)

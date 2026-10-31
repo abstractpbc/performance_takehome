@@ -1,0 +1,12 @@
+{
+  "root_reviewed_launch": true,
+  "original_context_sha256": "bcbc803301168f88ba2047f8dc59108857cf6ba84089990c6f74488aa30b825b",
+  "original_absolute_work_stop_unix": 1793005692.607214,
+  "started_unix": 1793004860.538556,
+  "completed_unix": 1793004901.195599,
+  "remote_exit_code": 0,
+  "stdout": "{\"status\": \"PASS_FRESH_SELECTED_IMAGE_REVALIDATION\", \"report\": \"/srv/abstract-task2-final-revalidation-20261026/revalidation-report.json\", \"report_sha256\": \"d1c197f3a4809af223b8c4d7536f78744df67ac25913b41b66158c91ca7f05b4\", \"cleanup\": {\"confirmed_absent\": true, \"name\": \"abstract-final-reval-b9c948523bf443e9bcc546d88fba6e62-selected-4862\", \"immutable_id\": \"f3f0d7f638fe0c3d38bf5dc5ed3048561099bda972d62563ba737852958bb6c8\", \"removed\": false, \"images_preserved\": true, \"network_preserved\": true}, \"elapsed_seconds\": 40.42897400900074}\n",
+  "stderr": "",
+  "provider_api_calls": 0,
+  "allocation_renewed": false
+}

@@ -1,0 +1,34 @@
+{
+  "Linux_comparison_only_ignored_ArgsEscaped": {
+    "actual": true,
+    "basis": "OCI config.md: deprecated compatibility metadata for Docker Windows images",
+    "raw_config_bytes_unchanged": true,
+    "reference": null
+  },
+  "config": "sha256:baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0",
+  "inherited_diffIDs": 23,
+  "inherited_layer_identity": "mediaType/digest/size; annotations preserved in raw manifests",
+  "inherited_layers": 23,
+  "limitation": "This is local graph identity against prior completed public-layer proof; no new registry publication or anonymous pull is claimed.",
+  "manifest": "sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+  "public_reference": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+  "runtime": {
+    "blanked_telemetry": [],
+    "cmd": [
+      "--io-impl=zio",
+      "--batch-size=1",
+      "--token-batch-size=1024",
+      "--max-context-len=128000",
+      "--prefill-chunk-size=256",
+      "--page-chunk-size=16",
+      "--backend=auto",
+      "--gpu-memory-fraction=0.9",
+      "--cache-memory-fraction=0.95"
+    ],
+    "entrypoint": [
+      "/llmd/llmd"
+    ],
+    "filesystem_layer_instructions": 0
+  },
+  "status": "EXACT_SELECTED_GRAPH_AND_PUBLIC_INHERITANCE_VERIFIED"
+}

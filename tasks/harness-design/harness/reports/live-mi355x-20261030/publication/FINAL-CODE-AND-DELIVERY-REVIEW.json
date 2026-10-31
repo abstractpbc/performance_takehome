@@ -1,0 +1,59 @@
+{
+  "kind": "EXPERIMENTAL_BATCH_ONE_PUBLICATION_AND_CODE_REVIEW_CLOSED",
+  "status": "COMPLETE",
+  "PR": "https://github.com/sharonbasovich/performance_takehome/pull/10",
+  "immutable_reference": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+  "convenience_tag": "experimental-batch1-93f4b72539b0",
+  "designation": "EXPERIMENTAL; EXISTING_GLOBAL_SELECTED_BATCH_FOUR_UNCHANGED",
+  "actual_publication_head": "41456da6d144abea96aada865703286a02b935f8",
+  "actual_publication_workflow_run": 41051877610,
+  "actual_publication_jobs": {
+    "publish": {"id": 124049683001, "conclusion": "success"},
+    "anonymous": {"id": 124049797139, "conclusion": "success"},
+    "Docker": {"id": 124050991123, "conclusion": "success"}
+  },
+  "independent_full_receipt_review_sha256": "bd310ed01ceac84df6fd51862fd197e262516f28f936dbd92f92abd232cbae16",
+  "artifact_zip_sha256": {
+    "publication": "70c8040a3712875263650c2add1f2a424484b11e2905b173dd521cc325019d49",
+    "anonymous": "2c1a79c9ca41f1954e660ac3db2c81b70db16187e12766bac67d6e280b47849d",
+    "Docker": "a83ad1d41f7c15d2c1c4b63bd9b00392e925c60de28c73f99fb60ac6926efdd2"
+  },
+  "anonymous_complete_objects": 25,
+  "anonymous_complete_layers": 23,
+  "anonymous_complete_graph_bytes": 5923167708,
+  "actual_anonymous_Docker_pull_inspect_CPU_help_and_owned_absence": true,
+  "final_code_review_head": "cddf9fe3706d06506799c6041f898482ccfea57b",
+  "generic_CI": {
+    "run_id": 41053758885,
+    "Python_three_eleven_job": 124056001754,
+    "Python_three_thirteen_job": 124056001710,
+    "policy_job": 124056001213,
+    "all_three_success": true
+  },
+  "Greptile": {
+    "check_id": 124056197349,
+    "head": "cddf9fe3706d06506799c6041f898482ccfea57b",
+    "conclusion": "success",
+    "files_reviewed": 18,
+    "new_comments": 0,
+    "prior_verified_P2_comment": 4423382553,
+    "P2_fixed_with_shared_operations_tag_and_thread_resolved": true
+  },
+  "post_publication_activation_gate": {
+    "required_head": "41456da6d144abea96aada865703286a02b935f8",
+    "code_only_workflow_run": 41053748398,
+    "workflow_conclusion": "skipped",
+    "all_three_publication_jobs_skipped_without_steps": true,
+    "duplicate_registry_writes_or_pulls": 0
+  },
+  "raw_public_payloads_unchanged_after_actual_publication": true,
+  "existing_selected_batch_four_reference": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+  "existing_selected_paths_or_tags_changed": false,
+  "new_GPU_model_API_payment_credentials_scopes_or_terms": false,
+  "private_model_transcripts_Journal_or_puzzle_material_published": false,
+  "remaining_blockers_for_this_publication_slice": [],
+  "limitations": [
+    "The exact5.9GB graph was streamed and hashed by the hosted anonymous runner. Local independent review checks all retained metadata/progress/journals/phase logs and does not claim a second local whole-layer rehash.",
+    "This publication is experimental delivery evidence, not an official performance grade or replacement of the frozen global selection."
+  ]
+}

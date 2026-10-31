@@ -1,0 +1,152 @@
+{
+  "description": "CANDIDATE-BUILT scripted experiment queue for the CPU stand-in engine. Each entry is a genuine build/config change to tasks/harness-design/standin/Dockerfile rendered into a unified diff by ScriptedProposer. Order matters: kept experiments become the new last-good baseline for later comparisons. Edits with \"regex\": true match the current (possibly already-patched) build context so the queue does not depend on which earlier experiments were kept.",
+  "experiments": [
+    {
+      "experiment": "threads-8",
+      "hypothesis": "Decode is compute-bound on CPU; raising --threads/--threads-batch from 4 to the 8 cores allotted to the container should raise FTGR and lower TTFT.",
+      "edits": [
+        {
+          "file": "Dockerfile",
+          "find": "\"--threads\", \"4\", \"--threads-batch\", \"4\"",
+          "replace": "\"--threads\", \"8\", \"--threads-batch\", \"8\""
+        }
+      ]
+    },
+    {
+      "experiment": "threads-1",
+      "hypothesis": "Control experiment: a single decode thread must regress FTGR and TTFT; the decision rule should revert it.",
+      "edits": [
+        {
+          "file": "Dockerfile",
+          "regex": true,
+          "find": "\"--threads\", \"\\d+\", \"--threads-batch\", \"\\d+\"",
+          "replace": "\"--threads\", \"1\", \"--threads-batch\", \"1\""
+        }
+      ]
+    },
+    {
+      "experiment": "ubatch-64",
+      "hypothesis": "Benchmark prompts are ~30-40 tokens, so shrinking --batch-size/--ubatch-size from 512 to 64 should not change TTFT or FTGR measurably (expected no_change).",
+      "edits": [
+        {
+          "file": "Dockerfile",
+          "find": "\"--batch-size\", \"512\", \"--ubatch-size\", \"512\"",
+          "replace": "\"--batch-size\", \"64\", \"--ubatch-size\", \"64\""
+        }
+      ]
+    },
+    {
+      "experiment": "repeat-penalty-1.5",
+      "hypothesis": "A server-side default --repeat-penalty 1.5 could shorten rambling outputs and finish faster, but it changes greedy argmax; the golden-output gate must reject it (expected gate_failed).",
+      "edits": [
+        {
+          "file": "Dockerfile",
+          "find": "\"--parallel\", \"1\"",
+          "replace": "\"--parallel\", \"1\", \"--repeat-penalty\", \"1.5\""
+        }
+      ]
+    },
+    {
+      "experiment": "port-8001-misconfig",
+      "hypothesis": "Fault injection: serving on port 8001 while the contract expects 8000 makes the server unreachable; the startup timeout must detect the hung/unreachable server (expected error).",
+      "edits": [
+        {
+          "file": "Dockerfile",
+          "find": "\"--port\", \"8000\"",
+          "replace": "\"--port\", \"8001\""
+        }
+      ]
+    },
+    {
+      "experiment": "avx512-on-host-without-avx512",
+      "hypothesis": "Fault injection: compiling with GGML_AVX512=ON on a host without AVX-512 produces a binary that dies with an illegal instruction at startup; the loop must log it as error and keep last-good.",
+      "edits": [
+        {
+          "file": "Dockerfile",
+          "find": "ARG GGML_AVX512=OFF",
+          "replace": "ARG GGML_AVX512=ON"
+        }
+      ]
+    },
+    {
+      "experiment": "native-march",
+      "hypothesis": "GGML_NATIVE=ON lets the compiler target the exact build host ISA; may improve matmul kernels slightly on this CPU (expected small improvement or no_change).",
+      "edits": [
+        {
+          "file": "Dockerfile",
+          "find": "ARG GGML_NATIVE=OFF",
+          "replace": "ARG GGML_NATIVE=ON"
+        }
+      ]
+    },
+    {
+      "experiment": "lto-on",
+      "hypothesis": "Link-time optimization could inline hot ggml paths; effect on a 135M model is probably within noise (expected no_change).",
+      "edits": [
+        {
+          "file": "Dockerfile",
+          "find": "ARG GGML_LTO=OFF",
+          "replace": "ARG GGML_LTO=ON"
+        }
+      ]
+    },
+    {
+      "experiment": "flash-attn-on",
+      "hypothesis": "Forcing --flash-attn on (instead of auto) may change the attention kernel on CPU; check TTFT/FTGR and that greedy outputs stay identical.",
+      "edits": [
+        {
+          "file": "Dockerfile",
+          "regex": true,
+          "find": "\"--flash-attn\", \"[a-z]+\"",
+          "replace": "\"--flash-attn\", \"on\""
+        }
+      ]
+    },
+    {
+      "experiment": "parallel-4-slots",
+      "hypothesis": "Four server slots split the 2048 context; sequential requests should see no gain and possibly a small regression from smaller per-slot KV (expected no_change or regressed).",
+      "edits": [
+        {
+          "file": "Dockerfile",
+          "regex": true,
+          "find": "\"--parallel\", \"\\d+\"",
+          "replace": "\"--parallel\", \"4\""
+        }
+      ]
+    },
+    {
+      "experiment": "no-warmup",
+      "hypothesis": "Skipping the server warmup pass should cut startup-to-first-valid-generation; the primary metrics should be unchanged, so the rule must return no_change (startup is secondary).",
+      "edits": [
+        {
+          "file": "Dockerfile",
+          "find": "\"--no-webui\"",
+          "replace": "\"--no-webui\", \"--no-warmup\""
+        }
+      ]
+    },
+    {
+      "experiment": "kv-cache-q8",
+      "hypothesis": "Quantizing the K cache to q8_0 shrinks KV memory traffic; it must not change greedy outputs on the benchmark prompts or the golden gate rejects it.",
+      "edits": [
+        {
+          "file": "Dockerfile",
+          "regex": true,
+          "find": "\"--cache-type-k\", \"[a-z0-9_]+\"",
+          "replace": "\"--cache-type-k\", \"q8_0\""
+        }
+      ]
+    },
+    {
+      "experiment": "openmp-off-cold-rebuild",
+      "hypothesis": "ggml's own thread pool (GGML_OPENMP=OFF) may schedule decode graph work with less barrier overhead than libgomp on an 8-vCPU container, raising FTGR. Compile-flag change: forces a full llama.cpp rebuild; run with --no-cache so the row records a real multi-minute build.",
+      "edits": [
+        {
+          "file": "Dockerfile",
+          "find": "ARG GGML_OPENMP=ON",
+          "replace": "ARG GGML_OPENMP=OFF"
+        }
+      ]
+    }
+  ]
+}

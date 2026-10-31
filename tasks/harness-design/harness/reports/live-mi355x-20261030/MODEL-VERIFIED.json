@@ -1,0 +1,10 @@
+{
+  "bytes": 55586107940,
+  "downloaded_by_this_job": false,
+  "files": 29,
+  "full_read_hash_elapsed_s": 24.191720215999993,
+  "full_read_hash_finished_utc": "2026-10-30T11:37:02.912724+00:00",
+  "full_read_hash_started_utc": "2026-10-30T11:36:38.720997+00:00",
+  "repository": "Qwen/Qwen3.6-27B",
+  "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+}

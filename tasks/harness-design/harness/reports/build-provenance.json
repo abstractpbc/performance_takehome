@@ -1,0 +1,19 @@
+{
+  "attempts": 14,
+  "base_image": null,
+  "build_context": "tasks/harness-design/standin",
+  "digest_resolution": "docker buildx --metadata-file containerimage.digest / docker image inspect RepoDigests",
+  "dockerfile": "tasks/harness-design/standin/Dockerfile",
+  "engine": "standin",
+  "harness_tree_sha256": "f4a25e8e51d8b619672e5dcae9b0debe1e029518fad32d382f15de2741d30e81",
+  "image_identity_kind": "docker-image-config-id",
+  "last_good": {
+    "digest": "sha256:531323d6ac7a55bc3e5f9e25b1c7abb29c65006eabe79781d90726372f3da974",
+    "experiment": "013-openmp-off-cold-rebuild",
+    "image_id": "sha256:531323d6ac7a55bc3e5f9e25b1c7abb29c65006eabe79781d90726372f3da974",
+    "patch": "tasks/harness-design/harness/patches/013-openmp-off-cold-rebuild.patch",
+    "report": "tasks/harness-design/harness/reports/013-openmp-off-cold-rebuild.json",
+    "tag": "abstract-harness-standin:013-openmp-off-cold-rebuild"
+  },
+  "source_commit": "45fc163eba7cdc34f27d377fbd4387ffe17b3627"
+}

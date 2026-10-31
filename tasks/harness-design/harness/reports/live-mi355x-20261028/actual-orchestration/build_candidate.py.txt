@@ -1,0 +1,41 @@
+"""Inactive CPU-only config candidate build; root must select actual Pi context."""
+from pathlib import Path
+from datetime import datetime,timezone
+import argparse,hashlib,json,os,subprocess,sys
+p=argparse.ArgumentParser(description=__doc__)
+p.add_argument('--execute',action='store_true');p.add_argument('--candidate-dockerfile');p.add_argument('--dockerfile-sha256');p.add_argument('--tag');p.add_argument('--out')
+a=p.parse_args()
+if not a.execute:print('{"inactive":true,"Docker_or_GPU_actions":0}');raise SystemExit(0)
+r=Path('/srv/abstract-direct-runc');source=r/'harness';proposed=Path(a.candidate_dockerfile)
+assert proposed.is_absolute() and proposed.resolve()==proposed and proposed.is_file() and not proposed.is_symlink()
+assert proposed.is_relative_to(r) and 0<proposed.stat().st_size<=64<<10
+sys.path[:0]=[str(source/'tasks/harness-design/harness'),str(source)]
+from abstract_harness.configuration_delivery import validate_patch_context
+candidate_raw=proposed.read_bytes();assert hashlib.sha256(candidate_raw).hexdigest()==a.dockerfile_sha256
+assert a.tag.startswith('abstract-direct-pi-') and all(c.isalnum() or c in '-_.' for c in a.tag)
+out=Path(a.out);assert out.is_relative_to(r/'evidence') and not out.exists();out.mkdir(parents=True,mode=0o700)
+original=out/'original-minimal-context';context=out/'candidate-minimal-context'
+for directory in (original,context):(directory/'tasks/harness-design').mkdir(parents=True)
+old_raw=subprocess.check_output(['git','-C',str(source),'show','99c006dfeb1fae2c2e33f3c066927ee43bf056ec:tasks/harness-design/Dockerfile'])
+(original/'tasks/harness-design/Dockerfile').write_bytes(old_raw)
+dockerfile=context/'tasks/harness-design/Dockerfile';dockerfile.write_bytes(candidate_raw)
+proof=validate_patch_context(original,context)
+proof['scope']='Exact actual minimal build contexts only; root separately retains and reviews genuine Pi patch/worktree. No other Pi files enter this build. Source guard forbids filesystem instructions.'
+base='ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d'
+argv=['docker','build','--pull=false','--network=none','--build-arg','BASE_IMAGE='+base,
+      '--file',str(dockerfile),'--tag',a.tag,str(context)]
+with (out/'attempt.json').open('x') as stream:json.dump({'argv':argv,'policy':proof,'candidate_Dockerfile_sha256':a.dockerfile_sha256,'started_utc':datetime.now(timezone.utc).isoformat(),'CPU_only_no_inference':True},stream,indent=2)
+env={k:os.environ[k] for k in ('PATH','HOME','LANG','LC_ALL','TMPDIR') if k in os.environ}
+with (out/'build.stdout').open('xb') as stdout,(out/'build.stderr').open('xb') as stderr:
+ done=subprocess.run(argv,env=env,stdout=stdout,stderr=stderr,timeout=120,check=False)
+assert done.returncode==0,('build failed; logs retained',done.returncode)
+baseline=json.loads(subprocess.check_output(['docker','image','inspect',base],env=env))[0]
+candidate=json.loads(subprocess.check_output(['docker','image','inspect',a.tag],env=env))[0]
+assert candidate['RootFS']['Layers']==baseline['RootFS']['Layers'] and candidate['Config']['Entrypoint']==baseline['Config']['Entrypoint']
+assert len(candidate['RootFS']['Layers'])==23
+with (out/'candidate-inspect.json').open('x') as stream:json.dump(candidate,stream,indent=2)
+result={'status':'ACTUAL_PI_CONTEXT_CONFIG_IMAGE_BUILT_NOT_MEASURED','image':a.tag,'image_id':candidate['Id'],
+ 'Dockerfile_sha256':a.dockerfile_sha256,'policy':proof,'base_override':base,'exact23layers_preserved':True,
+ 'entrypoint_preserved':True,'GPU_measurement_or_Pi_proposal_made_by_builder':False,'finished_utc':datetime.now(timezone.utc).isoformat()}
+with (out/'result.json').open('x') as stream:json.dump(result,stream,indent=2)
+print(json.dumps(result,indent=2))

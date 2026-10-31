@@ -1,0 +1,114 @@
+{
+  "schema_version": 2,
+  "task": "harness-design",
+  "status": "development-evidence-on-candidate-built-cpu-standin-not-an-official-submission",
+  "image": "abstract-harness-standin@sha256:531323d6ac7a55bc3e5f9e25b1c7abb29c65006eabe79781d90726372f3da974",
+  "platform": "linux/amd64",
+  "source": {
+    "repository": "https://github.com/sharonbasovich/performance_takehome",
+    "commit": "45fc163eba7cdc34f27d377fbd4387ffe17b3627",
+    "dockerfile": "tasks/harness-design/standin/Dockerfile",
+    "build_command": "docker buildx build --platform linux/amd64 --load -f tasks/harness-design/standin/Dockerfile -t candidate tasks/harness-design/standin",
+    "engine_source_revision": "llama.cpp 620d2225cc436ab0b001e3200e590e3b286ef9ab",
+    "patches": [
+      "tasks/harness-design/harness/patches/001-threads-8.patch",
+      "tasks/harness-design/harness/patches/013-openmp-off-cold-rebuild.patch"
+    ],
+    "patch_chain_complete": true,
+    "provenance_path": "tasks/harness-design/harness/reports/build-provenance.json",
+    "harness_tree_sha256": "f4a25e8e51d8b619672e5dcae9b0debe1e029518fad32d382f15de2741d30e81",
+    "image_identity_kind": "docker-image-config-id"
+  },
+  "model": {
+    "repository": "unsloth/SmolLM2-135M-Instruct-GGUF",
+    "revision": "9e6855bc4be717fca1ef21360a1db4b29d5c559a",
+    "note": "CANDIDATE-BUILT CPU stand-in model, not the organizer's pinned snapshot"
+  },
+  "agent_harness": {
+    "base_package": "@earendil-works/pi-coding-agent",
+    "base_version": "1.0.0",
+    "base_profile": "plain-pi-1.0",
+    "entrypoint": "tasks/harness-design/harness/run.py",
+    "proposer_used": "scripted",
+    "provenance_path": "tasks/harness-design/harness/reports/agent-provenance.json"
+  },
+  "integrity": {
+    "starter_commit": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "starter_tag_note": "organizer tag `takehome-start` is absent in the draft; the starter commit SHA was used instead",
+    "command": "python -B -m tools.check_integrity --base 81aead87d78ed468c4c374fb42921471b44c3f80",
+    "returncode": 0,
+    "report": "tasks/harness-design/harness/reports/integrity.txt"
+  },
+  "evaluation": {
+    "owner": "organizer",
+    "mode": "offline-black-box-after-submission",
+    "official_result": "UNAVAILABLE_IN_DRAFT: organizer benchmark has not been run"
+  },
+  "development_benchmark": {
+    "owner": "candidate",
+    "config": "tasks/harness-design/harness/development-benchmark.json",
+    "engine": "standin"
+  },
+  "runtime": {
+    "args": [
+      "--host",
+      "0.0.0.0",
+      "--port",
+      "8000",
+      "--alias",
+      "standin",
+      "--no-webui",
+      "--metrics",
+      "--ctx-size",
+      "2048",
+      "--threads",
+      "8",
+      "--threads-batch",
+      "8",
+      "--batch-size",
+      "512",
+      "--ubatch-size",
+      "512",
+      "--parallel",
+      "1",
+      "--flash-attn",
+      "auto",
+      "--cache-type-k",
+      "f16",
+      "--cache-type-v",
+      "f16",
+      "--model",
+      "/models/model/model.gguf"
+    ],
+    "environment": {}
+  },
+  "evidence": {
+    "experiment_log": "tasks/harness-design/harness/results.tsv",
+    "report": "tasks/harness-design/NOTES.md",
+    "development_reports": [
+      "tasks/harness-design/harness/reports/000-baseline.json",
+      "tasks/harness-design/harness/reports/001-threads-8.json",
+      "tasks/harness-design/harness/reports/002-threads-1.json",
+      "tasks/harness-design/harness/reports/003-ubatch-64.json",
+      "tasks/harness-design/harness/reports/004-repeat-penalty-1.5.json",
+      "tasks/harness-design/harness/reports/005-port-8001-misconfig.json",
+      "tasks/harness-design/harness/reports/006-avx512-on-host-without-avx512.json",
+      "tasks/harness-design/harness/reports/007-native-march.json",
+      "tasks/harness-design/harness/reports/008-lto-on.json",
+      "tasks/harness-design/harness/reports/009-flash-attn-on.json",
+      "tasks/harness-design/harness/reports/010-parallel-4-slots.json",
+      "tasks/harness-design/harness/reports/011-no-warmup.json",
+      "tasks/harness-design/harness/reports/012-kv-cache-q8.json",
+      "tasks/harness-design/harness/reports/013-openmp-off-cold-rebuild.json"
+    ],
+    "agent_transcripts": [],
+    "last_good": {
+      "tag": "abstract-harness-standin:013-openmp-off-cold-rebuild",
+      "digest": "sha256:531323d6ac7a55bc3e5f9e25b1c7abb29c65006eabe79781d90726372f3da974",
+      "experiment": "013-openmp-off-cold-rebuild",
+      "development_report": "tasks/harness-design/harness/reports/013-openmp-off-cold-rebuild.json"
+    },
+    "finish_reason": "proposer exhausted",
+    "api_usd_cumulative": 0.0
+  }
+}

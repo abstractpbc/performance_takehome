@@ -1,0 +1,115 @@
+{
+  "kind": "SANITIZED_SUCCESSFUL_PI4_METADATA_ONLY",
+  "scope": "Successful genuinely new Pi4 feedback only. Raw artifact was rejected for a corrupted base pin; root-authorized mechanical correction is separately attributed, preserving the chosen batch-size hypothesis.",
+  "stock_cli": {
+    "package": "@earendil-works/pi-coding-agent",
+    "version": "1.0.0",
+    "node_version": "22.19.0"
+  },
+  "launch_verification": {
+    "source_sha256": "44561bbca34cf858f4a530142f2c630b5fbd6f81830ef73741e1ae8b9a7c969d",
+    "context_sha256": "f12d7ff829c84c104b27093b0cc71c3177d4080d652e894055cdedaebb27a136",
+    "node_sha256": "596b5144ff242737f1c1be6a5f0ccb3907dbba2482344143cb1a6898633402a9",
+    "started_utc": "2026-10-28T23:40:05.071164+00:00",
+    "Pi_distribution_files_verified": 1243
+  },
+  "requested_output_tokens": 16384,
+  "effective_historical_wire_output_tokens": 16384,
+  "argument_hash_encoding": "json.dumps(args,ensure_ascii=False,sort_keys=True,separators=(comma,colon)), UTF-8",
+  "source_transcript_bytes": 1881636,
+  "source_transcript_sha256": "37e19097361699bf2691a8210f33899911098184c5b520d9087f20057989ca82",
+  "event_type_counts": {
+    "session": 1,
+    "agent_start": 1,
+    "turn_start": 3,
+    "message_start": 8,
+    "message_end": 8,
+    "message_update": 5907,
+    "tool_execution_start": 3,
+    "tool_execution_end": 3,
+    "turn_end": 3,
+    "tool_execution_update": 3,
+    "agent_end": 1,
+    "agent_settled": 1
+  },
+  "tool_events": [
+    {
+      "sequence": 5490,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-bd435222abbe3889",
+      "tool_name": "write",
+      "argument_canonical_utf8_bytes": 1637,
+      "argument_canonical_sha256": "e829f3fca3c96eccf6198583496251ad57cd4098cd05c27a778a70ac281ba849",
+      "allowed_relative_work_filenames": [
+        "candidate.Dockerfile"
+      ]
+    },
+    {
+      "sequence": 5491,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-b9bc83dd34441022",
+      "tool_name": "write",
+      "argument_canonical_utf8_bytes": 3181,
+      "argument_canonical_sha256": "dc952e69a0bc7dc202f5559eaf37c51396832c1c676789f6b29210870d1a4af3",
+      "allowed_relative_work_filenames": [
+        "proposal.json"
+      ]
+    },
+    {
+      "sequence": 5492,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-b9bc83dd34441022",
+      "tool_name": "write",
+      "is_error": false
+    },
+    {
+      "sequence": 5493,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-bd435222abbe3889",
+      "tool_name": "write",
+      "is_error": false
+    },
+    {
+      "sequence": 5618,
+      "event": "tool_execution_start",
+      "tool_call_id": "chatcmpl-tool-bab73df6a0ccbf17",
+      "tool_name": "bash",
+      "argument_canonical_utf8_bytes": 1111,
+      "argument_canonical_sha256": "13951a7ce506545462e33692efc2f7bd5137a0273b52b0414b7be36fe3559d36",
+      "allowed_relative_work_filenames": []
+    },
+    {
+      "sequence": 5622,
+      "event": "tool_execution_end",
+      "tool_call_id": "chatcmpl-tool-bab73df6a0ccbf17",
+      "tool_name": "bash",
+      "is_error": false
+    }
+  ],
+  "assistant_stop_reason_metadata": [
+    {
+      "sequence": 5489,
+      "stop_reason": "toolUse"
+    },
+    {
+      "sequence": 5617,
+      "stop_reason": "toolUse"
+    },
+    {
+      "sequence": 5939,
+      "stop_reason": "stop"
+    }
+  ],
+  "known_output_artifacts": {
+    "candidate.Dockerfile": {
+      "bytes": 1542,
+      "sha256": "eed21a634ccccfdb6c1b917eab5ddeead9e164af3c7f5cdabe0ed67fcf117e25"
+    },
+    "proposal.json": {
+      "bytes": 3117,
+      "sha256": "3297a6d7412728a7e497cf60ad896812be516dcb3b53902e2c9809803401cde3"
+    }
+  },
+  "excluded": "All assistant text/thinking/reasoning, tool output, argument content, raw WAL, provider/client configuration and environment values. Filename extraction is a restrictive explicit basename allowlist.",
+  "API_or_GPU_actions_performed_by_sanitizer": 0
+}

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="720pt" height="388.8pt" viewBox="0 0 720 388.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-30T08:02:35.488682</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.3, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 388.8 
+L 720 388.8 
+L 720 0 
+L 0 0 
+z
+" style="fill: #fafbf9"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 158.4 276.048 
+L 676.8 276.048 
+L 676.8 124.416 
+L 158.4 124.416 
+z
+" style="fill: #fafbf9"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 158.4 276.048 
+L 158.4 124.416 
+" clip-path="url(#p4acbb59ec7)" style="fill: none; stroke: #dde3df; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2"/>
+     <g id="text_1">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #394d47" x="158.4" y="295.166125" transform="rotate(-0 158.4 295.166125)">0.9</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 284.839024 276.048 
+L 284.839024 124.416 
+" clip-path="url(#p4acbb59ec7)" style="fill: none; stroke: #dde3df; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4"/>
+     <g id="text_2">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #394d47" x="284.839024" y="295.166125" transform="rotate(-0 284.839024 295.166125)">1.0</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 411.278049 276.048 
+L 411.278049 124.416 
+" clip-path="url(#p4acbb59ec7)" style="fill: none; stroke: #dde3df; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6"/>
+     <g id="text_3">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #394d47" x="411.278049" y="295.166125" transform="rotate(-0 411.278049 295.166125)">1.1</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 537.717073 276.048 
+L 537.717073 124.416 
+" clip-path="url(#p4acbb59ec7)" style="fill: none; stroke: #dde3df; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8"/>
+     <g id="text_4">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #394d47" x="537.717073" y="295.166125" transform="rotate(-0 537.717073 295.166125)">1.2</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 664.156098 276.048 
+L 664.156098 124.416 
+" clip-path="url(#p4acbb59ec7)" style="fill: none; stroke: #dde3df; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10"/>
+     <g id="text_5">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #394d47" x="664.156098" y="295.166125" transform="rotate(-0 664.156098 295.166125)">1.3</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle" x="417.6" y="318.779875" transform="rotate(-0 417.6 318.779875)">Speedup relative to paired control  ·  values above 1 are better</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_11"/>
+     <g id="text_7">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #394d47" x="148.4" y="173.35516" transform="rotate(-0 148.4 173.35516)">TTFT</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_12"/>
+     <g id="text_8">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #394d47" x="148.4" y="247.321989" transform="rotate(-0 148.4 247.321989)">FTGR score</text>
+     </g>
+    </g>
+   </g>
+   <g id="LineCollection_1">
+    <path d="M 209.273612 168.796098 
+L 403.945292 168.796098 
+" clip-path="url(#p4acbb59ec7)" style="fill: none; stroke: #71827e; stroke-width: 3"/>
+   </g>
+   <g id="line2d_13">
+    <defs>
+     <path id="mf869907778" d="M 0 6 
+L 0 -6 
+" style="stroke: #71827e"/>
+    </defs>
+    <g clip-path="url(#p4acbb59ec7)">
+     <use xlink:href="#mf869907778" x="209.273612" y="168.796098" style="fill: #71827e; stroke: #71827e"/>
+    </g>
+   </g>
+   <g id="line2d_14">
+    <g clip-path="url(#p4acbb59ec7)">
+     <use xlink:href="#mf869907778" x="403.945292" y="168.796098" style="fill: #71827e; stroke: #71827e"/>
+    </g>
+   </g>
+   <g id="LineCollection_2">
+    <path d="M 602.487508 242.762927 
+L 622.255236 242.762927 
+" clip-path="url(#p4acbb59ec7)" style="fill: none; stroke: #177c68; stroke-width: 3"/>
+   </g>
+   <g id="line2d_15">
+    <defs>
+     <path id="mb64e4a4703" d="M 0 6 
+L 0 -6 
+" style="stroke: #177c68"/>
+    </defs>
+    <g clip-path="url(#p4acbb59ec7)">
+     <use xlink:href="#mb64e4a4703" x="602.487508" y="242.762927" style="fill: #177c68; stroke: #177c68"/>
+    </g>
+   </g>
+   <g id="line2d_16">
+    <g clip-path="url(#p4acbb59ec7)">
+     <use xlink:href="#mb64e4a4703" x="622.255236" y="242.762927" style="fill: #177c68; stroke: #177c68"/>
+    </g>
+   </g>
+   <g id="line2d_17">
+    <path d="M 284.839024 276.048 
+L 284.839024 124.416 
+" clip-path="url(#p4acbb59ec7)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #8a9692"/>
+   </g>
+   <g id="line2d_18">
+    <defs>
+     <path id="m784441bf11" d="M 0 4 
+C 1.060812 4 2.078319 3.578535 2.828427 2.828427 
+C 3.578535 2.078319 4 1.060812 4 0 
+C 4 -1.060812 3.578535 -2.078319 2.828427 -2.828427 
+C 2.078319 -3.578535 1.060812 -4 0 -4 
+C -1.060812 -4 -2.078319 -3.578535 -2.828427 -2.828427 
+C -3.578535 -2.078319 -4 -1.060812 -4 0 
+C -4 1.060812 -3.578535 2.078319 -2.828427 2.828427 
+C -2.078319 3.578535 -1.060812 4 0 4 
+z
+" style="stroke: #71827e"/>
+    </defs>
+    <g clip-path="url(#p4acbb59ec7)">
+     <use xlink:href="#m784441bf11" x="394.869435" y="168.796098" style="fill: #71827e; stroke: #71827e"/>
+    </g>
+   </g>
+   <g id="line2d_19">
+    <defs>
+     <path id="md58688bfad" d="M 0 4 
+C 1.060812 4 2.078319 3.578535 2.828427 2.828427 
+C 3.578535 2.078319 4 1.060812 4 0 
+C 4 -1.060812 3.578535 -2.078319 2.828427 -2.828427 
+C 2.078319 -3.578535 1.060812 -4 0 -4 
+C -1.060812 -4 -2.078319 -3.578535 -2.828427 -2.828427 
+C -3.578535 -2.078319 -4 -1.060812 -4 0 
+C -4 1.060812 -3.578535 2.078319 -2.828427 2.828427 
+C -2.078319 3.578535 -1.060812 4 0 4 
+z
+" style="stroke: #177c68"/>
+    </defs>
+    <g clip-path="url(#p4acbb59ec7)">
+     <use xlink:href="#md58688bfad" x="612.732171" y="242.762927" style="fill: #177c68; stroke: #177c68"/>
+    </g>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #71827e" x="394.869435" y="144.796098" transform="rotate(-0 394.869435 144.796098)">CI crosses 1; improvement not established</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #177c68" x="612.732171" y="218.762927" transform="rotate(-0 612.732171 218.762927)">+25.9%; kept by the harness</text>
+   </g>
+  </g>
+  <g id="text_11">
+   <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #152d29" x="50.4" y="34.992" transform="rotate(-0 50.4 34.992)">Pi proposal passed build, comparison and final validation</text>
+  </g>
+  <g id="text_12">
+   <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52625f" x="50.4" y="62.208" transform="rotate(-0 50.4 62.208)">Batch size 16 → 1 · fresh control/candidate comparison · AMD MI355X</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52625f" x="50.4" y="330.48" transform="rotate(-0 50.4 330.48)">30 requests per arm · six fixed greedy prompts · recorded 90% stratified bootstrap intervals</text>
+  </g>
+  <g id="text_14">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52625f" x="50.4" y="347.976" transform="rotate(-0 50.4 347.976)">Fresh final: 30/30 requests and all six correctness gates passed. Startup has one sample per arm.</text>
+  </g>
+  <g id="text_15">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #687773" x="50.4" y="367.416" transform="rotate(-0 50.4 367.416)">Local development evidence, source 5c439274. The published batch-4 selection uses a separate mixed-workload study.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p4acbb59ec7">
+   <rect x="158.4" y="124.416" width="518.4" height="151.632"/>
+  </clipPath>
+ </defs>
+</svg>

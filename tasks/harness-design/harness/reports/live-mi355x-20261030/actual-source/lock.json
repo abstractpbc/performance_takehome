@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "artifact-pinned-hardware-unverified",
+  "observed_at": "2026-10-09",
+  "image": "docker.io/zmlai/llmd@sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+  "platform": "linux/amd64",
+  "entrypoint": "/llmd/llmd",
+  "default_args": ["--io-impl=zio"],
+  "compressed_layer_bytes": 5923157643,
+  "engine_source_revision": null,
+  "engine_source_status": "organizer-must-obtain-LLMD-source-and-build-provenance",
+  "models": {
+    "smoke": {
+      "repository": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218"
+    },
+    "target": {
+      "repository": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+    }
+  }
+}

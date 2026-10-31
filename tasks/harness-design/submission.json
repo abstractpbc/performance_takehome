@@ -1,0 +1,391 @@
+{
+  "agent_harness": {
+    "CPU_provenance_path": "tasks/harness-design/harness/reports/live-mi355x-20261030/cpu-provenance.json",
+    "Node_version": "22.19.0",
+    "active_GPU_provider_calls": 0,
+    "actual_phase_entrypoint_evidence": "tasks/harness-design/harness/reports/live-mi355x-20261030/actual-orchestration/run_completed_artifact.py.txt",
+    "base_package": "@earendil-works/pi-coding-agent",
+    "base_profile": "plain-pi-1.0",
+    "base_version": "1.0.0",
+    "candidate_built": true,
+    "candidate_selected_by_canonical_loop": true,
+    "canonical_unattended_GPU_loop_executed": true,
+    "entrypoint": "tasks/harness-design/harness/run.py",
+    "execution_policy": {
+      "controller_written_files": true,
+      "max_remote_calls": 1,
+      "mode": "one-response-no-tools-v1",
+      "model_authored": "final-text-JSON",
+      "output_cap": 2048,
+      "response_seconds": 60,
+      "stock_Pi": "1.0.0",
+      "tools": []
+    },
+    "genuine_CPU_model_proposal_completed": true,
+    "one_continuous_Pi_and_GPU_process_claimed": false,
+    "proposer_used": "verified-completed-stock-pi-one-response-no-tools-deferred",
+    "provenance_path": "tasks/harness-design/harness/reports/live-mi355x-20261030/reports/agent-provenance.json",
+    "raw_model_patch_repaired": false,
+    "scope": "Batch1 is the genuine model-authored canonical-loop result; this does not relabel the separately recommended controller-selected batch4 as a Pi choice.",
+    "selected_knob": "--batch-size=16 to --batch-size=1"
+  },
+  "build_recipe": {
+    "Dockerfile": "tasks/harness-design/harness/reports/live-mi355x-20261028/controller-neighbors/batch4/original-built-candidate.Dockerfile",
+    "actual_build_scope": "The external builder used the already verified public7db wrapper as BASE_IMAGE override; all23 original layers/diffIDs and entrypoint were preserved. Raw immutable graph is authoritative; no bit-reproducible-build claim.",
+    "one_changed_knob_from_canonical_baseline": "--batch-size=16 to --batch-size=4",
+    "sha256": "e0c0683f7c82d63b637827038384ec2e130d0fbf91aaa94db58df1c006a4720a"
+  },
+  "canonical_run": {
+    "FTGR_serial_development_improvement_supported": true,
+    "TTFT_improvement_supported": false,
+    "canonical_Harness_run_executed": true,
+    "controller_patch_repair": false,
+    "decision": {
+      "comparisons": [
+        {
+          "baseline_median": 0.040886590500008424,
+          "baseline_n": 30,
+          "candidate_median": 0.03764237799998682,
+          "candidate_n": 30,
+          "ci_high": 1.0942005586676844,
+          "ci_low": 0.9402356882409444,
+          "detail": "CI [0.9402, 1.0942] includes 1 or effect +8.70% below 3%",
+          "metric": "ttft_s",
+          "speedup": 1.0870225083391798,
+          "verdict": "no_change"
+        },
+        {
+          "baseline_median": 56.16186361826352,
+          "baseline_n": 30,
+          "candidate_median": 69.46821893167716,
+          "candidate_n": 30,
+          "ci_high": 1.266860815702801,
+          "ci_low": 1.2512266167009887,
+          "detail": "CI [1.2512, 1.2669] excludes 1 and effect +25.93% >= 3%",
+          "metric": "ftgr_tok_s",
+          "speedup": 1.259329070362387,
+          "verdict": "improved"
+        },
+        {
+          "baseline_median": 28.049978304000035,
+          "baseline_n": 1,
+          "candidate_median": 27.122376943000006,
+          "candidate_n": 1,
+          "ci_high": null,
+          "ci_low": null,
+          "detail": "need matching counts and >= 3 samples per prompt on each side",
+          "metric": "startup_s",
+          "speedup": null,
+          "verdict": "insufficient"
+        }
+      ],
+      "kept": true,
+      "outcome": "improved",
+      "reason": "significant improvement: ftgr_tok_s x1.259"
+    },
+    "durable_benchmark_request_traces": 120,
+    "durable_startup_probe_traces": 4,
+    "execution_scope": "one-response stock Pi CPU proposal, strict immutable artifact, then canonical Harness.run GPU phase; separate root wrapper fresh-final/export",
+    "existing_recommended_batch4_unchanged": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+    "experimental_batch1_delivery": {
+      "anonymous_complete_graph_verified": true,
+      "anonymous_docker_pull_and_help_verified": true,
+      "anonymous_graph_bytes": 5923167708,
+      "anonymous_graph_layers": 23,
+      "anonymous_graph_objects": 25,
+      "archives": {
+        "experimental-batch-one-anonymous-graph-proof-41051877610.zip": {
+          "bytes": 16451,
+          "expanded_bytes": 38891,
+          "members": 53,
+          "primary_receipt_member": "receipt.json",
+          "public_primary_receipt": "anonymous-receipt.json",
+          "sha256": "2c1a79c9ca41f1954e660ac3db2c81b70db16187e12766bac67d6e280b47849d"
+        },
+        "experimental-batch-one-docker-pull-help-proof-41051877610.zip": {
+          "bytes": 10955,
+          "expanded_bytes": 30082,
+          "members": 15,
+          "primary_receipt_member": "docker-selected/receipt.json",
+          "public_primary_receipt": "docker-receipt.json",
+          "sha256": "a83ad1d41f7c15d2c1c4b63bd9b00392e925c60de28c73f99fb60ac6926efdd2"
+        },
+        "experimental-batch-one-publication-receipt-41051877610.zip": {
+          "bytes": 4144,
+          "expanded_bytes": 20213,
+          "members": 2,
+          "primary_receipt_member": "receipt-selected-publish.json",
+          "public_primary_receipt": "publish-receipt.json",
+          "sha256": "70c8040a3712875263650c2add1f2a424484b11e2905b173dd521cc325019d49"
+        }
+      },
+      "code_review_closure": "tasks/harness-design/harness/reports/live-mi355x-20261030/publication/FINAL-CODE-AND-DELIVERY-REVIEW.json",
+      "code_review_closure_sha256": "fb2f5072eb67928b32f653a11eef4098f32f49565d8cd57412af4fd17bbe4067",
+      "config": "sha256:baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0",
+      "convenience_tag": "experimental-batch1-93f4b72539b0",
+      "independent_review_sha256": "bd310ed01ceac84df6fd51862fd197e262516f28f936dbd92f92abd232cbae16",
+      "jobs": {
+        "Docker_pull_help": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610/job/124050991123",
+        "anonymous_graph": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610/job/124049797139",
+        "publish": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610/job/124049683001",
+        "workflow": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610"
+      },
+      "kind": "verified-public-experimental-ghcr-image",
+      "limitations": [
+        "Full5.9GB bodies were streamed and hash-verified on the pinned hosted runner; this independent local review checks retained metadata/progress/journals/logs and does not claim a second local rehash of every layer.",
+        "Publication and CPU help are delivery proofs, not an official performance grade."
+      ],
+      "official_grade": false,
+      "owned_help_container_absence_verified": true,
+      "platform_manifest": "sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+      "proof": "tasks/harness-design/harness/reports/live-mi355x-20261030/publication/INDEPENDENT-REVIEW.json",
+      "publication_head": "41456da6d144abea96aada865703286a02b935f8",
+      "recommended_global_batch4_replaced": false,
+      "reference": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+      "registry_publication_verified": true,
+      "workflow_run_id": 41051877610
+    },
+    "fresh_selected_final30_pass": true,
+    "independent_fresh_baseline": true,
+    "local_selected_Docker_image_index": "sha256:1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f",
+    "local_selected_platform_manifest": "sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+    "measured_requests": 120,
+    "new_GPU_model_calls": 0,
+    "new_batch1_registry_publication_verified": true,
+    "official_grade_claimed": false,
+    "runtime": {
+      "CPU_execution_policy": {
+        "controller_written_files": true,
+        "max_remote_calls": 1,
+        "mode": "one-response-no-tools-v1",
+        "model_authored": "final-text-JSON",
+        "output_cap": 2048,
+        "response_seconds": 60,
+        "stock_Pi": "1.0.0",
+        "tools": []
+      },
+      "artifact_manifest_sha256": "90405e9695058478645b59ef3d8ff6004caf4c5ec7364af36f73fcc7484b75ce",
+      "base_identity_is_immutable_FROM_not_fresh_wrapper_ID": true,
+      "carried_CPU_API_upper_USD": "0.0144352",
+      "compatibility": {
+        "base_image_digest": "sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+        "baseline_lock_sha256": "e6119c70cd265bc2bfd34131d6fae846859614d0074ac107848f3088a673bce2",
+        "benchmark_sha256": "4492447b810ebd6af3ed36737e5f26f866a27fbbebb0d86d5563bad1fbcf16bf",
+        "harness_tree_sha256": "8d1b1d315337cfca4457ba51032401cf2910691011e39d5250fb67207cd134e2",
+        "model_runtime_sha256": "a755d78de7abb198f2353d2f3555870e9629a4b8f465014b3d2148688155c0a6",
+        "profile_sha256": "b59e36436e42767d34db13d9988e1513a2377c2bc00d1ac4cdf5c1150184e797",
+        "program_sha256": "afe5e716425125b50961a1714f3e2ac06aa62bc276843fc274c73429529b95c0",
+        "protected_context_sha256": "ecaa5ae75612818e1064e19b1606c183632279478eeb496e7206abef30a6d960",
+        "source_commit": "5c439274e2d3744da68b310c769c96b0c78bfb92"
+      },
+      "new_API_capability": 0
+    },
+    "selected_config": "sha256:baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0",
+    "six_gates_passed_each_phase": true,
+    "source_commit": "5c439274e2d3744da68b310c769c96b0c78bfb92",
+    "startup_statistical_improvement_supported": false,
+    "status": "CANONICAL_DEFERRED_CPU_PI_GPU_BUILD_PAIR_KEEP_AND_FRESH30_COMPLETED"
+  },
+  "cost": {
+    "additional_known_CPU_attempts": "tasks/harness-design/harness/reports/live-mi355x-20261030/attempt-history.json",
+    "canonical_proposal_provider_upper_USD": "0.0144352",
+    "charged_once_CPU_carried_in_GPU_not_new_API_charge": true,
+    "new_completed_GPU_charge_upper_USD": "0.95",
+    "prior_reported_settled_API_through_Pi4_USD": "0.5676140",
+    "provider_invoice_pending": true,
+    "scope": "Known attempt costs only, not a total provider invoice or complete billing reconciliation.",
+    "unknown_historical_liabilities_retained": true
+  },
+  "delivery": {
+    "anonymous_complete_graph_verified": true,
+    "anonymous_docker_pull_and_help_verified": true,
+    "anonymous_graph_bytes": 5923168772,
+    "anonymous_graph_objects": 25,
+    "config": "sha256:1a19b238c6ce1448fed276005ff14e3425e845db266141deb5391c6a84159586",
+    "existing_destination": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd",
+    "kind": "public-ghcr-immutable-image",
+    "platform_manifest": "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+    "proof": "tasks/harness-design/harness/reports/live-mi355x-20261028/publication/VERIFIED.json",
+    "registry_publication_verified": true,
+    "verification_scope": "Exact pinned hosted checker streamed/hash-verified every complete object, followed by a separate actual anonymous Docker pull/inspect/CPU-help. Independent local review binds retained receipts/progress/log hashes and raw graph. The 5.9GB streamed bodies/image were not retained or rehashed on this local computer.",
+    "workflow_commit": "54b356b2ff21740da992a4b976b3e4d466902d9f",
+    "workflow_run": "https://github.com/sharonbasovich/performance_takehome/actions/runs/40794303749"
+  },
+  "development_benchmark": {
+    "config": "tasks/harness-design/harness/reports/live-mi355x-20261030/actual-source/development-benchmark.llmd.json",
+    "engine": "llmd",
+    "measured_requests_per_complete_phase": 30,
+    "official_grade": false,
+    "owner": "candidate",
+    "prompts": 6,
+    "repetitions": 5,
+    "request_profile": "llmd_closed_thinking_v1",
+    "sha256": "4492447b810ebd6af3ed36737e5f26f866a27fbbebb0d86d5563bad1fbcf16bf"
+  },
+  "evaluation": {
+    "gain_scope": "Local serial development evidence only; FTGR supported for batch1, TTFT interval crosses1, one startup per arm is insufficient. Recommended batch4 retains its prior exploratory mixed-workload evidence.",
+    "mode": "offline-black-box-after-submission",
+    "official_result": "UNAVAILABLE_IN_DRAFT",
+    "owner": "organizer"
+  },
+  "evidence": {
+    "CPU_provenance": "tasks/harness-design/harness/reports/live-mi355x-20261030/cpu-provenance.json",
+    "agent_transcript_scope": "Raw SDK sessions/prompts/reasoning/provider WAL stay private; sanitized CPU provenance and exact model patch remain public, original private proof retained for review.",
+    "agent_transcripts": [],
+    "attempt_history": "tasks/harness-design/harness/reports/live-mi355x-20261030/attempt-history.json",
+    "cleanup_and_export": "tasks/harness-design/harness/reports/live-mi355x-20261030/cleanup-and-export.json",
+    "decision": "tasks/harness-design/harness/reports/live-mi355x-20261030/decision.json",
+    "development_reports": [
+      "tasks/harness-design/harness/reports/live-mi355x-20261030/reports/000-baseline.json",
+      "tasks/harness-design/harness/reports/live-mi355x-20261030/reports/001-batch-size-1.json",
+      "tasks/harness-design/harness/reports/live-mi355x-20261030/FRESH-FINAL.json"
+    ],
+    "directory": "tasks/harness-design/harness/reports/live-mi355x-20261030",
+    "durable_startup_probes": 4,
+    "experiment_log": "tasks/harness-design/harness/results.tsv",
+    "experimental_image_publication": "tasks/harness-design/harness/reports/live-mi355x-20261030/publication/VERIFIED.json",
+    "fresh_final_passed": true,
+    "historical_recommended_image_evidence_manifest": "tasks/harness-design/submission.controller-batch4-live-20261029.json",
+    "inventory": "tasks/harness-design/harness/reports/live-mi355x-20261030/inventory.json",
+    "path_normalization": "tasks/harness-design/harness/reports/live-mi355x-20261030/result-path-map.json",
+    "primary_measured_requests": 120,
+    "prior_baseline_only_failed_cohorts": "tasks/harness-design/harness/reports/live-mi355x-20261030/baseline-only-history.json",
+    "raw_experiment_log": "tasks/harness-design/harness/reports/live-mi355x-20261030/raw-results.tsv",
+    "report": "tasks/harness-design/NOTES.md",
+    "summary": "tasks/harness-design/harness/reports/live-mi355x-20261030/reviewed-summary.json"
+  },
+  "experimental_image_delivery": {
+    "anonymous_complete_graph_verified": true,
+    "anonymous_docker_pull_and_help_verified": true,
+    "anonymous_graph_bytes": 5923167708,
+    "anonymous_graph_layers": 23,
+    "anonymous_graph_objects": 25,
+    "archives": {
+      "experimental-batch-one-anonymous-graph-proof-41051877610.zip": {
+        "bytes": 16451,
+        "expanded_bytes": 38891,
+        "members": 53,
+        "primary_receipt_member": "receipt.json",
+        "public_primary_receipt": "anonymous-receipt.json",
+        "sha256": "2c1a79c9ca41f1954e660ac3db2c81b70db16187e12766bac67d6e280b47849d"
+      },
+      "experimental-batch-one-docker-pull-help-proof-41051877610.zip": {
+        "bytes": 10955,
+        "expanded_bytes": 30082,
+        "members": 15,
+        "primary_receipt_member": "docker-selected/receipt.json",
+        "public_primary_receipt": "docker-receipt.json",
+        "sha256": "a83ad1d41f7c15d2c1c4b63bd9b00392e925c60de28c73f99fb60ac6926efdd2"
+      },
+      "experimental-batch-one-publication-receipt-41051877610.zip": {
+        "bytes": 4144,
+        "expanded_bytes": 20213,
+        "members": 2,
+        "primary_receipt_member": "receipt-selected-publish.json",
+        "public_primary_receipt": "publish-receipt.json",
+        "sha256": "70c8040a3712875263650c2add1f2a424484b11e2905b173dd521cc325019d49"
+      }
+    },
+    "code_review_closure": "tasks/harness-design/harness/reports/live-mi355x-20261030/publication/FINAL-CODE-AND-DELIVERY-REVIEW.json",
+    "code_review_closure_sha256": "fb2f5072eb67928b32f653a11eef4098f32f49565d8cd57412af4fd17bbe4067",
+    "config": "sha256:baeb12d7ad78daa8ff91486696ae94056542576afbceff24bfcc75db7857a0e0",
+    "convenience_tag": "experimental-batch1-93f4b72539b0",
+    "independent_review_sha256": "bd310ed01ceac84df6fd51862fd197e262516f28f936dbd92f92abd232cbae16",
+    "jobs": {
+      "Docker_pull_help": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610/job/124050991123",
+      "anonymous_graph": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610/job/124049797139",
+      "publish": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610/job/124049683001",
+      "workflow": "https://github.com/sharonbasovich/performance_takehome/actions/runs/41051877610"
+    },
+    "kind": "verified-public-experimental-ghcr-image",
+    "limitations": [
+      "Full5.9GB bodies were streamed and hash-verified on the pinned hosted runner; this independent local review checks retained metadata/progress/journals/logs and does not claim a second local rehash of every layer.",
+      "Publication and CPU help are delivery proofs, not an official performance grade."
+    ],
+    "official_grade": false,
+    "owned_help_container_absence_verified": true,
+    "platform_manifest": "sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+    "proof": "tasks/harness-design/harness/reports/live-mi355x-20261030/publication/INDEPENDENT-REVIEW.json",
+    "publication_head": "41456da6d144abea96aada865703286a02b935f8",
+    "recommended_global_batch4_replaced": false,
+    "reference": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:93f4b72539b0e9cec3a21ed9c2c0c1ec74e876791318456bebf36182a52ce2c9",
+    "registry_publication_verified": true,
+    "workflow_run_id": 41051877610
+  },
+  "historical_snapshots": [
+    {
+      "path": "tasks/harness-design/submission.controller-batch4-live-20261029.json",
+      "sha256": "3a643468e16553c58e54aa6e517ef0a63e19767856386ea78e79e9c0c1d7eaea"
+    },
+    {
+      "path": "tasks/harness-design/harness/reports/history-cpu-standin-20261024/results.tsv",
+      "performance_valid": false,
+      "sha256": "a063f17a497469c426f8bbb19e888918bca32582ca502b8f63da03a524ad4b3c"
+    }
+  ],
+  "image": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+  "image_digest": "sha256:84d13e8e4f6777ec4522d701d86e16181c0b170602a7e81db17dab7df525cabb",
+  "image_identity_kind": "linux-amd64-platform-manifest-digest",
+  "integrity": {
+    "command": "python -B -m tools.check_integrity --base 81aead87d78ed468c4c374fb42921471b44c3f80",
+    "protected_files_modified": false,
+    "report": "tasks/harness-design/harness/reports/live-mi355x-20261030/protected-integrity.txt",
+    "returncode": 0,
+    "starter_commit": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "starter_tag_note": "Draft lacks takehome-start tag; actual released starter commit was used."
+  },
+  "model": {
+    "repository": "Qwen/Qwen3.6-27B",
+    "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "weights_in_image": false
+  },
+  "platform": "linux/amd64",
+  "recommended_image_selection": {
+    "batch_size": 4,
+    "canonical_model_chose4_claimed": false,
+    "frozen_history": "tasks/harness-design/submission.controller-batch4-live-20261029.json",
+    "new_batch1_comparative_superiority_over4_claimed": false,
+    "source": "prior controller neighbors4/8 under predeclared mixed policy"
+  },
+  "runtime": {
+    "args": [
+      "--io-impl=zio",
+      "--batch-size=4",
+      "--token-batch-size=1024",
+      "--max-context-len=128000",
+      "--prefill-chunk-size=256",
+      "--page-chunk-size=16",
+      "--backend=auto",
+      "--gpu-memory-fraction=0.9",
+      "--cache-memory-fraction=0.95",
+      "--model=/models/model"
+    ],
+    "entrypoint": [
+      "/llmd/llmd"
+    ],
+    "environment": {},
+    "environment_scope": "No overrides; locked upstream image environment retained, raw selected config is authoritative.",
+    "scope": "Recommended batch4 submitted image. Canonical-loop batch1 runtime is separately retained in canonical_run/experimental_image_delivery.",
+    "weights_mount": "read-only /models/model; weights excluded from image"
+  },
+  "schema_version": 4,
+  "source": {
+    "branch": "codex/task2-real-run-final",
+    "build_command": "docker build --platform linux/amd64 --pull=false --network=none --build-arg BASE_IMAGE=ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d -f tasks/harness-design/harness/reports/live-mi355x-20261028/controller-neighbors/batch4/original-built-candidate.Dockerfile -t candidate .",
+    "build_command_scope": "Equivalent thin-wrapper replay; exact original builder argv/provenance is retained separately, and no bit-reproducible digest is claimed.",
+    "canonical_model_patch": "tasks/harness-design/harness/reports/live-mi355x-20261030/proposal.patch",
+    "canonical_runtime_commit": "5c439274e2d3744da68b310c769c96b0c78bfb92",
+    "canonical_runtime_tree_sha256": "8d1b1d315337cfca4457ba51032401cf2910691011e39d5250fb67207cd134e2",
+    "commit": "5c439274e2d3744da68b310c769c96b0c78bfb92",
+    "configuration_recipe_scope": "Recommended batch4 is fully described by the pinned Dockerfile/CMD; canonical model-authored batch1 patch is retained separately.",
+    "dockerfile": "tasks/harness-design/harness/reports/live-mi355x-20261028/controller-neighbors/batch4/original-built-candidate.Dockerfile",
+    "engine_source_revision": "UNAVAILABLE_IN_DRAFT: LLMD source access was not supplied and baseline/lock.json has a null engine_source_revision; binary/layers are pinned by immutable OCI digests.",
+    "patches": [],
+    "provenance_path": "tasks/harness-design/harness/reports/live-mi355x-20261028/controller-neighbors/batch4/candidate-build/attempt.json",
+    "repository": "https://github.com/sharonbasovich/performance_takehome",
+    "scope": "Current source/evidence describes the completed deferred CPU/GPU canonical loop; submitted recommended batch4 build provenance is separately pinned below.",
+    "submitted_image_provenance_manifest": "tasks/harness-design/submission.controller-batch4-live-20261029.json"
+  },
+  "status": "CANONICAL_DEFERRED_PI_GPU_CYCLE_COMPLETE_RECOMMENDED_BATCH4_PUBLIC_IMAGE",
+  "task": "harness-design"
+}

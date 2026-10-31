@@ -1,0 +1,35 @@
+{
+  "accounting_unresolved": "",
+  "api_usd_cumulative": 0.0144352,
+  "finished_utc": "2026-10-30T11:39:46.121468+00:00",
+  "last_good": {
+    "context_path": "$RUN/state/contexts/a95f21ba719e4da483ee73a4b3b2dcfd",
+    "digest": "sha256:1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f",
+    "experiment": "001-batch-size-1",
+    "image_id": "sha256:1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f",
+    "patch": "$RUN/patches/001-batch-size-1.patch",
+    "report": "$RUN/reports/001-batch-size-1.json",
+    "tag": "canonical-gpu20-cache-614195936-12510f040ffa-llmd:001-batch-size-1"
+  },
+  "paired_optimization_cycle_complete": true,
+  "paired_rows": [
+    {
+      "api_usd_cumulative": "0.0144",
+      "development_report": "$RUN/reports/001-batch-size-1.json",
+      "experiment": "001-batch-size-1",
+      "gpu_hours_cumulative": "0.1305",
+      "hypothesis": "Lowering --batch-size from 16 to 1 reduces scheduling/allocation overhead for the sequential single-request workload, intended to improve per-request TTFT and FTGR; risk is startup regression or reduced throughput under concurrency, unmeasured here.",
+      "image_digest": "sha256:1c9adb64f064017af5201eb7cac08fbe12627bad15ad1ba8107fa2e1bac36a7f",
+      "kept": "1",
+      "local_ftgr_speedup": "1.2593",
+      "local_startup_s": "27.122",
+      "local_ttft_speedup": "1.0870",
+      "notes": "significant improvement: ftgr_tok_s x1.259",
+      "outcome": "improved",
+      "patch_path": "$RUN/patches/001-batch-size-1.patch",
+      "source_commit": "5c439274e2d3744da68b310c769c96b0c78bfb92",
+      "ts": "2026-10-30T11:39:45Z"
+    }
+  ],
+  "returncode": 0
+}

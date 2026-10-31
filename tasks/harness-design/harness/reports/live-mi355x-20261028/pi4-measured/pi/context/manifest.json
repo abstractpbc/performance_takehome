@@ -1,0 +1,30 @@
+{
+  "kind": "ACTUAL_PI4_SANITIZED_CONTEXT_RELATIVE_FILES_ONLY",
+  "scope": "Frozen actual model input, not current program instructions; historical context bytes preserved.",
+  "files": {
+    "Dockerfile": {
+      "bytes": 1542,
+      "sha256": "166ae2e3bef39dfc564bc09891f1c15111f11e27fa71d32245ee56bf5d56ab81"
+    },
+    "baseline-summary.json": {
+      "bytes": 2705,
+      "sha256": "d017b7f9fe92b09f8da4cb394429249d8ba1b17895a9270b3873da8934eb4a65"
+    },
+    "candidate-failure.json": {
+      "bytes": 3940,
+      "sha256": "12b4fbdb185971a4cfc51ae0e422ca9961cba26c1e44b388814911c83d90d15e"
+    },
+    "llmd-help.txt": {
+      "bytes": 1731,
+      "sha256": "5113b26064748620b0067eab2ab1c381e589b84c99ad6607ff149d20d1377048"
+    },
+    "profile.json": {
+      "bytes": 2118,
+      "sha256": "4492447b810ebd6af3ed36737e5f26f866a27fbbebb0d86d5563bad1fbcf16bf"
+    },
+    "program.md": {
+      "bytes": 1819,
+      "sha256": "a1712d1f13a7100b0a600c0c5e7ce2165bab340b0905f9d7908f0847f73eba48"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "status": "ACTUAL_PI_CONTEXT_CONFIG_IMAGE_BUILT_NOT_MEASURED",
+  "image": "abstract-direct-pi-feedback3-20261028",
+  "image_id": "sha256:7a555bea9efaca1b92e5f9e1c86bfe19e95a63c434161d977febd3fc5d71961a",
+  "Dockerfile_sha256": "01d31cb69b4789de70ed8829a64fe043b4810c44082979e5f6f5d5e7895fd2e7",
+  "policy": {
+    "policy": "llmd-config-v1",
+    "status": "ELIGIBLE_BEFORE_BUILD",
+    "source_only": true,
+    "changed_paths": [
+      "tasks/harness-design/Dockerfile"
+    ],
+    "changed_knobs": [
+      "--prefill-chunk-size"
+    ],
+    "prior_Dockerfile_sha256": "166ae2e3bef39dfc564bc09891f1c15111f11e27fa71d32245ee56bf5d56ab81",
+    "candidate_Dockerfile_sha256": "01d31cb69b4789de70ed8829a64fe043b4810c44082979e5f6f5d5e7895fd2e7",
+    "image_or_layer_verification": false,
+    "scope": "Exact actual minimal build contexts only; root separately retains and reviews genuine Pi patch/worktree. No other Pi files enter this build. Source guard forbids filesystem instructions."
+  },
+  "base_override": "ghcr.io/sharonbasovich/performance_takehome-task2-llmd@sha256:7db01160c57479b9d608b7c2e6fc4e6b5d438e53eb4d44dc9f3ab0441d1bb20d",
+  "exact23layers_preserved": true,
+  "entrypoint_preserved": true,
+  "GPU_measurement_or_Pi_proposal_made_by_builder": false,
+  "finished_utc": "2026-10-28T23:29:18.742024+00:00"
+}
