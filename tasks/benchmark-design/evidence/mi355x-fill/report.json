@@ -1,0 +1,506 @@
+{
+  "summary": {
+    "state": "valid",
+    "mode": "fill",
+    "cache": "warm_fs",
+    "reasons": [],
+    "axes": [
+      {
+        "cell": "long_prompt",
+        "axis": "ttft",
+        "state": "valid",
+        "value": "1377 ms (334-5676)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "long_prompt",
+        "axis": "fluidity",
+        "state": "valid",
+        "value": "0.973 (0.727-1.000)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "long_prompt",
+        "axis": "ftgr",
+        "state": "valid",
+        "value": "21.8 tok/s",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "long_output",
+        "axis": "ttft",
+        "state": "valid",
+        "value": "63 ms (37-105)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "long_output",
+        "axis": "fluidity",
+        "state": "valid",
+        "value": "1.000 (1.000-1.000)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "long_output",
+        "axis": "ftgr",
+        "state": "valid",
+        "value": "55.3 tok/s",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "prefix_hit",
+        "axis": "ttft",
+        "state": "valid",
+        "value": "1524 ms (54-43151)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "prefix_hit",
+        "axis": "fluidity",
+        "state": "valid",
+        "value": "0.977 (0.858-1.000)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "prefix_hit",
+        "axis": "ftgr",
+        "state": "valid",
+        "value": "22.1 tok/s",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "(all)",
+        "axis": "startup",
+        "state": "valid",
+        "value": "36581 ms (35242-37970)",
+        "vs_baseline": "-"
+      }
+    ],
+    "diagnostics": {
+      "long_prompt": {
+        "tpot_s": {
+          "p50": 0.021195275723527862,
+          "p90": 0.027790196015706113
+        },
+        "request_tps": {
+          "p50": 47.180342392684764,
+          "p90": 56.00060950708158
+        },
+        "system_tps": 70.31889433419707,
+        "population": 106
+      },
+      "long_output": {
+        "tpot_s": {
+          "p50": 0.017671065120231762,
+          "p90": 0.017904547193059304
+        },
+        "request_tps": {
+          "p50": 56.58968715527827,
+          "p90": 57.886654295090636
+        },
+        "system_tps": 201.56889218602834,
+        "population": 106
+      },
+      "prefix_hit": {
+        "tpot_s": {
+          "p50": 0.02115719917840347,
+          "p90": 0.025806731501949138
+        },
+        "request_tps": {
+          "p50": 47.265242776660976,
+          "p90": 56.00999430531482
+        },
+        "system_tps": 72.93691348817433,
+        "population": 106
+      }
+    },
+    "requests": {
+      "planned": 354,
+      "offered": 354,
+      "completed": 354,
+      "failed": 0,
+      "excluded": 0,
+      "unfinished": 0
+    },
+    "cost": {
+      "wall_s": 1585.4184847340075,
+      "gpu_hours": 0.4403940235372243,
+      "gpus": 1,
+      "breakdown_s": {
+        "launch": 109.74522557100863,
+        "warmup": 73.38251614001638,
+        "requests": 1340.169400083978,
+        "drain": 59.56726270301442,
+        "cleanup": 2.503362965013366
+      },
+      "unaccounted_s": 0.050717270976747386,
+      "max_wall_s": 1800,
+      "over_budget": false
+    }
+  },
+  "schema_version": 1,
+  "identity": {
+    "manifest": {
+      "schema_version": 1,
+      "started_at_utc": "2026-11-06T15:04:32Z",
+      "capture": {
+        "tool": "capture.py",
+        "stand_in": true
+      },
+      "suite_commit": null,
+      "plan_sha256": "87f5fd9963415a61132f678b8ff0c1cc83d7a2db58beaefae72b00304572fe11",
+      "mode": "fill",
+      "seed": 20261030,
+      "image_digest": "docker.io/zmlai/llmd@sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+      "model": {
+        "repository": "Qwen/Qwen3.6-27B",
+        "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+      },
+      "hardware": {
+        "gpu": "mi355x",
+        "gpus": 1
+      },
+      "filesystem_cache": "warm_fs",
+      "planned_requests": {
+        "long_output": {
+          "1": 58,
+          "0": 59
+        },
+        "long_prompt": {
+          "0": 61,
+          "1": 59
+        },
+        "prefix_hit": {
+          "1": 58,
+          "0": 59
+        }
+      },
+      "planned_launches": 3,
+      "aborted": null
+    },
+    "plan": {
+      "path": "../artifacts/mi355x-fill/workload.mi355x-fill.json",
+      "status": "draft",
+      "sha256": "87f5fd9963415a61132f678b8ff0c1cc83d7a2db58beaefae72b00304572fe11",
+      "deadlines": {
+        "ttft_prefill_s": 1.0,
+        "decode_s": 0.05,
+        "request_timeout_s": 120,
+        "startup_timeout_s": 900,
+        "drain_timeout_s": 120
+      }
+    },
+    "evidence": {
+      "path": "../artifacts/mi355x-fill/out/fill",
+      "files": {
+        "manifest.json": {
+          "sha256": "da70f50af3e3bcf675fd8bf0490d5a7828d9913e435211073ccb3a34fc8b76fa",
+          "bytes": 843
+        },
+        "phases.jsonl": {
+          "sha256": "8871fffc8ed7c1604de8b74b3e87d627d2473254314a988cdf396bdfbebe3f57",
+          "bytes": 2745
+        },
+        "launches.jsonl": {
+          "sha256": "0e35212530204c62d6090b4d1624a3d9de89a66e61dc011240cf7698228b981a",
+          "bytes": 924
+        },
+        "requests.jsonl": {
+          "sha256": "cb74e090b61573d6322953acf78d687aa3b3085631faeaba24be36776eb7f08d",
+          "bytes": 238740
+        },
+        "sse.jsonl": {
+          "sha256": "67393cd34b42c11caaa84a66d30b8111063cc54d98c89f709274aa61073f51ca",
+          "bytes": 52548507
+        },
+        "metrics.jsonl": {
+          "sha256": "f1945783bbc3a14bfa6a2992bd8d66fdc9063a14d1589be3b86c717bacea09c2",
+          "bytes": 36303773
+        },
+        "tokens.jsonl": {
+          "sha256": "afe7ddb289f98f21d1ca7ed694cb4da9367bef8ef301027dae5b344d5d813f2f",
+          "bytes": 21518008
+        },
+        "tokens.meta.json": {
+          "sha256": "d9a15d6cf8f0e4865cd30591c2a8f87d440996ad46b4aecafdf04a274913158b",
+          "bytes": 119
+        }
+      }
+    }
+  },
+  "populations": {
+    "cells": {
+      "long_output": {
+        "1": {
+          "planned": 58,
+          "offered": 58,
+          "completed": 58,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "0": {
+          "planned": 59,
+          "offered": 59,
+          "completed": 59,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        }
+      },
+      "long_prompt": {
+        "0": {
+          "planned": 61,
+          "offered": 61,
+          "completed": 61,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "1": {
+          "planned": 59,
+          "offered": 59,
+          "completed": 59,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        }
+      },
+      "prefix_hit": {
+        "1": {
+          "planned": 58,
+          "offered": 58,
+          "completed": 58,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "0": {
+          "planned": 59,
+          "offered": 59,
+          "completed": 59,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        }
+      }
+    },
+    "totals": {
+      "planned": 354,
+      "offered": 354,
+      "completed": 354,
+      "failed": 0,
+      "excluded": 0,
+      "unfinished": 0
+    },
+    "judged": true
+  },
+  "validity": {
+    "state": "valid",
+    "reasons": [],
+    "request_reasons": {},
+    "failure_fractions": {
+      "long_output": 0.0,
+      "long_prompt": 0.0,
+      "prefix_hit": 0.0
+    },
+    "output_stability": {
+      "state": "valid",
+      "reasons": [],
+      "observed": 20,
+      "diverged": 0
+    }
+  },
+  "axes": {
+    "confidence_per_interval": 0.9928571428571429,
+    "cells": {
+      "long_prompt": {
+        "ttft": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {
+            "0": 0.33605071679546455,
+            "1": 0.30427417284061453
+          },
+          "value": 1.377351489776079,
+          "ci_low": 0.33425588210738744,
+          "ci_high": 5.675583371720286,
+          "unit": "s",
+          "statistic": "geometric mean of repetition p90s",
+          "population": 106,
+          "quantiles": {
+            "p50": 1.1727125825054827,
+            "p90": 1.3777802429976873
+          },
+          "first_content_quantiles": {
+            "p50": null,
+            "p90": null
+          },
+          "censored": 0,
+          "censored_at_s": 120
+        },
+        "fluidity": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {
+            "0": 0.9701120962320776,
+            "1": 0.9756381301741988
+          },
+          "unit": "index",
+          "statistic": "mean of repetition mean fluidity index",
+          "population": 106,
+          "failed_charged_zero": 0,
+          "prefill_deadline_s": 1.0,
+          "decode_deadline_s": 0.05,
+          "value": 0.9728751132031381,
+          "ci_low": 0.7266266740260768,
+          "ci_high": 1.2191235523801995
+        },
+        "ftgr": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {},
+          "unit": "tokens/s",
+          "value": 21.76602127653085,
+          "eligible_traces": 106
+        }
+      },
+      "long_output": {
+        "ttft": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {
+            "1": -2.7664562683125857,
+            "0": -2.778101035842579
+          },
+          "value": 0.06251938238993254,
+          "ci_low": 0.03720965069640044,
+          "ci_high": 0.1050446080859534,
+          "unit": "s",
+          "statistic": "geometric mean of repetition p90s",
+          "population": 106,
+          "quantiles": {
+            "p50": 0.05302038750232896,
+            "p90": 0.0628079709931626
+          },
+          "first_content_quantiles": {
+            "p50": null,
+            "p90": null
+          },
+          "censored": 0,
+          "censored_at_s": 120
+        },
+        "fluidity": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {
+            "1": 1.0,
+            "0": 1.0
+          },
+          "unit": "index",
+          "statistic": "mean of repetition mean fluidity index",
+          "population": 106,
+          "failed_charged_zero": 0,
+          "prefill_deadline_s": 1.0,
+          "decode_deadline_s": 0.05,
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0
+        },
+        "ftgr": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {},
+          "unit": "tokens/s",
+          "value": 55.279483563576925,
+          "eligible_traces": 106
+        }
+      },
+      "prefix_hit": {
+        "ttft": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {
+            "1": 0.4589007035095053,
+            "0": 0.3838735349896369
+          },
+          "value": 1.5240741626697543,
+          "ci_low": 0.05382931319801636,
+          "ci_high": 43.15124818280439,
+          "unit": "s",
+          "statistic": "geometric mean of repetition p90s",
+          "population": 106,
+          "quantiles": {
+            "p50": 1.1605948954966152,
+            "p90": 1.5556969285025843
+          },
+          "first_content_quantiles": {
+            "p50": null,
+            "p90": null
+          },
+          "censored": 0,
+          "censored_at_s": 120
+        },
+        "fluidity": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {
+            "1": 0.9753086733938997,
+            "0": 0.9779799709733085
+          },
+          "unit": "index",
+          "statistic": "mean of repetition mean fluidity index",
+          "population": 106,
+          "failed_charged_zero": 0,
+          "prefill_deadline_s": 1.0,
+          "decode_deadline_s": 0.05,
+          "value": 0.9766443221836041,
+          "ci_low": 0.8576072575552289,
+          "ci_high": 1.0956813868119792
+        },
+        "ftgr": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {},
+          "unit": "tokens/s",
+          "value": 22.080187753915965,
+          "eligible_traces": 106
+        }
+      }
+    },
+    "startup": {
+      "state": "valid",
+      "reasons": [],
+      "repetitions": {
+        "0": 3.6058245886907083,
+        "1": 3.5958372663604043,
+        "2": 3.5968879487451186
+      },
+      "unit": "s",
+      "statistic": "geometric mean of launches",
+      "population": 3,
+      "value": 36.58054717880485,
+      "ci_low": 35.24159377495121,
+      "ci_high": 37.97037218140454,
+      "min": 36.44620239600772,
+      "median": 36.484515902993735,
+      "max": 36.81202612600464
+    }
+  },
+  "comparison": null,
+  "cost": {
+    "wall_s": 1585.4184847340075,
+    "gpu_hours": 0.4403940235372243,
+    "gpus": 1,
+    "breakdown_s": {
+      "launch": 109.74522557100863,
+      "warmup": 73.38251614001638,
+      "requests": 1340.169400083978,
+      "drain": 59.56726270301442,
+      "cleanup": 2.503362965013366
+    },
+    "unaccounted_s": 0.050717270976747386,
+    "max_wall_s": 1800,
+    "over_budget": false
+  }
+}

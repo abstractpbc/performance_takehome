@@ -1,0 +1,311 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "workload.schema.json",
+  "title": "Task 1 workload plan v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "status", "seed", "model", "prompt_sets", "reference", "request", "canary",
+    "anchor", "cells", "warmup", "startup", "server_metrics", "deadlines", "gates", "early_stop",
+    "comparison", "modes"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "status": { "enum": ["draft", "frozen"] },
+    "seed": { "type": "integer", "minimum": 0 },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "revision"],
+      "properties": {
+        "role": { "enum": ["smoke", "target"] },
+        "revision": { "type": "string", "pattern": "^[0-9a-f]{40}$" }
+      }
+    },
+    "prompt_sets": {
+      "type": "object",
+      "required": ["canary", "anchor"],
+      "minProperties": 3,
+      "additionalProperties": { "$ref": "#/$defs/prompt_set" }
+    },
+    "reference": {
+      "description": "Generated per model revision by a reference capture, never hand-written. Null path means no_reference.",
+      "$ref": "#/$defs/file"
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["temperature", "stream", "stream_options"],
+      "properties": {
+        "temperature": { "const": 0 },
+        "stream": { "const": true },
+        "stream_options": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["include_usage"],
+          "properties": { "include_usage": { "type": "boolean" } }
+        }
+      }
+    },
+    "canary": {
+      "description": "Canaries have short known answers, so they use their own output policy.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["prompt_set", "max_tokens", "min_output_tokens"],
+      "properties": {
+        "prompt_set": { "type": "string" },
+        "max_tokens": { "type": "integer", "minimum": 1 },
+        "min_output_tokens": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "anchor": {
+      "description": "Fixed prompts for output-stability checks. Passes is the reference capture count.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["prompt_set", "max_tokens", "min_output_tokens", "passes", "match_chars"],
+      "properties": {
+        "prompt_set": { "type": "string" },
+        "max_tokens": { "type": "integer", "minimum": 1 },
+        "min_output_tokens": { "type": "integer", "minimum": 1 },
+        "passes": { "type": "integer", "minimum": 2 },
+        "match_chars": {
+          "description": "Opening characters that must equal the reference under load.",
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "cells": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/$defs/cell" }
+    },
+    "server_metrics": {
+      "description": "Diagnostic only. Never affects a state or a metric.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "poll_interval_s"],
+      "properties": {
+        "path": { "type": "string", "pattern": "^/" },
+        "poll_interval_s": { "$ref": "#/$defs/positive" }
+      }
+    },
+    "early_stop": {
+      "description": "Capture policy. Stops only on results already decided as invalid.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["max_run_failing_requests"],
+      "properties": {
+        "max_run_failing_requests": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "warmup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requests", "prompt_set", "max_duration_s"],
+      "properties": {
+        "requests": { "type": "integer", "minimum": 1 },
+        "prompt_set": { "type": "string" },
+        "max_duration_s": { "$ref": "#/$defs/positive" }
+      }
+    },
+    "startup": {
+      "description": "Readiness is polled from launch; canary probes start after first readiness.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["poll_interval_s", "probe_interval_s"],
+      "properties": {
+        "poll_interval_s": { "$ref": "#/$defs/positive" },
+        "probe_interval_s": { "$ref": "#/$defs/positive" }
+      }
+    },
+    "deadlines": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ttft_prefill_s", "decode_s", "request_timeout_s", "startup_timeout_s", "drain_timeout_s"
+      ],
+      "properties": {
+        "ttft_prefill_s": { "$ref": "#/$defs/positive" },
+        "decode_s": { "$ref": "#/$defs/positive" },
+        "request_timeout_s": { "$ref": "#/$defs/positive" },
+        "startup_timeout_s": { "$ref": "#/$defs/positive" },
+        "drain_timeout_s": { "$ref": "#/$defs/positive" }
+      }
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_failed_fraction", "max_client_lag_s", "max_lagged_fraction",
+        "usage_tolerance_tokens", "usage_tolerance_fraction", "min_valid_per_quantile",
+        "usage_expected",
+        "max_anchor_divergence", "min_stable_anchors"
+      ],
+      "properties": {
+        "max_failed_fraction": { "$ref": "#/$defs/fraction" },
+        "max_client_lag_s": { "$ref": "#/$defs/positive" },
+        "max_lagged_fraction": { "$ref": "#/$defs/fraction" },
+        "usage_tolerance_tokens": { "type": "integer", "minimum": 0 },
+        "usage_tolerance_fraction": { "$ref": "#/$defs/fraction" },
+        "min_valid_per_quantile": { "type": "integer", "minimum": 1 },
+        "usage_expected": { "type": "boolean" },
+        "max_anchor_divergence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "min_stable_anchors": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["confidence", "margins"],
+      "properties": {
+        "confidence": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1 },
+        "margins": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ttft_log", "fluidity_abs", "startup_log"],
+          "properties": {
+            "ttft_log": { "$ref": "#/$defs/positive" },
+            "fluidity_abs": { "$ref": "#/$defs/positive" },
+            "startup_log": { "$ref": "#/$defs/positive" }
+          }
+        }
+      }
+    },
+    "modes": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/mode" },
+      "required": ["quick", "full"],
+      "properties": {
+        "quick": { "$ref": "#/$defs/mode" },
+        "full": { "$ref": "#/$defs/mode" }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "frozen" } } },
+      "then": {
+        "properties": {
+          "prompt_sets": {
+            "additionalProperties": {
+              "properties": { "sha256": { "type": "string" } }
+            }
+          },
+          "reference": {
+            "properties": { "path": { "type": "string" }, "sha256": { "type": "string" } }
+          },
+          "cells": {
+            "additionalProperties": {
+              "properties": {
+                "arrival": { "properties": { "rate_rps": { "type": "number" } } }
+              }
+            }
+          },
+          "gates": {
+            "properties": {
+              "max_anchor_divergence": { "type": "number" }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "positive": { "type": "number", "exclusiveMinimum": 0 },
+    "fraction": { "type": "number", "minimum": 0, "maximum": 1 },
+    "sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+    "file": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "type": ["string", "null"], "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "prompt_set": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "input_tokens"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "input_tokens": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "cell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prompt_mix", "output", "arrival", "prefix_cache", "canary_fraction", "anchor_fraction"
+      ],
+      "properties": {
+        "prompt_mix": {
+          "description": "Prompt-set name to selection weight. Weights must sum to 1.",
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+        },
+        "output": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["max_tokens", "min_output_tokens", "ignore_eos"],
+          "properties": {
+            "max_tokens": { "type": "integer", "minimum": 1 },
+            "min_output_tokens": { "type": "integer", "minimum": 1 },
+            "ignore_eos": { "type": "boolean" }
+          }
+        },
+        "arrival": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["process", "load_fraction", "rate_rps"],
+          "properties": {
+            "process": { "enum": ["poisson", "gamma"] },
+            "burstiness": {
+              "description": "Gamma shape. Below 1 clumps arrivals; 1 equals Poisson.",
+              "$ref": "#/$defs/positive"
+            },
+            "load_fraction": { "$ref": "#/$defs/fraction" },
+            "rate_rps": { "type": ["number", "null"], "exclusiveMinimum": 0 }
+          },
+          "if": { "properties": { "process": { "const": "gamma" } } },
+          "then": { "required": ["burstiness"] },
+          "else": { "not": { "required": ["burstiness"] } }
+        },
+        "prefix_cache": { "enum": ["miss", "hit"] },
+        "canary_fraction": { "$ref": "#/$defs/fraction" },
+        "anchor_fraction": { "$ref": "#/$defs/fraction" }
+      }
+    },
+    "mode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cells", "repetitions", "duration_s", "launches", "repetition_layout", "quantiles",
+        "filesystem_cache", "max_wall_s"
+      ],
+      "properties": {
+        "cells": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        },
+        "repetitions": { "type": "integer", "minimum": 2 },
+        "duration_s": { "$ref": "#/$defs/positive" },
+        "launches": { "type": "integer", "minimum": 1 },
+        "repetition_layout": { "const": "across_launches" },
+        "quantiles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1 }
+        },
+        "filesystem_cache": { "enum": ["warm_fs", "cold_fs"] },
+        "max_wall_s": { "type": "number", "exclusiveMinimum": 0, "maximum": 10800 }
+      }
+    }
+  }
+}

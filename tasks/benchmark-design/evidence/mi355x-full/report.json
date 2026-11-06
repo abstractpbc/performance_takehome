@@ -1,0 +1,1264 @@
+{
+  "summary": {
+    "state": "inconclusive",
+    "mode": "full",
+    "cache": "warm_fs",
+    "reasons": [
+      "quantile_underpowered"
+    ],
+    "axes": [
+      {
+        "cell": "chat_light",
+        "axis": "ttft",
+        "state": "valid",
+        "value": "116 ms (109-123)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "chat_light",
+        "axis": "fluidity",
+        "state": "valid",
+        "value": "1.000 (1.000-1.000)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "chat_light",
+        "axis": "ftgr",
+        "state": "valid",
+        "value": "55.3 tok/s",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "bursty",
+        "axis": "ttft",
+        "state": "valid",
+        "value": "181 ms (157-209)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "bursty",
+        "axis": "fluidity",
+        "state": "valid",
+        "value": "1.000 (0.999-1.000)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "bursty",
+        "axis": "ftgr",
+        "state": "valid",
+        "value": "53.6 tok/s",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "long_prompt",
+        "axis": "ttft",
+        "state": "inconclusive",
+        "value": "1548 ms (1306-1836)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "long_prompt",
+        "axis": "fluidity",
+        "state": "inconclusive",
+        "value": "0.963 (0.947-0.978)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "long_prompt",
+        "axis": "ftgr",
+        "state": "valid",
+        "value": "19.7 tok/s",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "long_output",
+        "axis": "ttft",
+        "state": "inconclusive",
+        "value": "62 ms (57-66)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "long_output",
+        "axis": "fluidity",
+        "state": "inconclusive",
+        "value": "1.000 (1.000-1.000)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "long_output",
+        "axis": "ftgr",
+        "state": "valid",
+        "value": "56.2 tok/s",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "near_capacity",
+        "axis": "ttft",
+        "state": "valid",
+        "value": "2223 ms (1180-4186)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "near_capacity",
+        "axis": "fluidity",
+        "state": "valid",
+        "value": "0.968 (0.939-0.996)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "near_capacity",
+        "axis": "ftgr",
+        "state": "valid",
+        "value": "14.9 tok/s",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "prefix_hit",
+        "axis": "ttft",
+        "state": "inconclusive",
+        "value": "1537 ms (1440-1640)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "prefix_hit",
+        "axis": "fluidity",
+        "state": "inconclusive",
+        "value": "0.976 (0.968-0.985)",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "prefix_hit",
+        "axis": "ftgr",
+        "state": "valid",
+        "value": "21.6 tok/s",
+        "vs_baseline": "-"
+      },
+      {
+        "cell": "(all)",
+        "axis": "startup",
+        "state": "valid",
+        "value": "37200 ms (31637-43742)",
+        "vs_baseline": "-"
+      }
+    ],
+    "diagnostics": {
+      "chat_light": {
+        "tpot_s": {
+          "p50": 0.017789954833335966,
+          "p90": 0.018518349874887943,
+          "p99": 0.019094802452119492
+        },
+        "request_tps": {
+          "p50": 56.21149828826775,
+          "p90": 58.05743266436727,
+          "p99": 59.08477422240075
+        },
+        "system_tps": 191.2450153970439,
+        "population": 690
+      },
+      "bursty": {
+        "tpot_s": {
+          "p50": 0.01788189267846938,
+          "p90": 0.019031921926276375,
+          "p99": 0.019577493551212327
+        },
+        "request_tps": {
+          "p50": 55.922491985652385,
+          "p90": 58.52614676167573,
+          "p99": 59.26778298858223
+        },
+        "system_tps": 227.09956229271424,
+        "population": 805
+      },
+      "long_prompt": {
+        "tpot_s": {
+          "p50": 0.02209959141567678,
+          "p90": 0.028376930523549625,
+          "p99": null
+        },
+        "request_tps": {
+          "p50": 45.249717227833926,
+          "p90": 55.55419427364395,
+          "p99": null
+        },
+        "system_tps": 77.21622935571389,
+        "population": 270
+      },
+      "long_output": {
+        "tpot_s": {
+          "p50": 0.0171498794633437,
+          "p90": 0.017522498134501213,
+          "p99": null
+        },
+        "request_tps": {
+          "p50": 58.30944772162444,
+          "p90": 58.59657376809576,
+          "p99": null
+        },
+        "system_tps": 209.3951833825063,
+        "population": 213
+      },
+      "near_capacity": {
+        "tpot_s": {
+          "p50": 0.026121947909796647,
+          "p90": 0.03271672320942504,
+          "p99": 0.03697268305563564
+        },
+        "request_tps": {
+          "p50": 38.281984308871735,
+          "p90": 52.177740252325464,
+          "p99": 56.57624346194102
+        },
+        "system_tps": 393.0592664545361,
+        "population": 1407
+      },
+      "prefix_hit": {
+        "tpot_s": {
+          "p50": 0.021282458349014634,
+          "p90": 0.027801340250549474,
+          "p99": null
+        },
+        "request_tps": {
+          "p50": 46.987053752380646,
+          "p90": 55.825502660389574,
+          "p99": null
+        },
+        "system_tps": 84.59452342827566,
+        "population": 300
+      }
+    },
+    "requests": {
+      "planned": 4062,
+      "offered": 4062,
+      "completed": 4062,
+      "failed": 0,
+      "excluded": 0,
+      "unfinished": 0
+    },
+    "cost": {
+      "wall_s": 6264.606352560004,
+      "gpu_hours": 1.7401684312666676,
+      "gpus": 1,
+      "breakdown_s": {
+        "launch": 148.89221707698016,
+        "warmup": 98.09888920198136,
+        "requests": 5675.474460372046,
+        "drain": 338.4283431409276,
+        "cleanup": 3.2731641820137156
+      },
+      "unaccounted_s": 0.43927858605457004,
+      "max_wall_s": 9000,
+      "over_budget": false
+    }
+  },
+  "schema_version": 1,
+  "identity": {
+    "manifest": {
+      "schema_version": 1,
+      "started_at_utc": "2026-11-06T04:02:01Z",
+      "capture": {
+        "tool": "capture.py",
+        "stand_in": true
+      },
+      "suite_commit": null,
+      "plan_sha256": "8f34fb7b9315c2827032e70b827531ff38999252048880b25cb95647aa506799",
+      "mode": "full",
+      "seed": 20261030,
+      "image_digest": "docker.io/zmlai/llmd@sha256:0a2cd01a2e53c78934a8cfef66f8668da7666be4954a5d18b72df089c54ea34f",
+      "model": {
+        "repository": "Qwen/Qwen3.6-27B",
+        "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+      },
+      "hardware": {
+        "gpu": "mi355x",
+        "gpus": 1
+      },
+      "filesystem_cache": "warm_fs",
+      "planned_requests": {
+        "near_capacity": {
+          "0": 195,
+          "7": 183,
+          "5": 197,
+          "1": 214,
+          "4": 176,
+          "3": 216,
+          "2": 189,
+          "6": 192
+        },
+        "chat_light": {
+          "6": 99,
+          "7": 81,
+          "5": 83,
+          "0": 106,
+          "3": 81,
+          "4": 107,
+          "2": 98,
+          "1": 100
+        },
+        "long_output": {
+          "2": 28,
+          "0": 24,
+          "1": 33,
+          "4": 29,
+          "5": 25,
+          "3": 35,
+          "6": 30,
+          "7": 31
+        },
+        "prefix_hit": {
+          "4": 36,
+          "2": 43,
+          "5": 38,
+          "6": 51,
+          "7": 48,
+          "1": 34,
+          "0": 36,
+          "3": 39
+        },
+        "bursty": {
+          "1": 111,
+          "5": 111,
+          "2": 131,
+          "7": 90,
+          "6": 97,
+          "0": 132,
+          "3": 107,
+          "4": 104
+        },
+        "long_prompt": {
+          "0": 35,
+          "5": 37,
+          "3": 47,
+          "7": 35,
+          "6": 36,
+          "2": 44,
+          "1": 31,
+          "4": 37
+        }
+      },
+      "planned_launches": 4,
+      "aborted": null
+    },
+    "plan": {
+      "path": "../artifacts/mi355x-full/out/workload.mi355x.json",
+      "status": "draft",
+      "sha256": "8f34fb7b9315c2827032e70b827531ff38999252048880b25cb95647aa506799",
+      "deadlines": {
+        "ttft_prefill_s": 1.0,
+        "decode_s": 0.05,
+        "request_timeout_s": 120,
+        "startup_timeout_s": 900,
+        "drain_timeout_s": 120
+      }
+    },
+    "evidence": {
+      "path": "../artifacts/mi355x-full/out/full",
+      "files": {
+        "manifest.json": {
+          "sha256": "5389f9fb96521f06619d0b32e08f0b995742061b92450ab1747a15b7429c3051",
+          "bytes": 1567
+        },
+        "phases.jsonl": {
+          "sha256": "e9a0107739dcbea25fb37364324e56443a254e216b6eb30b6a01f43112b07729",
+          "bytes": 15356
+        },
+        "launches.jsonl": {
+          "sha256": "1c2696fadb23103e3ce9b23ad7369aa4fd583fb9abc05af3b8638528d4328c43",
+          "bytes": 1234
+        },
+        "requests.jsonl": {
+          "sha256": "a9b370e964c8675f7d8ce8e7d4cd0389c1e315a1f5ef6743a5c8fa5c907c715e",
+          "bytes": 2376937
+        },
+        "sse.jsonl": {
+          "sha256": "a2b7b9a0dff410bfb8eb565f1cb244adb63e781da850304ae42c6f8bb5fffce7",
+          "bytes": 357257039
+        },
+        "metrics.jsonl": {
+          "sha256": "eb88eb405e96832fca618dbfc6563d058439a68721685bf2a12d4a1d924fea46",
+          "bytes": 151343477
+        },
+        "tokens.jsonl": {
+          "sha256": "4435e237475f3676161efb5a98a3d21fbd4ee3e9fc7c5c31915528c7b36a4a7d",
+          "bytes": 146331088
+        },
+        "tokens.meta.json": {
+          "sha256": "d9a15d6cf8f0e4865cd30591c2a8f87d440996ad46b4aecafdf04a274913158b",
+          "bytes": 119
+        }
+      }
+    }
+  },
+  "populations": {
+    "cells": {
+      "near_capacity": {
+        "0": {
+          "planned": 195,
+          "offered": 195,
+          "completed": 195,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "7": {
+          "planned": 183,
+          "offered": 183,
+          "completed": 183,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "5": {
+          "planned": 197,
+          "offered": 197,
+          "completed": 197,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "1": {
+          "planned": 214,
+          "offered": 214,
+          "completed": 214,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "4": {
+          "planned": 176,
+          "offered": 176,
+          "completed": 176,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "3": {
+          "planned": 216,
+          "offered": 216,
+          "completed": 216,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "2": {
+          "planned": 189,
+          "offered": 189,
+          "completed": 189,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "6": {
+          "planned": 192,
+          "offered": 192,
+          "completed": 192,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        }
+      },
+      "chat_light": {
+        "6": {
+          "planned": 99,
+          "offered": 99,
+          "completed": 99,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "7": {
+          "planned": 81,
+          "offered": 81,
+          "completed": 81,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "5": {
+          "planned": 83,
+          "offered": 83,
+          "completed": 83,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "0": {
+          "planned": 106,
+          "offered": 106,
+          "completed": 106,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "3": {
+          "planned": 81,
+          "offered": 81,
+          "completed": 81,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "4": {
+          "planned": 107,
+          "offered": 107,
+          "completed": 107,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "2": {
+          "planned": 98,
+          "offered": 98,
+          "completed": 98,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "1": {
+          "planned": 100,
+          "offered": 100,
+          "completed": 100,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        }
+      },
+      "long_output": {
+        "2": {
+          "planned": 28,
+          "offered": 28,
+          "completed": 28,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "0": {
+          "planned": 24,
+          "offered": 24,
+          "completed": 24,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "1": {
+          "planned": 33,
+          "offered": 33,
+          "completed": 33,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "4": {
+          "planned": 29,
+          "offered": 29,
+          "completed": 29,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "5": {
+          "planned": 25,
+          "offered": 25,
+          "completed": 25,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "3": {
+          "planned": 35,
+          "offered": 35,
+          "completed": 35,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "6": {
+          "planned": 30,
+          "offered": 30,
+          "completed": 30,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "7": {
+          "planned": 31,
+          "offered": 31,
+          "completed": 31,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        }
+      },
+      "prefix_hit": {
+        "4": {
+          "planned": 36,
+          "offered": 36,
+          "completed": 36,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "2": {
+          "planned": 43,
+          "offered": 43,
+          "completed": 43,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "5": {
+          "planned": 38,
+          "offered": 38,
+          "completed": 38,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "6": {
+          "planned": 51,
+          "offered": 51,
+          "completed": 51,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "7": {
+          "planned": 48,
+          "offered": 48,
+          "completed": 48,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "1": {
+          "planned": 34,
+          "offered": 34,
+          "completed": 34,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "0": {
+          "planned": 36,
+          "offered": 36,
+          "completed": 36,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "3": {
+          "planned": 39,
+          "offered": 39,
+          "completed": 39,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        }
+      },
+      "bursty": {
+        "1": {
+          "planned": 111,
+          "offered": 111,
+          "completed": 111,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "5": {
+          "planned": 111,
+          "offered": 111,
+          "completed": 111,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "2": {
+          "planned": 131,
+          "offered": 131,
+          "completed": 131,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "7": {
+          "planned": 90,
+          "offered": 90,
+          "completed": 90,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "6": {
+          "planned": 97,
+          "offered": 97,
+          "completed": 97,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "0": {
+          "planned": 132,
+          "offered": 132,
+          "completed": 132,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "3": {
+          "planned": 107,
+          "offered": 107,
+          "completed": 107,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "4": {
+          "planned": 104,
+          "offered": 104,
+          "completed": 104,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        }
+      },
+      "long_prompt": {
+        "0": {
+          "planned": 35,
+          "offered": 35,
+          "completed": 35,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "5": {
+          "planned": 37,
+          "offered": 37,
+          "completed": 37,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "3": {
+          "planned": 47,
+          "offered": 47,
+          "completed": 47,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "7": {
+          "planned": 35,
+          "offered": 35,
+          "completed": 35,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "6": {
+          "planned": 36,
+          "offered": 36,
+          "completed": 36,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "2": {
+          "planned": 44,
+          "offered": 44,
+          "completed": 44,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "1": {
+          "planned": 31,
+          "offered": 31,
+          "completed": 31,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        },
+        "4": {
+          "planned": 37,
+          "offered": 37,
+          "completed": 37,
+          "failed": 0,
+          "excluded": 0,
+          "unfinished": 0
+        }
+      }
+    },
+    "totals": {
+      "planned": 4062,
+      "offered": 4062,
+      "completed": 4062,
+      "failed": 0,
+      "excluded": 0,
+      "unfinished": 0
+    },
+    "judged": true
+  },
+  "validity": {
+    "state": "inconclusive",
+    "reasons": [
+      "quantile_underpowered"
+    ],
+    "request_reasons": {},
+    "failure_fractions": {
+      "near_capacity": 0.0,
+      "chat_light": 0.0,
+      "long_output": 0.0,
+      "prefix_hit": 0.0,
+      "bursty": 0.0,
+      "long_prompt": 0.0
+    },
+    "output_stability": {
+      "state": "valid",
+      "reasons": [],
+      "observed": 207,
+      "diverged": 1
+    }
+  },
+  "axes": {
+    "confidence_per_interval": 0.9961538461538462,
+    "cells": {
+      "chat_light": {
+        "ttft": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {
+            "6": -2.1846425624920274,
+            "7": -2.1244385075793546,
+            "5": -2.1570868140868544,
+            "0": -2.1678257891156845,
+            "3": -2.179380163758976,
+            "4": -2.0740799455744527,
+            "2": -2.1769409120191976,
+            "1": -2.1839119469908908
+          },
+          "value": 0.11578290728724806,
+          "ci_low": 0.10927433910844762,
+          "ci_high": 0.12267913701663498,
+          "unit": "s",
+          "statistic": "geometric mean of repetition p90s",
+          "population": 690,
+          "quantiles": {
+            "p50": 0.10585246749542421,
+            "p90": 0.11525189500389389,
+            "p99": 0.14668381226685598
+          },
+          "first_content_quantiles": {
+            "p50": null,
+            "p90": null,
+            "p99": null
+          },
+          "censored": 0,
+          "censored_at_s": 120
+        },
+        "fluidity": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {
+            "6": 1.0,
+            "7": 1.0,
+            "5": 1.0,
+            "0": 1.0,
+            "3": 1.0,
+            "4": 1.0,
+            "2": 1.0,
+            "1": 1.0
+          },
+          "unit": "index",
+          "statistic": "mean of repetition mean fluidity index",
+          "population": 690,
+          "failed_charged_zero": 0,
+          "prefill_deadline_s": 1.0,
+          "decode_deadline_s": 0.05,
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0
+        },
+        "ftgr": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {},
+          "unit": "tokens/s",
+          "value": 55.279483563576925,
+          "eligible_traces": 690
+        }
+      },
+      "bursty": {
+        "ttft": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {
+            "1": -1.7008323121213462,
+            "5": -1.8021146248837494,
+            "2": -1.6489959899345046,
+            "7": -1.8537162175632163,
+            "6": -1.7513354594087127,
+            "0": -1.7214381948518391,
+            "3": -1.5718527981965322,
+            "4": -1.6099616785918927
+          },
+          "value": 0.1813129184074592,
+          "ci_low": 0.1571373841665141,
+          "ci_high": 0.20920785054302482,
+          "unit": "s",
+          "statistic": "geometric mean of repetition p90s",
+          "population": 805,
+          "quantiles": {
+            "p50": 0.12973529400187545,
+            "p90": 0.18313125720014795,
+            "p99": 0.7704882618121359
+          },
+          "first_content_quantiles": {
+            "p50": null,
+            "p90": null,
+            "p99": null
+          },
+          "censored": 0,
+          "censored_at_s": 120
+        },
+        "fluidity": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {
+            "1": 0.9999584441489362,
+            "5": 1.0,
+            "2": 0.9988394325203668,
+            "7": 1.0,
+            "6": 1.0,
+            "0": 1.0,
+            "3": 0.9998455598455599,
+            "4": 1.0
+          },
+          "unit": "index",
+          "statistic": "mean of repetition mean fluidity index",
+          "population": 805,
+          "failed_charged_zero": 0,
+          "prefill_deadline_s": 1.0,
+          "decode_deadline_s": 0.05,
+          "value": 0.9998304295643579,
+          "ci_low": 0.999224995532523,
+          "ci_high": 1.0004358635961927
+        },
+        "ftgr": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {},
+          "unit": "tokens/s",
+          "value": 53.59536974540513,
+          "eligible_traces": 805
+        }
+      },
+      "long_prompt": {
+        "ttft": {
+          "state": "inconclusive",
+          "reasons": [
+            "quantile_underpowered"
+          ],
+          "repetitions": {
+            "0": 0.4135791284985942,
+            "5": 0.5722626710526202,
+            "3": 0.6057543034326646,
+            "7": 0.42507387053312634,
+            "6": 0.30765245185528145,
+            "2": 0.5050738237098926,
+            "1": 0.34581251636619165,
+            "4": 0.32165203704814793
+          },
+          "value": 1.5482226573352096,
+          "ci_low": 1.3057200143131857,
+          "ci_high": 1.8357636939087023,
+          "unit": "s",
+          "statistic": "geometric mean of repetition p90s",
+          "population": 270,
+          "quantiles": {
+            "p50": 1.1869825715039042,
+            "p90": 1.6839537763953558,
+            "p99": null
+          },
+          "first_content_quantiles": {
+            "p50": null,
+            "p90": null,
+            "p99": null
+          },
+          "censored": 0,
+          "censored_at_s": 120
+        },
+        "fluidity": {
+          "state": "inconclusive",
+          "reasons": [
+            "quantile_underpowered"
+          ],
+          "repetitions": {
+            "0": 0.9651418501280823,
+            "5": 0.9510551967976907,
+            "3": 0.9468094547566935,
+            "7": 0.9611735046100602,
+            "6": 0.9732726454506435,
+            "2": 0.9591085041207488,
+            "1": 0.97648930218053,
+            "4": 0.9689807415862527
+          },
+          "unit": "index",
+          "statistic": "mean of repetition mean fluidity index",
+          "population": 270,
+          "failed_charged_zero": 0,
+          "prefill_deadline_s": 1.0,
+          "decode_deadline_s": 0.05,
+          "value": 0.9627538999538378,
+          "ci_low": 0.947234841012169,
+          "ci_high": 0.9782729588955065
+        },
+        "ftgr": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {},
+          "unit": "tokens/s",
+          "value": 19.694786009356203,
+          "eligible_traces": 270
+        }
+      },
+      "long_output": {
+        "ttft": {
+          "state": "inconclusive",
+          "reasons": [
+            "quantile_underpowered"
+          ],
+          "repetitions": {
+            "2": -2.8007252304710257,
+            "0": -2.7952634734924757,
+            "1": -2.840323882113658,
+            "4": -2.731347388944908,
+            "5": -2.767069351711805,
+            "3": -2.7597295584387678,
+            "6": -2.8623611578281363,
+            "7": -2.752444161150453
+          },
+          "value": 0.06150369494801444,
+          "ci_low": 0.057490746911978245,
+          "ci_high": 0.06579675331144963,
+          "unit": "s",
+          "statistic": "geometric mean of repetition p90s",
+          "population": 213,
+          "quantiles": {
+            "p50": 0.05418819600890856,
+            "p90": 0.06254212600761094,
+            "p99": null
+          },
+          "first_content_quantiles": {
+            "p50": null,
+            "p90": null,
+            "p99": null
+          },
+          "censored": 0,
+          "censored_at_s": 120
+        },
+        "fluidity": {
+          "state": "inconclusive",
+          "reasons": [
+            "quantile_underpowered"
+          ],
+          "repetitions": {
+            "2": 1.0,
+            "0": 1.0,
+            "1": 1.0,
+            "4": 1.0,
+            "5": 1.0,
+            "3": 1.0,
+            "6": 1.0,
+            "7": 1.0
+          },
+          "unit": "index",
+          "statistic": "mean of repetition mean fluidity index",
+          "population": 213,
+          "failed_charged_zero": 0,
+          "prefill_deadline_s": 1.0,
+          "decode_deadline_s": 0.05,
+          "value": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0
+        },
+        "ftgr": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {},
+          "unit": "tokens/s",
+          "value": 56.16186361826352,
+          "eligible_traces": 213
+        }
+      },
+      "near_capacity": {
+        "ttft": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {
+            "0": 1.3172666845162229,
+            "7": 0.7599656383197444,
+            "5": 0.2549542472025658,
+            "1": 1.1922449314068602,
+            "4": 1.1844366104282686,
+            "3": 0.9290415598468404,
+            "2": 0.329189623720721,
+            "6": 0.42257897805062017
+          },
+          "value": 2.222671351977462,
+          "ci_low": 1.1802987647752199,
+          "ci_high": 4.185607988704589,
+          "unit": "s",
+          "statistic": "geometric mean of repetition p90s",
+          "population": 1407,
+          "quantiles": {
+            "p50": 0.20207240599847864,
+            "p90": 2.235124774390715,
+            "p99": 4.697345035822073
+          },
+          "first_content_quantiles": {
+            "p50": null,
+            "p90": null,
+            "p99": null
+          },
+          "censored": 0,
+          "censored_at_s": 120
+        },
+        "fluidity": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {
+            "0": 0.9336378495119709,
+            "7": 0.9668942629525157,
+            "5": 0.9922090698899089,
+            "1": 0.9556357482797337,
+            "4": 0.9605291106541666,
+            "3": 0.9641307666103937,
+            "2": 0.9852913609753887,
+            "6": 0.9818175951446029
+          },
+          "unit": "index",
+          "statistic": "mean of repetition mean fluidity index",
+          "population": 1407,
+          "failed_charged_zero": 0,
+          "prefill_deadline_s": 1.0,
+          "decode_deadline_s": 0.05,
+          "value": 0.9675182205023352,
+          "ci_low": 0.939311514964981,
+          "ci_high": 0.9957249260396893
+        },
+        "ftgr": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {},
+          "unit": "tokens/s",
+          "value": 14.93089215905319,
+          "eligible_traces": 1407
+        }
+      },
+      "prefix_hit": {
+        "ttft": {
+          "state": "inconclusive",
+          "reasons": [
+            "quantile_underpowered"
+          ],
+          "repetitions": {
+            "4": 0.4501879493207891,
+            "2": 0.37021396718448973,
+            "5": 0.3895320777660777,
+            "6": 0.41969929304667114,
+            "7": 0.43295121376711215,
+            "1": 0.4415221274365395,
+            "0": 0.4176575515348071,
+            "3": 0.514870151464597
+          },
+          "value": 1.536610922174312,
+          "ci_low": 1.4397215423794414,
+          "ci_high": 1.640020696115345,
+          "unit": "s",
+          "statistic": "geometric mean of repetition p90s",
+          "population": 300,
+          "quantiles": {
+            "p50": 1.17412143049296,
+            "p90": 1.5486964038020234,
+            "p99": null
+          },
+          "first_content_quantiles": {
+            "p50": null,
+            "p90": null,
+            "p99": null
+          },
+          "censored": 0,
+          "censored_at_s": 120
+        },
+        "fluidity": {
+          "state": "inconclusive",
+          "reasons": [
+            "quantile_underpowered"
+          ],
+          "repetitions": {
+            "4": 0.9681794462146225,
+            "2": 0.9791548037709271,
+            "5": 0.9783659041406708,
+            "6": 0.9752885899576723,
+            "7": 0.9692584921420814,
+            "1": 0.9779860679111687,
+            "0": 0.985307644811128,
+            "3": 0.9765365832690018
+          },
+          "unit": "index",
+          "statistic": "mean of repetition mean fluidity index",
+          "population": 300,
+          "failed_charged_zero": 0,
+          "prefill_deadline_s": 1.0,
+          "decode_deadline_s": 0.05,
+          "value": 0.9762596915271591,
+          "ci_low": 0.9679931094735121,
+          "ci_high": 0.984526273580806
+        },
+        "ftgr": {
+          "state": "valid",
+          "reasons": [],
+          "repetitions": {},
+          "unit": "tokens/s",
+          "value": 21.629538868357695,
+          "eligible_traces": 300
+        }
+      }
+    },
+    "startup": {
+      "state": "valid",
+      "reasons": [],
+      "repetitions": {
+        "0": 3.6076952228396206,
+        "1": 3.6409964106260477,
+        "2": 3.564058581152334,
+        "3": 3.6525310421432797
+      },
+      "unit": "s",
+      "statistic": "geometric mean of launches",
+      "population": 4,
+      "value": 37.20042977077991,
+      "ci_low": 31.637333197769603,
+      "ci_high": 43.741739118146974,
+      "min": 35.306199832004495,
+      "median": 37.505381579496316,
+      "max": 38.57217039199895
+    }
+  },
+  "comparison": null,
+  "cost": {
+    "wall_s": 6264.606352560004,
+    "gpu_hours": 1.7401684312666676,
+    "gpus": 1,
+    "breakdown_s": {
+      "launch": 148.89221707698016,
+      "warmup": 98.09888920198136,
+      "requests": 5675.474460372046,
+      "drain": 338.4283431409276,
+      "cleanup": 3.2731641820137156
+    },
+    "unaccounted_s": 0.43927858605457004,
+    "max_wall_s": 9000,
+    "over_budget": false
+  }
+}

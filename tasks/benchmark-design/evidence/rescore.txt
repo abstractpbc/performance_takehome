@@ -1,0 +1,6 @@
+Re-score from a fresh clone of the committed evidence, with the commands in DESIGN.md (Reproducibility).
+Output tokenizer: Qwen/Qwen3.6-27B at 6a9e13bd6fc8f0983b9b99948120bc37f49c13e9.
+
+mi355x-full: report.json identical to the committed one in summary, populations, validity, axes, comparison and cost.
+             identity differs only in paths; every evidence file hash matches, including the regenerated tokens.jsonl.
+mi355x-fill: report.json identical in the same sections; state valid; evidence file and plan hashes match.

@@ -1,0 +1,21 @@
+CONTROL   DECISIONS  FALSE CONFIDENT  OUTCOMES
+quiet     150        0                {'equivalent': 133, 'inconclusive': 17}
+noisy     150        0                {'inconclusive': 90, 'equivalent': 60}
+
+FAULT               SIZE %  REGRESSION  RUN INVALID  OUTCOMES
+slower_ttft         5       0%          0%           {'equivalent': 42, 'inconclusive': 18}
+slower_ttft         10      0%          0%           {'inconclusive': 59, 'equivalent': 1}
+slower_ttft         20      97%         0%           {'regression': 58, 'inconclusive': 2}
+slower_ttft         50      100%        0%           {'regression': 60}
+stalled_requests    2       0%          0%           {'equivalent': 32, 'inconclusive': 28}
+stalled_requests    5       0%          0%           {'inconclusive': 57, 'equivalent': 3}
+stalled_requests    10      3%          0%           {'inconclusive': 58, 'regression': 2}
+stalled_requests    25      97%         0%           {'regression': 58, 'inconclusive': 2}
+failed_requests     0.5     -           0%           {}
+failed_requests     1       -           77%          {}
+failed_requests     2       -           100%         {}
+failed_requests     5       -           100%         {}
+slower_startup      5       0%          0%           {'inconclusive': 26, 'equivalent': 4}
+slower_startup      10      0%          0%           {'inconclusive': 29, 'equivalent': 1}
+slower_startup      25      77%         0%           {'regression': 23, 'inconclusive': 7}
+slower_startup      50      100%        0%           {'regression': 30}

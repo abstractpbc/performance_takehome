@@ -1,0 +1,36 @@
+{
+  "schema_version": 2,
+  "task": "benchmark-design",
+  "status": "submission",
+  "source": {
+    "repository": "https://github.com/GuyOnWifi/performance_takehome",
+    "commit": "b943529cacae91a564ba8c69a74a8a9a98e7621d"
+  },
+  "suite": {
+    "entrypoint": "tasks/benchmark-design/suite/evaluate.py",
+    "workload": "tasks/benchmark-design/suite/workload.json",
+    "tests": "tasks/benchmark-design/suite/tests",
+    "run_wall_budget_minutes": 150.0
+  },
+  "fixed_environment": {
+    "baseline_lock": "baseline/lock.json",
+    "measurement_harness_digest": "not-supplied",
+    "agent_harness_profile": "not-used",
+    "agent_harness_release_digest": "not-supplied"
+  },
+  "integrity": {
+    "starter_commit": "81aead87d78ed468c4c374fb42921471b44c3f80",
+    "command": "python -B -m tools.check_integrity --base 81aead87d78ed468c4c374fb42921471b44c3f80",
+    "report": "tasks/benchmark-design/evidence/integrity.txt"
+  },
+  "evidence": {
+    "report": "tasks/benchmark-design/DESIGN.md",
+    "validation_reports": [
+      "tasks/benchmark-design/evidence/mi355x-full/report.json",
+      "tasks/benchmark-design/evidence/mi355x-fill/report.json",
+      "tasks/benchmark-design/evidence/synthetic/matrix.txt",
+      "tasks/benchmark-design/evidence/synthetic/sensitivity.txt"
+    ],
+    "compute_report": "tasks/benchmark-design/DESIGN.md#measured-compute-cost"
+  }
+}
